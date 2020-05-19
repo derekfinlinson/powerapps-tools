@@ -1,0 +1,15 @@
+{
+  "name": "powerapps-tools-scripts",
+  "private": true,
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "bin": {
+    "powerapps-tools-scripts": "just-scripts.js"
+  },
+  "dependencies": {
+    "just-scripts": ">=0.26.0 <1.0.0"
+  }
+}
