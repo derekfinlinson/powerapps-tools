@@ -1,0 +1,35 @@
+# Node.js
+# Build a general Node.js application with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/vsts/pipelines/languages/javascript
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      git config user.email "dcfinlinson@gmail.com"
+      git config user.name "Derek Finlinson"
+      git remote set-url origin https://$(github.user):$(github.pat)@github.com/derekfinlinson/d365-cli.git
+    displayName: 'git config'
+    env: 
+      github.pat: $(github.pat)
+  - script: |
+      yarn
+    displayName: 'yarn'
+  - script: |
+      yarn check
+    displayName: 'check change files'
+  - script: |
+      yarn build
+    displayName: 'build'
+  - script: |
+      yarn beachball:publish -n $(npm.authtoken) -y
+    displayName: 'beachball publish'
+    env:
+      npm.authtoken: $(npm.authtoken)
