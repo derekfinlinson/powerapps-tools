@@ -1,9 +1,10 @@
-import * as fs from 'fs';
-import * as glob from 'glob';
+import fs from 'fs';
+import glob from 'glob';
 import { WebApiConfig } from 'xrm-webapi/dist/models';
 import { retrieveMultiple, createWithReturnData, update } from 'xrm-webapi/dist/webapi-node';
 import { PluginType, deployType } from './pluginType';
 import { addToSolution, ComponentType } from '../powerapps.service';
+import { logger } from 'just-scripts-utils';
 
 export interface PluginAssembly {
   name: string;
@@ -16,11 +17,11 @@ export interface PluginAssembly {
   types?: PluginType[];
 }
 
-export async function deployAssembly(config: PluginAssembly, type: string, apiConfig: WebApiConfig, solution?: string): Promise<void> {
+export async function deploy(config: PluginAssembly, apiConfig: WebApiConfig, solution?: string): Promise<void> {
   const files = glob.sync(`**/${config.name}.dll`);
 
   if (files.length === 0) {
-    console.error(`assembly ${config.name}.dll not found`);
+    logger.error(`assembly ${config.name}.dll not found`);
     return;
   }
 
@@ -30,39 +31,39 @@ export async function deployAssembly(config: PluginAssembly, type: string, apiCo
 
   if (assemblyId != undefined) {
     try {
-      await updateAssembly(assemblyId, config, type, content, apiConfig);
+      await updateAssembly(assemblyId, config, content, apiConfig);
     } catch (error) {
-      throw new Error(`failed to update ${type}: ${error.message}`);
+      throw new Error(`failed to update assembly: ${error.message}`);
     }
   } else {
     try {
-      assemblyId = await createAssembly(config, type, content, apiConfig);
+      assemblyId = await createAssembly(config, content, apiConfig);
     } catch (error) {
-      throw new Error(`failed to create ${type}: ${error.message}`);
+      throw new Error(`failed to create assembly: ${error.message}`);
     }
 
     if (solution != undefined) {
       try {
         await addToSolution(assemblyId, solution, ComponentType.PluginAssembly, apiConfig);
       } catch (error) {
-        console.error(`failed to add to solution: ${error.message}`);
+        logger.error(`failed to add to solution: ${error.message}`);
       }
     }
   }
 
   if (config.types != null) {
     try {
-      console.log('deploy plugin types');
+      logger.info('deploy assembly types');
 
       const promises = config.types.map(async type => {
         type['pluginassemblyid@odata.bind'] = `/pluginassemblies(${assemblyId})`;
 
-        await deployType(type, solution, apiConfig);
+        await deployType(type, apiConfig, solution);
       });
 
       await Promise.all(promises);
     } catch (error) {
-      console.error(error.message);
+      logger.error(error.message);
       return;
     }
   }
@@ -76,8 +77,8 @@ async function retrieveAssembly(name: string, apiConfig: WebApiConfig) {
   return result.value.length > 0 ? result.value[0].pluginassemblyid : undefined;
 }
 
-async function createAssembly(config: PluginAssembly, type: string, content: string, apiConfig: WebApiConfig) {
-  console.log(`create ${type} ${config.name}`);
+async function createAssembly(config: PluginAssembly, content: string, apiConfig: WebApiConfig) {
+  logger.info(`create assembly ${config.name}`);
 
   const assembly: PluginAssembly = {
     name: config.name,
@@ -94,8 +95,8 @@ async function createAssembly(config: PluginAssembly, type: string, content: str
   return result.pluginassemblyid;
 }
 
-async function updateAssembly(id: string, config: PluginAssembly, type: string, content: string, apiConfig: WebApiConfig) {
-  console.log(`update ${type} ${config.name}`);
+async function updateAssembly(id: string, config: PluginAssembly, content: string, apiConfig: WebApiConfig) {
+  logger.info(`update assembly ${config.name}`);
 
   const assembly = {
     content: content,

@@ -19,7 +19,7 @@ export interface PluginStep {
   filteringattributes?: string;
 }
 
-export async function deployStep(step: PluginStep, solution: string, apiConfig: WebApiConfig): Promise<string | undefined> {
+export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solution?: string): Promise<string | undefined> {
   let stepId = await retrieveStep(step.name, apiConfig);
   const messageId = await getSdkMessageId(step.message, apiConfig);
 
@@ -58,7 +58,7 @@ export async function deployStep(step: PluginStep, solution: string, apiConfig: 
       try {
         await addToSolution(stepId, solution, ComponentType.SDKMessageProcessingStep, apiConfig);
       } catch (error) {
-        console.error(`failed to add to solution: ${error.message}`);
+        throw new Error(`failed to add to solution: ${error.message}`);
       }
     }
   }
@@ -97,7 +97,7 @@ async function getSdkMessageId(name: string, apiConfig: WebApiConfig) {
 }
 
 async function createStep(step: PluginStep, apiConfig: WebApiConfig) {
-  console.log(`create plugin step ${step.name}`);
+  logger.info(`create plugin step ${step.name}`);
 
   const result = await createWithReturnData(apiConfig, 'sdkmessageprocessingsteps', step, '$select=sdkmessageprocessingstepid');
 
@@ -105,7 +105,7 @@ async function createStep(step: PluginStep, apiConfig: WebApiConfig) {
 }
 
 async function updateStep(id: string, step: PluginStep, apiConfig: WebApiConfig) {
-  console.log(`update plugin step ${step.name}`);
+  logger.info(`update plugin step ${step.name}`);
 
   return update(apiConfig, 'sdkmessageprocessingsteps', id, step);
 }

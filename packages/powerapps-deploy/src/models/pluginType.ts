@@ -12,14 +12,14 @@ export interface PluginType {
   workflowactivitygroupname: string;
 }
 
-export async function deployType(type: PluginType, solution: string, apiConfig: WebApiConfig): Promise<string> {
+export async function deployType(type: PluginType, apiConfig: WebApiConfig, solution?: string): Promise<string> {
   let typeId = await retrieveType(type.name, apiConfig);
 
   const record: PluginType = {
     name: type.name,
     friendlyname: type.friendlyname,
     typename: type.typename,
-    "pluginassemblyid@odata.bind": type["pluginassemblyid@odata.bind"],
+    'pluginassemblyid@odata.bind': type['pluginassemblyid@odata.bind'],
     workflowactivitygroupname: type.workflowactivitygroupname
   };
 
@@ -38,19 +38,19 @@ export async function deployType(type: PluginType, solution: string, apiConfig: 
   }
 
   try {
-    console.log('deploy plugin steps');
-
     if (type.steps) {
+      logger.info('deploy plugin steps');
+
       const promises = type.steps.map(async step => {
         step['plugintypeid@odata.bind'] = `/plugintypes(${typeId})`;
 
-        await deployStep(step, solution, apiConfig);
+        await deployStep(step, apiConfig, solution);
       });
 
       await Promise.all(promises);
     }
   } catch (error) {
-    logger.error(error.message);
+    throw new Error(error.message);
   }
 
   return typeId;
@@ -65,7 +65,7 @@ async function retrieveType(name: string, apiConfig: WebApiConfig) {
 }
 
 async function createType(type: PluginType, apiConfig: WebApiConfig) {
-  console.log(`create plugin type ${type.name}`);
+  logger.info(`create assembly type ${type.name}`);
 
   const result = await createWithReturnData(apiConfig, 'plugintypes', type, '$select=plugintypeid');
 
@@ -73,7 +73,7 @@ async function createType(type: PluginType, apiConfig: WebApiConfig) {
 }
 
 async function updateType(id: string, type: PluginType, apiConfig: WebApiConfig) {
-  console.log(`update plugin type ${type.name}`);
+  logger.info(`update assembly type ${type.name}`);
 
   return update(apiConfig, 'plugintypes', id, type);
 }

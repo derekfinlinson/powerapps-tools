@@ -2120,6 +2120,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/xrm@^9.0.27":
+  version "9.0.27"
+  resolved "https://registry.yarnpkg.com/@types/xrm/-/xrm-9.0.27.tgz#5788840d1569c23091231aa12b9355b6bb8e457a"
+  integrity sha512-uAXLmJ/maf1wSvp9KRMQ0EqjQjOziPlzaP9eqzjgCweNQF3qBx3Lr74C9Fpa2FnrX/GsbScCiNOn5IsQyHhRPA==
+
 "@types/yargs-parser@*":
   version "15.0.0"
   resolved "https://registry.yarnpkg.com/@types/yargs-parser/-/yargs-parser-15.0.0.tgz#cb3f9f741869e20cce330ffbeb9271590483882d"

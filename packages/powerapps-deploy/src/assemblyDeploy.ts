@@ -1,19 +1,20 @@
 import fs from 'fs';
 import path from 'path';
 import glob from 'glob';
-import { PluginAssembly, deployAssembly } from './models/pluginAssembly';
+import { PluginAssembly, deploy } from './models/pluginAssembly';
 import { DeployCredentials, authenticate } from './powerapps.service';
 import { WebApiConfig } from 'xrm-webapi/dist/models';
+import { logger } from 'just-scripts-utils';
 
-export async function assembly(type: string) {
+export async function deployAssembly() {
   const configFile = glob.sync(`**/config.json`);
   const credsFile = glob.sync('**/creds.json');
 
   if (configFile.length === 0) {
-    console.error('unable to find config.json file');
+    logger.warn('unable to find config.json file');
     return;
   } else if (credsFile.length === 0) {
-    console.error('unable to find creds.json file');
+    logger.warn('unable to find creds.json file');
     return;
   }
 
@@ -27,20 +28,20 @@ export async function assembly(type: string) {
   try {
     const token = await authenticate(creds);
 
-    apiConfig = new WebApiConfig("8.2", token, creds.server);
+    apiConfig = new WebApiConfig('8.2', token, creds.server);
   } catch (error) {
-    console.error(`authentication failure: ${error}`);
+    logger.error(`authentication failure: ${error}`);
     return;
   }
 
-  console.log(`\r\ndeploy ${type}`);
+  logger.info('deploy assembly');
 
   try {
-    await deployAssembly(config, type, apiConfig, creds.solution);
+    await deploy(config, apiConfig, creds.solution);
   } catch (error) {
-    console.error(error.message);
+    logger.error(error.message);
     return;
   }
 
-  console.log(`deployed ${type} ${config.name}\r\n`)
+  logger.info(`deployed assembly ${config.name}\r\n`)
 }

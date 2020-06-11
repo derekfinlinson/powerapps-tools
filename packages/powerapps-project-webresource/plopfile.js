@@ -22,7 +22,7 @@ module.exports = function (plop) {
 
             file.entries[filename] = `./src/scripts/${filename}.ts`;
 
-            fs.writeFileSync(path.resolve(destinationPath, 'config.json'), JSON.stringify(file), 'utf8');
+            fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
         }
     }
 
@@ -77,7 +77,7 @@ module.exports = function (plop) {
                 templateFile: 'plop-templates/form.ts.hbs',
                 path: 'src/{{entity}}Form.ts',
                 skipIfExists: true,
-                skip: function (data) {
+                skip: (data) => {
                     if (data.type === 1) {
                         return 'is ribbon script';
                     } else {
@@ -90,7 +90,7 @@ module.exports = function (plop) {
                 templateFile: 'plop-templates/ribbon.ts.hbs',
                 path: 'src/{{entity}}Ribbon.ts',
                 skipIfExists: true,
-                skip: function (data) {
+                skip: (data) => {
                     if (data.type === 0) {
                         return 'is form script';
                     } else {
@@ -103,7 +103,7 @@ module.exports = function (plop) {
                 templateFile: 'plop-templates/test.ts.hbs',
                 path: 'src/__tests__/{{entity}}Ribbon.test.ts',
                 skipIfExists: true,
-                skip: function (data) {
+                skip: (data) => {
                     if (data.test && data.type === 1) {
                         return;
                     } else {
@@ -116,7 +116,7 @@ module.exports = function (plop) {
                 templateFile: 'plop-templates/test.ts.hbs',
                 path: 'src/__tests__/{{entity}}Form.test.ts',
                 skipIfExists: true,
-                skip: function (data) {
+                skip: (data) => {
                     if (data.test && data.type === 0) {
                         return;
                     } else {
@@ -129,7 +129,7 @@ module.exports = function (plop) {
                 templateFile: 'plop-templates/test.ts.hbs',
                 path: 'src/__tests__/entity/{{entity}}.test.ts',
                 skipIfExists: true,
-                skip: function (data) {
+                skip: (data) => {
                     if (data.test) {
                         return;
                     } else {

@@ -1,0 +1,31 @@
+{
+  "name": "powerapps-common",
+  "version": "0.1.0",
+  "description": "Common PowerApps JavaScript Functions",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/derekfinlinson/powerapps-tools"
+  },
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "keywords": [
+    "dynamics",
+    "365",
+    "xrm",
+    "d365",
+    "powerapps",
+    "cds"
+  ],
+  "author": "Derek Finlinson",
+  "devDependencies": {
+    "@types/xrm": "^9.0.27",
+    "@typescript-eslint/eslint-plugin": "^3.0.0",
+    "@typescript-eslint/parser": "^3.0.0",
+    "eslint": "^7.1.0",
+    "typescript": "^3.9.3"
+  }
+}
