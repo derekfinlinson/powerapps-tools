@@ -10,7 +10,9 @@
     "url": "https://github.com/derekfinlinson/powerapps-tools"
   },
   "scripts": {
-    "build": "tsc -p ."
+    "build": "just-scripts build",
+    "just": "just-scripts",
+    "test": "just-scripts test"
   },
   "keywords": [
     "dynamics",
@@ -26,6 +28,9 @@
     "@typescript-eslint/eslint-plugin": "^3.0.0",
     "@typescript-eslint/parser": "^3.0.0",
     "eslint": "^7.1.0",
-    "typescript": "^3.9.3"
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.3",
+    "xrm-mock": "^3.4.18"
   }
 }

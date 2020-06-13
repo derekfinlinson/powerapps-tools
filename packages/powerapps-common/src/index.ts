@@ -115,6 +115,7 @@ export function addOnChange(fieldName: string, fireOnChange: boolean, event: Xrm
     return false;
   }
 
+  // Prevent on change event from being added twice
   field.removeOnChange(event);
   field.addOnChange(event);
 
@@ -157,10 +158,13 @@ export function setValue(fieldName: string, value: any, form: Xrm.FormContext, f
     return false;
   }
 
-  field.setValue(value);
+  // Only set value if it's changed
+  if (field.getValue() != value) {
+    field.setValue(value);
 
-  if (fireOnChange == true) {
-    field.fireOnChange();
+    if (fireOnChange == true) {
+      field.fireOnChange();
+    }
   }
 
   return true;
@@ -265,4 +269,15 @@ export function addLookupFilter(form: Xrm.FormContext, lookupAttribute: string, 
     .controls.forEach(c => c.addCustomFilter(filter));
 
   return true;
+}
+
+/**
+ * Add on save event
+ * @param form Form context
+ * @param event Event
+ */
+export function addOnSave(form: Xrm.FormContext, event: Xrm.Page.ContextSensitiveHandler) {
+  // Prevent event from being added twice
+  form.data.entity.removeOnSave(event);
+  form.data.entity.addOnSave(event);
 }

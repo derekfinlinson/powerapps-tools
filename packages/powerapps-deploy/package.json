@@ -16,10 +16,10 @@
     "test": "just-scripts test"
   },
   "dependencies": {
+    "adal-node": "^0.2.1",
     "envinfo": "^7.5.1",
     "node-plop": "^0.26.0",
     "prompts": "^2.3.2",
-    "adal-node": "^0.2.1",
     "xrm-webapi": "^7.0.0"
   },
   "devDependencies": {
@@ -28,6 +28,8 @@
     "@typescript-eslint/eslint-plugin": "^3.0.0",
     "@typescript-eslint/parser": "^3.0.0",
     "eslint": "^7.1.0",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.0",
     "typescript": "^3.9.3"
   }
 }

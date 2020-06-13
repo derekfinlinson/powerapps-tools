@@ -1,5 +1,9 @@
 {
     "name": "powerapps-project-webresource",
     "version": "0.1.0",
-    "license": "MIT"
+    "license": "MIT",
+    "devDependencies": {
+        "jest": "^26.0.1",
+        "ts-jest": "^26.1.0"
+    }
 }

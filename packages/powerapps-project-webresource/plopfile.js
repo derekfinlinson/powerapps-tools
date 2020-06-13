@@ -12,7 +12,7 @@ module.exports = function (plop) {
             if (file.webResources != null) {
                 file.webResources.push(
                     {
-                        path: `./dist/scripts/${filename}.js`,
+                        path: `./lib/scripts/${filename}.js`,
                         name: data.name,
                         displayname: data.displayName,
                         type: 'JavaScript'
