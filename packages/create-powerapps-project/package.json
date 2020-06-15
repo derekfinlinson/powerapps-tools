@@ -1,0 +1,64 @@
+{
+  "name": "create-powerapps-project",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "bin": {
+    "create-powerapps-project": "bin/create-powerapps-project.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/derekfinlinson/powerapps-tools"
+  },
+  "scripts": {
+    "build": "just-scripts build",
+    "just": "just-scripts",
+    "test": "just-scripts test"
+  },
+  "dependencies": {
+    "envinfo": "^7.5.1",
+    "node-plop": "^0.26.0",
+    "prompts": "^2.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.5",
+    "@types/prompts": "^2.0.8",
+    "@typescript-eslint/eslint-plugin": "^3.0.0",
+    "@typescript-eslint/parser": "^3.0.0",
+    "eslint": "^7.1.0",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.3"
+  },
+  "eslintConfig": {
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+      "indent": [
+        "warn",
+        2,
+        {
+          "SwitchCase": 1
+        }
+      ],
+      "@typescript-eslint/explicit-function-return-type": "off"
+    },
+    "ignorePatterns": [
+      "webpack.config.js",
+      "just.config.js",
+      "plopfile.js",
+      "lib"
+    ]
+  },
+  "jest": {
+    "preset": "ts-jest"
+  }
+}

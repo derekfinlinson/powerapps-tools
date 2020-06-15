@@ -1,0 +1,36 @@
+const { webpackMerge, webpackConfig } = require('just-scripts');
+const config = require('./config.json');
+const path = require('path');
+
+module.exports = webpackMerge(
+  webpackConfig,
+  {
+    entry: config.entries,
+
+    output: {
+      filename: 'scripts/[name].js',
+      library: ['{{namespace}}', '[name]'],
+      path: path.resolve(__dirname, 'lib')
+    },
+
+    module: {
+      rules: [
+        {
+          test: /\.ts(x?)$/,
+          exclude: /node_modules/,
+          use: ['babel-loader', 'ts-loader']
+        },
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: ['babel-loader']
+        },
+        {
+          enforce: "pre",
+          test: /\.(ts)|(js)$/,
+          loader: 'source-map-loader'
+        }
+      ]
+    }
+  }
+);
