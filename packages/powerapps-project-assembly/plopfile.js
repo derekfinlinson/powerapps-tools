@@ -1,3 +1,6 @@
+const path = require('path');
+const fs = require('fs');
+
 module.exports = function (plop) {
     const getNamespace = () => {
         // Get namespace from csproj file
@@ -14,142 +17,53 @@ module.exports = function (plop) {
         return files.length === 0 ? 'Xrm' : path.basename(files[0]).replace('.csproj', '');
     };
 
-    const addToConfig = (data) => {
-        const destinationPath = plop.getDestBasePath();
-        const configPath = path.resolve(destinationPath, 'config.json');
-
-        // Check if config.json exists
-        if (fs.existsSync(configPath)) {
-            const file = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-
-            if (file.types == null) {
-                file.types = [];
-            }
-
-            // Get namespace
-            const namespace = getNamespace();
-
-            // Create plugin type config
-            const type = {
-                name: `${namespace}.${data.filename}`,
-                typename: `${namespace}.${data.filename}`,
-                friendlyname: data.friendlyname || `${namespace}.${data.filename}`,
-                workflowactivitygroupname: data.group,
-                steps: []
-            };
-
-            // Add plugin step config
-            if (data.name !== undefined) {
-                type.steps.push(
-                    {
-                        name: data.name,
-                        message: data.message,
-                        entity: data.entity,
-                        configuration: data.configuration,
-                        description: data.description,
-                        mode: data.mode,
-                        rank: data.rank,
-                        stage: data.stage,
-                        supporteddeployment: data.supporteddeployment,
-                        filteringattributes: data.filteringattributes
-                    }
-                );
-            }
-
-            file.types.push(type);
-
-            // Update config.json
-            fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
-        }
-    };
-
-    const addStepConfig = (data) => {
-        const destinationPath = process.cwd();
-        const configPath = path.resolve(destinationPath, 'config.json');
-
-        // Get config.json if it exists
-        if (fs.existsSync(configPath)) {
-            const file = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-
-            // If no types property found, just run assembly addToConfig
-            if (file.types == null) {
-                addToConfig(data);
-                return;
-            }
-
-            const namespace = getNamespace();
-
-            const type = file.types.filter(t => t.name === `${namespace}.${data.filename}`);
-
-            // If plugin type not already in file, run assembly addToConfig
-            if (type.length === 0) {
-                addToConfig(data);
-            } else {
-                // Add step to existing config
-                type.steps.push(
-                    {
-                        name: data.name,
-                        message: data.message,
-                        entity: data.entity,
-                        configuration: data.configuration,
-                        description: data.description,
-                        mode: data.mode,
-                        rank: data.rank,
-                        stage: data.stage,
-                        supporteddeployment: data.supporteddeployment,
-                        filteringattributes: data.filteringattributes
-                    }
-                );
-            }
-        }
-
-        // Update file
-        fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
-    };
-
     const stepPrompts = [
         {
-            type: 'text',
+            type: 'input',
             name: 'name',
-            message: 'enter plugin step name'
+            message: 'plugin step name'
         },
         {
-            type: 'text',
+            type: 'input',
             name: 'message',
-            message: 'enter message (Create, Update, etc)'
+            message: 'message (Create, Update, etc)'
         },
         {
-            type: 'text',
+            type: 'input',
             name: 'filteringattributes',
-            message: 'enter filtering attributes as comma separated list:',
-            when: (answers) => {
-                return answers.message === 'Update';
-            }
+            message: 'filtering attributes as comma separated list:',
+            when: (answers) => answers.message === 'Update'
         },
         {
-            type: 'text',
+            type: 'input',
             name: 'entity',
-            message: 'enter entity logical name (use \'none\' if not for a specific entity)'
+            message: 'entity logical name (use \'none\' if not for a specific entity)'
         },
         {
             type: 'text',
+            name: 'schema',
+            message: 'entity schema name',
+            when: (answers) => answers.entity !== 'none'
+        },
+        {
+            type: 'input',
             name: 'secure',
-            message: 'enter secure configuration'
+            message: 'secure configuration'
         },
         {
-            type: 'text',
+            type: 'input',
             name: 'unsecure',
-            message: 'enter unsecure configuration'
+            message: 'unsecure configuration'
         },
         {
-            type: 'text',
+            type: 'input',
             name: 'description',
-            message: 'enter description'
+            message: 'description'
         },
         {
             type: 'list',
             name: 'mode',
-            message: 'select mode',
+            message: 'mode',
             choices: [
                 {
                     name: 'synchronous',
@@ -164,13 +78,13 @@ module.exports = function (plop) {
         {
             type: 'number',
             name: 'rank',
-            message: 'enter step rank',
-            initial: 1
+            message: 'step rank',
+            default: 1
         },
         {
-            type: 'select',
+            type: 'list',
             name: 'stage',
-            message: 'select stage',
+            message: 'stage',
             choices: [
                 {
                     name: 'pre-validation',
@@ -187,9 +101,10 @@ module.exports = function (plop) {
             ]
         },
         {
-            type: 'select',
+            type: 'list',
             name: 'supporteddeployment',
-            message: 'select deployment',
+            message: 'deployment',
+            default: 0,
             choices: [
                 {
                     name: 'server only',
@@ -203,15 +118,132 @@ module.exports = function (plop) {
                     name: 'both',
                     value: 2
                 }
-            ],
-            initial: 0
+            ]
         }
     ];
+
+    plop.setActionType('prepare', (answers) => {
+        answers.namespace = getNamespace();
+
+        switch (answers.stage) {
+            case 10:
+                answers.operation = 'PreValidation'
+                break;
+            case 20:
+                answers.operation = 'PreOperation'
+                break;
+            case 40:
+                answers.operation = 'PostOperation'
+                break;
+        }
+
+        answers.stepMode = answers.mode === 0 ? 'Synchronous' : 'Asynchronous'
+    });
+
+    plop.setActionType('addToConfig', (answers, config, plop) => {
+        const destinationPath = plop.getDestBasePath();
+        const configPath = path.resolve(destinationPath, 'config.json');
+
+        // Check if config.json exists
+        if (fs.existsSync(configPath)) {
+            const file = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+
+            if (file.types == null) {
+                file.types = [];
+            }
+
+            // Get namespace
+            const namespace = getNamespace();
+
+            // Create plugin type config
+            const type = {
+                name: `${namespace}.${answers.filename}`,
+                typename: `${namespace}.${answers.filename}`,
+                friendlyname: answers.friendlyname || `${namespace}.${answers.filename}`,
+                workflowactivitygroupname: answers.group,
+                steps: []
+            };
+
+            // Add plugin step config
+            if (answers.name !== undefined) {
+                type.steps.push(
+                    {
+                        name: answers.name,
+                        message: answers.message,
+                        entity: answers.entity,
+                        configuration: answers.configuration,
+                        description: answers.description,
+                        mode: answers.mode,
+                        rank: answers.rank,
+                        stage: answers.stage,
+                        supporteddeployment: answers.supporteddeployment,
+                        filteringattributes: answers.filteringattributes
+                    }
+                );
+            }
+
+            file.types.push(type);
+
+            // Update config.json
+            fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
+
+            return 'added to config.json';
+        } else {
+            return `no config.json found at ${destinationPath}`;
+        }
+    });
+
+    plop.setActionType('addStepConfig', (answers, _config, plop) => {
+        const destinationPath = plop.getDestBasePath();
+        const configPath = path.resolve(destinationPath, 'config.json');
+
+        // Get config.json if it exists
+        if (fs.existsSync(configPath)) {
+            const file = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+
+            // If no types property found, just run assembly addToConfig
+            if (file.types == null) {
+                addToConfig(answers);
+                return;
+            }
+
+            const namespace = getNamespace();
+
+            const type = file.types.filter(t => t.name === `${namespace}.${answers.filename}`);
+
+            // If plugin type not already in file, run assembly addToConfig
+            if (type.length === 0) {
+                addToConfig(answers);
+            } else {
+                // Add step to existing config
+                type[0].steps.push(
+                    {
+                        name: answers.name,
+                        message: answers.message,
+                        entity: answers.entity,
+                        configuration: answers.configuration,
+                        description: answers.description,
+                        mode: answers.mode,
+                        rank: answers.rank,
+                        stage: answers.stage,
+                        supporteddeployment: answers.supporteddeployment,
+                        filteringattributes: answers.filteringattributes
+                    }
+                );
+            }
+
+            // Update file
+            fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
+            return 'added to config.json';
+        } else {
+            return `no config.json found at ${destinationPath}`;
+        }
+    });
 
     plop.setGenerator('plugin', {
         prompts: [
             {
-                type: 'text',
+                type: 'input',
                 name: 'filename',
                 message: 'plugin class name'
             },
@@ -219,15 +251,18 @@ module.exports = function (plop) {
         ],
         actions: [
             {
+                type: 'prepare'
+            },
+            {
                 type: 'add',
                 templateFile: 'plop-templates/plugin.cs.hbs',
-                path: 'Plugins/{{name}}.cs',
+                path: 'Plugins/{{filename}}.cs',
                 skipIfExists: true
             },
             {
                 type: 'add',
                 templateFile: 'plop-templates/entity.cs.hbs',
-                path: 'EntityExtensions/{{name}}.cs',
+                path: 'EntityExtensions/{{schema}}.cs',
                 skipIfExists: true,
                 skip: (data) => {
                     if (!data.entity) {
@@ -237,43 +272,48 @@ module.exports = function (plop) {
                     }
                 }
             },
-            addToConfig
+            {
+                type: 'addToConfig'
+            }
         ]
     });
 
     plop.setGenerator('workflow activity', {
         prompts: [
             {
-                type: 'text',
+                type: 'input',
                 name: 'filename',
                 message: 'workflow activity class name'
             },
             {
-                type: 'text',
+                type: 'input',
                 name: 'friendlyname',
-                message: 'enter friendly name'
+                message: 'friendly name'
             },
             {
-                type: 'text',
+                type: 'input',
                 name: 'group',
-                message: 'enter workflow activity group name'
+                message: 'workflow activity group name'
             }
         ],
         actions: [
             {
                 type: 'add',
                 templateFile: 'plop-templates/workflow.cs.hbs',
-                path: 'Activities/{{name}}.cs',
-                skipIfExists: true
+                path: 'Activities/{{filename}}.cs',
+                skipIfExists: true,
+                data: { namespace: getNamespace() }
             },
-            addToConfig
+            {
+                type: 'addToConfig'
+            }
         ]
     });
 
     plop.setGenerator('plugin step', {
         prompts: [
             {
-                type: 'text',
+                type: 'input',
                 name: 'filename',
                 message: 'plugin class name'
             },
@@ -281,9 +321,19 @@ module.exports = function (plop) {
         ],
         actions: [
             {
+                type: 'prepare'
+            },
+            {
+                type: 'append',
+                path: 'Plugins/{{filename}}.cs',
+                pattern: /new RegisteredEvent\(.*\)/,
+                template: 'new RegisteredEvent(PipelineStage.{{operation}}, SdkMessageProcessingStepMode.{{stepMode}}, "{{message}}", "{{entity}}")',
+                separator: ',\n\t\t\t\t'
+            },
+            {
                 type: 'add',
                 templateFile: 'plop-templates/entity.cs.hbs',
-                path: 'EntityExtensions/{{name}}.cs',
+                path: 'EntityExtensions/{{schema}}.cs',
                 skipIfExists: true,
                 skip: (data) => {
                     if (!data.entity) {
@@ -293,7 +343,9 @@ module.exports = function (plop) {
                     }
                 }
             },
-            addStepConfig
+            {
+                type: 'addStepConfig'
+            }
         ]
     });
 };

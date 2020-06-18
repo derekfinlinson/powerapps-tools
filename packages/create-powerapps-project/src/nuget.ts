@@ -1,4 +1,5 @@
 import https from 'https';
+import { spawnSync } from 'child_process';
 
 export const getNugetPackageVersions = (name: string): Promise<string[]> => {
   return new Promise((resolve, reject) => {
@@ -23,4 +24,25 @@ export const getNugetPackageVersions = (name: string): Promise<string[]> => {
       reject(e);
     });
   });
-}
+};
+
+export const install = (sdkVersion?: string, xrmVersion?: string): void => {
+  // Install nuget packages
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  spawnSync('dotnet', ['add', 'package', 'Microsoft.CrmSdk.Workflow', '-v', sdkVersion!, '-n'], {
+    cwd: process.cwd(),
+    stdio: 'inherit'
+  });
+
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  spawnSync('dotnet', ['add', 'package', 'JourneyTeam.Xrm', '-v', xrmVersion!, '-n'], {
+    cwd: process.cwd(),
+    stdio: 'inherit'
+  });
+
+  spawnSync('dotnet', ['restore'], {
+    cwd: process.cwd(),
+    stdio: 'inherit'
+  });
+};
+

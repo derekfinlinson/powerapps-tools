@@ -1,6 +1,6 @@
 import yargs from 'yargs';
 import prompts from 'prompts';
-import { getNugetPackageVersions } from './nuget';
+import { getNugetPackageVersions, install } from './nuget';
 import path from 'path';
 import { getGenerator, runGenerator } from './plop';
 import * as pkg from './packageManager';
@@ -27,9 +27,9 @@ export default async function create(argv: yargs.Arguments): Promise<void> {
   argv.name = path.basename(process.cwd());
 
   if (!argv.type || (argv.type !== 'webresource' && argv.type !== 'assembly')) {
-    const invalid = argv.type !== 'webresource' && argv.type !== 'assembly';
+    const invalid = argv.type !== undefined && argv.type !== 'webresource' && argv.type !== 'assembly';
 
-    const invalidMessage = invalid ? `${argv.type} is not valid project type. ` : '';
+    const invalidMessage = invalid ? `${argv.type} is not a valid project type.` : '';
 
     const { type } = await prompts({
       type: 'select',
@@ -42,31 +42,34 @@ export default async function create(argv: yargs.Arguments): Promise<void> {
     });
 
     argv.type = type;
-
-    logger.warn(`${argv.type} is not a valid project type`);
-    return;
   }
 
   const questions = await getAnswers(argv.type as string);
   const config: Config = (await prompts(questions)) as Config;
 
   if (argv.type === 'assembly') {
-    const xrmVersion = await getNugetPackageVersions('JourneyTeam.Xrm');
+    const xrmVersions = await getNugetPackageVersions('JourneyTeam.Xrm');
 
-    config.xrmVersion = xrmVersion.pop();
+    config.xrmVersion = xrmVersions.shift();
   }
 
-  logger.info('Get plop generator');
+  logger.info('get plop generator');
 
   const generator = getGenerator(argv);
 
-  logger.info(`Run powerapps-project-${argv.type} code generator`);
+  logger.info(`run powerapps-project-${argv.type} code generator`);
 
   await runGenerator(generator, config);
 
-  logger.info('Initialize project');
+  logger.info('initialize project');
 
-  pkg.install(process.cwd(), argv.type);
+  pkg.install(process.cwd(), argv.type as string);
+
+  if (argv.type === 'assembly') {
+    logger.info('add nuget packages');
+
+    install(config.sdkVersion, config.xrmVersion);
+  }
 
   done(argv);
 }
@@ -87,7 +90,7 @@ async function getAnswers(type: string) {
       {
         type: 'select',
         name: 'sdkVersion',
-        message: 'select D365 SDK Version',
+        message: 'select sdk version',
         choices: versions.map(v => ({ title: v, value: v }))
       },
       {
@@ -100,7 +103,7 @@ async function getAnswers(type: string) {
         type: 'select',
         name: 'isolation',
         message: 'select isolation mode',
-        initial: 2,
+        initial: 0,
         choices: [
           {
             title: 'sandbox',
@@ -167,23 +170,25 @@ async function getAnswers(type: string) {
   return questions;
 }
 
-
-
 function done(argv: yargs.Arguments) {
   const message = `
-  You have successfully created a new ${argv.type} project!
+  ${argv.type} project created!
   
   ## Keeping Up-to-date
-  You can keep your build tools up-to-date by updating these two devDependencies:
+  keep your build tools up-to-date by updating these two devDependencies:
   * powerapps-project-${argv.type}
-  * just-scripts
+  ${argv.type === 'webresource' ? '* just-scripts' : ''}
   
   ## Next Steps
-  You can build your project in watch mode with these commands:
+  ${argv.type === 'webresource' ? `
+  build your project in watch mode with this command:
       ${pkg.getYarn() ? 'yarn' : 'npm'} start
-  You can build your project in production mode with these commands:
-      ${pkg.getYarn() ? 'yarn' : 'npm run'} build
-  This repository contains code generators that can be triggered by:
+  build your project in production mode with this command:
+      ${pkg.getYarn() ? 'yarn' : 'npm run'} build` : `
+  build your project with this command:
+      dotnet build`}
+  
+  run code generator with this command:
       ${pkg.getYarn() ? 'yarn' : 'npm run'} gen
   `;
 

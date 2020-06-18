@@ -5,14 +5,14 @@ using Xrm;
 
 namespace {{namespace}}
 {
-    public class {{name}} : BasePlugin
+    public class {{filename}} : BasePlugin
     {
         public override IEnumerable<RegisteredEvent> GetRegisteredEvents()
         {
             // Add Registered Events
             var events = new List<RegisteredEvent>
             {
-                new RegisteredEvent()
+                new RegisteredEvent(PipelineStage.{{operation}}, SdkMessageProcessingStepMode.{{stepMode}}, "{{message}}", "{{entity}}")
             };
 
             return events;

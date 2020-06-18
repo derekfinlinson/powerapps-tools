@@ -3,7 +3,7 @@ const fs = require('fs');
 
 module.exports = function (plop) {
     plop.setActionType('addToConfig', function (answers, config, plop) {
-        const destinationPath = process.cwd();
+        const destinationPath = plop.getDestBasePath();
         const configPath = path.resolve(destinationPath, 'config.json');
 
         // Update config.json
@@ -27,9 +27,9 @@ module.exports = function (plop) {
 
             fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
 
-            return 'Added to config.json';
+            return 'added to config.json';
         } else {
-            return `No config.json found at ${destinationPath}`;
+            return `no config.json found at ${destinationPath}`;
         }
     });
 

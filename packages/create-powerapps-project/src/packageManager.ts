@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { spawnSync } from 'child_process';
 import { getEnvInfo } from './getEnvInfo';
+import path from 'path';
 
 export const getYarn = (): any => {
   const yarnInfo = getEnvInfo().Binaries.Yarn;
@@ -12,7 +13,7 @@ const getNpm = (): any => {
   return npmInfo && npmInfo.path;
 }
 
-export const install = (cwd: string, type: string): any => {
+export const install = (cwd: string, type: string): void => {
   const packages = getPackages(type);
 
   if (getYarn()) {
@@ -31,8 +32,7 @@ export const install = (cwd: string, type: string): any => {
 }
 
 function getPackages(type: string) {
-  const packages: { dependencies: string[], devDependencies: string[] } = {
-    dependencies: [],
+  const packages: { dependencies?: string[], devDependencies: string[] } = {
     devDependencies: [
       'plop',
       //`powerapps-project-${type}`,

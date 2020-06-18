@@ -41,16 +41,6 @@
       "plugin:@typescript-eslint/eslint-recommended",
       "plugin:@typescript-eslint/recommended"
     ],
-    "rules": {
-      "indent": [
-        "warn",
-        2,
-        {
-          "SwitchCase": 1
-        }
-      ],
-      "@typescript-eslint/explicit-function-return-type": "off"
-    },
     "ignorePatterns": [
       "webpack.config.js",
       "just.config.js",
