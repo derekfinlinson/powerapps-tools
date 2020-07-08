@@ -5,19 +5,19 @@
   "main": "index.js",
   "license": "MIT",
   "workspaces": [
-    "packages/*",
-    "scripts"
+    "packages/*"
   ],
   "devDependencies": {
-    "beachball": "^1.31.0",
-    "just-scripts": "^0.41.0",
-    "just-stack-monorepo": "^1.0.0",
+    "beachball": "^1.32.0",
+    "just-scripts": "^0.44.0",
+    "just-stack-monorepo": "^1.0.6",
     "just-stack-single-lib": "^1.0.0",
     "lerna": "^3.21.0"
   },
   "scripts": {
     "build": "lerna run build --stream",
-    "test": "lerna run test --stream",
-    "change": "beachball change"
+    "test": "lerna run test",
+    "change": "beachball change",
+    "publish:beachball": "beachball publish"
   }
 }
