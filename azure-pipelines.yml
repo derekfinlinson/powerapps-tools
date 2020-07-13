@@ -15,7 +15,7 @@ steps:
   - script: |
       git config user.email "dcfinlinson@gmail.com"
       git config user.name "Derek Finlinson"
-      git remote set-url origin https://$(github.user):$(github.pat)@github.com/derekfinlinson/d365-cli.git
+      git remote set-url origin https://$(github.user):$(github.pat)@github.com/derekfinlinson/powerapps-tools.git
     displayName: 'git config'
     env: 
       github.pat: $(github.pat)
