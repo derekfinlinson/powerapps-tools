@@ -2,6 +2,9 @@
     "name": "powerapps-project-assembly",
     "version": "0.1.0",
     "license": "MIT",
+    "dependencies": {
+        "plop": "^2.7.1"
+    },
     "devDependencies": {
         "jest": "^26.0.1",
         "ts-jest": "^26.1.0"
