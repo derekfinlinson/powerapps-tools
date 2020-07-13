@@ -8363,7 +8363,7 @@ pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
-plop@^2.5.0:
+plop@^2.5.0, plop@^2.7.1:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/plop/-/plop-2.7.1.tgz#b48af861f19cb4d5ce141852e4385180419b4b83"
   integrity sha512-2c1CDgi/88AmDNWyQcHILvjFxiyG/nS7CbDUUvzuWdrunW5QUWtQRKJRoITkGNze3ZcpUO9OOGCdh6BxHI+viA==
