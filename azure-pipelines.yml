@@ -29,7 +29,7 @@ steps:
       yarn build
     displayName: 'build'
   - script: |
-      yarn beachball:publish -n $(npm.authtoken) -y
+      yarn publish:beachball -n $(npm.authtoken) -y
     displayName: 'beachball publish'
     env:
       npm.authtoken: $(npm.authtoken)
