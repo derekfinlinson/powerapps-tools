@@ -35,8 +35,8 @@ function getPackages(type: string) {
   const packages: { dependencies?: string[], devDependencies: string[] } = {
     devDependencies: [
       'plop',
-      //`powerapps-project-${type}`,
-      //'powerapps-deploy'
+      `powerapps-project-${type}`,
+      'powerapps-deploy'
     ]
   };
 
@@ -48,8 +48,6 @@ function getPackages(type: string) {
       'eslint',
       '@typescript-eslint/eslint-plugin',
       '@typescript-eslint/parser',
-      //'powerapps-common',
-      'xrm-webapi',
       'webpack-event-plugin',
       'source-map-loader',
       'babel-loader',
@@ -67,7 +65,7 @@ function getPackages(type: string) {
       '-D'
     ];
 
-    packages.dependencies = ['core-js', 'regenerator-runtime'];
+    packages.dependencies = ['core-js', 'regenerator-runtime', 'powerapps-common', 'xrm-webapi'];
   }
 
   return packages;
