@@ -1,8 +1,0 @@
-{
-  "type": "none",
-  "comment": "Add README files; Move packages to dependencies",
-  "packageName": "powerapps-common",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "none",
-  "date": "2020-07-16T15:08:01.202Z"
-}

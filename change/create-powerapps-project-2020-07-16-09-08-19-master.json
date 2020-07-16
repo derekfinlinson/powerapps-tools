@@ -1,8 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Enable powerapps dependencies",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch",
-  "date": "2020-07-16T15:07:47.154Z"
-}

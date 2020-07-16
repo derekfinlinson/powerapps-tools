@@ -1,0 +1,20 @@
+{
+  "name": "create-powerapps-project",
+  "entries": [
+    {
+      "date": "Thu, 16 Jul 2020 15:09:52 GMT",
+      "tag": "create-powerapps-project_v0.2.0",
+      "version": "0.2.0",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Enable powerapps dependencies",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "5cfad99ef20d59a2cc8e44471a3fc57c37c91318",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    }
+  ]
+}
