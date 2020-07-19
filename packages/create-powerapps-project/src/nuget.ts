@@ -3,7 +3,7 @@ import { spawnSync } from 'child_process';
 
 export const getNugetPackageVersions = (name: string): Promise<string[]> => {
   return new Promise((resolve, reject) => {
-    https.get(`https://api-v2v3search-0.nuget.org/query?q=packageid:${name}`,
+    https.get(`https://azuresearch-usnc.nuget.org/query?q=packageid:${name}`,
       (response) => {
         let body = '';
 
