@@ -1,0 +1,8 @@
+{
+  "type": "patch",
+  "comment": "Fix typing error; Update READMEs",
+  "packageName": "powerapps-deploy",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch",
+  "date": "2020-07-20T22:51:43.872Z"
+}
