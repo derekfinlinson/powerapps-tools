@@ -34,7 +34,7 @@ export default async function create(argv: yargs.Arguments): Promise<void> {
     const { type } = await prompts({
       type: 'select',
       name: 'type',
-      message: `${invalidMessage} What type of powerapps project to create?`,
+      message: `${invalidMessage} Select powerapps project to create?`,
       choices: [
         { title: 'web resource', value: 'webresource' },
         { title: 'plugin or workflow activity', value: 'assembly' }
