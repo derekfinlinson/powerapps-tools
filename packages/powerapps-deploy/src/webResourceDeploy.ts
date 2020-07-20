@@ -6,7 +6,7 @@ import { WebApiConfig } from 'xrm-webapi/dist/models';
 import { logger } from 'just-scripts-utils';
 import { WebResource, deploy } from './models/webResource';
 
-export async function deployWebResource(files?: string) {
+export async function deployWebResource(files?: string): Promise<void> {
   const configFile = glob.sync(`**/config.json`);
   const credsFile = glob.sync('**/creds.json');
 
