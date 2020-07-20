@@ -1,8 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Check for invalid project type",
-  "packageName": "powerapps-deploy",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch",
-  "date": "2020-07-20T22:59:43.705Z"
-}
