@@ -20,7 +20,7 @@ export async function deployWebResource(files?: string): Promise<void> {
 
   const currentPath = path.dirname(configFile[0]);
 
-  const config: WebResource = JSON.parse(fs.readFileSync(path.resolve(currentPath, 'config.json'), 'utf8')).webResources;
+  const config: WebResource[] = JSON.parse(fs.readFileSync(path.resolve(currentPath, 'config.json'), 'utf8')).webResources;
   const creds: DeployCredentials = JSON.parse(fs.readFileSync(path.resolve(currentPath, 'creds.json'), 'utf8'));
 
   let apiConfig: WebApiConfig;

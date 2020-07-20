@@ -1,19 +1,9 @@
 # create-powerapps-project
-| Build | NPM |
-| ----- | --- |
-| [![Build Status](https://dev.azure.com/derekfinlinson/GitHub/_apis/build/status/derekfinlinson.powerapps-tools?branchName=master)](https://dev.azure.com/derekfinlinson/GitHub/_build/latest?definitionId=9&branchName=master) | [![npm](https://img.shields.io/npm/v/create-powerapps-project.svg?style=flat-square)](https://www.npmjs.com/package/create-powerapps-project) |
+| NPM |
+| --- |
+| [![npm](https://img.shields.io/npm/v/create-powerapps-project.svg?style=flat-square)](https://www.npmjs.com/package/create-powerapps-project) |
 
-Monorepo containing packages for PowerApps development projects
-
-# Packages
-
-| Package                       |  Description                                                         |
-| ----------------------------- | -------------------------------------------------------------------- |
-| create-powerapps-project      | Invoked by npm init powerapps-project, scaffolds projects            |
-| powerapps-common              | Library containing common JavaScript methods to use in web resources |
-| powerapps-deploy              | CLI to deploy powerapps projects                                     |
-| powerapps-project-assembly    | Web resource file templates using plop                               |
-| powerapps-project-webresource | Plugin/Workflow Activity file templates using plop                   |
+Project generator for PowerApps development
 
 # Generators
 
@@ -43,16 +33,4 @@ npm init powerapps-project
 
 ```sh
 npm run gen
-```
-
-# Deploy
-
-To deploy, sign in [here](https://login.microsoftonline.com/common/oauth2/authorize?response_type=code&client_id=c67c746f-9745-46eb-83bb-5742263736b7&redirect_uri=https://github.com/derekfinlinson/powerapps-tools) to grant access to your PowerApps organization.
-
-Deployment configuration is stored in config.json. Authentication information is stored in creds.json.
-
-```sh
-powerapps-deploy webresource
-
-powerapps-deploy assembly
 ```
