@@ -18,7 +18,8 @@
   "dependencies": {
     "envinfo": "^7.5.1",
     "node-plop": "^0.26.0",
-    "prompts": "^2.3.2"
+    "prompts": "^2.3.2",
+    "yargs": "^15.4.1"
   },
   "devDependencies": {
     "@types/node": "^14.0.5",
