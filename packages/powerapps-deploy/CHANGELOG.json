@@ -2,6 +2,27 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Mon, 20 Jul 2020 22:53:18 GMT",
+      "tag": "powerapps-deploy_v0.1.2",
+      "version": "0.1.2",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Compile package files",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "c1da92857340e544344009bd12df6d61bbd36f64",
+            "package": "powerapps-deploy"
+          },
+          {
+            "comment": "Fix typing error; Update READMEs",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "fed46b518bd2f6cd6a2cf0c6e7241bb0cbb0f531",
+            "package": "powerapps-deploy"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 20 Jul 2020 14:16:22 GMT",
       "tag": "powerapps-deploy_v0.1.1",
       "version": "0.1.1",
