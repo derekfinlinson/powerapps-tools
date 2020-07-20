@@ -1,8 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix missing dependencies",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch",
-  "date": "2020-07-20T14:14:24.013Z"
-}

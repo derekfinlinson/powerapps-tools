@@ -1,0 +1,20 @@
+{
+  "name": "powerapps-deploy",
+  "entries": [
+    {
+      "date": "Mon, 20 Jul 2020 14:16:22 GMT",
+      "tag": "powerapps-deploy_v0.1.1",
+      "version": "0.1.1",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Fix missing dependencies",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "38252cd98f8140038cb5c74c04283d40339d8ec2",
+            "package": "powerapps-deploy"
+          }
+        ]
+      }
+    }
+  ]
+}
