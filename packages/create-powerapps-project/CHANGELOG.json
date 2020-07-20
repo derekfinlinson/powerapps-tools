@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Mon, 20 Jul 2020 22:53:18 GMT",
+      "tag": "create-powerapps-project_v0.3.3",
+      "version": "0.3.3",
+      "comments": {
+        "none": [
+          {
+            "comment": "Update README",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "fed46b518bd2f6cd6a2cf0c6e7241bb0cbb0f531",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 20 Jul 2020 14:46:25 GMT",
       "tag": "create-powerapps-project_v0.3.3",
       "version": "0.3.3",
