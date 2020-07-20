@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Mon, 20 Jul 2020 13:55:48 GMT",
+      "tag": "create-powerapps-project_v0.3.1",
+      "version": "0.3.1",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Add yargs as dependency",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "69dc2515c8961c38a905a9093bab1dfbc8c091df",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Sun, 19 Jul 2020 16:43:41 GMT",
       "tag": "create-powerapps-project_v0.3.0",
       "version": "0.3.0",

@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Sun, 19 Jul 2020 16:43:41 GMT and should not be manually modified.
+This log was last generated on Mon, 20 Jul 2020 13:55:48 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.3.1
+
+Mon, 20 Jul 2020 13:55:48 GMT
+
+### Patches
+
+- Add yargs as dependency (derek.finlinson@journeyteam.com)
 
 ## 0.3.0
 
