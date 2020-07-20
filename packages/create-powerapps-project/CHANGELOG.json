@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Sun, 19 Jul 2020 16:43:41 GMT",
+      "tag": "create-powerapps-project_v0.3.0",
+      "version": "0.3.0",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Use new Nuget API URL",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "b03e313239bf0a680c917228646b1c23ae28e303",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 16 Jul 2020 15:09:52 GMT",
       "tag": "create-powerapps-project_v0.2.0",
       "version": "0.2.0",
