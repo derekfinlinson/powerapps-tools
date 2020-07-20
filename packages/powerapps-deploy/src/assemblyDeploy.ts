@@ -6,7 +6,7 @@ import { DeployCredentials, authenticate } from './powerapps.service';
 import { WebApiConfig } from 'xrm-webapi/dist/models';
 import { logger } from 'just-scripts-utils';
 
-export async function deployAssembly() {
+export async function deployAssembly(): Promise<void> {
   const configFile = glob.sync(`**/config.json`);
   const credsFile = glob.sync('**/creds.json');
 

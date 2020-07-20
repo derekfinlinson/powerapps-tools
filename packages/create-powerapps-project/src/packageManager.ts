@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { spawnSync } from 'child_process';
 import { getEnvInfo } from './getEnvInfo';
-import path from 'path';
 
 export const getYarn = (): any => {
   const yarnInfo = getEnvInfo().Binaries.Yarn;
