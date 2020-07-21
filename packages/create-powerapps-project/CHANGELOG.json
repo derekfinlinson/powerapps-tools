@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Mon, 20 Jul 2020 23:09:45 GMT",
+      "tag": "create-powerapps-project_v0.3.3",
+      "version": "0.3.3",
+      "comments": {
+        "none": [
+          {
+            "comment": "Change prompt text",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "76c5052f2237768588552f64c10a95d41ec3a976",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 20 Jul 2020 22:53:18 GMT",
       "tag": "create-powerapps-project_v0.3.3",
       "version": "0.3.3",
