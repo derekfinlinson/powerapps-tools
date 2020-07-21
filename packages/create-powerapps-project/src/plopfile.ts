@@ -1,11 +1,42 @@
 import path from 'path';
+import fs from 'fs';
 import { spawnSync } from 'child_process';
-import { rename as renameAction } from 'just-plop-helpers';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default (plop: any): void => {
-  plop.setActionType('rename', renameAction);
+  plop.setActionType('rename', (_answers, config, plop) => {
+    const { src, dest, force } = config;
+
+    if (!src || !dest) {
+      throw new Error('both the "src" and "dest" configuration are needed for this action');
+    }
+
+    let destFileName = '';
+
+    if (typeof dest === 'string') {
+      destFileName = dest;
+    } else if (typeof dest === 'function') {
+      destFileName = dest(src);
+    } else {
+      throw new Error('"dest" can only be a string or function');
+    }
+
+    const srcFilePath = path.join(plop.getDestBasePath(), src);
+    const destFilePath = path.join(plop.getDestBasePath(), destFileName);
+
+    if (!fs.existsSync(srcFilePath)) {
+      throw new Error(`${srcFilePath} does not exist`);
+    }
+
+    if (fs.existsSync(destFilePath) && !force) {
+      throw new Error(`${destFilePath} already exists!`);
+    }
+
+    fs.renameSync(srcFilePath, destFilePath);
+
+    return `successfully renamed ${srcFilePath} to ${destFilePath}`;
+  });
 
   plop.setActionType('signAssembly', (answers) => {
     const keyPath = path.resolve(process.cwd(), `${answers.name}.snk`);

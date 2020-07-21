@@ -21,8 +21,7 @@
     "prompts": "^2.3.2",
     "yargs": "^15.4.1",
     "just-scripts-utils": "^0.9.1",
-    "xrm-webapi": "^7.1.0",
-    "just-plop-helpers": "^1.1.2"
+    "xrm-webapi": "^7.1.0"
   },
   "devDependencies": {
     "@types/node": "^14.0.5",
