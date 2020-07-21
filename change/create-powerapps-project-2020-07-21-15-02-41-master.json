@@ -1,0 +1,8 @@
+{
+  "type": "patch",
+  "comment": "Remove rename action",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch",
+  "date": "2020-07-21T21:02:41.474Z"
+}
