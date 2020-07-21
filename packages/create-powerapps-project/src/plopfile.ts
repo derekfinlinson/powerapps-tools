@@ -1,11 +1,11 @@
 import path from 'path';
 import { spawnSync } from 'child_process';
-import { rename } from 'just-plop-helpers';
+import { rename as renameAction } from 'just-plop-helpers';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default (plop: any): void => {
-  plop.setActionType('rename', rename);
+  plop.setActionType('rename', renameAction);
 
   plop.setActionType('signAssembly', (answers) => {
     const keyPath = path.resolve(process.cwd(), `${answers.name}.snk`);
