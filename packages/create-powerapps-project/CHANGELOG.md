@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Mon, 20 Jul 2020 14:46:25 GMT and should not be manually modified.
+This log was last generated on Tue, 21 Jul 2020 19:05:10 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.3.4
+
+Tue, 21 Jul 2020 19:05:10 GMT
+
+### Patches
+
+- Fix renaming (derek.finlinson@journeyteam.com)
 
 ## 0.3.3
 

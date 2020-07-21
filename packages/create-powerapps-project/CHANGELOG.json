@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 21 Jul 2020 19:05:10 GMT",
+      "tag": "create-powerapps-project_v0.3.4",
+      "version": "0.3.4",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Fix renaming",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "a528090108fa423f0a2fe8ea84bb9e2362693ed3",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 20 Jul 2020 23:09:45 GMT",
       "tag": "create-powerapps-project_v0.3.3",
       "version": "0.3.3",
