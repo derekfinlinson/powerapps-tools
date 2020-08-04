@@ -15,7 +15,7 @@ module.exports = function (plop) {
             if (file.webResources != null) {
                 file.webResources.push(
                     {
-                        path: `./lib/${filename}.js`,
+                        path: `./lib/scripts/${filename}.js`,
                         name: answers.name,
                         displayname: answers.displayName,
                         type: 'JavaScript'
@@ -23,7 +23,7 @@ module.exports = function (plop) {
                 );
             }
 
-            file.entries[filename] = `./src/${filename}.ts`;
+            file.entries[filename] = `./src/scripts/${filename}.ts`;
 
             fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
 
@@ -61,19 +61,19 @@ module.exports = function (plop) {
             {
                 type: 'add',
                 templateFile: 'plop-templates/entity.ts.hbs',
-                path: 'src/entities/{{entity}}.ts',
+                path: 'src/scripts/entities/{{entity}}.ts',
                 skipIfExists: true
             },
             {
                 type: 'add',
                 templateFile: 'plop-templates/form.ts.hbs',
-                path: 'src/{{entity}}Form.ts',
+                path: 'src/scripts/{{entity}}Form.ts',
                 skipIfExists: true
             },
             {
                 type: 'add',
                 templateFile: 'plop-templates/test.ts.hbs',
-                path: 'src/__tests__/{{entity}}Form.test.ts',
+                path: 'src/scripts/__tests__/{{entity}}Form.test.ts',
                 skipIfExists: true,
                 skip: (data) => {
                     if (data.test) {
@@ -86,7 +86,7 @@ module.exports = function (plop) {
             {
                 type: 'add',
                 templateFile: 'plop-templates/entity.test.ts.hbs',
-                path: 'src/__tests__/entity/{{entity}}.test.ts',
+                path: 'src/scripts/entities/__tests__/{{entity}}.test.ts',
                 skipIfExists: true,
                 skip: (data) => {
                     if (data.test) {
@@ -131,19 +131,19 @@ module.exports = function (plop) {
             {
                 type: 'add',
                 templateFile: 'plop-templates/entity.ts.hbs',
-                path: 'src/entities/{{entity}}.ts',
+                path: 'src/scripts/entities/{{entity}}.ts',
                 skipIfExists: true
             },
             {
                 type: 'add',
                 templateFile: 'plop-templates/ribbon.ts.hbs',
-                path: 'src/{{entity}}Ribbon.ts',
+                path: 'src/scripts/{{entity}}Ribbon.ts',
                 skipIfExists: true
             },
             {
                 type: 'add',
                 templateFile: 'plop-templates/test.ts.hbs',
-                path: 'src/__tests__/{{entity}}Ribbon.test.ts',
+                path: 'src/scripts/__tests__/{{entity}}Ribbon.test.ts',
                 skipIfExists: true,
                 skip: (data) => {
                     if (data.test) {
@@ -156,7 +156,7 @@ module.exports = function (plop) {
             {
                 type: 'add',
                 templateFile: 'plop-templates/entity.test.ts.hbs',
-                path: 'src/__tests__/entity/{{entity}}.test.ts',
+                path: 'src/scripts/entities/__tests__/{{entity}}.test.ts',
                 skipIfExists: true,
                 skip: (data) => {
                     if (data.test) {
