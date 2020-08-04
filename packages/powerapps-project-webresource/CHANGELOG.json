@@ -2,6 +2,21 @@
   "name": "powerapps-project-webresource",
   "entries": [
     {
+      "date": "Tue, 04 Aug 2020 21:29:39 GMT",
+      "tag": "powerapps-project-webresource_v0.1.1",
+      "version": "0.1.1",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Update file paths",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "c30edf9730bdec26033bd6294db6c5194b96feac",
+            "package": "powerapps-project-webresource"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 16 Jul 2020 15:09:52 GMT",
       "tag": "powerapps-project-webresource_v0.1.0",
       "version": "0.1.0",
