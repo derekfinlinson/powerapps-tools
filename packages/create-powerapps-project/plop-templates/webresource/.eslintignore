@@ -7,3 +7,6 @@ lib
 coverage
 # don't lint various configs
 just.config.js
+webpack.config.js
+.eslintrc.js
+plopfile.js

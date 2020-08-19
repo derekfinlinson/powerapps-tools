@@ -61,6 +61,7 @@ function getPackages(type: string) {
       'just-scripts',
       'webpack',
       'webpack-cli',
+      'cross-spawn',
       '-D'
     ];
 

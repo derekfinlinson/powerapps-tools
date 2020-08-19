@@ -40,7 +40,7 @@ module.exports = function (plop) {
             message: 'entity logical name (use \'none\' if not for a specific entity)'
         },
         {
-            type: 'text',
+            type: 'input',
             name: 'schema',
             message: 'entity schema name',
             when: (answers) => answers.entity !== 'none'
@@ -119,6 +119,47 @@ module.exports = function (plop) {
                     value: 2
                 }
             ]
+        },
+        {
+            type: 'confirm',
+            name: 'addImage',
+            message: 'include pre/post image',
+            default: false
+        }
+    ];
+
+    const imagePrompts = [
+        {
+            type: 'list',
+            name: 'imagetype    ',
+            message: 'image type',
+            choices: [
+                {
+                    name: 'pre-iamge',
+                    value: 0
+                },
+                {
+                    name: 'post-image',
+                    value: 1
+                },
+                {
+                    name: 'both',
+                    value: 2
+                }
+            ],
+            when: (answers) => answers.addImage === undefined || answers.addImage === true
+        },
+        {
+            type: 'input',
+            name: 'entityalias',
+            message: 'name',
+            when: (answers) => answers.addImage === undefined || answers.addImage === true
+        },
+        {
+            type: 'input',
+            name: 'imageattributes',
+            message: 'comma separate list of attributes',
+            when: (answers) => answers.addImage === undefined || answers.addImage === true
         }
     ];
 
@@ -140,7 +181,7 @@ module.exports = function (plop) {
         answers.stepMode = answers.mode === 0 ? 'Synchronous' : 'Asynchronous'
     });
 
-    plop.setActionType('addToConfig', (answers, config, plop) => {
+    plop.setActionType('addToConfig', (answers, _config, plop) => {
         const destinationPath = plop.getDestBasePath();
         const configPath = path.resolve(destinationPath, 'config.json');
 
@@ -166,20 +207,29 @@ module.exports = function (plop) {
 
             // Add plugin step config
             if (answers.name !== undefined) {
-                type.steps.push(
-                    {
-                        name: answers.name,
-                        message: answers.message,
-                        entity: answers.entity,
-                        configuration: answers.configuration,
-                        description: answers.description,
-                        mode: answers.mode,
-                        rank: answers.rank,
-                        stage: answers.stage,
-                        supporteddeployment: answers.supporteddeployment,
-                        filteringattributes: answers.filteringattributes
-                    }
-                );
+                const step = {
+                    name: answers.name,
+                    message: answers.message,
+                    entity: answers.entity,
+                    configuration: answers.configuration,
+                    description: answers.description,
+                    mode: answers.mode,
+                    rank: answers.rank,
+                    stage: answers.stage,
+                    supporteddeployment: answers.supporteddeployment,
+                    filteringattributes: answers.filteringattributes
+                };
+
+                // Add image if entered
+                if (answers.addImage) {
+                    step.images.push({
+                        entityalias: answers.entityalias,
+                        name: answers.entityalias,
+                        imagetype: answers.imagetype,
+                        attributes: answers.imageattributes,
+                        relatedattributename: step.entity
+                    });
+                }
             }
 
             file.types.push(type);
@@ -216,20 +266,76 @@ module.exports = function (plop) {
                 addToConfig(answers);
             } else {
                 // Add step to existing config
-                type[0].steps.push(
-                    {
-                        name: answers.name,
-                        message: answers.message,
-                        entity: answers.entity,
-                        configuration: answers.configuration,
-                        description: answers.description,
-                        mode: answers.mode,
-                        rank: answers.rank,
-                        stage: answers.stage,
-                        supporteddeployment: answers.supporteddeployment,
-                        filteringattributes: answers.filteringattributes
+                const step = {
+                    name: answers.name,
+                    message: answers.message,
+                    entity: answers.entity,
+                    configuration: answers.configuration,
+                    description: answers.description,
+                    mode: answers.mode,
+                    rank: answers.rank,
+                    stage: answers.stage,
+                    supporteddeployment: answers.supporteddeployment,
+                    filteringattributes: answers.filteringattributes
+                };
+
+                // Add image if entered
+                if (answers.addImage) {
+                    step.images.push({
+                        entityalias: answers.entityalias,
+                        name: answers.entityalias,
+                        imagetype: answers.imagetype,
+                        attributes: answers.imageattributes,
+                        relatedattributename: step.entity
+                    });
+                }
+
+                type.steps.push(step);
+            }
+
+            // Update file
+            fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
+            return 'added to config.json';
+        } else {
+            return `no config.json found at ${destinationPath}`;
+        }
+    });
+
+    plop.setActionType('addImage', (answers, _config, plop) => {
+        const destinationPath = plop.getDestBasePath();
+        const configPath = path.resolve(destinationPath, 'config.json');
+
+        // Get config.json if it exists
+        if (fs.existsSync(configPath)) {
+            const file = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+
+            // If no types property found, just run assembly addToConfig
+            if (file.types == null) {
+                return 'add plugin types before adding images';
+            }
+
+            let step;
+
+            file.types.forEach(t => {
+                t.steps.forEach(s => {
+                    if (s.name == answers.stepname) {
+
                     }
-                );
+                })
+            });
+
+            // If plugin type not already in file, run assembly addToConfig
+            if (step == null) {
+                return 'add plugin step before adding images';
+            } else {
+                // Add step to existing config
+                step.images.push({
+                    entityalias: answers.entityalias,
+                    name: answers.entityalias,
+                    imagetype: answers.imagetype,
+                    attributes: answers.imageattributes,
+                    relatedattributename: step.entity
+                });
             }
 
             // Update file
@@ -247,7 +353,8 @@ module.exports = function (plop) {
                 name: 'filename',
                 message: 'plugin class name'
             },
-            ...stepPrompts
+            ...stepPrompts,
+            ...imagePrompts
         ],
         actions: [
             {
@@ -317,7 +424,8 @@ module.exports = function (plop) {
                 name: 'filename',
                 message: 'plugin class name'
             },
-            ...stepPrompts
+            ...stepPrompts,
+            ...imagePrompts
         ],
         actions: [
             {
@@ -345,6 +453,25 @@ module.exports = function (plop) {
             },
             {
                 type: 'addStepConfig'
+            }
+        ]
+    });
+
+    plop.setGenerator('plugin step image', {
+        prompts: [
+            {
+                type: 'list',
+                name: 'stepName',
+                message: 'plugin step name',
+                choices: () => {
+                    return [];
+                }
+            },
+            ...imagePrompts
+        ],
+        actions: [
+            {
+                type: 'addImage'
             }
         ]
     });

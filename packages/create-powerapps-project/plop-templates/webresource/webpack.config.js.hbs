@@ -1,6 +1,8 @@
 const { webpackMerge, webpackConfig } = require('just-scripts');
 const config = require('./config.json');
 const path = require('path');
+const spawn = require('cross-spawn');
+const WebpackEventPlugin = require('webpack-event-plugin');
 
 module.exports = webpackMerge(
   webpackConfig,
@@ -31,6 +33,26 @@ module.exports = webpackMerge(
           loader: 'source-map-loader'
         }
       ]
-    }
+    },
+
+    plugins: [
+      new WebpackEventPlugin([
+        {
+          hook: 'afterEmit',
+          callback: compilation => {
+            console.log('AFTER EMIT');
+            if (compilation.errors != null && compilation.errors.length > 0) {
+              return;
+            } else {
+              const assets = Object.keys(compilation.assets)
+                .filter(asset => compilation.assets[asset].emitted)
+                .map(asset => path.basename(asset));
+
+              spawn('npm', ['run', 'deploy', 'webresource', '-- --files=', assets.join(',')], { cwd: process.cwd(), stdio: 'inherit' });
+            }
+          }
+        }
+      ])
+    ]
   }
 );
