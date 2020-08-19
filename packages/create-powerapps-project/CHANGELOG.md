@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Tue, 21 Jul 2020 21:04:25 GMT and should not be manually modified.
+This log was last generated on Wed, 19 Aug 2020 15:10:11 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.4.0
+
+Wed, 19 Aug 2020 15:10:11 GMT
+
+### Minor changes
+
+- Add deploy to webpack config (derek.finlinson@journeyteam.com)
 
 ## 0.3.6
 

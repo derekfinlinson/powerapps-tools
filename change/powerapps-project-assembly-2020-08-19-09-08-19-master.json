@@ -1,8 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Update dependencies",
-  "packageName": "powerapps-project-assembly",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch",
-  "date": "2020-08-19T15:08:19.822Z"
-}
