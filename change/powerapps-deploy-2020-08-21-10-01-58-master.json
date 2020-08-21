@@ -1,0 +1,8 @@
+{
+  "type": "patch",
+  "comment": "Match plugin type on typename instead of name",
+  "packageName": "powerapps-deploy",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch",
+  "date": "2020-08-21T16:01:58.865Z"
+}
