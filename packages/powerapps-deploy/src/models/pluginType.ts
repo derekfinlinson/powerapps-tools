@@ -13,7 +13,7 @@ export interface PluginType {
 }
 
 export async function deployType(type: PluginType, apiConfig: WebApiConfig, solution?: string): Promise<string> {
-  let typeId = await retrieveType(type.name, apiConfig);
+  let typeId = await retrieveType(type.typename, apiConfig);
 
   const record: PluginType = {
     name: type.name,
@@ -57,7 +57,7 @@ export async function deployType(type: PluginType, apiConfig: WebApiConfig, solu
 }
 
 async function retrieveType(name: string, apiConfig: WebApiConfig) {
-  const options = `$select=plugintypeid&$filter=name eq '${name}'`;
+  const options = `$select=plugintypeid&$filter=typename eq '${name}'`;
 
   const result = await retrieveMultiple(apiConfig, 'plugintypes', options);
 

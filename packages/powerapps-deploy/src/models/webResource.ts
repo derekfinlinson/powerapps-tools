@@ -108,7 +108,7 @@ export async function deploy(resources: WebResource[], apiConfig: WebApiConfig, 
 }
 
 async function retrieveResource(name: string, apiConfig: WebApiConfig): Promise<string> {
-  const options: string = `$select=webresourceid&$filter=name eq '${name}'`;
+  const options = `$select=webresourceid&$filter=name eq '${name}'`;
 
   const result = await retrieveMultiple(apiConfig, "webresourceset", options);
 
