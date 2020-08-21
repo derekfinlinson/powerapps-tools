@@ -1,8 +1,16 @@
 # Change Log - powerapps-deploy
 
-This log was last generated on Mon, 20 Jul 2020 23:09:45 GMT and should not be manually modified.
+This log was last generated on Fri, 21 Aug 2020 16:04:00 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.1.4
+
+Fri, 21 Aug 2020 16:04:00 GMT
+
+### Patches
+
+- Match plugin type on typename instead of name (derek.finlinson@journeyteam.com)
 
 ## 0.1.3
 
