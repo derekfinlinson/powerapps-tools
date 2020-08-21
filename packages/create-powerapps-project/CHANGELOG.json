@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 19 Aug 2020 15:10:11 GMT",
+      "tag": "create-powerapps-project_v0.4.0",
+      "version": "0.4.0",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add deploy to webpack config",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "e05dad954db859537ced09b121fd753db639ea3e",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 21 Jul 2020 21:04:25 GMT",
       "tag": "create-powerapps-project_v0.3.6",
       "version": "0.3.6",

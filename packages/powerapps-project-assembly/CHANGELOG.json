@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Wed, 19 Aug 2020 15:10:11 GMT",
+      "tag": "powerapps-project-assembly_v0.1.1",
+      "version": "0.1.1",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Update dependencies",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "e05dad954db859537ced09b121fd753db639ea3e",
+            "package": "powerapps-project-assembly"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 16 Jul 2020 15:09:52 GMT",
       "tag": "powerapps-project-assembly_v0.1.0",
       "version": "0.1.0",
