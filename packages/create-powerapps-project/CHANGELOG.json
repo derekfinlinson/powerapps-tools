@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 25 Aug 2020 22:05:30 GMT",
+      "tag": "create-powerapps-project_v0.5.0",
+      "version": "0.5.0",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add option to add VS solution",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "4c87ce1bf40dc61f93dcbae556a1afc7f00cb3c9",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 19 Aug 2020 15:10:11 GMT",
       "tag": "create-powerapps-project_v0.4.0",
       "version": "0.4.0",

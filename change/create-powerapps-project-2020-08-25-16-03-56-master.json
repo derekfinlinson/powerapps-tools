@@ -1,8 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Add option to add VS solution",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch",
-  "date": "2020-08-25T22:03:56.670Z"
-}
