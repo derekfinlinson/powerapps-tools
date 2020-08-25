@@ -69,7 +69,7 @@ export default async function create(argv: yargs.Arguments): Promise<void> {
   if (argv.type === 'assembly') {
     logger.info('add nuget packages');
 
-    install(config.sdkVersion, config.xrmVersion, config.addSln, config.name);
+    install(config.name, config.sdkVersion, config.xrmVersion, config.addSln);
   }
 
   done(argv);

@@ -26,15 +26,15 @@ export const getNugetPackageVersions = (name: string): Promise<string[]> => {
   });
 };
 
-export const install = (sdkVersion?: string, xrmVersion?: string, addSln?: boolean, project?: string): void => {
+export const install = (project: string, sdkVersion?: string, xrmVersion?: string, addSln?: boolean): void => {
   // Add solution if selected
   if (addSln) {
-    spawnSync('dotnet', ['new', 'sln', '-n', project || ''], {
+    spawnSync('dotnet', ['new', 'sln', '-n', project], {
       cwd: process.cwd(),
       stdio: 'inherit'
     });
 
-    spawnSync('dotnet', ['sln', 'add', project || ''], {
+    spawnSync('dotnet', ['sln', 'add', `${project}.csproj`], {
       cwd: process.cwd(),
       stdio: 'inherit'
     });
