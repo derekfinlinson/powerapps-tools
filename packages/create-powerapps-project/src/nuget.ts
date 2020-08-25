@@ -26,7 +26,20 @@ export const getNugetPackageVersions = (name: string): Promise<string[]> => {
   });
 };
 
-export const install = (sdkVersion?: string, xrmVersion?: string): void => {
+export const install = (sdkVersion?: string, xrmVersion?: string, addSln?: boolean, project?: string): void => {
+  // Add solution if selected
+  if (addSln) {
+    spawnSync('dotnet', ['new', 'sln', '-n', project || ''], {
+      cwd: process.cwd(),
+      stdio: 'inherit'
+    });
+
+    spawnSync('dotnet', ['sln', 'add', project || ''], {
+      cwd: process.cwd(),
+      stdio: 'inherit'
+    });
+  }
+
   // Install nuget packages
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   spawnSync('dotnet', ['add', 'package', 'Microsoft.CrmSdk.Workflow', '-v', sdkVersion!, '-n'], {

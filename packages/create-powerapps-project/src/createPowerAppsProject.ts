@@ -19,6 +19,7 @@ export interface Config {
   authType: string;
   xrmVersion?: string;
   sdkVersion?: string;
+  addSln?: boolean;
 }
 
 export default async function create(argv: yargs.Arguments): Promise<void> {
@@ -68,7 +69,7 @@ export default async function create(argv: yargs.Arguments): Promise<void> {
   if (argv.type === 'assembly') {
     logger.info('add nuget packages');
 
-    install(config.sdkVersion, config.xrmVersion);
+    install(config.sdkVersion, config.xrmVersion, config.addSln, config.name);
   }
 
   done(argv);
@@ -87,6 +88,11 @@ async function getAnswers(type: string) {
     const versions = await getNugetPackageVersions('Microsoft.CrmSdk.Workflow');
 
     questions = [
+      {
+        type: 'confirm',
+        name: 'addSln',
+        message: 'add visual studio solution file?'
+      },
       {
         type: 'select',
         name: 'sdkVersion',
