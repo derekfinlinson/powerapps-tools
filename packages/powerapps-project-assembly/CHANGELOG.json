@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Wed, 02 Sep 2020 19:01:53 GMT",
+      "tag": "powerapps-project-assembly_v0.2.0",
+      "version": "0.2.0",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add default using statements",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "d9b571705452f48460ba1c91b919e7b4c0fd68b8",
+            "package": "powerapps-project-assembly"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 19 Aug 2020 15:10:11 GMT",
       "tag": "powerapps-project-assembly_v0.1.1",
       "version": "0.1.1",
