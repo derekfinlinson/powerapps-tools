@@ -1,0 +1,8 @@
+{
+  "type": "minor",
+  "comment": "Add tenant back but default to common",
+  "packageName": "powerapps-deploy",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch",
+  "date": "2020-10-02T16:19:00.553Z"
+}
