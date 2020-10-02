@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Fri, 02 Oct 2020 16:20:30 GMT",
+      "tag": "create-powerapps-project_v0.6.0",
+      "version": "0.6.0",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add tenant back but default to common",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "b6d131c879cb302952f18b5b1b14885a84cd5f41",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 25 Aug 2020 22:13:42 GMT",
       "tag": "create-powerapps-project_v0.5.1",
       "version": "0.5.1",

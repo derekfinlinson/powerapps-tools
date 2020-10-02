@@ -1,8 +1,16 @@
 # Change Log - powerapps-deploy
 
-This log was last generated on Fri, 21 Aug 2020 16:04:00 GMT and should not be manually modified.
+This log was last generated on Fri, 02 Oct 2020 16:20:30 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.2.0
+
+Fri, 02 Oct 2020 16:20:30 GMT
+
+### Minor changes
+
+- Add tenant back but default to common (derek.finlinson@journeyteam.com)
 
 ## 0.1.4
 

@@ -2,6 +2,21 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Fri, 02 Oct 2020 16:20:30 GMT",
+      "tag": "powerapps-deploy_v0.2.0",
+      "version": "0.2.0",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add tenant back but default to common",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "b6d131c879cb302952f18b5b1b14885a84cd5f41",
+            "package": "powerapps-deploy"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 21 Aug 2020 16:04:00 GMT",
       "tag": "powerapps-deploy_v0.1.4",
       "version": "0.1.4",

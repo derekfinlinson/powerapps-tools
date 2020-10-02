@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Tue, 25 Aug 2020 22:13:42 GMT and should not be manually modified.
+This log was last generated on Fri, 02 Oct 2020 16:20:30 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.6.0
+
+Fri, 02 Oct 2020 16:20:30 GMT
+
+### Minor changes
+
+- Add tenant back but default to common (derek.finlinson@journeyteam.com)
 
 ## 0.5.1
 
