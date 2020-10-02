@@ -13,6 +13,7 @@ export interface Config {
   username: string;
   password: string;
   clientId: string;
+  tenant: string;
   clientSecret: string;
   solution: string;
   server: string;
@@ -132,6 +133,12 @@ async function getAnswers(type: string) {
       message: 'enter powerapps url (https://org.crm.dynamics.com):'
     },
     {
+      type: 'text',
+      name: 'tenant',
+      message: 'enter azure ad tenant (org.onmicrosoft.com):',
+      initial: 'common'
+    },
+    {
       type: 'select',
       name: 'authType',
       message: 'select authentication method:',
@@ -182,6 +189,7 @@ function done(argv: yargs.Arguments) {
   
   ## Keeping Up-to-date
   keep your build tools up-to-date by updating these two devDependencies:
+  * powerapps-deploy
   * powerapps-project-${argv.type}
   ${argv.type === 'webresource' ? '* just-scripts' : ''}
   

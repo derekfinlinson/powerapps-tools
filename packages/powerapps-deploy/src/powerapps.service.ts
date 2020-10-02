@@ -14,6 +14,7 @@ export interface DeployCredentials {
   clientId?: string;
   clientSecret?: string;
   server: string;
+  tenant?: string;
   username?: string;
   password?: string;
   solution?: string;
@@ -22,7 +23,8 @@ export interface DeployCredentials {
 export function authenticate(creds: DeployCredentials): Promise<string> {
   return new Promise((resolve, reject) => {
     // authenticate
-    const context = new AuthenticationContext('https://login.microsoftonline.com/common');
+    const tenant = creds.tenant || 'common';
+    const context = new AuthenticationContext(`https://login.microsoftonline.com/${tenant}`);
     const clientId: string = creds.clientId || 'c67c746f-9745-46eb-83bb-5742263736b7';
 
     // use client id/secret auth
