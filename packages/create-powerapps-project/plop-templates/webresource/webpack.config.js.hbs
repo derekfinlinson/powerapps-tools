@@ -40,7 +40,6 @@ module.exports = webpackMerge(
         {
           hook: 'afterEmit',
           callback: compilation => {
-            console.log('AFTER EMIT');
             if (compilation.errors != null && compilation.errors.length > 0) {
               return;
             } else {
