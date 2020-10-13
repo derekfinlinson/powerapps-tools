@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Tue, 13 Oct 2020 15:38:50 GMT and should not be manually modified.
+This log was last generated on Tue, 13 Oct 2020 15:42:51 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.6.2
+
+Tue, 13 Oct 2020 15:42:51 GMT
+
+### Patches
+
+- Use specific just-scripts version (derek.finlinson@journeyteam.com)
 
 ## 0.6.1
 
