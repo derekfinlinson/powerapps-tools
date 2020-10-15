@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Thu, 15 Oct 2020 17:03:08 GMT",
+      "tag": "powerapps-project-assembly_v0.3.1",
+      "version": "0.3.1",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Fix adding step on plugin add",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "376ab5d041136b03e634343e58b26fd6a4eeeda4",
+            "package": "powerapps-project-assembly"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 10 Sep 2020 14:37:37 GMT",
       "tag": "powerapps-project-assembly_v0.3.0",
       "version": "0.3.0",
