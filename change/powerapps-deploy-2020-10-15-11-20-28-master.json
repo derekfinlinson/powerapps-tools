@@ -1,0 +1,8 @@
+{
+  "type": "patch",
+  "comment": "Update dependencies",
+  "packageName": "powerapps-deploy",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch",
+  "date": "2020-10-15T17:20:28.180Z"
+}
