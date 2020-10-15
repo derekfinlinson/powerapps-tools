@@ -5408,7 +5408,7 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-"just-scripts-utils@>=0.9.2 <1.0.0":
+"just-scripts-utils@>=0.9.2 <1.0.0", just-scripts-utils@^0.9.1:
   version "0.9.2"
   resolved "https://registry.yarnpkg.com/just-scripts-utils/-/just-scripts-utils-0.9.2.tgz#fc3f7d2c4ac384ade5612dec98cedec25573b72b"
   integrity sha512-QNqcX0+KPlwL31u5eMrcd0eZPpAEbBxppe6m/4kEydPtJGKz3t+Z7ozRUSDKWctHcCZulp/0jDa1wMPVZ3RGTw==

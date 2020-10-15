@@ -20,7 +20,8 @@
     "node-plop": "^0.26.0",
     "prompts": "^2.3.2",
     "yargs": "^16.0.3",
-    "xrm-webapi": "^7.1.0"
+    "xrm-webapi": "^7.1.0",
+    "just-scripts-utils": "^0.9.1"
   },
   "devDependencies": {
     "@types/node": "^14.0.5",
