@@ -1,8 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Re-add corejs",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch",
-  "date": "2020-10-15T20:07:27.684Z"
-}

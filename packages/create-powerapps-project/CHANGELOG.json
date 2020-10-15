@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Thu, 15 Oct 2020 20:08:59 GMT",
+      "tag": "create-powerapps-project_v0.6.4",
+      "version": "0.6.4",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Re-add corejs",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "1205c7234b32e7b0dd25627739efbf5a0808e5d3",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 15 Oct 2020 17:22:02 GMT",
       "tag": "create-powerapps-project_v0.6.3",
       "version": "0.6.3",
