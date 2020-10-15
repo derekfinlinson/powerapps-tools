@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Thu, 15 Oct 2020 17:22:02 GMT",
+      "tag": "create-powerapps-project_v0.6.3",
+      "version": "0.6.3",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Update dependencies",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "e3d5a362a484ab85d6341f32b758cabe0399aca2",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 13 Oct 2020 15:42:51 GMT",
       "tag": "create-powerapps-project_v0.6.2",
       "version": "0.6.2",

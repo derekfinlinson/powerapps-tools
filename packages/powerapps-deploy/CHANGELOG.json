@@ -2,6 +2,21 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Thu, 15 Oct 2020 17:22:02 GMT",
+      "tag": "powerapps-deploy_v0.2.1",
+      "version": "0.2.1",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Update dependencies",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "e3d5a362a484ab85d6341f32b758cabe0399aca2",
+            "package": "powerapps-deploy"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 02 Oct 2020 16:20:30 GMT",
       "tag": "powerapps-deploy_v0.2.0",
       "version": "0.2.0",
