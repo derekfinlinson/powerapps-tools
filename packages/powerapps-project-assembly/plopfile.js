@@ -13,7 +13,7 @@ module.exports = function (plop) {
             folder = path.resolve(folder, '..');
         } while (files.length === 0 && !path.isAbsolute(folder))
 
-        // Return csproj name as default namespace
+        // Return csproj name as default namespace or Xrm if not found
         return files.length === 0 ? 'Xrm' : path.basename(files[0]).replace('.csproj', '');
     };
 
@@ -294,6 +294,7 @@ module.exports = function (plop) {
                     });
                 }
 
+                // Add step
                 type.steps.push(step);
             }
 
@@ -328,11 +329,11 @@ module.exports = function (plop) {
                 })
             });
 
-            // If plugin type not already in file, run assembly addToConfig
+            // If plugin step not already in file, prompt user to add step first
             if (step == null) {
                 return 'add plugin step before adding images';
             } else {
-                // Add step to existing config
+                // Add image to existing step
                 step.images.push({
                     entityalias: answers.entityalias,
                     name: answers.entityalias,
