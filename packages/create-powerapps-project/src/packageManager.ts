@@ -65,7 +65,7 @@ function getPackages(type: string) {
       '-D'
     ];
 
-    packages.dependencies = ['powerapps-common', 'xrm-webapi'];
+    packages.dependencies = ['core-js', 'regenerator-runtime', 'powerapps-common', 'xrm-webapi'];
   }
 
   return packages;
