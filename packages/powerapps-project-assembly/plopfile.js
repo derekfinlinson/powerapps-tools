@@ -217,7 +217,8 @@ module.exports = function (plop) {
                     rank: answers.rank,
                     stage: answers.stage,
                     supporteddeployment: answers.supporteddeployment,
-                    filteringattributes: answers.filteringattributes
+                    filteringattributes: answers.filteringattributes,
+                    images: []
                 };
 
                 // Add image if entered
@@ -230,6 +231,8 @@ module.exports = function (plop) {
                         relatedattributename: step.entity
                     });
                 }
+
+                type.steps.push(step);
             }
 
             file.types.push(type);
@@ -276,7 +279,8 @@ module.exports = function (plop) {
                     rank: answers.rank,
                     stage: answers.stage,
                     supporteddeployment: answers.supporteddeployment,
-                    filteringattributes: answers.filteringattributes
+                    filteringattributes: answers.filteringattributes,
+                    images: []
                 };
 
                 // Add image if entered
