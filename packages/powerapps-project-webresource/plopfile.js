@@ -10,24 +10,49 @@ module.exports = function (plop) {
         if (fs.existsSync(configPath)) {
             const file = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
-            const filename = `${answers.entity}${config.scriptType}`;
+            if (config.resourceType === 'HTML') {
+                if (file.webResources != null) {
+                    file.webResources.push(
+                        {
+                            path: `./lib/${filename}.html`,
+                            name: answers.name,
+                            displayname: answers.displayName,
+                            type: config.resourceType
+                        },
+                        {
+                            path: `./lib/${filename}.js`,
+                            name: answers.name,
+                            displayname: `${answers.displayName} Script`,
+                            type: 'JavaScript'
+                        }
+                    );
+                }
 
-            if (file.webResources != null) {
-                file.webResources.push(
-                    {
-                        path: `./lib/scripts/${filename}.js`,
-                        name: answers.name,
-                        displayname: answers.displayName,
-                        type: 'JavaScript'
-                    }
-                );
+                file.entries[filename] = `./src/scripts/${filename}.ts`;
+
+                fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
+
+                return 'added to config.json';
+            } else {
+                const filename = `${answers.entity}${config.scriptType}`;
+
+                if (file.webResources != null) {
+                    file.webResources.push(
+                        {
+                            path: `./lib/${filename}.js`,
+                            name: answers.name,
+                            displayname: answers.displayName,
+                            type: config.resourceType
+                        }
+                    );
+                }
+
+                file.entries[filename] = `./src/scripts/${filename}.ts`;
+
+                fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
+
+                return 'added to config.json';
             }
-
-            file.entries[filename] = `./src/scripts/${filename}.ts`;
-
-            fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
-
-            return 'added to config.json';
         } else {
             return `no config.json found at ${destinationPath}`;
         }
@@ -98,7 +123,8 @@ module.exports = function (plop) {
             },
             {
                 type: 'addToConfig',
-                scriptType: 'Form'
+                scriptType: 'Form',
+                resourceType: 'JavaScript'
             }
         ]
     });
@@ -168,7 +194,8 @@ module.exports = function (plop) {
             },
             {
                 type: 'addToConfig',
-                scriptType: 'Ribbon'
+                scriptType: 'Ribbon',
+                resourceType: 'JavaScript'
             }
         ]
     });
@@ -195,10 +222,15 @@ module.exports = function (plop) {
             {
                 type: 'add',
                 templateFile: 'plop-templates/index.html',
-                path: 'src/html/{{filename}}.html'
+                path: 'public/{{filename}}.html'
             },
             {
-                type: 'addToConfig'
+                type: 'add',
+                path: 'src/scripts/{{filename}}.ts'
+            },
+            {
+                type: 'addToConfig',
+                resouceType: 'HTML'
             }
         ]
     });

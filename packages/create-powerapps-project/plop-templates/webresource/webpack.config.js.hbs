@@ -1,4 +1,4 @@
-const { webpackMerge, webpackConfig } = require('just-scripts');
+const { webpackMerge, webpackConfig, htmlOverlay } = require('just-scripts');
 const config = require('./config.json');
 const path = require('path');
 const spawn = require('cross-spawn');
@@ -10,7 +10,7 @@ module.exports = webpackMerge(
     entry: config.entries,
 
     output: {
-      filename: 'scripts/[name].js',
+      filename: '[name].js',
       library: ['{{namespace}}', '[name]'],
       path: path.resolve(__dirname, 'lib')
     },
@@ -28,7 +28,7 @@ module.exports = webpackMerge(
           use: ['babel-loader']
         },
         {
-          enforce: "pre",
+          enforce: 'pre',
           test: /\.(ts)|(js)$/,
           loader: 'source-map-loader'
         }
