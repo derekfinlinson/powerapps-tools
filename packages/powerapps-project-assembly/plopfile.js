@@ -222,7 +222,7 @@ module.exports = function (plop) {
                 };
 
                 // Add image if entered
-                if (answers.addImage) {
+                if (answers.addImage === true) {
                     step.images.push({
                         entityalias: answers.entityalias,
                         name: answers.entityalias,
