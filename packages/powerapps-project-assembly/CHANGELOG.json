@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Tue, 20 Oct 2020 14:51:26 GMT",
+      "tag": "powerapps-project-assembly_v0.3.2",
+      "version": "0.3.2",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Check if addImage is true",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "8cb14919df77111020a286c6882f770d950a99e1",
+            "package": "powerapps-project-assembly"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 15 Oct 2020 17:03:08 GMT",
       "tag": "powerapps-project-assembly_v0.3.1",
       "version": "0.3.1",

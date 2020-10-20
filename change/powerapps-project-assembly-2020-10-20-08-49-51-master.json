@@ -1,8 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Check if addImage is true",
-  "packageName": "powerapps-project-assembly",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch",
-  "date": "2020-10-20T14:49:51.836Z"
-}
