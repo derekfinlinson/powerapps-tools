@@ -158,7 +158,7 @@ module.exports = function (plop) {
         {
             type: 'input',
             name: 'imageattributes',
-            message: 'comma separate list of attributes',
+            message: 'comma separated list of attributes',
             when: (answers) => answers.addImage === undefined || answers.addImage === true
         }
     ];

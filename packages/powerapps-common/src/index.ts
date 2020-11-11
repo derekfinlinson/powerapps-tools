@@ -4,8 +4,8 @@
  * @param requiredLevel Requirement level
  * @param form Form context
  */
-export function setFieldRequirementLevel(fieldName: string, requiredLevel: Xrm.Page.RequirementLevel, form: Xrm.FormContext): boolean {
-  const field = form.getAttribute<Xrm.Page.Attribute>(fieldName.toLowerCase());
+export function setFieldRequirementLevel(fieldName: string, requiredLevel: Xrm.Attributes.RequirementLevel, form: Xrm.FormContext): boolean {
+  const field = form.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field == null) {
     return false;
@@ -48,7 +48,7 @@ export function setControlVisibility(controlName: string, allControls: boolean, 
 * @param form Form context
 */
 export function setControlLabel(controlName: string, label: string, form: Xrm.FormContext): boolean {
-  const control = form.getControl<Xrm.Page.StandardControl>(controlName.toLowerCase());
+  const control = form.getControl<Xrm.Controls.StandardControl>(controlName.toLowerCase());
 
   if (control == null) {
     return false;
@@ -67,7 +67,7 @@ export function setControlLabel(controlName: string, label: string, form: Xrm.Fo
 * @param fireOnChange Fire field on change event
 */
 export function setDefaultValue(fieldName: string, value: any, form: Xrm.FormContext, fireOnChange?: boolean): boolean {
-  const field = form.getAttribute<Xrm.Page.Attribute>(fieldName.toLowerCase());
+  const field = form.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field == null || field.getValue() != null) {
     return false;
@@ -91,7 +91,7 @@ export function setDefaultValue(fieldName: string, value: any, form: Xrm.FormCon
 * @param form Form context
 */
 export function addFormNotification(message: string, level: Xrm.Page.ui.FormNotificationLevel,
-  uniqueId: string, timeout: number = 10000, form: Xrm.FormContext): boolean {
+  uniqueId: string, timeout = 10000, form: Xrm.FormContext): boolean {
   form.ui.setFormNotification(message, level, uniqueId);
 
   setTimeout(() => {
@@ -104,12 +104,11 @@ export function addFormNotification(message: string, level: Xrm.Page.ui.FormNoti
 /**
 * Add an on change event to a field
 * @param fieldName Name of field
-* @param fireOnChange Fire event after adding it
 * @param event Event to fire
 * @param form Form context
 */
-export function addOnChange(fieldName: string, fireOnChange: boolean, event: Xrm.Page.ContextSensitiveHandler, form: Xrm.FormContext): boolean {
-  const field = form.getAttribute<Xrm.Page.Attribute>(fieldName.toLowerCase());
+export function addOnChange(fieldName: string, event: Xrm.Events.ContextSensitiveHandler, form: Xrm.FormContext): boolean {
+  const field = form.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field === null || field === undefined) {
     return false;
@@ -118,10 +117,6 @@ export function addOnChange(fieldName: string, fireOnChange: boolean, event: Xrm
   // Prevent on change event from being added twice
   field.removeOnChange(event);
   field.addOnChange(event);
-
-  if (fireOnChange) {
-    field.fireOnChange();
-  }
 
   return true;
 }
@@ -133,7 +128,7 @@ export function addOnChange(fieldName: string, fireOnChange: boolean, event: Xrm
 * @param form Form context
 */
 export function removeOnChange(fieldName: string, event: Xrm.Page.ContextSensitiveHandler, form: Xrm.FormContext): boolean {
-  const field = form.getAttribute<Xrm.Page.Attribute>(fieldName.toLowerCase());
+  const field = form.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field === null || field === undefined) {
     return false;
@@ -152,7 +147,7 @@ export function removeOnChange(fieldName: string, event: Xrm.Page.ContextSensiti
 * @param fireOnChange Fire field on change event
 */
 export function setValue(fieldName: string, value: any, form: Xrm.FormContext, fireOnChange?: boolean): boolean {
-  const field = form.getAttribute<Xrm.Page.Attribute>(fieldName.toLowerCase());
+  const field = form.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field == null) {
     return false;
@@ -176,7 +171,7 @@ export function setValue(fieldName: string, value: any, form: Xrm.FormContext, f
 * @param form Form context
 */
 export function fieldContainsData(fieldName: string, form: Xrm.FormContext): boolean {
-  const field = form.getAttribute<Xrm.Page.Attribute>(fieldName.toLowerCase());
+  const field = form.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   return field != null && field.getValue() != null;
 }
@@ -212,7 +207,7 @@ export function setDisabled(fieldName: string, allControls: boolean, disabled: b
 * @param form Form context
 */
 export function addPreSearch(fieldName: string, handler: Xrm.Events.ContextSensitiveHandler, form: Xrm.FormContext): boolean {
-  const field = form.getAttribute<Xrm.Page.LookupAttribute>(fieldName.toLowerCase());
+  const field = form.getAttribute<Xrm.Attributes.LookupAttribute>(fieldName.toLowerCase());
 
   if (field == null) {
     return false;
@@ -230,7 +225,7 @@ export function addPreSearch(fieldName: string, handler: Xrm.Events.ContextSensi
  * @param form Form context
  * @param label Label of form to navigate to
  */
-export function navigateToForm(form: Xrm.FormContext, label: string) {
+export function navigateToForm(form: Xrm.FormContext, label: string): void {
   const current = form.ui.formSelector.getCurrentItem();
 
   if (current.getLabel() !== label) {
@@ -265,7 +260,7 @@ export function addLookupFilter(form: Xrm.FormContext, lookupAttribute: string, 
   ].join("");
 
   form
-    .getAttribute<Xrm.Page.LookupAttribute>(lookupAttribute)
+    .getAttribute<Xrm.Attributes.LookupAttribute>(lookupAttribute)
     .controls.forEach(c => c.addCustomFilter(filter));
 
   return true;
@@ -276,7 +271,7 @@ export function addLookupFilter(form: Xrm.FormContext, lookupAttribute: string, 
  * @param form Form context
  * @param event Event
  */
-export function addOnSave(form: Xrm.FormContext, event: Xrm.Page.ContextSensitiveHandler) {
+export function addOnSave(form: Xrm.FormContext, event: Xrm.Events.ContextSensitiveHandler): void {
   // Prevent event from being added twice
   form.data.entity.removeOnSave(event);
   form.data.entity.addOnSave(event);
