@@ -1,6 +1,6 @@
 {
   "name": "powerapps-common",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Common PowerApps JavaScript Functions",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

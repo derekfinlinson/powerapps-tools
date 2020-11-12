@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Thu, 12 Nov 2020 00:00:17 GMT",
+      "tag": "powerapps-common_v1.0.0",
+      "version": "1.0.0",
+      "comments": {
+        "major": [
+          {
+            "comment": "Remove fireOnChange",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "252101c1e6e2979b42b9b66f8314607d59b95bb8",
+            "package": "powerapps-common"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 16 Jul 2020 15:09:52 GMT",
       "tag": "powerapps-common_v0.1.0",
       "version": "0.1.0",

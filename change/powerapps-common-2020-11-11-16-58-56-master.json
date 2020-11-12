@@ -1,8 +1,0 @@
-{
-  "type": "major",
-  "comment": "Remove fireOnChange",
-  "packageName": "powerapps-common",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch",
-  "date": "2020-11-11T23:58:48.858Z"
-}
