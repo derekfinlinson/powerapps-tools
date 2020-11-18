@@ -1,0 +1,8 @@
+{
+  "type": "patch",
+  "comment": "Remove default namespace for assemblies",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch",
+  "date": "2020-11-18T15:16:08.414Z"
+}
