@@ -103,8 +103,7 @@ async function getAnswers(type: string) {
       {
         type: 'text',
         name: 'name',
-        message: 'default namespace',
-        initial: path.basename(process.cwd())
+        message: 'default namespace'
       },
       {
         type: 'select',
