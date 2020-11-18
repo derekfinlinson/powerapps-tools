@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 18 Nov 2020 15:18:31 GMT",
+      "tag": "create-powerapps-project_v0.6.5",
+      "version": "0.6.5",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Remove default namespace for assemblies",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "1e23f345dc629c3e3b7ad828b5f260278470eeae",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 15 Oct 2020 20:08:59 GMT",
       "tag": "create-powerapps-project_v0.6.4",
       "version": "0.6.4",
