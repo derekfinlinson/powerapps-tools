@@ -276,3 +276,12 @@ export function addOnSave(form: Xrm.FormContext, event: Xrm.Events.ContextSensit
   form.data.entity.removeOnSave(event);
   form.data.entity.addOnSave(event);
 }
+
+/**
+ * Get formatted value from entity
+ * @param entity Entity
+ * @param field Field
+ */
+export function getFormattedValue(entity: never, field: string): string {
+  return entity[`${field}@OData.Community.Display.V1.FormattedValue`];
+}
