@@ -1,0 +1,8 @@
+{
+  "type": "minor",
+  "comment": "Add function to get formatted value",
+  "packageName": "powerapps-common",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch",
+  "date": "2020-11-24T17:56:11.613Z"
+}
