@@ -1,9 +1,9 @@
 # powerapps-common
 |NPM|
 |---|
-|[![npm](https://img.shields.io/npm/v/d365-common.svg?style=flat-square)](https://www.npmjs.com/package/d365-common)|
+|[![npm](https://img.shields.io/npm/v/powerapps-common.svg?style=flat-square)](https://www.npmjs.com/package/powerapps-common)|
 
-A Common Data Service module including common functions used in JavaScript web resource development.
+A Dataverse (formerly Common Data Service) module including common functions used in JavaScript web resource development.
 
 ### Installation
 
