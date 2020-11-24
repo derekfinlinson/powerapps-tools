@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Tue, 24 Nov 2020 17:57:30 GMT",
+      "tag": "powerapps-common_v1.1.0",
+      "version": "1.1.0",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add function to get formatted value",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "f38ece0c88c96cdcd52aef218ce4ea5a31d69d8d",
+            "package": "powerapps-common"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 12 Nov 2020 00:00:17 GMT",
       "tag": "powerapps-common_v1.0.0",
       "version": "1.0.0",
