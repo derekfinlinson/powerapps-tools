@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Thu, 15 Oct 2020 20:08:59 GMT and should not be manually modified.
+This log was last generated on Wed, 18 Nov 2020 15:18:31 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.6.5
+
+Wed, 18 Nov 2020 15:18:31 GMT
+
+### Patches
+
+- Remove default namespace for assemblies (derek.finlinson@journeyteam.com)
 
 ## 0.6.4
 
