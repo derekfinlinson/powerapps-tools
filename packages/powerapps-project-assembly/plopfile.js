@@ -295,7 +295,7 @@ module.exports = function (plop) {
                 }
 
                 // Add step
-                type.steps.push(step);
+                type[0].steps.push(step);
             }
 
             // Update file

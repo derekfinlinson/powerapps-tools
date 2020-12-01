@@ -58,7 +58,7 @@ function getPackages(type: string) {
       'jest',
       'ts-jest',
       '@types/jest',
-      'just-scripts@0.44.2',
+      'just-scripts',
       'webpack',
       'webpack-cli',
       'cross-spawn',

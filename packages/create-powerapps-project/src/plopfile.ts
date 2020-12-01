@@ -35,7 +35,8 @@ export default (plop: any): void => {
           '../plop-templates/assembly/*.json.hbs',
           '../plop-templates/assembly/*.js',
           '../plop-templates/assembly/.gitignore',
-          '../plop-templates/assembly/Entities/EarlyBoundGenerator.xml'
+          '../plop-templates/assembly/Entities/EarlyBoundGenerator.xml',
+          '../plop-templates/assembly/.vscode/tasks.json'
         ],
         base: '../plop-templates/assembly',
         destination: process.cwd(),
