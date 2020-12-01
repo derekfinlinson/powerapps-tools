@@ -324,7 +324,7 @@ module.exports = function (plop) {
             file.types.forEach(t => {
                 t.steps.forEach(s => {
                     if (s.name == answers.stepname) {
-
+                        step = s;
                     }
                 })
             });

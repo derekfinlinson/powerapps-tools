@@ -6,7 +6,7 @@
                 "modules": false,
                 "useBuiltIns": "usage",
                 "corejs": 3,
-                "targets": "last 2 versions, not dead, ie >= 11"
+                "targets": "last 2 versions, not dead"
             }
         ],
         "@babel/preset-typescript"
