@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Tue, 24 Nov 2020 17:59:03 GMT",
+      "tag": "powerapps-common_v1.1.0",
+      "version": "1.1.0",
+      "comments": {
+        "none": [
+          {
+            "comment": "Update README",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "15af9402953c1c489e54935e8dfcc25c94eb809d",
+            "package": "powerapps-common"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 24 Nov 2020 17:57:30 GMT",
       "tag": "powerapps-common_v1.1.0",
       "version": "1.1.0",
