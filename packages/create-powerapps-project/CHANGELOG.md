@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Wed, 18 Nov 2020 15:18:31 GMT and should not be manually modified.
+This log was last generated on Tue, 01 Dec 2020 17:28:45 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.6.6
+
+Tue, 01 Dec 2020 17:28:45 GMT
+
+### Patches
+
+- Fix bug when adding plugin step; Add tasks.json (derek.finlinson@journeyteam.com)
 
 ## 0.6.5
 

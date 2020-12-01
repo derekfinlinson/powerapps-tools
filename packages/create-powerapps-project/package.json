@@ -1,6 +1,6 @@
 {
   "name": "create-powerapps-project",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "license": "MIT",
   "main": "lib/index.js",
   "bin": {

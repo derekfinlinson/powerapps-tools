@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 01 Dec 2020 17:28:45 GMT",
+      "tag": "create-powerapps-project_v0.6.6",
+      "version": "0.6.6",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Fix bug when adding plugin step; Add tasks.json",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "128e70fe5a2b7efc8c3a433543d4103ec7de2cda",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 18 Nov 2020 15:18:31 GMT",
       "tag": "create-powerapps-project_v0.6.5",
       "version": "0.6.5",

@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Thu, 12 Nov 2020 00:00:17 GMT and should not be manually modified.
+This log was last generated on Tue, 01 Dec 2020 17:28:45 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.3.4
+
+Tue, 01 Dec 2020 17:28:45 GMT
+
+### Patches
+
+- Fix bug when adding plugin step; Add tasks.json (derek.finlinson@journeyteam.com)
 
 ## 0.3.3
 
