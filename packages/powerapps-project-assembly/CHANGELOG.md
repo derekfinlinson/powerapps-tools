@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Tue, 01 Dec 2020 17:28:45 GMT and should not be manually modified.
+This log was last generated on Tue, 01 Dec 2020 19:40:31 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.3.5
+
+Tue, 01 Dec 2020 19:40:31 GMT
+
+### Patches
+
+- Remove IE support; Fix webpack config (derek.finlinson@journeyteam.com)
 
 ## 0.3.4
 
