@@ -135,7 +135,7 @@ module.exports = function (plop) {
             message: 'image type',
             choices: [
                 {
-                    name: 'pre-iamge',
+                    name: 'pre-image',
                     value: 0
                 },
                 {
