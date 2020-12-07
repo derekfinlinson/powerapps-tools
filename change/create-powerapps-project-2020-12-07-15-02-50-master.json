@@ -1,0 +1,8 @@
+{
+  "type": "minor",
+  "comment": "Switch to TS just.config",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch",
+  "date": "2020-12-07T22:02:50.887Z"
+}
