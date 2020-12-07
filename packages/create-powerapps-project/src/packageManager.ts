@@ -62,6 +62,7 @@ function getPackages(type: string) {
       'webpack',
       'webpack-cli',
       'cross-spawn',
+      'ts-node',
       '-D'
     ];
 
