@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Tue, 01 Dec 2020 19:40:31 GMT and should not be manually modified.
+This log was last generated on Mon, 07 Dec 2020 22:04:22 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.7.0
+
+Mon, 07 Dec 2020 22:04:22 GMT
+
+### Minor changes
+
+- Switch to TS just.config (derek.finlinson@journeyteam.com)
 
 ## 0.6.7
 
