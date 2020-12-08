@@ -1,8 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Add files to package.json",
-  "packageName": "powerapps-common",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch",
-  "date": "2020-12-08T18:08:09.710Z"
-}
