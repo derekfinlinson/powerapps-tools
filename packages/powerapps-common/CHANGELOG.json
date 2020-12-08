@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Tue, 08 Dec 2020 18:10:21 GMT",
+      "tag": "powerapps-common_v1.1.1",
+      "version": "1.1.1",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Add files to package.json",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "ac95f35429836eed164927b5519291735389986c",
+            "package": "powerapps-common"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 24 Nov 2020 17:59:03 GMT",
       "tag": "powerapps-common_v1.1.0",
       "version": "1.1.0",
