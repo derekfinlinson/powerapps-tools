@@ -39,8 +39,6 @@ export async function deployType(type: PluginType, apiConfig: WebApiConfig, solu
 
   try {
     if (type.steps) {
-      logger.info('deploy plugin steps');
-
       const promises = type.steps.map(async step => {
         step['plugintypeid@odata.bind'] = `/plugintypes(${typeId})`;
 

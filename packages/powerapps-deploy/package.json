@@ -6,6 +6,10 @@
   "bin": {
     "powerapps-deploy": "bin/powerapps-deploy.js"
   },
+  "files": [
+    "/lib",
+    "/bin"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/derekfinlinson/powerapps-tools"

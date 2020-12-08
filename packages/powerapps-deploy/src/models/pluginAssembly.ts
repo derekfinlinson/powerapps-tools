@@ -53,8 +53,6 @@ export async function deploy(config: PluginAssembly, apiConfig: WebApiConfig, so
 
   if (config.types != null) {
     try {
-      logger.info('deploy assembly types');
-
       const promises = config.types.map(async type => {
         type['pluginassemblyid@odata.bind'] = `/pluginassemblies(${assemblyId})`;
 

@@ -2,6 +2,10 @@
   "name": "powerapps-project-webresource",
   "version": "0.1.1",
   "license": "MIT",
+  "files": [
+    "/plop-templates",
+    "plopfile.js"
+  ],
   "dependencies": {
     "plop": "^2.7.1"
   },

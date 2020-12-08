@@ -4,6 +4,9 @@
   "description": "Common PowerApps JavaScript Functions",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
+  "files": [
+    "/lib"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",

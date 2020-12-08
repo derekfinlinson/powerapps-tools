@@ -2,6 +2,10 @@
   "name": "powerapps-project-assembly",
   "version": "0.3.6",
   "license": "MIT",
+  "files": [
+    "/plop-templates",
+    "plopfile.js"
+  ],
   "dependencies": {
     "plop": "^2.7.1"
   },

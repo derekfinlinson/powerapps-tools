@@ -2,6 +2,7 @@ import { WebApiConfig } from 'xrm-webapi/dist/models';
 import { retrieveMultiple, createWithReturnData, update } from 'xrm-webapi/dist/webapi-node';
 import { addToSolution, ComponentType } from '../powerapps.service';
 import { logger } from 'just-scripts-utils';
+import { deployImage, PluginImage } from './pluginImage';
 
 export interface PluginStep {
   name: string;
@@ -10,9 +11,10 @@ export interface PluginStep {
   mode: number;
   rank: number;
   stage: number;
+  images?: PluginImage[];
   supporteddeployment: number;
-  message: string;
-  entity: string;
+  message?: string;
+  entity?: string;
   'plugintypeid@odata.bind'?: string;
   'sdkmessagefilterid@odata.bind'?: string;
   'sdkmessageid@odata.bind'?: string;
@@ -21,23 +23,29 @@ export interface PluginStep {
 
 export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solution?: string): Promise<string | undefined> {
   let stepId = await retrieveStep(step.name, apiConfig);
-  const messageId = await getSdkMessageId(step.message, apiConfig);
+  const messageId = await getSdkMessageId(step.message ?? '', apiConfig);
 
   if (messageId == undefined) {
     logger.error(`sdk message ${step.message} not found`);
     return;
   }
 
-  const filterId = await getSdkMessageFilterId(messageId, step.entity, apiConfig);
+  const filterId = await getSdkMessageFilterId(messageId, step.entity ?? '', apiConfig);
 
   if (filterId == undefined) {
     logger.error(`sdk message ${step.message} for entity ${step.entity} not found`);
     return;
   }
-  
+
   step['sdkmessagefilterid@odata.bind'] = `/sdkmessagefilters(${filterId})`;
   step['sdkmessageid@odata.bind'] = `/sdkmessages(${messageId})`;
 
+
+
+  const images = step.images;
+  const message = step.message;
+
+  delete step.images;
   delete step.message;
   delete step.entity;
 
@@ -61,6 +69,39 @@ export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solu
         throw new Error(`failed to add to solution: ${error.message}`);
       }
     }
+  }
+
+  try {
+    if (images) {
+      const promises = images.map(async image => {
+        image['sdkmessageprocessingstepid@odata.bind'] = `/sdkmessageprocessingsteps(${stepId})`;
+        image.stepId = stepId;
+
+        switch (message) {
+          case 'Create':
+            image.messagepropertyname = 'Id';
+            break;
+          case 'SetState':
+          case 'SetStateDynamicEntity':
+            image.messagepropertyname = 'EntityMoniker';
+            break;
+          case 'Send':
+          case 'DeliverIncoming':
+          case 'DeliverPromote':
+            image.messagepropertyname = 'EmailId';
+            break;
+          default:
+            image.messagepropertyname = 'Target';
+            break;
+        }
+
+        await deployImage(image, apiConfig);
+      });
+
+      await Promise.all(promises);
+    }
+  } catch (error) {
+    throw new Error(error.message);
   }
 
   return stepId;

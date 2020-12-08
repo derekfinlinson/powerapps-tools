@@ -17,6 +17,24 @@ module.exports = function (plop) {
         return files.length === 0 ? 'Xrm' : path.basename(files[0]).replace('.csproj', '');
     };
 
+    const getSteps = () => {
+        const destinationPath = plop.getDestBasePath();
+        const configPath = path.resolve(destinationPath, 'config.json');
+
+        if (fs.existsSync(configPath)) {
+            const file = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+            const steps = [];
+
+            file.types.forEach(t => {
+                t.steps.forEach(s => steps.push(s.name));
+            });
+
+            return steps;
+        }
+
+        return [];
+    };
+
     const stepPrompts = [
         {
             type: 'input',
@@ -131,7 +149,7 @@ module.exports = function (plop) {
     const imagePrompts = [
         {
             type: 'list',
-            name: 'imagetype    ',
+            name: 'imagetype',
             message: 'image type',
             choices: [
                 {
@@ -228,7 +246,6 @@ module.exports = function (plop) {
                         name: answers.entityalias,
                         imagetype: answers.imagetype,
                         attributes: answers.imageattributes,
-                        relatedattributename: step.entity
                     });
                 }
 
@@ -289,8 +306,7 @@ module.exports = function (plop) {
                         entityalias: answers.entityalias,
                         name: answers.entityalias,
                         imagetype: answers.imagetype,
-                        attributes: answers.imageattributes,
-                        relatedattributename: step.entity
+                        attributes: answers.imageattributes
                     });
                 }
 
@@ -338,8 +354,7 @@ module.exports = function (plop) {
                     entityalias: answers.entityalias,
                     name: answers.entityalias,
                     imagetype: answers.imagetype,
-                    attributes: answers.imageattributes,
-                    relatedattributename: step.entity
+                    attributes: answers.imageattributes
                 });
             }
 
@@ -466,10 +481,10 @@ module.exports = function (plop) {
         prompts: [
             {
                 type: 'list',
-                name: 'stepName',
+                name: 'stepname',
                 message: 'plugin step name',
                 choices: () => {
-                    return [];
+                    return getSteps();
                 }
             },
             ...imagePrompts
