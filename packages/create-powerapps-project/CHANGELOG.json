@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Mon, 07 Dec 2020 22:04:22 GMT",
+      "tag": "create-powerapps-project_v0.7.0",
+      "version": "0.7.0",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Switch to TS just.config",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "7fdb310f3664508eb11d75598aa03446d65dde88",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 01 Dec 2020 19:40:31 GMT",
       "tag": "create-powerapps-project_v0.6.7",
       "version": "0.6.7",
