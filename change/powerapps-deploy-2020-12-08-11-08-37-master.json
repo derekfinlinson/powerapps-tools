@@ -1,0 +1,8 @@
+{
+  "type": "minor",
+  "comment": "Finish support for plugin images",
+  "packageName": "powerapps-deploy",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch",
+  "date": "2020-12-08T18:08:20.782Z"
+}
