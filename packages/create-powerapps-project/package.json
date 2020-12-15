@@ -9,7 +9,7 @@
   "files": [
     "/lib",
     "/bin",
-    "/ploptemplates"
+    "/plop-templates"
   ],
   "repository": {
     "type": "git",
