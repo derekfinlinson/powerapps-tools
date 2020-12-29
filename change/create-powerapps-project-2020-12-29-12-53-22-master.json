@@ -1,0 +1,8 @@
+{
+  "type": "patch",
+  "comment": "Fix webpack compilation assets",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch",
+  "date": "2020-12-29T19:53:22.034Z"
+}
