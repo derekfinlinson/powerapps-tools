@@ -43,9 +43,7 @@ module.exports = webpackMerge(
               if (compilation.errors != null && compilation.errors.length > 0) {
                 return;
               } else {
-                const assets = Object.keys(compilation.assets)
-                  .filter(asset => compilation.assets[asset].emitted)
-                  .map(asset => path.basename(asset));
+                const assets = Array.from(compilation.emittedAssets).map(asset => path.basename(asset));
 
                 spawn('npm', ['run', 'deploy', 'webresource', '-- --files=', assets.join(',')], { cwd: process.cwd(), stdio: 'inherit' });
               }
