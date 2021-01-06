@@ -1,0 +1,8 @@
+{
+  "type": "patch",
+  "comment": "Fix files arg",
+  "packageName": "powerapps-deploy",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch",
+  "date": "2021-01-06T23:15:09.448Z"
+}
