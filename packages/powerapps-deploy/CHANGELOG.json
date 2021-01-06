@@ -2,6 +2,21 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Wed, 06 Jan 2021 23:31:17 GMT",
+      "tag": "powerapps-deploy_v0.3.2",
+      "version": "0.3.2",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Fix deploying provided files",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "1d0ae3631c56c1586a690bae60e1448e2e95a359",
+            "package": "powerapps-deploy"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 06 Jan 2021 23:16:30 GMT",
       "tag": "powerapps-deploy_v0.3.1",
       "version": "0.3.1",
