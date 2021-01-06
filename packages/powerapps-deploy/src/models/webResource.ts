@@ -43,8 +43,10 @@ function getWebResourceType(type: string): number {
   }
 }
 
-export async function deploy(resources: WebResource[], apiConfig: WebApiConfig, solution?: string, files?: string): Promise<void> {
+export async function deploy(webResources: WebResource[], apiConfig: WebApiConfig, solution?: string, files?: string): Promise<void> {
   const publishXml: string[] = [];
+
+  let resources = webResources;
 
   // Use list of files if provided
   if (files) {
@@ -53,7 +55,7 @@ export async function deploy(resources: WebResource[], apiConfig: WebApiConfig, 
     files
       .split(',')
       .forEach(file => {
-        const resource = resources.filter(r => r.path?.endsWith(file));
+        const resource = webResources.filter(r => r.path?.endsWith(file));
 
         if (resource.length === 0) {
           logger.error(`web resource ${file} not found in config.json`);
