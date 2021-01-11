@@ -3,7 +3,7 @@
 |---|
 |[![npm](https://img.shields.io/npm/v/powerapps-common.svg?style=flat-square)](https://www.npmjs.com/package/powerapps-common)|
 
-A Dataverse (formerly Common Data Service) module including common functions used in JavaScript web resource development.
+A Dataverse module including common functions used in JavaScript web resource development.
 
 ### Installation
 
