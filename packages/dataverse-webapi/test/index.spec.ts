@@ -1,4 +1,4 @@
-import { create, createWithReturnData, WebApiConfig } from '../src/xrm-webapi';
+import { create, createWithReturnData, WebApiConfig } from '../src/index';
 
 describe('WebApi', () => {
     let config: WebApiConfig;
