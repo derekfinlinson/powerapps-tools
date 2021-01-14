@@ -1,8 +1,0 @@
-{
-  "type": "major",
-  "comment": "Initial package version",
-  "packageName": "dataverse-webapi",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch",
-  "date": "2021-01-12T04:13:26.552Z"
-}
