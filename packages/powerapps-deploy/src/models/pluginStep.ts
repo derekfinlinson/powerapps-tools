@@ -1,10 +1,9 @@
-import { WebApiConfig } from 'xrm-webapi/dist/models';
-import { retrieveMultiple, createWithReturnData, update } from 'xrm-webapi/dist/webapi-node';
+import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity } from 'dataverse-webapi/lib/node';
 import { addToSolution, ComponentType } from '../powerapps.service';
 import { logger } from 'just-scripts-utils';
 import { deployImage, PluginImage } from './pluginImage';
 
-export interface PluginStep {
+export interface PluginStep extends Entity {
   name: string;
   configuration: number;
   description?: string;
@@ -39,8 +38,6 @@ export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solu
 
   step['sdkmessagefilterid@odata.bind'] = `/sdkmessagefilters(${filterId})`;
   step['sdkmessageid@odata.bind'] = `/sdkmessages(${messageId})`;
-
-
 
   const images = step.images;
   const message = step.message;
@@ -107,12 +104,12 @@ export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solu
   return stepId;
 }
 
-async function retrieveStep(name: string, apiConfig: WebApiConfig) {
+async function retrieveStep(name: string, apiConfig: WebApiConfig): Promise<string> {
   const options = `$select=sdkmessageprocessingstepid&$filter=name eq '${name}'`;
 
   const result = await retrieveMultiple(apiConfig, 'sdkmessageprocessingsteps', options);
 
-  return result.value.length > 0 ? result.value[0].sdkmessageprocessingstepid : undefined;
+  return result.value.length > 0 ? result.value[0].sdkmessageprocessingstepid as string : '';
 }
 
 async function getSdkMessageFilterId(messageId: string, entityName: string, apiConfig: WebApiConfig) {
@@ -126,7 +123,7 @@ async function getSdkMessageFilterId(messageId: string, entityName: string, apiC
   return message.value[0].sdkmessagefilterid;
 }
 
-async function getSdkMessageId(name: string, apiConfig: WebApiConfig) {
+async function getSdkMessageId(name: string, apiConfig: WebApiConfig): Promise<string> {
   const options = [
     `?$filter=name eq '${name}'`,
     '&$select=sdkmessageid'
@@ -134,15 +131,15 @@ async function getSdkMessageId(name: string, apiConfig: WebApiConfig) {
 
   const message = await retrieveMultiple(apiConfig, 'sdkmessages', options);
 
-  return message.value[0].sdkmessageid;
+  return message.value[0].sdkmessageid as string;
 }
 
-async function createStep(step: PluginStep, apiConfig: WebApiConfig) {
+async function createStep(step: PluginStep, apiConfig: WebApiConfig): Promise<string> {
   logger.info(`create plugin step ${step.name}`);
 
   const result = await createWithReturnData(apiConfig, 'sdkmessageprocessingsteps', step, '$select=sdkmessageprocessingstepid');
 
-  return result.sdkmessageprocessingstepid;
+  return result.sdkmessageprocessingstepid as string;
 }
 
 async function updateStep(id: string, step: PluginStep, apiConfig: WebApiConfig) {

@@ -3,7 +3,7 @@ import path from 'path';
 import glob from 'glob';
 import { PluginAssembly, deploy } from './models/pluginAssembly';
 import { DeployCredentials, authenticate } from './powerapps.service';
-import { WebApiConfig } from 'xrm-webapi/dist/models';
+import { WebApiConfig } from 'dataverse-webapi/lib/node';
 import { logger } from 'just-scripts-utils';
 
 export async function deployAssembly(): Promise<void> {

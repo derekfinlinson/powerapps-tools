@@ -1,6 +1,5 @@
 import { AuthenticationContext, TokenResponse } from 'adal-node';
-import { unboundAction } from 'xrm-webapi/dist/webapi-node';
-import { WebApiConfig } from 'xrm-webapi/dist/models';
+import { unboundAction, WebApiConfig } from 'dataverse-webapi/lib/node';
 
 export enum ComponentType {
   WebResource = 61,
@@ -55,8 +54,8 @@ export function authenticate(creds: DeployCredentials): Promise<string> {
   });
 }
 
-export async function addToSolution(id: string, solution: string, type: ComponentType, apiConfig: WebApiConfig) {
-  const data: any = {
+export async function addToSolution(id: string, solution: string, type: ComponentType, apiConfig: WebApiConfig): Promise<void> {
+  const data = {
     ComponentId: id,
     ComponentType: type,
     SolutionUniqueName: solution,
@@ -67,8 +66,8 @@ export async function addToSolution(id: string, solution: string, type: Componen
   await unboundAction(apiConfig, 'AddSolutionComponent', data);
 }
 
-export async function publish(publishXml: string, apiConfig: WebApiConfig) {
-  const data: any = {
+export async function publish(publishXml: string, apiConfig: WebApiConfig): Promise<void> {
+  const data = {
     ParameterXml: `<importexportxml><webresources>${publishXml}</webresources></importexportxml>`
   };
 

@@ -1,6 +1,5 @@
-import { addToSolution, ComponentType, publish } from "../powerapps.service";
-import { retrieveMultiple, createWithReturnData, update } from "xrm-webapi/dist/webapi-node";
-import { parseGuid, WebApiConfig } from "xrm-webapi/dist/models";
+import { addToSolution, ComponentType, publish } from '../powerapps.service';
+import { retrieveMultiple, createWithReturnData, update, WebApiConfig, parseGuid } from 'dataverse-webapi/lib/node';
 import { logger } from 'just-scripts-utils';
 import fs from 'fs';
 
@@ -15,30 +14,30 @@ export interface WebResource {
 
 function getWebResourceType(type: string): number {
   switch (type) {
-    case "HTML":
+    case 'HTML':
       return 1;
-    case "CSS":
+    case 'CSS':
       return 2;
     default:
-    case "JavaScript":
+    case 'JavaScript':
       return 3;
-    case "XML":
+    case 'XML':
       return 4;
-    case "PNG":
+    case 'PNG':
       return 5;
-    case "JPG":
+    case 'JPG':
       return 6;
-    case "GIF":
+    case 'GIF':
       return 7;
-    case "XAP":
+    case 'XAP':
       return 8;
-    case "XSL":
+    case 'XSL':
       return 9;
-    case "ICO":
+    case 'ICO':
       return 10;
-    case "SVG":
+    case 'SVG':
       return 11;
-    case "RESX":
+    case 'RESX':
       return 12;
   }
 }
@@ -69,7 +68,7 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
     let resourceId = await retrieveResource(resource.name, apiConfig);
 
     const fileContent = fs.readFileSync(resource.path, 'utf8');
-    const content = Buffer.from(fileContent).toString("base64");
+    const content = Buffer.from(fileContent).toString('base64');
 
     if (resourceId) {
       try {
@@ -112,9 +111,9 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
 async function retrieveResource(name: string, apiConfig: WebApiConfig): Promise<string> {
   const options = `$select=webresourceid&$filter=name eq '${name}'`;
 
-  const result = await retrieveMultiple(apiConfig, "webresourceset", options);
+  const result = await retrieveMultiple(apiConfig, 'webresourceset', options);
 
-  return result.value.length > 0 ? result.value[0].webresourceid : undefined;
+  return result.value.length > 0 ? result.value[0].webresourceid as string : '';
 }
 
 async function createResource(resource: WebResource, content: string, apiConfig: WebApiConfig): Promise<string> {
@@ -127,9 +126,9 @@ async function createResource(resource: WebResource, content: string, apiConfig:
     content: content
   };
 
-  const result = await createWithReturnData(apiConfig, "webresourceset", webResource, "$select=webresourceid");
+  const result = await createWithReturnData(apiConfig, 'webresourceset', webResource, '$select=webresourceid');
 
-  return result.webresourceid;
+  return result.webresourceid as string;
 }
 
 async function updateResource(id: string, resource: WebResource, content: string, apiConfig: WebApiConfig) {
@@ -139,7 +138,7 @@ async function updateResource(id: string, resource: WebResource, content: string
     content: content
   };
 
-  await update(apiConfig, "webresourceset", parseGuid(id), webResource);
+  await update(apiConfig, 'webresourceset', parseGuid(id), webResource);
 
   return `<webresource>{${id}}</webresource>`;
 }

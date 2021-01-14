@@ -1,9 +1,8 @@
-import { WebApiConfig } from 'xrm-webapi/dist/models';
-import { retrieveMultiple, createWithReturnData, update } from 'xrm-webapi/dist/webapi-node';
+import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity } from 'dataverse-webapi/lib/node';
 import { PluginStep, deployStep } from './pluginStep';
 import { logger } from 'just-scripts-utils';
 
-export interface PluginType {
+export interface PluginType extends Entity {
   name: string;
   'pluginassemblyid@odata.bind'?: string;
   typename: string;
@@ -54,20 +53,20 @@ export async function deployType(type: PluginType, apiConfig: WebApiConfig, solu
   return typeId;
 }
 
-async function retrieveType(name: string, apiConfig: WebApiConfig) {
+async function retrieveType(name: string, apiConfig: WebApiConfig): Promise<string> {
   const options = `$select=plugintypeid&$filter=typename eq '${name}'`;
 
   const result = await retrieveMultiple(apiConfig, 'plugintypes', options);
 
-  return result.value.length > 0 ? result.value[0].plugintypeid : undefined;
+  return result.value.length > 0 ? result.value[0].plugintypeid as string : '';
 }
 
-async function createType(type: PluginType, apiConfig: WebApiConfig) {
+async function createType(type: PluginType, apiConfig: WebApiConfig): Promise<string> {
   logger.info(`create assembly type ${type.name}`);
 
   const result = await createWithReturnData(apiConfig, 'plugintypes', type, '$select=plugintypeid');
 
-  return result.plugintypeid;
+  return result.plugintypeid as string;
 }
 
 async function updateType(id: string, type: PluginType, apiConfig: WebApiConfig) {

@@ -1,12 +1,12 @@
 import fs from 'fs';
 import glob from 'glob';
-import { WebApiConfig } from 'xrm-webapi/dist/models';
-import { retrieveMultiple, createWithReturnData, update } from 'xrm-webapi/dist/webapi-node';
+import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity } from 'dataverse-webapi/lib/node';
+
 import { PluginType, deployType } from './pluginType';
 import { addToSolution, ComponentType } from '../powerapps.service';
 import { logger } from 'just-scripts-utils';
 
-export interface PluginAssembly {
+export interface PluginAssembly extends Entity {
   name: string;
   content?: string;
   isolationmode?: number;
@@ -67,15 +67,15 @@ export async function deploy(config: PluginAssembly, apiConfig: WebApiConfig, so
   }
 }
 
-async function retrieveAssembly(name: string, apiConfig: WebApiConfig) {
+async function retrieveAssembly(name: string, apiConfig: WebApiConfig): Promise<string> {
   const options = `$select=pluginassemblyid&$filter=name eq '${name}'`;
 
   const result = await retrieveMultiple(apiConfig, 'pluginassemblies', options);
 
-  return result.value.length > 0 ? result.value[0].pluginassemblyid : undefined;
+  return result.value.length > 0 ? result.value[0].pluginassemblyid as string : '';
 }
 
-async function createAssembly(config: PluginAssembly, content: string, apiConfig: WebApiConfig) {
+async function createAssembly(config: PluginAssembly, content: string, apiConfig: WebApiConfig): Promise<string> {
   logger.info(`create assembly ${config.name}`);
 
   const assembly: PluginAssembly = {
@@ -90,7 +90,7 @@ async function createAssembly(config: PluginAssembly, content: string, apiConfig
 
   const result = await createWithReturnData(apiConfig, 'pluginassemblies', assembly, '$select=pluginassemblyid');
 
-  return result.pluginassemblyid;
+  return result.pluginassemblyid as string;
 }
 
 async function updateAssembly(id: string, config: PluginAssembly, content: string, apiConfig: WebApiConfig) {

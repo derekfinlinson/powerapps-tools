@@ -1,7 +1,7 @@
 import { authenticate, DeployCredentials } from './powerapps.service';
 import path from 'path';
 import fs from 'fs';
-import { WebApiConfig } from 'xrm-webapi/dist/models';
+import { WebApiConfig } from 'dataverse-webapi/lib/node';
 import { logger } from 'just-scripts-utils';
 import { WebResource, deploy } from './models/webResource';
 

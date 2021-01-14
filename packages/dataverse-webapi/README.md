@@ -20,22 +20,22 @@ npm install dataverse-webapi
 
 #### Browser
 ```typescript
-import { parseGuid, retrieve, WebApiConfig } from "dataverse-webapi";
+import { parseGuid, retrieve, WebApiConfig } from 'dataverse-webapi';
 
-const config = new WebApiConfig("9.1")
+const config = new WebApiConfig('9.1')
 
-const account = await retrieve(config, "accounts", parseGuid("00000000-0000-0000-0000-000000000000"), "$select=name");
+const account = await retrieve(config, 'accounts', parseGuid('00000000-0000-0000-0000-000000000000'), '$select=name');
 
 console.log(account.name);
 ```
 
 #### Node
 ```typescript
-import { parseGuid, retrieve, WebApiConfig } from "dataverse-webapi/dist/node";
+import { parseGuid, retrieve, WebApiConfig } from 'dataverse-webapi/lib/node';
 
-const config = new WebApiConfig("9.1", tokenFromAdal, 'https://org.crm.dynamics.com');
+const config = new WebApiConfig('9.1', tokenFromAdal, 'https://org.crm.dynamics.com');
 
-const account = await retrieve(config, "accounts", parseGuid("00000000-0000-0000-0000-000000000000"), "$select=name");
+const account = await retrieve(config, 'accounts', parseGuid('00000000-0000-0000-0000-000000000000'), '$select=name');
 
 console.log(account.name);
 ```
@@ -46,11 +46,11 @@ For use in Angular applications, I'd first recommend using their built in [HttpC
 pretty simple to construct. If you do want to use this library, the usage is the same as the browser usage:
 
 ```typescript
-import { parseGuid, retrieveNode, WebApiConfig } from "xrm-webapi";
+import { parseGuid, retrieveNode, WebApiConfig } from 'dataverse-webapi';
 
-const config = new WebApiConfig("8.2", tokenFromAdal, 'https://org.crm.dynamics.com');
+const config = new WebApiConfig('8.2', tokenFromAdal, 'https://org.crm.dynamics.com');
 
-const account = await retrieve(config, "accounts", parseGuid("00000000-0000-0000-0000-000000000000"), "$select=name");
+const account = await retrieve(config, 'accounts', parseGuid('00000000-0000-0000-0000-000000000000'), '$select=name');
 
 console.log(account.name);
 ```

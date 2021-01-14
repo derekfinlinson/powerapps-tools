@@ -3315,6 +3315,11 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
+dataverse-webapi@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/dataverse-webapi/-/dataverse-webapi-1.0.0.tgz#454b48c9127861572e835b0d93495cbf588dbd88"
+  integrity sha512-5DO4DzMWNjXWNDX0DxChRuVDlg/fXfCzqWyUm+WYLhNyvTdVEKZROfgfqcsXpeyznKu0RmaR7aqGm6tWyPr4Bg==
+
 date-utils@*:
   version "1.2.21"
   resolved "https://registry.yarnpkg.com/date-utils/-/date-utils-1.2.21.tgz#61fb16cdc1274b3c9acaaffe9fc69df8720a2b64"
@@ -9744,11 +9749,6 @@ xrm-mock@^3.4.18:
   version "3.4.20"
   resolved "https://registry.yarnpkg.com/xrm-mock/-/xrm-mock-3.4.20.tgz#ac703fc1e5d60482ffaf15af1b3a2f3e94a014ba"
   integrity sha512-4+GIF3uPaTS2LKT7NQ3hoZepAM1j0paJBHGgWlg83BTWzRnawP4h0MYCt8T8IHACMj9tN9sL4JfYYkhu/BwuRg==
-
-xrm-webapi@^7.1.0, xrm-webapi@^7.1.1:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/xrm-webapi/-/xrm-webapi-7.1.1.tgz#8ccab1a4a664a169c9bc25cb7e942f2c7d4ed52e"
-  integrity sha512-jpiVwQZYcGtKDIgwnFZI+er6p38z1mjwbPbqmvUyRyCllkRq0oHXbPsVgGjyg6WXKyNfVI5el9u17vMvZyW1bg==
 
 xtend@~4.0.1:
   version "4.0.2"
