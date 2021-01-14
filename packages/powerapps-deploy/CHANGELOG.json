@@ -2,6 +2,21 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Thu, 14 Jan 2021 00:33:39 GMT",
+      "tag": "powerapps-deploy_v0.4.0",
+      "version": "0.4.0",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Switch to dataverse-webapi",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "c070f0118c0f96263d8896b7afe61dd11a87d9d2",
+            "package": "powerapps-deploy"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 06 Jan 2021 23:31:17 GMT",
       "tag": "powerapps-deploy_v0.3.2",
       "version": "0.3.2",
