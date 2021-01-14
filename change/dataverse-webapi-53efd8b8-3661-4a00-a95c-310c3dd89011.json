@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Remove just-scripts",
-  "packageName": "dataverse-webapi",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

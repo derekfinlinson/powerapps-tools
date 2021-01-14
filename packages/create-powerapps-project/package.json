@@ -1,6 +1,6 @@
 {
   "name": "create-powerapps-project",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "license": "MIT",
   "main": "lib/index.js",
   "bin": {
@@ -25,7 +25,7 @@
     "node-plop": "^0.26.2",
     "prompts": "^2.4.0",
     "yargs": "^16.2.0",
-    "dataverse-webapi": "^1.0.0",
+    "dataverse-webapi": "^1.0.1",
     "just-scripts-utils": "^1.1.1"
   },
   "devDependencies": {
