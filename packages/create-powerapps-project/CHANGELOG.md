@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Tue, 29 Dec 2020 19:55:03 GMT and should not be manually modified.
+This log was last generated on Thu, 14 Jan 2021 00:33:39 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.9.0
+
+Thu, 14 Jan 2021 00:33:39 GMT
+
+### Minor changes
+
+- Switch to dataverse-webapi (derek.finlinson@journeyteam.com)
 
 ## 0.8.2
 
