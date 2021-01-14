@@ -1,56 +1,53 @@
-const { webpackMerge, webpackConfig, htmlOverlay } = require('just-scripts');
 const config = require('./config.json');
 const path = require('path');
 const spawn = require('cross-spawn');
 const WebpackEventPlugin = require('webpack-event-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-module.exports = webpackMerge(
-  webpackConfig(
-    {
-      entry: config.entries,
+module.exports = {
+  entry: config.entries,
 
-      output: {
-        filename: '[name].js',
-        library: ['{{namespace}}', '[name]'],
-        path: path.resolve(__dirname, 'lib')
+  output: {
+    filename: '[name].js',
+    library: ['{{namespace}}', '[name]'],
+    path: path.resolve(__dirname, 'lib')
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader', 'ts-loader']
       },
-
-      module: {
-        rules: [
-          {
-            test: /\.ts(x?)$/,
-            exclude: /node_modules/,
-            use: ['babel-loader', 'ts-loader']
-          },
-          {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: ['babel-loader']
-          },
-          {
-            enforce: 'pre',
-            test: /\.(ts)|(js)$/,
-            loader: 'source-map-loader'
-          }
-        ]
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
       },
+      {
+        enforce: 'pre',
+        test: /\.(ts)|(js)$/,
+        loader: 'source-map-loader'
+      }
+    ]
+  },
 
-      plugins: [
-        new WebpackEventPlugin([
-          {
-            hook: 'afterEmit',
-            callback: compilation => {
-              if (compilation.errors != null && compilation.errors.length > 0) {
-                return;
-              } else {
-                const assets = Array.from(compilation.emittedAssets).map(asset => path.basename(asset));
+  plugins: [
+    new CleanWebpackPlugin(),
+    new WebpackEventPlugin([
+      {
+        hook: 'afterEmit',
+        callback: compilation => {
+          if (compilation.errors != null && compilation.errors.length > 0) {
+            return;
+          } else {
+            const assets = Array.from(compilation.emittedAssets).map(asset => path.basename(asset));
 
-                spawn('npm', ['run', 'deploy', 'webresource', '-- --files=', assets.join(',')], { cwd: process.cwd(), stdio: 'inherit' });
-              }
-            }
+            spawn('npm', ['run', 'deploy', 'webresource', '-- --files=', assets.join(',')], { cwd: process.cwd(), stdio: 'inherit' });
           }
-        ])
-      ]
-    }
-  )
-);
+        }
+      }
+    ])
+  ]
+}

@@ -7,10 +7,8 @@
     "plopfile.js"
   ],
   "dependencies": {
-    "plop": "^2.7.1"
+    "plop": "^2.7.4"
   },
   "devDependencies": {
-    "jest": "^26.0.1",
-    "ts-jest": "^26.1.0"
   }
 }

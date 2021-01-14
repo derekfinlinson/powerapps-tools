@@ -3,13 +3,9 @@
   "name": "{{kebabCase name}}",
   "private": true,
   "scripts": {
-    "build": "just-scripts build",
-    "start": "just-scripts start",
-    "test": "just-scripts test",
+    "build": "webpack --mode=production",
+    "start": "webpack --mode=development --watch",
     "gen": "plop",
     "deploy": "powerapps-deploy webresource"
-  },
-  "jest": {
-    "preset": "ts-jest"
   }
 }

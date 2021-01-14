@@ -13,9 +13,9 @@
     "url": "https://github.com/derekfinlinson/powerapps-tools"
   },
   "scripts": {
-    "build": "just-scripts build",
-    "just": "just-scripts",
-    "test": "just-scripts test"
+    "build": "tsc -p .",
+    "lint": "eslint",
+    "prebuild": "rimraf lib"
   },
   "keywords": [
     "dynamics",
@@ -27,13 +27,6 @@
   ],
   "author": "Derek Finlinson",
   "devDependencies": {
-    "@types/xrm": "^9.0.33",
-    "@typescript-eslint/eslint-plugin": "^4.13.0",
-    "@typescript-eslint/parser": "^4.13.0",
-    "eslint": "^7.17.0",
-    "jest": "^26.0.1",
-    "ts-jest": "^26.1.0",
-    "typescript": "^4.1.3",
-    "xrm-mock": "^3.4.18"
+    "@types/xrm": "^9.0.33"
   }
 }

@@ -16,47 +16,21 @@
     "url": "https://github.com/derekfinlinson/powerapps-tools"
   },
   "scripts": {
-    "build": "just-scripts build",
-    "just": "just-scripts",
-    "test": "just-scripts test"
+    "build": "tsc -p .",
+    "lint": "eslint",
+    "prebuild": "rimraf lib"
   },
   "dependencies": {
-    "envinfo": "^7.5.1",
-    "node-plop": "^0.26.0",
-    "prompts": "^2.3.2",
-    "yargs": "^16.0.3",
+    "envinfo": "^7.7.3",
+    "node-plop": "^0.26.2",
+    "prompts": "^2.4.0",
+    "yargs": "^16.2.0",
     "dataverse-webapi": "^1.0.0",
-    "just-scripts-utils": "^0.9.1"
+    "just-scripts-utils": "^1.1.1"
   },
   "devDependencies": {
-    "@types/node": "^14.0.5",
-    "@types/prompts": "^2.0.8",
-    "@typescript-eslint/eslint-plugin": "^3.0.0",
-    "@typescript-eslint/parser": "^3.0.0",
-    "eslint": "^7.1.0",
-    "jest": "^26.0.1",
-    "ts-jest": "^26.1.0",
-    "typescript": "^3.9.3"
-  },
-  "eslintConfig": {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/eslint-recommended",
-      "plugin:@typescript-eslint/recommended"
-    ],
-    "ignorePatterns": [
-      "webpack.config.js",
-      "just.config.js",
-      "plopfile.js",
-      "lib"
-    ]
-  },
-  "jest": {
-    "preset": "ts-jest"
+    "@types/node": "^14.14.21",
+    "@types/prompts": "^2.0.9",
+    "@types/yargs": "^15.0.12"
   }
 }
