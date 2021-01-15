@@ -2,6 +2,21 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Thu, 14 Jan 2021 23:48:11 GMT",
+      "tag": "powerapps-deploy_v0.4.1",
+      "version": "0.4.1",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Remove just-scripts",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "301670dc65d39bb33898219c90bd83526225cb28",
+            "package": "powerapps-deploy"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 14 Jan 2021 00:33:39 GMT",
       "tag": "powerapps-deploy_v0.4.0",
       "version": "0.4.0",

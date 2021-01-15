@@ -1,6 +1,6 @@
 {
   "name": "powerapps-deploy",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "license": "MIT",
   "main": "lib/index.js",
   "bin": {
@@ -23,7 +23,7 @@
     "adal-node": "^0.2.1",
     "envinfo": "^7.7.3",
     "prompts": "^2.4.0",
-    "dataverse-webapi": "^1.0.0",
+    "dataverse-webapi": "^1.0.1",
     "yargs": "^16.2.0",
     "just-scripts-utils": "^1.1.1"
   },

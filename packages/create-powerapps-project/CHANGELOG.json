@@ -2,6 +2,29 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Thu, 14 Jan 2021 23:48:11 GMT",
+      "tag": "create-powerapps-project_v0.10.0",
+      "version": "0.10.0",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Remove just-scripts",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "301670dc65d39bb33898219c90bd83526225cb28",
+            "package": "create-powerapps-project"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "Bump dataverse-webapi to v1.0.1",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "301670dc65d39bb33898219c90bd83526225cb28",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 14 Jan 2021 00:33:39 GMT",
       "tag": "create-powerapps-project_v0.9.0",
       "version": "0.9.0",
