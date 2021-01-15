@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Remove dependency",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
