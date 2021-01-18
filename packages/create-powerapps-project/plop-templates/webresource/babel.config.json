@@ -6,7 +6,9 @@
                 "modules": false,
                 "useBuiltIns": "usage",
                 "corejs": 3,
-                "targets": "defaults"
+                "targets": {
+                    "node": "current"
+                }
             }
         ],
         "@babel/preset-typescript"

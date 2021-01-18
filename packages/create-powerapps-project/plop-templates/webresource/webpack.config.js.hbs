@@ -12,7 +12,11 @@ module.exports = {
     library: ['{{namespace}}', '[name]'],
     path: path.resolve(__dirname, 'lib')
   },
-
+  
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+  
   module: {
     rules: [
       {
@@ -44,7 +48,7 @@ module.exports = {
           } else {
             const assets = Array.from(compilation.emittedAssets).map(asset => path.basename(asset));
 
-            spawn('npm', ['run', 'deploy', 'webresource', '-- --files=', assets.join(',')], { cwd: process.cwd(), stdio: 'inherit' });
+            spawn('npm', ['run', 'deploy', '-- --files=', assets.join(',')], { cwd: process.cwd(), stdio: 'inherit' });
           }
         }
       }
