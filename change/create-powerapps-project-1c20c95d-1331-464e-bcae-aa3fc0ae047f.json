@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Fix default webpack config",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
