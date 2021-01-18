@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Mon, 18 Jan 2021 20:48:31 GMT",
+      "tag": "create-powerapps-project_v0.10.2",
+      "version": "0.10.2",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Fix default webpack config",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "bfe73741c349f9999fffc0308267eca519d798d6",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 15 Jan 2021 21:17:38 GMT",
       "tag": "create-powerapps-project_v0.10.1",
       "version": "0.10.1",
