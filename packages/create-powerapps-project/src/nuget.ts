@@ -26,19 +26,17 @@ export const getNugetPackageVersions = (name: string): Promise<string[]> => {
   });
 };
 
-export const install = (project: string, sdkVersion?: string, xrmVersion?: string, addSln?: boolean): void => {
-  // Add solution if selected
-  if (addSln) {
-    spawnSync('dotnet', ['new', 'sln', '-n', project], {
-      cwd: process.cwd(),
-      stdio: 'inherit'
-    });
+export const install = (project: string, sdkVersion?: string, xrmVersion?: string): void => {
+  // Add solution
+  spawnSync('dotnet', ['new', 'sln', '-n', project], {
+    cwd: process.cwd(),
+    stdio: 'inherit'
+  });
 
-    spawnSync('dotnet', ['sln', 'add', `${project}.csproj`], {
-      cwd: process.cwd(),
-      stdio: 'inherit'
-    });
-  }
+  spawnSync('dotnet', ['sln', 'add', `${project}.csproj`], {
+    cwd: process.cwd(),
+    stdio: 'inherit'
+  });
 
   // Install nuget packages
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
