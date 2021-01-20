@@ -3,7 +3,7 @@ import glob from 'glob';
 import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity } from 'dataverse-webapi/lib/node';
 
 import { PluginType, deployType } from './pluginType';
-import { addToSolution, ComponentType } from '../powerapps.service';
+import { addToSolution, ComponentType } from '../dataverse.service';
 import { logger } from 'just-scripts-utils';
 
 export interface PluginAssembly extends Entity {

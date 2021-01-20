@@ -1,4 +1,4 @@
-import { addToSolution, ComponentType, publish } from '../powerapps.service';
+import { addToSolution, ComponentType, publish } from '../dataverse.service';
 import { retrieveMultiple, createWithReturnData, update, WebApiConfig, parseGuid } from 'dataverse-webapi/lib/node';
 import { logger } from 'just-scripts-utils';
 import fs from 'fs';

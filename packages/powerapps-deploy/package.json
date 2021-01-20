@@ -25,9 +25,13 @@
     "prompts": "^2.4.0",
     "dataverse-webapi": "^1.0.1",
     "yargs": "^16.2.0",
-    "just-scripts-utils": "^1.1.1"
+    "just-scripts-utils": "^1.1.1",
+    "crypter": "^0.2.2",
+    "os": "^0.1.1",
+    "electron": "^11.0.2"
   },
   "devDependencies": {
+    "@types/cryptr": "^4.0.1",
     "@types/node": "^14.14.21",
     "@types/prompts": "^2.0.9",
     "@types/yargs": "^15.0.12"

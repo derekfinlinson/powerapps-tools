@@ -1,5 +1,5 @@
 import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity } from 'dataverse-webapi/lib/node';
-import { addToSolution, ComponentType } from '../powerapps.service';
+import { addToSolution, ComponentType } from '../dataverse.service';
 import { logger } from 'just-scripts-utils';
 import { deployImage, PluginImage } from './pluginImage';
 

@@ -10,14 +10,9 @@ import { initialize } from './getEnvInfo';
 export interface Config {
   name: string;
   isolation: number,
-  username: string;
-  password: string;
-  clientId: string;
   tenant: string;
-  clientSecret: string;
   solution: string;
   server: string;
-  authType: string;
   xrmVersion?: string;
   sdkVersion?: string;
 }
@@ -123,48 +118,13 @@ async function getAnswers(type: string) {
     {
       type: 'text',
       name: 'server',
-      message: 'enter powerapps url (https://org.crm.dynamics.com):'
+      message: 'enter powerapps url (org.crm.dynamics.com):'
     },
     {
       type: 'text',
       name: 'tenant',
       message: 'enter azure ad tenant (org.onmicrosoft.com):',
       initial: 'common'
-    },
-    {
-      type: 'select',
-      name: 'authType',
-      message: 'select authentication method:',
-      choices: [
-        {
-          title: 'username/password',
-          value: 'user'
-        },
-        {
-          title: 'client id/client secret',
-          value: 'client'
-        }
-      ]
-    },
-    {
-      type: (prev, values) => values.authType === 'user' ? 'text' : null,
-      name: 'username',
-      message: 'enter powerapps username:'
-    },
-    {
-      type: (prev, values) => values.authType === 'user' ? 'password' : null,
-      name: 'password',
-      message: 'enter powerapps password:'
-    },
-    {
-      type: (prev, values) => values.authType === 'client' ? 'password' : null,
-      name: 'clientId',
-      message: 'enter client id:'
-    },
-    {
-      type: (prev, values) => values.authType === 'client' ? 'password' : null,
-      name: 'clientSecret',
-      message: 'enter client secret:'
     },
     {
       type: 'text',

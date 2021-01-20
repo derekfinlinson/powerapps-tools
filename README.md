@@ -12,6 +12,6 @@ Monorepo containing packages for PowerApps development projects
 | ----------------------------- | -------------------------------------------------------------------- |
 | [create-powerapps-project](packages/create-powerapps-project)      | Invoked by npm init powerapps-project, scaffolds projects            |
 | [powerapps-common](packages/powerapps-common)              | Library containing common JavaScript methods to use in web resources |
-| [powerapps-deploy](packages/powerapps-deploy)              | CLI to deploy powerapps projects                                     |
+| [powerapps-deploy](packages/powerapps-deploy)              | CLI to deploy dataverse projects                                     |
 | [powerapps-project-assembly](packages/powerapps-project-assembly)    | Plugin/Workflow Activity file templates using plop                               |
 | [powerapps-project-webresource](packages/powerapps-project-webresource) | Web resource file templates using plop                   |

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import glob from 'glob';
 import { PluginAssembly, deploy } from './models/pluginAssembly';
-import { DeployCredentials, authenticate } from './powerapps.service';
+import { DeployCredentials, getToken } from './dataverse.service';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
 import { logger } from 'just-scripts-utils';
 
@@ -26,9 +26,9 @@ export async function deployAssembly(): Promise<void> {
   let apiConfig: WebApiConfig;
 
   try {
-    const token = await authenticate(creds);
+    const token = await getToken(creds);
 
-    apiConfig = new WebApiConfig('8.2', token, creds.server);
+    apiConfig = new WebApiConfig('8.2', token, `https://${creds.server}`);
   } catch (error) {
     logger.error(`authentication failure: ${error}`);
     return;

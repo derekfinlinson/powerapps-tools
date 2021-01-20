@@ -1,4 +1,4 @@
-# powerapps-deploy
+# powerapps-project-webresource
 | NPM |
 | --- |
 | [![npm](https://img.shields.io/npm/v/powerapps-project-webresource.svg?style=flat-square)](https://www.npmjs.com/package/powerapps-project-webresource) |

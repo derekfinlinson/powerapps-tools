@@ -1,4 +1,4 @@
-# powerapps-deploy
+# powerapps-project-assembly
 | NPM |
 | --- |
 | [![npm](https://img.shields.io/npm/v/powerapps-project-assembly.svg?style=flat-square)](https://www.npmjs.com/package/powerapps-project-assembly) |

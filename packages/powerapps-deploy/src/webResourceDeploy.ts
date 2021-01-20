@@ -1,4 +1,4 @@
-import { authenticate, DeployCredentials } from './powerapps.service';
+import { getToken, DeployCredentials } from './dataverse.service';
 import path from 'path';
 import fs from 'fs';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
@@ -24,9 +24,9 @@ export async function deployWebResource(files?: string): Promise<void> {
   let apiConfig: WebApiConfig;
 
   try {
-    const token = await authenticate(creds);
+    const token = await getToken(creds);
 
-    apiConfig = new WebApiConfig('8.2', token, creds.server);
+    apiConfig = new WebApiConfig('8.2', token, `https://${creds.server}`);
   } catch (error) {
     logger.error(`authentication failure: ${error}`);
     return;

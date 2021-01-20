@@ -1,5 +1,5 @@
 import { command, CommandModule } from 'yargs';
-import deploy from './powerappsDeploy';
+import deploy from './dataverseDeploy';
 
 const options: CommandModule = {
   aliases: '*',
@@ -11,7 +11,9 @@ const options: CommandModule = {
     return yargs;
   },
   describe: 'Deploy powerapps project',
-  handler: deploy
+  handler: (argv) => {
+    deploy(argv);
+  }
 };
 
 command(options).help().argv;
