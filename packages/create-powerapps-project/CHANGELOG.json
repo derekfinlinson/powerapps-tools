@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 19 Jan 2021 16:29:25 GMT",
+      "tag": "create-powerapps-project_v0.10.3",
+      "version": "0.10.3",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Always add solution",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "4637d7510aac46de322158e3483df1baa67c8c9c",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 18 Jan 2021 20:48:31 GMT",
       "tag": "create-powerapps-project_v0.10.2",
       "version": "0.10.2",
