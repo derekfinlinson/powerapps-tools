@@ -1,5 +1,4 @@
 import { unboundAction, WebApiConfig } from 'dataverse-webapi/lib/node';
-import { getAccessToken } from './tokenCache';
 
 export enum ComponentType {
   WebResource = 61,
@@ -13,12 +12,6 @@ export interface DeployCredentials {
   server: string;
   tenant?: string;
   solution?: string;
-}
-
-export async function getToken(creds: DeployCredentials): Promise<string> {
-  const token = await getAccessToken(creds.server, creds.tenant);
-
-  return token.accessToken;
 }
 
 export async function addToSolution(id: string, solution: string, type: ComponentType, apiConfig: WebApiConfig): Promise<void> {

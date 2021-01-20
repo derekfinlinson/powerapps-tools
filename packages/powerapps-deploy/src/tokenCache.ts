@@ -25,16 +25,18 @@ function getCache(): TokenCache {
   return {};
 }
 
-function codeAuth(argEnvUrl: string, redirectUrl: string): Promise<unknown> {
+function getTokenWithAuthCode(argEnvUrl: string, redirectUrl: string): Promise<unknown> {
   const authorityHostUrl = 'https://login.windows.net/common';
   const server = argEnvUrl;
   const regex = /(?<=code=)[^&]*/gm;
   const codeMatch = regex.exec(redirectUrl);
+
   if (!codeMatch) throw new Error('Cannot find code in redirect');
 
   // eslint-disable-next-line @typescript-eslint/no-this-alias
   return new Promise((resolve, reject) => {
     const context = new AuthenticationContext(authorityHostUrl);
+
     context.acquireTokenWithAuthorizationCode(
       codeMatch[0],
       'app://58145B91-0C36-4500-8554-080854F2AC97',
@@ -64,7 +66,6 @@ async function authenticate(url: string, tenant: string): Promise<TokenResponse>
     const win = new BrowserWindow({
       width: 800,
       height: 600,
-      alwaysOnTop: true,
       autoHideMenuBar: true,
       titleBarStyle: 'hidden',
       webPreferences: {
@@ -89,7 +90,8 @@ async function authenticate(url: string, tenant: string): Promise<TokenResponse>
         // Stop the redirect to the app: endpoint
         event.preventDefault();
         loginComplete = true;
-        codeAuth(url, newUrl).then(
+
+        getTokenWithAuthCode(url, newUrl).then(
           (tokenResponse) => {
             const token = tokenResponse as TokenResponse;
             win.close();
@@ -144,6 +146,7 @@ export async function getAccessToken(url: string, tenant = 'common'): Promise<To
     const clientId = '51f81489-12ee-4a9e-aaae-a2591f45987d';
 
     if (!token.expiresOn) {
+      // Get initial token
       authenticate(url, tenant).then(authToken => {
         addTokenToCache(url, authToken);
         resolve(authToken);
