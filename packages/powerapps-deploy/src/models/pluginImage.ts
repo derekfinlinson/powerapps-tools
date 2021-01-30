@@ -7,16 +7,13 @@ export interface PluginImage extends Entity {
   attributes: string;
   imagetype: number;
   messagepropertyname: string;
-  stepId?: string;
   'sdkmessageprocessingstepid@odata.bind'?: string;
 }
 
-export async function deployImage(image: PluginImage, apiConfig: WebApiConfig): Promise<string> {
-  let imageId = await retrieveImage(image, apiConfig);
+export async function deployImage(stepId: string, image: PluginImage, apiConfig: WebApiConfig): Promise<string> {
+  let imageId = await retrieveImage(stepId, image, apiConfig);
 
-  delete image.stepId;
-
-  if (imageId != undefined) {
+  if (imageId != '') {
     try {
       await updateImage(imageId, image, apiConfig);
     } catch (error) {
@@ -33,8 +30,8 @@ export async function deployImage(image: PluginImage, apiConfig: WebApiConfig): 
   return imageId;
 }
 
-async function retrieveImage(image: PluginImage, apiConfig: WebApiConfig): Promise<string> {
-  const options = `$select=sdkmessageprocessingstepimageid&$filter=name eq '${image.name}' and _sdkmessageprocessingstepid_value eq ${image.stepId}`;
+async function retrieveImage(stepId: string, image: PluginImage, apiConfig: WebApiConfig): Promise<string> {
+  const options = `$select=sdkmessageprocessingstepimageid&$filter=name eq '${image.name}' and _sdkmessageprocessingstepid_value eq ${stepId}`;
 
   const result = await retrieveMultiple(apiConfig, 'sdkmessageprocessingstepimages', options);
 

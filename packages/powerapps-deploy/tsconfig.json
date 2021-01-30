@@ -6,6 +6,7 @@
     },
     "include": [
         "src/index.ts",
-        "src/deploy.ts"
+        "src/dataverse-deploy.ts",
+        "src/auth.ts"
     ]
 }

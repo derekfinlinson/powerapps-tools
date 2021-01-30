@@ -10,8 +10,8 @@ export enum ComponentType {
 
 export interface DeployCredentials {
   server: string;
-  tenant?: string;
-  solution?: string;
+  tenant: string;
+  solution: string;
 }
 
 export async function addToSolution(id: string, solution: string, type: ComponentType, apiConfig: WebApiConfig): Promise<void> {

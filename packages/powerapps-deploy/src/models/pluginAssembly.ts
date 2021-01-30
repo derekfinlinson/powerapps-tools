@@ -29,7 +29,7 @@ export async function deploy(config: PluginAssembly, apiConfig: WebApiConfig, so
 
   let assemblyId = await retrieveAssembly(config.name, apiConfig);
 
-  if (assemblyId != undefined) {
+  if (assemblyId != '') {
     try {
       await updateAssembly(assemblyId, config, content, apiConfig);
     } catch (error) {

@@ -1,42 +1,59 @@
-import { command, CommandModule } from 'yargs';
+import prompts from 'prompts';
+import fs from 'fs';
+import path from 'path';
+import { logger } from 'just-scripts-utils';
+import { deployAssembly } from './assemblyDeploy';
+import { deployWebResource } from './webResourceDeploy';
+import { DeployCredentials } from './dataverse.service';
+import { WebApiConfig } from 'dataverse-webapi/lib/node';
+import { getTokenFromCache } from './tokenCache';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const electron = require('electron');
-import proc from "child_process";
+export default async function deploy(type?: string, files?: string): Promise<void> {
+  if (!type || (type !== 'webresource' && type !== 'assembly')) {
+    const invalid = type !== undefined && type !== 'webresource' && type !== 'assembly';
 
-const options: CommandModule = {
-  aliases: '*',
-  command: 'deploy [type] [files]',
-  builder: yargs => {
-    yargs.option('type', { describe: 'Type of project to deploy', alias: ['t'] });
-    yargs.option('files', { describe: 'Comma separate list of files to deploy', alias: ['f'] });
+    const invalidMessage = invalid ? `${type} is not a valid project type.` : '';
 
-    return yargs;
-  },
-  describe: 'Deploy powerapps project',
-  handler: (argv) => {
-    const currentDir = __dirname;
-    const child = proc.spawn(electron, [currentDir + "/.", ...[argv.type as string, argv.files as string]], {
-      stdio: "inherit",
-      windowsHide: false,
+    const { typePrompt } = await prompts({
+      type: 'select',
+      name: 'typePrompt',
+      message: `${invalidMessage} Select project type to deploy`,
+      choices: [
+        { title: 'web resource', value: 'webresource' },
+        { title: 'plugin or workflow activity', value: 'assembly' }
+      ]
     });
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    child.on("close", function (code: any) {
-      process.exit(code);
-    });
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any,@typescript-eslint/explicit-function-return-type
-    const handleTerminationSignal = function (signal: any) {
-      process.on(signal, function signalHandler() {
-        if (!child.killed) {
-          child.kill(signal);
-        }
-      });
-    };
-
-    handleTerminationSignal("SIGINT");
-    handleTerminationSignal("SIGTERM");
+    type = typePrompt;
   }
-};
 
-command(options).help().argv;
+  const currentPath = '.';
+  const credsFile = fs.readFileSync(path.resolve(currentPath, 'creds.json'), 'utf8');
+
+  if (credsFile == null) {
+    logger.warn('unable to find creds.json file');
+    return;
+  }
+
+  const creds: DeployCredentials = JSON.parse(credsFile);
+
+  const token = getTokenFromCache(creds.server);
+
+  if (!token.accessToken) {
+    logger.error('use dataverse-deploy auth command to get access token before deploying');
+    return;
+  }
+
+  const apiConfig = new WebApiConfig('8.2', token.accessToken, `https://${creds.server}`);
+
+  switch (type) {
+    case 'webresource':
+      await deployWebResource(creds, apiConfig, files as string);
+      break;
+    case 'assembly':
+      await deployAssembly(creds, apiConfig);
+      break;
+    default:
+      break;
+  }
+}

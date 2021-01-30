@@ -22,7 +22,7 @@ export async function deployType(type: PluginType, apiConfig: WebApiConfig, solu
     workflowactivitygroupname: type.workflowactivitygroupname
   };
 
-  if (typeId != undefined) {
+  if (typeId != '') {
     try {
       await updateType(typeId, record, apiConfig);
     } catch (error) {

@@ -46,7 +46,7 @@ export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solu
   delete step.message;
   delete step.entity;
 
-  if (stepId != undefined) {
+  if (stepId != '') {
     try {
       await updateStep(stepId, step, apiConfig);
     } catch (error) {
@@ -72,7 +72,6 @@ export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solu
     if (images) {
       const promises = images.map(async image => {
         image['sdkmessageprocessingstepid@odata.bind'] = `/sdkmessageprocessingsteps(${stepId})`;
-        image.stepId = stepId;
 
         switch (message) {
           case 'Create':
@@ -92,7 +91,7 @@ export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solu
             break;
         }
 
-        await deployImage(image, apiConfig);
+        await deployImage(stepId, image, apiConfig);
       });
 
       await Promise.all(promises);
