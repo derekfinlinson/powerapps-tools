@@ -2,6 +2,21 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Sat, 30 Jan 2021 05:31:27 GMT",
+      "tag": "powerapps-deploy_v1.0.0",
+      "version": "1.0.0",
+      "comments": {
+        "major": [
+          {
+            "comment": "Switch auth to separate subcommand; Fix id comparison",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "c5d1085c73166d1b47bedc77afdf218e83c2bfe9",
+            "package": "powerapps-deploy"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 14 Jan 2021 23:48:11 GMT",
       "tag": "powerapps-deploy_v0.4.1",
       "version": "0.4.1",
