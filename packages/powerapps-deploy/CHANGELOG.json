@@ -2,6 +2,21 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Sat, 30 Jan 2021 05:39:34 GMT",
+      "tag": "powerapps-deploy_v1.0.1",
+      "version": "1.0.1",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Switch log",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "8e2b4661617f79ef11a70920d503263319b98116",
+            "package": "powerapps-deploy"
+          }
+        ]
+      }
+    },
+    {
       "date": "Sat, 30 Jan 2021 05:31:27 GMT",
       "tag": "powerapps-deploy_v1.0.0",
       "version": "1.0.0",
