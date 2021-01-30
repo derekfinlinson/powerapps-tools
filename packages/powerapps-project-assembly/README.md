@@ -3,7 +3,7 @@
 | --- |
 | [![npm](https://img.shields.io/npm/v/powerapps-project-assembly.svg?style=flat-square)](https://www.npmjs.com/package/powerapps-project-assembly) |
 
-Plop file generator for PowerApps (Dataverse) plugin/workflow activity projects
+Plop file generator for Dataverse plugin/workflow activity projects
 
 # Files
 

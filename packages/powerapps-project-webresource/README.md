@@ -3,7 +3,7 @@
 | --- |
 | [![npm](https://img.shields.io/npm/v/powerapps-project-webresource.svg?style=flat-square)](https://www.npmjs.com/package/powerapps-project-webresource) |
 
-Plop file generator for PowerApps (Dataverse) web resource projects
+Plop file generator for Dataverse web resource projects
 
 # Files
 
