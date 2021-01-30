@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Sat, 30 Jan 2021 05:31:27 GMT",
+      "tag": "create-powerapps-project_v0.11.0",
+      "version": "0.11.0",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Update deployment scripts; Refactor",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "c5d1085c73166d1b47bedc77afdf218e83c2bfe9",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 19 Jan 2021 16:29:25 GMT",
       "tag": "create-powerapps-project_v0.10.3",
       "version": "0.10.3",

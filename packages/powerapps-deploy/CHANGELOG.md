@@ -1,8 +1,16 @@
 # Change Log - powerapps-deploy
 
-This log was last generated on Thu, 14 Jan 2021 23:48:11 GMT and should not be manually modified.
+This log was last generated on Sat, 30 Jan 2021 05:31:27 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.0.0
+
+Sat, 30 Jan 2021 05:31:27 GMT
+
+### Major changes
+
+- Switch auth to separate subcommand; Fix id comparison (derek.finlinson@journeyteam.com)
 
 ## 0.4.1
 

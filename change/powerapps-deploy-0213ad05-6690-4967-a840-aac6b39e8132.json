@@ -1,7 +1,0 @@
-{
-  "type": "major",
-  "comment": "Switch auth to separate subcommand; Fix id comparison",
-  "packageName": "powerapps-deploy",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
