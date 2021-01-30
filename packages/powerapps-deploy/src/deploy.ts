@@ -44,7 +44,7 @@ export default async function deploy(type?: string, files?: string): Promise<voi
     return;
   }
 
-  const apiConfig = new WebApiConfig('8.2', token.accessToken, `https://${creds.server}`);
+  const apiConfig = new WebApiConfig('8.2', token.accessToken, creds.server);
 
   switch (type) {
     case 'webresource':
