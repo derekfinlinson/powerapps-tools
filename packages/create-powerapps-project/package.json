@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "bin": {
-    "create-powerapps-project": "bin/create-powerapps-project.js"
+    "create-powerapps-project": "lib/index.js"
   },
   "files": [
     "/lib",
@@ -21,10 +21,10 @@
     "prebuild": "rimraf lib"
   },
   "dependencies": {
+    "commander": "^7.0.0",
     "envinfo": "^7.7.3",
     "node-plop": "^0.26.2",
     "prompts": "^2.4.0",
-    "yargs": "^16.2.0",
     "just-scripts-utils": "^1.1.1"
   },
   "devDependencies": {

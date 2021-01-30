@@ -30,7 +30,7 @@ export default async function create(argv: yargs.Arguments): Promise<void> {
     const { type } = await prompts({
       type: 'select',
       name: 'type',
-      message: `${invalidMessage} Select powerapps project to create?`,
+      message: `${invalidMessage} Select dataverse project to create?`,
       choices: [
         { title: 'web resource', value: 'webresource' },
         { title: 'plugin or workflow activity', value: 'assembly' }
@@ -118,18 +118,17 @@ async function getAnswers(type: string) {
     {
       type: 'text',
       name: 'server',
-      message: 'enter powerapps url (org.crm.dynamics.com):'
+      message: 'enter dataverse url (https://org.crm.dynamics.com):'
     },
     {
       type: 'text',
       name: 'tenant',
-      message: 'enter azure ad tenant (org.onmicrosoft.com):',
-      initial: 'common'
+      message: 'enter azure ad tenant (org.onmicrosoft.com):'
     },
     {
       type: 'text',
       name: 'solution',
-      message: 'powerapps solution unique name:'
+      message: 'dataverse solution unique name:'
     }
   ];
 
@@ -142,7 +141,7 @@ function done(argv: yargs.Arguments) {
   
   ## Keeping Up-to-date
   keep your build tools up-to-date by updating these two devDependencies:
-  * powerapps-deploy
+  * dataverse-deploy
   * powerapps-project-${argv.type}
   ${argv.type === 'webresource' ? '* just-scripts' : ''}
   

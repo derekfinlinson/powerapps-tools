@@ -2,15 +2,15 @@ import nodePlop, { PlopGenerator } from 'node-plop';
 import path from 'path';
 import { logger } from 'just-scripts-utils';
 import yargs from 'yargs';
-import { Config } from './createPowerAppsProject';
+import { Config } from './createDataverseProject';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const getGenerator = (args: yargs.Arguments): PlopGenerator => {
+export const getGenerator = (argv: yargs.Arguments): PlopGenerator => {
   const plopFile = path.resolve(__dirname, 'plopfile.js');
 
-  const plop = nodePlop(plopFile, { destBasePath: args.destination as string, force: false })
+  const plop = nodePlop(plopFile, { destBasePath: argv.destination as string, force: false })
 
-  const generator = plop.getGenerator(args.type as string)
+  const generator = plop.getGenerator(argv.type as string)
 
   return generator;
 }

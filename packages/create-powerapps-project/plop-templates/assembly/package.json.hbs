@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "gen": "plop",
-    "deploy": "powerapps-deploy assembly"
+    "auth": "dataverse-deploy auth",
+    "deploy": "npm run auth && dataverse-deploy assembly"
   }
 }

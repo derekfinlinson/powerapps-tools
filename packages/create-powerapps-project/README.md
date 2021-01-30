@@ -3,7 +3,7 @@
 | --- |
 | [![npm](https://img.shields.io/npm/v/create-powerapps-project.svg?style=flat-square)](https://www.npmjs.com/package/create-powerapps-project) |
 
-Project generator for PowerApps development
+Project generator for Dataverse development
 
 # Generators
 

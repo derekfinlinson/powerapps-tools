@@ -6,6 +6,7 @@
     "build": "webpack --mode=production",
     "start": "webpack --mode=development --watch",
     "gen": "plop",
-    "deploy": "powerapps-deploy webresource"
+    "auth": "dataverse-deploy auth",
+    "deploy": "npm run auth && dataverse-deploy webresource"
   }
 }
