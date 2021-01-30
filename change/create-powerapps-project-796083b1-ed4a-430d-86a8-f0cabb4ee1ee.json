@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Update deployment scripts; Refactor",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
