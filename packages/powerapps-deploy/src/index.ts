@@ -108,8 +108,6 @@ export default async function getAccessToken(): Promise<void> {
     const token = getTokenFromCache(creds.server);
 
     if (!token.expiresOn) {
-      logger.info('Authenticate to retrieve token');
-
       // Get initial token
       authenticate(creds.server, creds.tenant).then(authToken => {
         addTokenToCache(creds.server, authToken);
@@ -122,8 +120,6 @@ export default async function getAccessToken(): Promise<void> {
       const hasTokenExpired = expiresInMinutes < 5;
 
       if (hasTokenExpired) {
-        logger.info('Get refresh token');
-
         const context = new AuthenticationContext(authorityHostUrl);
 
         // Get new token using refresh token
@@ -137,7 +133,6 @@ export default async function getAccessToken(): Promise<void> {
           }
         });
       } else {
-        logger.info('Retrieved existing token');
         // Use current token
         resolve();
       }
