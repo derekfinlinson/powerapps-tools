@@ -1,8 +1,16 @@
 # Change Log - powerapps-deploy
 
-This log was last generated on Sat, 30 Jan 2021 17:24:13 GMT and should not be manually modified.
+This log was last generated on Mon, 01 Feb 2021 17:20:22 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.0.3
+
+Mon, 01 Feb 2021 17:20:22 GMT
+
+### Patches
+
+- Fix package dependencies (derek.finlinson@journeyteam.com)
 
 ## 1.0.2
 
