@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { command, CommandModule } from 'yargs';
 import create from './createDataverseProject';
 
