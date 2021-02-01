@@ -392,7 +392,7 @@ module.exports = function (plop) {
                 path: 'EntityExtensions/{{schema}}.cs',
                 skipIfExists: true,
                 skip: (data) => {
-                    if (!data.entity) {
+                    if (!data.entity || data.entity === 'none') {
                         return 'no entity entered';
                     } else {
                         return;
@@ -464,7 +464,7 @@ module.exports = function (plop) {
                 path: 'EntityExtensions/{{schema}}.cs',
                 skipIfExists: true,
                 skip: (data) => {
-                    if (!data.entity) {
+                    if (!data.entity || data.entity === 'none') {
                         return 'no entity entered';
                     } else {
                         return;
