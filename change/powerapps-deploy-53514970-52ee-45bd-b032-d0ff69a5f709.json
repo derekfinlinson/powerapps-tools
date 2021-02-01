@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Remove logging",
-  "packageName": "powerapps-deploy",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
