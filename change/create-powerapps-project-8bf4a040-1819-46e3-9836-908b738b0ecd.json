@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix scripts",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
