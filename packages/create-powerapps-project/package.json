@@ -21,11 +21,11 @@
     "prebuild": "rimraf lib"
   },
   "dependencies": {
-    "commander": "^7.0.0",
     "envinfo": "^7.7.3",
     "node-plop": "^0.26.2",
     "prompts": "^2.4.0",
-    "just-scripts-utils": "^1.1.1"
+    "just-scripts-utils": "^1.1.1",
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.21",
