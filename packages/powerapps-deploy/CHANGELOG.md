@@ -1,8 +1,16 @@
 # Change Log - powerapps-deploy
 
-This log was last generated on Sat, 30 Jan 2021 05:39:34 GMT and should not be manually modified.
+This log was last generated on Sat, 30 Jan 2021 17:24:13 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.0.2
+
+Sat, 30 Jan 2021 17:24:13 GMT
+
+### Patches
+
+- Fix double https (derek.finlinson@journeyteam.com)
 
 ## 1.0.1
 
