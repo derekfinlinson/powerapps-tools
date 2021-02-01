@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Skip extension if entity is none",
-  "packageName": "powerapps-project-assembly",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

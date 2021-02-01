@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Mon, 01 Feb 2021 17:41:38 GMT",
+      "tag": "powerapps-project-assembly_v0.3.9",
+      "version": "0.3.9",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Skip extension if entity is none",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "8365bd700ccf3b8fef18b11cae5f8afee68d9161",
+            "package": "powerapps-project-assembly"
+          }
+        ]
+      }
+    },
+    {
       "date": "Sat, 30 Jan 2021 05:31:27 GMT",
       "tag": "powerapps-project-assembly_v0.3.8",
       "version": "0.3.8",
