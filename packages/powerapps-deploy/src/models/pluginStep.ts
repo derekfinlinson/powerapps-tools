@@ -14,6 +14,7 @@ export interface PluginStep extends Entity {
   supporteddeployment: number;
   message?: string;
   entity?: string;
+  asyncautodelete?: boolean;
   'plugintypeid@odata.bind'?: string;
   'sdkmessagefilterid@odata.bind'?: string;
   'sdkmessageid@odata.bind'?: string;
@@ -39,6 +40,10 @@ export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solu
   step['sdkmessagefilterid@odata.bind'] = `/sdkmessagefilters(${filterId})`;
   step['sdkmessageid@odata.bind'] = `/sdkmessages(${messageId})`;
 
+  if (step.mode === 1) {
+    step.asyncautodelete = true;
+  }
+  
   const images = step.images;
   const message = step.message;
 
