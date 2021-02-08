@@ -2,6 +2,21 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Mon, 08 Feb 2021 20:50:30 GMT",
+      "tag": "powerapps-deploy_v1.0.5",
+      "version": "1.0.5",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Auto delete aync plugin step logs",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "8e72db0ebefcc5fcac87db24cf25216f011c8acc",
+            "package": "powerapps-deploy"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 01 Feb 2021 18:29:11 GMT",
       "tag": "powerapps-deploy_v1.0.4",
       "version": "1.0.4",
