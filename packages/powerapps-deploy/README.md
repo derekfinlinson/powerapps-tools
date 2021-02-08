@@ -18,7 +18,7 @@ dataverse-deploy auth
 Deployment configuration is stored in config.json.
 
 ```sh
-dataverse-deploy webresource
+dataverse-deploy deploy webresource
 
-dataverse-deploy assembly
+dataverse-deploy deploy assembly
 ```

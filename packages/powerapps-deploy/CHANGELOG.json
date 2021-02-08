@@ -2,6 +2,21 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Mon, 01 Feb 2021 18:29:11 GMT",
+      "tag": "powerapps-deploy_v1.0.4",
+      "version": "1.0.4",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Remove logging",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "455e3a1e38cb09aa2c56f889360ec096e5312063",
+            "package": "powerapps-deploy"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 01 Feb 2021 17:20:22 GMT",
       "tag": "powerapps-deploy_v1.0.3",
       "version": "1.0.3",
