@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Auto delete aync plugin step logs",
+  "packageName": "powerapps-deploy",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
