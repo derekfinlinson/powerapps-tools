@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Mon, 01 Feb 2021 18:27:32 GMT and should not be manually modified.
+This log was last generated on Fri, 12 Feb 2021 17:05:15 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.11.4
+
+Fri, 12 Feb 2021 17:05:15 GMT
+
+### Patches
+
+- Use assets if emittedAssets is empty (derek.finlinson@journeyteam.com)
 
 ## 0.11.3
 
