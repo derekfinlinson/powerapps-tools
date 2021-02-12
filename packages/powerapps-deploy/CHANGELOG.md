@@ -1,8 +1,16 @@
 # Change Log - powerapps-deploy
 
-This log was last generated on Mon, 01 Feb 2021 18:29:11 GMT and should not be manually modified.
+This log was last generated on Mon, 08 Feb 2021 20:50:30 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.0.5
+
+Mon, 08 Feb 2021 20:50:30 GMT
+
+### Patches
+
+- Auto delete aync plugin step logs (derek.finlinson@journeyteam.com)
 
 ## 1.0.4
 
