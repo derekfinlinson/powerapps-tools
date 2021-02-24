@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Wed, 24 Feb 2021 19:32:58 GMT",
+      "tag": "powerapps-project-assembly_v0.4.0",
+      "version": "0.4.0",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add support for custom API plugins",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "48a01e000a99ec5751a07e41cab2d892a7257efa",
+            "package": "powerapps-project-assembly"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 01 Feb 2021 17:41:38 GMT",
       "tag": "powerapps-project-assembly_v0.3.9",
       "version": "0.3.9",

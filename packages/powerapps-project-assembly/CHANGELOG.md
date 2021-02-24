@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Mon, 01 Feb 2021 17:41:38 GMT and should not be manually modified.
+This log was last generated on Wed, 24 Feb 2021 19:32:58 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.4.0
+
+Wed, 24 Feb 2021 19:32:58 GMT
+
+### Minor changes
+
+- Add support for custom API plugins (derek.finlinson@journeyteam.com)
 
 ## 0.3.9
 
