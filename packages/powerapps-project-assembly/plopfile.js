@@ -39,44 +39,50 @@ module.exports = function (plop) {
         {
             type: 'input',
             name: 'name',
-            message: 'plugin step name'
+            message: 'plugin step name',
+            when: (answers) => answers.customApi !== true
         },
         {
             type: 'input',
             name: 'message',
-            message: 'message (Create, Update, etc)'
+            message: 'message (Create, Update, etc)',
+            when: (answers) => answers.customApi !== true
         },
         {
             type: 'input',
             name: 'filteringattributes',
             message: 'filtering attributes as comma separated list:',
-            when: (answers) => answers.message === 'Update'
+            when: (answers) => answers.message === 'Update' && answers.customApi !== true
         },
         {
             type: 'input',
             name: 'entity',
-            message: 'entity logical name (use \'none\' if not for a specific entity)'
+            message: 'entity logical name (use \'none\' if not for a specific entity)',
+            when: (answers) => answers.customApi !== true
         },
         {
             type: 'input',
             name: 'schema',
             message: 'entity schema name',
-            when: (answers) => answers.entity !== 'none'
+            when: (answers) => answers.entity !== 'none' && answers.customApi !== true
         },
         {
             type: 'input',
             name: 'secure',
-            message: 'secure configuration'
+            message: 'secure configuration',
+            when: (answers) => answers.customApi !== true
         },
         {
             type: 'input',
             name: 'unsecure',
-            message: 'unsecure configuration'
+            message: 'unsecure configuration',
+            when: (answers) => answers.customApi !== true
         },
         {
             type: 'input',
             name: 'description',
-            message: 'description'
+            message: 'description',
+            when: (answers) => answers.customApi !== true
         },
         {
             type: 'list',
@@ -91,13 +97,15 @@ module.exports = function (plop) {
                     name: 'asynchronous',
                     value: 1
                 }
-            ]
+            ],
+            when: (answers) => answers.customApi !== true
         },
         {
             type: 'number',
             name: 'rank',
             message: 'step rank',
-            default: 1
+            default: 1,
+            when: (answers) => answers.customApi !== true
         },
         {
             type: 'list',
@@ -116,7 +124,8 @@ module.exports = function (plop) {
                     name: 'post-operation',
                     value: 40
                 }
-            ]
+            ],
+            when: (answers) => answers.customApi !== true
         },
         {
             type: 'list',
@@ -136,13 +145,15 @@ module.exports = function (plop) {
                     name: 'both',
                     value: 2
                 }
-            ]
+            ],
+            when: (answers) => answers.customApi !== true
         },
         {
             type: 'confirm',
             name: 'addImage',
             message: 'include pre/post image',
-            default: false
+            default: false,
+            when: (answers) => answers.customApi !== true
         }
     ];
 
@@ -165,19 +176,19 @@ module.exports = function (plop) {
                     value: 2
                 }
             ],
-            when: (answers) => answers.addImage === undefined || answers.addImage === true
+            when: (answers) => answers.addImage === undefined || answers.addImage === true && answers.customApi !== true
         },
         {
             type: 'input',
             name: 'entityalias',
             message: 'name',
-            when: (answers) => answers.addImage === undefined || answers.addImage === true
+            when: (answers) => answers.addImage === undefined || answers.addImage === true && answers.customApi !== true
         },
         {
             type: 'input',
             name: 'imageattributes',
             message: 'comma separated list of attributes',
-            when: (answers) => answers.addImage === undefined || answers.addImage === true
+            when: (answers) => answers.addImage === undefined || answers.addImage === true && answers.customApi !== true
         }
     ];
 
@@ -372,6 +383,12 @@ module.exports = function (plop) {
                 type: 'input',
                 name: 'filename',
                 message: 'plugin class name'
+            },
+            {
+                type: 'confirm',
+                name: 'customApi',
+                message: 'plugin for custom api',
+                default: false
             },
             ...stepPrompts,
             ...imagePrompts
