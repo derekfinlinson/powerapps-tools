@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Fri, 12 Feb 2021 17:05:15 GMT",
+      "tag": "create-powerapps-project_v0.11.4",
+      "version": "0.11.4",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Use assets if emittedAssets is empty",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "0f7a23877faeb25c639f62af4c105d9d4b031675",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 01 Feb 2021 18:27:32 GMT",
       "tag": "create-powerapps-project_v0.11.3",
       "version": "0.11.3",
