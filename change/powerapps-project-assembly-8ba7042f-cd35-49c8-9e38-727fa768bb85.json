@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Hide prompts on custom API",
-  "packageName": "powerapps-project-assembly",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Wed, 24 Feb 2021 19:40:39 GMT",
+      "tag": "powerapps-project-assembly_v0.4.1",
+      "version": "0.4.1",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Hide prompts on custom API",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "a9cbde62eb750c0b6d804945cdaca0b26c09f73b",
+            "package": "powerapps-project-assembly"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 24 Feb 2021 19:32:58 GMT",
       "tag": "powerapps-project-assembly_v0.4.0",
       "version": "0.4.0",
