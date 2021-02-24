@@ -8,6 +8,7 @@ Plop file generator for Dataverse plugin/workflow activity projects
 # Files
 
 * Plugin class
+* Plugin class for Custom API
 * Plugin step
 * Plugin image
 
