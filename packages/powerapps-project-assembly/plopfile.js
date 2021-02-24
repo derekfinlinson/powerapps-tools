@@ -197,17 +197,19 @@ module.exports = function (plop) {
 
         switch (answers.stage) {
             case 10:
-                answers.operation = 'PreValidation'
+                answers.operation = 'PreValidation';
                 break;
             case 20:
-                answers.operation = 'PreOperation'
+                answers.operation = 'PreOperation';
                 break;
             case 40:
-                answers.operation = 'PostOperation'
+                answers.operation = 'PostOperation';
                 break;
+            default:
+                answers.operation = 'MainOperation';
         }
 
-        answers.stepMode = answers.mode === 0 ? 'Synchronous' : 'Asynchronous'
+        answers.stepMode = answers.customApi === true ? 'CustomAPI' : answers.mode === 0 ? 'Synchronous' : 'Asynchronous'
     });
 
     plop.setActionType('addToConfig', (answers, _config, plop) => {
@@ -389,6 +391,12 @@ module.exports = function (plop) {
                 name: 'customApi',
                 message: 'plugin for custom api',
                 default: false
+            },
+            {
+                type: 'input',
+                name: 'message',
+                message: 'custom api name',
+                when: (answers) => answers.customApi === true
             },
             ...stepPrompts,
             ...imagePrompts
