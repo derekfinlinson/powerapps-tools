@@ -176,19 +176,19 @@ module.exports = function (plop) {
                     value: 2
                 }
             ],
-            when: (answers) => answers.addImage === undefined || answers.addImage === true && answers.customApi !== true
+            when: (answers) => (answers.addImage === undefined || answers.addImage === true) && answers.customApi !== true
         },
         {
             type: 'input',
             name: 'entityalias',
             message: 'name',
-            when: (answers) => answers.addImage === undefined || answers.addImage === true && answers.customApi !== true
+            when: (answers) => (answers.addImage === undefined || answers.addImage === true) && answers.customApi !== true
         },
         {
             type: 'input',
             name: 'imageattributes',
             message: 'comma separated list of attributes',
-            when: (answers) => answers.addImage === undefined || answers.addImage === true && answers.customApi !== true
+            when: (answers) => (answers.addImage === undefined || answers.addImage === true) && answers.customApi !== true
         }
     ];
 
