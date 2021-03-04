@@ -282,6 +282,6 @@ export function addOnSave(form: Xrm.FormContext, event: Xrm.Events.ContextSensit
  * @param entity Entity
  * @param field Field
  */
-export function getFormattedValue(entity: never, field: string): string {
+export function getFormattedValue(entity: Record<string, string>, field: string): string {
   return entity[`${field}@OData.Community.Display.V1.FormattedValue`];
 }
