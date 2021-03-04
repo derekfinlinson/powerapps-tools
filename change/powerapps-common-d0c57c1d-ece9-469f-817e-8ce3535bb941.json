@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Switch type",
+  "packageName": "powerapps-common",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
