@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Wed, 24 Feb 2021 20:35:04 GMT",
+      "tag": "powerapps-project-assembly_v0.4.2",
+      "version": "0.4.2",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Add MainOperation for Custom API",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "ee4613daa1165c41df47f27bc162fbbe51b1ac87",
+            "package": "powerapps-project-assembly"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 24 Feb 2021 19:40:39 GMT",
       "tag": "powerapps-project-assembly_v0.4.1",
       "version": "0.4.1",
