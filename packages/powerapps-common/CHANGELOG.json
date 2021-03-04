@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Thu, 04 Mar 2021 23:24:02 GMT",
+      "tag": "powerapps-common_v1.1.4",
+      "version": "1.1.4",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Switch type",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "b81cd4ecdf8689914cb2dc3b2c883f95226f4428",
+            "package": "powerapps-common"
+          }
+        ]
+      }
+    },
+    {
       "date": "Sat, 30 Jan 2021 05:31:27 GMT",
       "tag": "powerapps-common_v1.1.3",
       "version": "1.1.3",
