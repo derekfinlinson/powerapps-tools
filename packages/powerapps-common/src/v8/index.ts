@@ -4,7 +4,7 @@
  * @param requiredLevel Requirement level
  */
 export function setFieldRequirementLevel(fieldName: string, requiredLevel: Xrm.Page.RequirementLevel): boolean {
-  const field = Xrm.Page.getAttribute<Xrm.Page.Attribute>(fieldName.toLowerCase());
+  const field = Xrm.Page.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field == null) {
     return false;
@@ -21,7 +21,7 @@ export function setFieldRequirementLevel(fieldName: string, requiredLevel: Xrm.P
  * @param visible Visible
  */
 export function setControlVisibility(controlName: string, allControls: boolean, visible: boolean): boolean {
-  const control = Xrm.Page.getControl<Xrm.Page.StandardControl>(controlName.toLowerCase());
+  const control = Xrm.Page.getControl<Xrm.Controls.StandardControl>(controlName.toLowerCase());
 
   if (control == null) {
     return false;
@@ -44,7 +44,7 @@ export function setControlVisibility(controlName: string, allControls: boolean, 
  * @param label Label for control
  */
 export function setControlLabel(controlName: string, label: string): boolean {
-  const control = Xrm.Page.getControl<Xrm.Page.StandardControl>(controlName.toLowerCase());
+  const control = Xrm.Page.getControl<Xrm.Controls.StandardControl>(controlName.toLowerCase());
 
   if (control == null) {
     return false;
@@ -61,8 +61,8 @@ export function setControlLabel(controlName: string, label: string): boolean {
  * @param value Default value
  * @param fireOnChange Fire field on change event
  */
-export function setDefaultValue(fieldName: string, value: any, fireOnChange?: boolean): boolean {
-  const field = Xrm.Page.getAttribute<Xrm.Page.Attribute>(fieldName.toLowerCase());
+export function setDefaultValue(fieldName: string, value: never, fireOnChange?: boolean): boolean {
+  const field = Xrm.Page.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field == null || field.getValue() != null) {
     return false;
@@ -84,8 +84,7 @@ export function setDefaultValue(fieldName: string, value: any, fireOnChange?: bo
  * @param uniqueId Unique Id for the message
  * @param timeout Timeout before clearing the notififcation
  */
-export function addFormNotification(message: string, level: Xrm.Page.ui.FormNotificationLevel,
-  uniqueId: string, timeout: number = 10000): boolean {
+export function addFormNotification(message: string, level: XrmEnum.FormNotificationLevel, uniqueId: string, timeout = 10000): boolean {
   Xrm.Page.ui.setFormNotification(message, level, uniqueId);
 
   setTimeout(() => {
@@ -102,7 +101,7 @@ export function addFormNotification(message: string, level: Xrm.Page.ui.FormNoti
  * @param event Event to fire
  */
 export function addOnChange(fieldName: string, fireOnChange: boolean, event: Xrm.Page.ContextSensitiveHandler): boolean {
-  const field = Xrm.Page.getAttribute<Xrm.Page.Attribute>(fieldName.toLowerCase());
+  const field = Xrm.Page.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field === null || field === undefined) {
     return false;
@@ -123,7 +122,7 @@ export function addOnChange(fieldName: string, fireOnChange: boolean, event: Xrm
  * @param event Event to fire
  */
 export function removeOnChange(fieldName: string, event: Xrm.Page.ContextSensitiveHandler): boolean {
-  const field = Xrm.Page.getAttribute<Xrm.Page.Attribute>(fieldName.toLowerCase());
+  const field = Xrm.Page.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field === null || field === undefined) {
     return false;
@@ -140,8 +139,8 @@ export function removeOnChange(fieldName: string, event: Xrm.Page.ContextSensiti
  * @param value Value
  * @param fireOnChange Fire field on change event
  */
-export function setValue(fieldName: string, value: any, fireOnChange?: boolean): boolean {
-  const field = Xrm.Page.getAttribute<Xrm.Page.Attribute>(fieldName.toLowerCase());
+export function setValue(fieldName: string, value: never, fireOnChange?: boolean): boolean {
+  const field = Xrm.Page.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field == null) {
     return false;
@@ -161,7 +160,7 @@ export function setValue(fieldName: string, value: any, fireOnChange?: boolean):
  * @param fieldName Name of field
  */
 export function fieldContainsData(fieldName: string): boolean {
-  const field = Xrm.Page.getAttribute<Xrm.Page.Attribute>(fieldName.toLowerCase());
+  const field = Xrm.Page.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   return field != null && field.getValue() != null;
 }
@@ -172,7 +171,7 @@ export function fieldContainsData(fieldName: string): boolean {
  * @param disabled Disable or enable field
  */
 export function setDisabled(fieldName: string, allControls: boolean, disabled: boolean): boolean {
-  const control = Xrm.Page.getControl<Xrm.Page.StandardControl>(fieldName.toLowerCase());
+  const control = Xrm.Page.getControl<Xrm.Controls.StandardControl>(fieldName.toLowerCase());
 
   if (control == null) {
     return false;
@@ -195,7 +194,7 @@ export function setDisabled(fieldName: string, allControls: boolean, disabled: b
  * @param handler Handler for presearch
  */
 export function addPreSearch(fieldName: string, handler: Xrm.Events.ContextSensitiveHandler): boolean {
-  const field = Xrm.Page.getAttribute<Xrm.Page.LookupAttribute>(fieldName.toLowerCase());
+  const field = Xrm.Page.getAttribute<Xrm.Attributes.LookupAttribute>(fieldName.toLowerCase());
 
   if (field == null) {
     return false;
@@ -212,7 +211,7 @@ export function addPreSearch(fieldName: string, handler: Xrm.Events.ContextSensi
  * Navigate to different form
  * @param label Label of form to navigate to
  */
-export function navigateToForm(label: string) {
+export function navigateToForm(label: string): void {
   const current = Xrm.Page.ui.formSelector.getCurrentItem();
 
   if (current.getLabel() !== label) {
@@ -230,7 +229,7 @@ export function navigateToForm(label: string) {
  * @param attributeFilter Logical name of the attribute to filter on
  * @param values Values for the filter
  */
-export function addLookupFilter(lookupAttribute: string, attributeFilter: string, values: any[]): boolean {
+export function addLookupFilter(lookupAttribute: string, attributeFilter: string, values: never[]): boolean {
   if (values.length === 0) {
     return false;
   }
