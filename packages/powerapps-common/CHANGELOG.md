@@ -1,8 +1,16 @@
 # Change Log - powerapps-common
 
-This log was last generated on Thu, 14 Jan 2021 23:48:11 GMT and should not be manually modified.
+This log was last generated on Thu, 04 Mar 2021 23:24:02 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.1.4
+
+Thu, 04 Mar 2021 23:24:02 GMT
+
+### Patches
+
+- Switch type (derek.finlinson@journeyteam.com)
 
 ## 1.1.3
 
