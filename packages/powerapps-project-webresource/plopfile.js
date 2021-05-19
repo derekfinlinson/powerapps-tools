@@ -4,9 +4,9 @@ const fs = require('fs');
 module.exports = function (plop) {
     plop.setActionType('addToConfig', function (answers, config, plop) {
         const destinationPath = plop.getDestBasePath();
-        const configPath = path.resolve(destinationPath, 'config.json');
+        const configPath = path.resolve(destinationPath, 'dataverse.config.json');
 
-        // Update config.json
+        // Update dataverse.config.json
         if (fs.existsSync(configPath)) {
             const file = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
@@ -32,7 +32,7 @@ module.exports = function (plop) {
 
                 fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
 
-                return 'added to config.json';
+                return 'added to dataverse.config.json';
             } else {
                 const filename = `${answers.entity}${config.scriptType}`;
 
@@ -51,10 +51,10 @@ module.exports = function (plop) {
 
                 fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
 
-                return 'added to config.json';
+                return 'added to dataverse.config.json';
             }
         } else {
-            return `no config.json found at ${destinationPath}`;
+            return `no dataverse.config.json found at ${destinationPath}`;
         }
     });
 

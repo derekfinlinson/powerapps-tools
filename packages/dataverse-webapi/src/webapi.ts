@@ -29,7 +29,9 @@ export function getHeaders(config: WebApiRequestConfig): Record<string, string> 
 }
 
 function getPreferHeader(queryOptions: QueryOptions): string {
-  const prefer: string[] = [];
+  const prefer: string[] = [
+    'odata.include-annotations="*"'
+  ];
 
   // add max page size to prefer request header
   if (queryOptions.maxPageSize) {
@@ -39,20 +41,6 @@ function getPreferHeader(queryOptions: QueryOptions): string {
   // add formatted values to prefer request header
   if (queryOptions.representation) {
     prefer.push('return=representation');
-  } else if (queryOptions.includeFormattedValues && queryOptions.includeLookupLogicalNames &&
-    queryOptions.includeAssociatedNavigationProperties) {
-    prefer.push('odata.include-annotations="*"');
-  } else {
-    const preferExtra: string = [
-      queryOptions.includeFormattedValues ? 'OData.Community.Display.V1.FormattedValue' : '',
-      queryOptions.includeLookupLogicalNames ? 'Microsoft.Dynamics.CRM.lookuplogicalname' : '',
-      queryOptions.includeAssociatedNavigationProperties
-        ? 'Microsoft.Dynamics.CRM.associatednavigationproperty' : '',
-    ].filter((v) => {
-      return v !== '';
-    }).join(',');
-
-    prefer.push('odata.include-annotations="' + preferExtra + '"');
   }
 
   return prefer.join(',');
@@ -85,7 +73,7 @@ function getFunctionInputs(queryString: string, inputs?: FunctionInput[]): strin
   return queryString;
 }
 
-function handleError(result: any): unknown {
+function handleError(result: string): unknown {
   try {
     return JSON.parse(result).error;
   } catch (e) {

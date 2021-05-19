@@ -22,7 +22,7 @@ function submitRequest(requestConfig: WebApiRequestConfig, callback: RequestCall
   };
 
   if (requestConfig.body) {
-    options.headers['Content-Length'] = requestConfig.body.length;
+    options.headers['Content-Length'] = requestConfig.body.length.toString();
   }
 
   const req = request(options,

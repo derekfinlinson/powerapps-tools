@@ -28,14 +28,14 @@ export default async function deploy(type?: string, files?: string): Promise<voi
   }
 
   const currentPath = '.';
-  const credsFile = fs.readFileSync(path.resolve(currentPath, 'creds.json'), 'utf8');
+  const credsFile = fs.readFileSync(path.resolve(currentPath, 'dataverse.config.json'), 'utf8');
 
   if (credsFile == null) {
-    logger.warn('unable to find creds.json file');
+    logger.warn('unable to find dataverse.config.json file');
     return;
   }
 
-  const creds: DeployCredentials = JSON.parse(credsFile);
+  const creds: DeployCredentials = JSON.parse(credsFile).connection;
 
   const token = getTokenFromCache(creds.server);
 

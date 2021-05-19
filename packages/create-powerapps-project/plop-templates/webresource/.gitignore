@@ -39,8 +39,5 @@ jspm_packages
 # VSCode
 .vscode
 
-# creds.json
-creds.json
-
 # lib folder
 lib/

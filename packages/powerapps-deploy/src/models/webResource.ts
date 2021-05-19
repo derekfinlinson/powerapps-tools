@@ -57,7 +57,7 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
         const resource = webResources.filter(r => r.path?.endsWith(file));
 
         if (resource.length === 0) {
-          logger.error(`web resource ${file} not found in config.json`);
+          logger.error(`web resource ${file} not found in dataverse.config.json`);
         } else {
           resources.push(resource[0]);
         }

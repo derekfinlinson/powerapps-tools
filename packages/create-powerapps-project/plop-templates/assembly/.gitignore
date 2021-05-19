@@ -359,6 +359,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-creds.json
-
 node_modules

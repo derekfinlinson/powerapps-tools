@@ -34,7 +34,7 @@ export interface WebApiRequestResult {
 export interface WebApiRequestConfig {
   method: string;
   contentType: string;
-  body?: any;
+  body?: string;
   queryString: string;
   apiConfig: WebApiConfig;
   queryOptions?: QueryOptions;
@@ -79,9 +79,6 @@ export function areGuidsEqual(id1: string, id2: string): boolean {
 }
 
 export interface QueryOptions {
-  includeFormattedValues?: boolean;
-  includeLookupLogicalNames?: boolean;
-  includeAssociatedNavigationProperties?: boolean;
   maxPageSize?: number;
   impersonateUserId?: string;
   representation?: boolean;

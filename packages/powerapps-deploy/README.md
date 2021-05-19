@@ -7,7 +7,7 @@ Deploy components to Dataverse environments
 
 # Acquire authorization token
 
-Authentication information is stored in creds.json.
+Connection information is stored in dataverse.config.json.
 
 ```sh
 dataverse-deploy auth
@@ -15,7 +15,7 @@ dataverse-deploy auth
 
 # Deploy
 
-Deployment configuration is stored in config.json.
+Deployment configuration is stored in dataverse.config.json.
 
 ```sh
 dataverse-deploy deploy webresource

@@ -19,7 +19,7 @@ module.exports = function (plop) {
 
     const getSteps = () => {
         const destinationPath = plop.getDestBasePath();
-        const configPath = path.resolve(destinationPath, 'config.json');
+        const configPath = path.resolve(destinationPath, 'dataverse.config.json');
 
         if (fs.existsSync(configPath)) {
             const file = JSON.parse(fs.readFileSync(configPath, 'utf8'));
@@ -214,9 +214,9 @@ module.exports = function (plop) {
 
     plop.setActionType('addToConfig', (answers, _config, plop) => {
         const destinationPath = plop.getDestBasePath();
-        const configPath = path.resolve(destinationPath, 'config.json');
+        const configPath = path.resolve(destinationPath, 'dataverse.config.json');
 
-        // Check if config.json exists
+        // Check if dataverse.config.json exists
         if (fs.existsSync(configPath)) {
             const file = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
@@ -267,20 +267,20 @@ module.exports = function (plop) {
 
             file.types.push(type);
 
-            // Update config.json
+            // Update dataverse.config.json
             fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
 
-            return 'added to config.json';
+            return 'added to dataverse.config.json';
         } else {
-            return `no config.json found at ${destinationPath}`;
+            return `no dataverse.config.json found at ${destinationPath}`;
         }
     });
 
     plop.setActionType('addStepConfig', (answers, _config, plop) => {
         const destinationPath = plop.getDestBasePath();
-        const configPath = path.resolve(destinationPath, 'config.json');
+        const configPath = path.resolve(destinationPath, 'dataverse.config.json');
 
-        // Get config.json if it exists
+        // Get dataverse.config.json if it exists
         if (fs.existsSync(configPath)) {
             const file = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
@@ -329,17 +329,17 @@ module.exports = function (plop) {
 
             // Update file
             fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
-            return 'added to config.json';
+            return 'added to dataverse.config.json';
         } else {
-            return `no config.json found at ${destinationPath}`;
+            return `no dataverse.config.json found at ${destinationPath}`;
         }
     });
 
     plop.setActionType('addImage', (answers, _config, plop) => {
         const destinationPath = plop.getDestBasePath();
-        const configPath = path.resolve(destinationPath, 'config.json');
+        const configPath = path.resolve(destinationPath, 'dataverse.config.json');
 
-        // Get config.json if it exists
+        // Get dataverse.config.json if it exists
         if (fs.existsSync(configPath)) {
             const file = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
@@ -373,9 +373,9 @@ module.exports = function (plop) {
 
             // Update file
             fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
-            return 'added to config.json';
+            return 'added to dataverse.config.json';
         } else {
-            return `no config.json found at ${destinationPath}`;
+            return `no dataverse.config.json found at ${destinationPath}`;
         }
     });
 

@@ -96,13 +96,13 @@ async function authenticate(url: string, tenant: string): Promise<TokenResponse>
 
 export default async function getAccessToken(): Promise<void> {
   const currentPath = '.';
-  const credsFile = fs.readFileSync(path.resolve(currentPath, 'creds.json'), 'utf8');
+  const credsFile = fs.readFileSync(path.resolve(currentPath, 'dataverse.config.json'), 'utf8');
 
   if (credsFile == null) {
-    throw new Error('unable to find creds.json file');
+    throw new Error('unable to find dataverse.config.json file');
   }
 
-  const creds: DeployCredentials = JSON.parse(credsFile);
+  const creds: DeployCredentials = JSON.parse(credsFile).connection;
 
   return new Promise<void>((resolve, reject) => {
     const token = getTokenFromCache(creds.server);
