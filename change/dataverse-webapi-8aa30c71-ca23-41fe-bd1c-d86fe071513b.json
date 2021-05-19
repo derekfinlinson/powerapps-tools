@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Prevent other package managers",
+  "packageName": "dataverse-webapi",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}

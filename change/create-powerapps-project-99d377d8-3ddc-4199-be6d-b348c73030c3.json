@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Merge creds with config.json",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
