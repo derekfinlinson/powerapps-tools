@@ -12,15 +12,16 @@ module.exports = function (plop) {
 
             if (config.resourceType === 'HTML') {
                 if (file.webResources != null) {
+                    // where does filename come from?                    
                     file.webResources.push(
                         {
-                            path: `./lib/${filename}.html`,
+                            path: `./lib/${answers.entries.filename}.html`,
                             name: answers.name,
                             displayname: answers.displayName,
                             type: config.resourceType
                         },
                         {
-                            path: `./lib/${filename}.js`,
+                            path: `./lib/${answers.entries.filename}.js`,
                             name: answers.name,
                             displayname: `${answers.displayName} Script`,
                             type: 'JavaScript'
