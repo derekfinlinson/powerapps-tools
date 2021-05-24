@@ -1,8 +1,16 @@
 # Change Log - dataverse-webapi
 
-This log was last generated on Thu, 14 Jan 2021 23:48:11 GMT and should not be manually modified.
+This log was last generated on Mon, 24 May 2021 16:33:16 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.1.0
+
+Mon, 24 May 2021 16:33:16 GMT
+
+### Minor changes
+
+- Prevent other package managers (derek.finlinson@journeyteam.com)
 
 ## 1.0.1
 

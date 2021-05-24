@@ -2,6 +2,21 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Mon, 24 May 2021 16:33:16 GMT",
+      "tag": "dataverse-webapi_v1.1.0",
+      "version": "1.1.0",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Prevent other package managers",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "b364856a9a9ddc2b252a6d3135217eb2d1bb8ead",
+            "package": "dataverse-webapi"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 14 Jan 2021 23:48:11 GMT",
       "tag": "dataverse-webapi_v1.0.1",
       "version": "1.0.1",

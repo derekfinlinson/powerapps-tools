@@ -1,7 +1,0 @@
-{
-  "type": "major",
-  "comment": "Merge creds with config.json",
-  "packageName": "powerapps-project-webresource",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Mon, 24 May 2021 16:33:16 GMT",
+      "tag": "powerapps-common_v1.1.4",
+      "version": "1.1.4",
+      "comments": {
+        "none": [
+          {
+            "comment": "Switch to pnpm; eslint fixes",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "2404a452804b09e648ea4f8d5683bdcc13ed7656",
+            "package": "powerapps-common"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 04 Mar 2021 23:24:02 GMT",
       "tag": "powerapps-common_v1.1.4",
       "version": "1.1.4",
