@@ -20,16 +20,19 @@ steps:
     env: 
       github.pat: $(github.pat)
   - script: |
-      yarn
-    displayName: 'yarn'
+      npm install -g pnpm
+    displayName: 'install pnpm'
   - script: |
-      yarn check
+      pnpm install
+    displayName: 'run pnpm'
+  - script: |
+      pnpm check
     displayName: 'check change files'
   - script: |
-      yarn build
+      pnpm build
     displayName: 'build'
   - script: |
-      yarn publish:beachball -n $(npm.authtoken) -y
+      pnpm publish:beachball -n $(npm.authtoken) -y
     displayName: 'beachball publish'
     env:
       npm.authtoken: $(npm.authtoken)
