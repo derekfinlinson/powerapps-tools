@@ -26,9 +26,6 @@ steps:
       pnpm install
     displayName: 'run pnpm'
   - script: |
-      pnpm check
-    displayName: 'check change files'
-  - script: |
       pnpm build
     displayName: 'build'
   - script: |
