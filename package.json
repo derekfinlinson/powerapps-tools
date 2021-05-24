@@ -18,7 +18,7 @@
   "scripts": {
     "build": "pnpm build -r --stream",
     "change": "beachball change",
-    "publish:beachball": "beachball publish",
+    "publish:beachball": "beachball publish -n $(npm.authtoken) -y",
     "preinstall": "npx only-allow pnpm -y"
   }
 }
