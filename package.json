@@ -19,6 +19,7 @@
     "build": "pnpm build -r --stream",
     "change": "beachball change",
     "publish:beachball": "beachball publish -n $(npm.authtoken) -y",
+    "publich:manual": "beachball publish",
     "preinstall": "npx only-allow pnpm -y"
   }
 }
