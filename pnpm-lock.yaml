@@ -61,7 +61,7 @@ importers:
       adal-node: ^0.2.1
       commander: ^7.0.0
       cryptr: ^6.0.2
-      dataverse-webapi: ^1.0.1
+      dataverse-webapi: ^1.1.0
       electron: ^11.2.1
       envinfo: ^7.7.3
       just-scripts-utils: ^1.1.1
