@@ -2,6 +2,29 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Mon, 24 May 2021 16:33:16 GMT",
+      "tag": "powerapps-deploy_v2.0.0",
+      "version": "2.0.0",
+      "comments": {
+        "major": [
+          {
+            "comment": "Merge creds with config.json",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "b364856a9a9ddc2b252a6d3135217eb2d1bb8ead",
+            "package": "powerapps-deploy"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "Bump dataverse-webapi to v1.1.0",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "b364856a9a9ddc2b252a6d3135217eb2d1bb8ead",
+            "package": "powerapps-deploy"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 08 Feb 2021 20:50:30 GMT",
       "tag": "powerapps-deploy_v1.0.5",
       "version": "1.0.5",

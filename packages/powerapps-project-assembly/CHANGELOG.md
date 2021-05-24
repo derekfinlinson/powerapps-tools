@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Wed, 24 Feb 2021 20:35:04 GMT and should not be manually modified.
+This log was last generated on Mon, 24 May 2021 16:33:16 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.0.0
+
+Mon, 24 May 2021 16:33:16 GMT
+
+### Major changes
+
+- Merge creds with config.json (derek.finlinson@journeyteam.com)
 
 ## 0.4.2
 

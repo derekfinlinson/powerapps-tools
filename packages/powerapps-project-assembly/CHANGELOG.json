@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Mon, 24 May 2021 16:33:16 GMT",
+      "tag": "powerapps-project-assembly_v1.0.0",
+      "version": "1.0.0",
+      "comments": {
+        "major": [
+          {
+            "comment": "Merge creds with config.json",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "b364856a9a9ddc2b252a6d3135217eb2d1bb8ead",
+            "package": "powerapps-project-assembly"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 24 Feb 2021 20:35:04 GMT",
       "tag": "powerapps-project-assembly_v0.4.2",
       "version": "0.4.2",

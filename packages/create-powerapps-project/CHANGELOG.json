@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Mon, 24 May 2021 16:33:16 GMT",
+      "tag": "create-powerapps-project_v0.12.0",
+      "version": "0.12.0",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Merge creds with config.json",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "b364856a9a9ddc2b252a6d3135217eb2d1bb8ead",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 12 Feb 2021 17:05:15 GMT",
       "tag": "create-powerapps-project_v0.11.4",
       "version": "0.11.4",

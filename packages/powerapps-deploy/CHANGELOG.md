@@ -1,8 +1,20 @@
 # Change Log - powerapps-deploy
 
-This log was last generated on Mon, 08 Feb 2021 20:50:30 GMT and should not be manually modified.
+This log was last generated on Mon, 24 May 2021 16:33:16 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.0
+
+Mon, 24 May 2021 16:33:16 GMT
+
+### Major changes
+
+- Merge creds with config.json (derek.finlinson@journeyteam.com)
+
+### Patches
+
+- Bump dataverse-webapi to v1.1.0 (derek.finlinson@journeyteam.com)
 
 ## 1.0.5
 

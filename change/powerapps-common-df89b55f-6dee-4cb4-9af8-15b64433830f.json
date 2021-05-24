@@ -1,7 +1,0 @@
-{
-  "type": "none",
-  "comment": "Switch to pnpm; eslint fixes",
-  "packageName": "powerapps-common",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "none"
-}

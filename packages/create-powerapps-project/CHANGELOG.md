@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Fri, 12 Feb 2021 17:05:15 GMT and should not be manually modified.
+This log was last generated on Mon, 24 May 2021 16:33:16 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.12.0
+
+Mon, 24 May 2021 16:33:16 GMT
+
+### Minor changes
+
+- Merge creds with config.json (derek.finlinson@journeyteam.com)
 
 ## 0.11.4
 
