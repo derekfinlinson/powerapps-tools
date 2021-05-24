@@ -15,13 +15,13 @@ module.exports = function (plop) {
                     // where does filename come from?                    
                     file.webResources.push(
                         {
-                            path: `./lib/${answers.entries.filename}.html`,
+                            path: `./lib/${answers.filename}.html`,
                             name: answers.name,
                             displayname: answers.displayName,
                             type: config.resourceType
                         },
                         {
-                            path: `./lib/${answers.entries.filename}.js`,
+                            path: `./lib/${answers.filename}.js`,
                             name: answers.name,
                             displayname: `${answers.displayName} Script`,
                             type: 'JavaScript'
@@ -205,7 +205,7 @@ module.exports = function (plop) {
         prompts: [
             {
                 type: 'text',
-                name: 'entity',
+                name: 'filename',
                 message: 'filename'
             },
             {
