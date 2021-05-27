@@ -2,6 +2,21 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Thu, 27 May 2021 16:00:50 GMT",
+      "tag": "powerapps-deploy_v2.0.2",
+      "version": "2.0.2",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Force new version",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "b1c93fe941348381e03d3ec706a323d9cd315747",
+            "package": "powerapps-deploy"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 27 May 2021 15:48:22 GMT",
       "tag": "powerapps-deploy_v2.0.1",
       "version": "2.0.1",
