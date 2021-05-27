@@ -14,7 +14,7 @@ export async function deployAssembly(creds: DeployCredentials, apiConfig: WebApi
     return;
   }
 
-  const config: PluginAssembly = JSON.parse(configFile).connection;
+  const config: PluginAssembly = JSON.parse(configFile);
 
   logger.info('deploy assembly');
 
