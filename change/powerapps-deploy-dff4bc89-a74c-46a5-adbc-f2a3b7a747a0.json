@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix assembly deploy",
-  "packageName": "powerapps-deploy",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
