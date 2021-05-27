@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "adal-node": "^0.2.1",
-    "envinfo": "^7.7.3",
+    "envinfo": "^7.8.1",
     "prompts": "^2.4.0",
     "dataverse-webapi": "^1.1.0",
     "commander": "^7.0.0",
