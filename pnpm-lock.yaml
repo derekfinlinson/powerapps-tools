@@ -20,10 +20,11 @@ importers:
 
   packages/create-powerapps-project:
     specifiers:
+      '@types/envinfo': ^7.8.0
       '@types/node': ^14.14.21
       '@types/prompts': ^2.0.9
       '@types/yargs': ^15.0.12
-      envinfo: ^7.7.3
+      envinfo: ^7.8.1
       just-scripts-utils: ^1.1.1
       node-plop: ^0.26.2
       prompts: ^2.4.0
@@ -35,6 +36,7 @@ importers:
       prompts: 2.4.1
       yargs: 16.2.0
     devDependencies:
+      '@types/envinfo': 7.8.0
       '@types/node': 14.14.37
       '@types/prompts': 2.0.10
       '@types/yargs': 15.0.13
@@ -252,6 +254,10 @@ packages:
 
   /@types/cryptr/4.0.1:
     resolution: {integrity: sha512-Nn8fvr+8XYWK5h422lj4xQACfOg6vdhKI+Rh9ERa5Mg0cZvPL9Vn3845vSY07dNZnEs5cqkSNVMdhmf70lAYkA==}
+    dev: true
+
+  /@types/envinfo/7.8.0:
+    resolution: {integrity: sha512-fdAvLTkPpzLKGB49/UIozXNSOd31ubfn8nkVfr7uw+pKXIE/88zHNxKVfGJPZ5QHurHhD7aQLC+RiOUSwxXSmw==}
     dev: true
 
   /@types/fined/1.1.2:

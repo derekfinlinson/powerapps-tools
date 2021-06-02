@@ -125,7 +125,8 @@ export default async function getAccessToken(): Promise<void> {
         // Get new token using refresh token
         context.acquireTokenWithRefreshToken(token.refreshToken as string, clientId, creds.server, (err, tokenResponse) => {
           if (err) {
-            reject(err);
+            addTokenToCache(creds.server, {} as TokenResponse);
+            reject('Failed to acquire new token from refresh token. Token cache has been cleared and you must reauthenticate');
           } else {
             const newToken = tokenResponse as TokenResponse;
             addTokenToCache(creds.server, newToken);
@@ -143,10 +144,11 @@ export default async function getAccessToken(): Promise<void> {
 async function main() {
   try {
     await getAccessToken();
-    app.exit();
   } catch (ex) {
     logger.error(ex);
   }
+
+  app.exit();
 }
 
 main();
