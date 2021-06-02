@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Clear token cache if refresh token fails",
-  "packageName": "powerapps-deploy",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

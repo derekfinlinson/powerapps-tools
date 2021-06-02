@@ -1,8 +1,16 @@
 # Change Log - powerapps-deploy
 
-This log was last generated on Thu, 27 May 2021 16:00:50 GMT and should not be manually modified.
+This log was last generated on Wed, 02 Jun 2021 16:21:14 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.3
+
+Wed, 02 Jun 2021 16:21:14 GMT
+
+### Patches
+
+- Clear token cache if refresh token fails (derek.finlinson@journeyteam.com)
 
 ## 2.0.2
 
