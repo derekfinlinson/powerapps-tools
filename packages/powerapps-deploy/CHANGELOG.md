@@ -1,8 +1,16 @@
 # Change Log - powerapps-deploy
 
-This log was last generated on Wed, 02 Jun 2021 16:21:14 GMT and should not be manually modified.
+This log was last generated on Tue, 08 Jun 2021 03:58:22 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.4
+
+Tue, 08 Jun 2021 03:58:22 GMT
+
+### Patches
+
+- Move guid methods to powerapps-common (derek.finlinson@journeyteam.com)
 
 ## 2.0.3
 

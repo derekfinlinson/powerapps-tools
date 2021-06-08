@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Move guid methods to powerapps-common",
-  "packageName": "powerapps-deploy",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
