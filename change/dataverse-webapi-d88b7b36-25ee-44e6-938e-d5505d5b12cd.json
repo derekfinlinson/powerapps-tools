@@ -1,0 +1,7 @@
+{
+  "type": "major",
+  "comment": "Move guid methods to powerapps-common",
+  "packageName": "dataverse-webapi",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
