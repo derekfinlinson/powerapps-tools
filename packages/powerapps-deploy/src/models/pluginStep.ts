@@ -43,7 +43,7 @@ export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solu
   if (step.mode === 1) {
     step.asyncautodelete = true;
   }
-  
+
   const images = step.images;
   const message = step.message;
 
@@ -73,36 +73,14 @@ export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solu
     }
   }
 
-  try {
-    if (images) {
-      const promises = images.map(async image => {
-        image['sdkmessageprocessingstepid@odata.bind'] = `/sdkmessageprocessingsteps(${stepId})`;
-
-        switch (message) {
-          case 'Create':
-            image.messagepropertyname = 'Id';
-            break;
-          case 'SetState':
-          case 'SetStateDynamicEntity':
-            image.messagepropertyname = 'EntityMoniker';
-            break;
-          case 'Send':
-          case 'DeliverIncoming':
-          case 'DeliverPromote':
-            image.messagepropertyname = 'EmailId';
-            break;
-          default:
-            image.messagepropertyname = 'Target';
-            break;
-        }
-
-        await deployImage(stepId, image, apiConfig);
-      });
+  if (images) {
+    try {
+      const promises = images.map(image => deployImage(stepId, image, message, apiConfig));
 
       await Promise.all(promises);
+    } catch (error) {
+      throw new Error(error.message);
     }
-  } catch (error) {
-    throw new Error(error.message);
   }
 
   return stepId;

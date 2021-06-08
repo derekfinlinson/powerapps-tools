@@ -10,7 +10,27 @@ export interface PluginImage extends Entity {
   'sdkmessageprocessingstepid@odata.bind'?: string;
 }
 
-export async function deployImage(stepId: string, image: PluginImage, apiConfig: WebApiConfig): Promise<string> {
+export async function deployImage(stepId: string, image: PluginImage, message: string | undefined, apiConfig: WebApiConfig): Promise<string> {
+  image['sdkmessageprocessingstepid@odata.bind'] = `/sdkmessageprocessingsteps(${stepId})`;
+
+  switch (message) {
+    case 'Create':
+      image.messagepropertyname = 'Id';
+      break;
+    case 'SetState':
+    case 'SetStateDynamicEntity':
+      image.messagepropertyname = 'EntityMoniker';
+      break;
+    case 'Send':
+    case 'DeliverIncoming':
+    case 'DeliverPromote':
+      image.messagepropertyname = 'EmailId';
+      break;
+    default:
+      image.messagepropertyname = 'Target';
+      break;
+  }
+
   let imageId = await retrieveImage(stepId, image, apiConfig);
 
   if (imageId != '') {

@@ -1,5 +1,4 @@
-﻿/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable @typescript-eslint/no-explicit-any */
+﻿/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import {
   associate,
@@ -11,8 +10,6 @@ import {
   deleteProperty,
   deleteRecord,
   disassociate,
-  FunctionInput,
-  parseGuid,
   retrieve,
   retrieveMultiple,
   retrieveMultipleNextPage,
@@ -31,7 +28,7 @@ const account: any = {
 
 create(config, 'accounts', account)
   .then(() => {
-    console.log();
+    // do something
   }, (error) => {
     console.log(error);
   });
@@ -43,8 +40,8 @@ createWithReturnData(config, 'accounts', account, '$select=name,accountid')
   });
 
 // demonstrate retrieve
-retrieve(config, 'accounts', parseGuid('00000000-0000-0000-0000-000000000000'), '$select=name')
-  .then((retrieved) => {
+retrieve(config, 'accounts', '00000000-0000-0000-0000-000000000000', '$select=name')
+  .then((retrieved: any) => {
     console.log(retrieved.data.name);
   }, (error) => {
     console.log(error);
@@ -76,45 +73,59 @@ retrieveMultiple(config, 'accounts', options)
   );
 
 // demonstrate update. Update returns no content
-update(config, 'accounts', parseGuid('00000000-0000-0000-0000-000000000000'), account)
-  .then(() => { }, (error) => {
+update(config, 'accounts', '00000000-0000-0000-0000-000000000000', account)
+  .then(() => {
+    // do something
+  }, (error) => {
     console.log(error);
   });
 
 // demonstrate update property. Update property returns no content
-updateProperty(config, 'accounts', parseGuid('00000000-0000-0000-0000-000000000000'), 'name', 'Updated Account')
-  .then(() => { }, (error) => {
+updateProperty(config, 'accounts', '00000000-0000-0000-0000-000000000000', 'name', 'Updated Account')
+  .then(() => {
+    // do something
+  }, (error) => {
     console.log(error);
   });
 
 // demonstrate delete. Delete returns no content
-deleteRecord(config, 'accounts', parseGuid('00000000-0000-0000-0000-000000000000'))
-  .then(() => { }, (error) => {
+deleteRecord(config, 'accounts', '00000000-0000-0000-0000-000000000000')
+  .then(() => {
+    // do something
+  }, (error) => {
     console.log(error);
   });
 
 // demonstrate delete property. Delete property returns no content
-deleteProperty(config, 'accounts', parseGuid('00000000-0000-0000-0000-000000000000'), 'address1_line1')
-  .then(() => { }, (error) => {
+deleteProperty(config, 'accounts', '00000000-0000-0000-0000-000000000000', 'address1_line1')
+  .then(() => {
+    // do something
+  }, (error) => {
     console.log(error);
   });
 
 // demonstrate delete navigation property. Delete property returns no content
-deleteProperty(config, 'accounts', parseGuid('00000000-0000-0000-0000-000000000000'), 'primarycontactid')
-  .then(() => { }, (error) => {
+deleteProperty(config, 'accounts', '00000000-0000-0000-0000-000000000000', 'primarycontactid')
+  .then(() => {
+    // do something
+  }, (error) => {
     console.log(error);
   });
 
 // demonstrate associate. Associate returns no content
-associate(config, 'accounts', parseGuid('00000000-0000-0000-0000-000000000000'),
-  'contact_customer_accounts', 'contacts', parseGuid('00000000-0000-0000-0000-000000000000'))
-  .then(() => { }, (error) => {
+associate(config, 'accounts', '00000000-0000-0000-0000-000000000000',
+  'contact_customer_accounts', 'contacts', '00000000-0000-0000-0000-000000000000')
+  .then(() => {
+    // do something
+  }, (error) => {
     console.log(error);
   });
 
 // demonstrate disassociate. Disassociate returns no content
-disassociate(config, 'accounts', parseGuid('00000000-0000-0000-0000-000000000000'), 'contact_customer_accounts')
-  .then(() => { }, (error) => {
+disassociate(config, 'accounts', '00000000-0000-0000-0000-000000000000', 'contact_customer_accounts')
+  .then(() => {
+    // do something
+  }, (error) => {
     console.log(error);
   });
 
@@ -124,7 +135,7 @@ const inputs = {
   StringInput: 'Text',
 };
 
-boundAction(config, 'accounts', parseGuid('00000000-0000-0000-0000-000000000000'), 'sample_BoundAction', inputs)
+boundAction(config, 'accounts', '00000000-0000-0000-0000-000000000000', 'sample_BoundAction', inputs)
   .then((result: any) => {
     console.log(result.annotationid);
   }, (error) => {
@@ -139,14 +150,12 @@ unboundAction(config, 'sample_UnboundAction', inputs)
   });
 
 // demonstrate bound function
-const inputs3: FunctionInput[] = [];
-
-inputs3.push({
+const inputs3 = {
   name: 'Argument',
   value: 'Value',
-});
+};
 
-boundAction(config, 'accounts', parseGuid('00000000-0000-0000-0000-000000000000'), 'sample_BoundFunction', inputs3)
+boundAction(config, 'accounts', '00000000-0000-0000-0000-000000000000', 'sample_BoundFunction', inputs3)
   .then((result: any) => {
     console.log(result.annotationid);
   }, (error) => {
@@ -154,13 +163,11 @@ boundAction(config, 'accounts', parseGuid('00000000-0000-0000-0000-000000000000'
   });
 
 // demonstrate create. Custom action - Add note to account
-const inputs4: FunctionInput[] = [];
-
-inputs4.push({
+const inputs4 = {
   alias: 'tid',
   name: 'Target',
   value: '{\'@odata.id\':\'accounts(87989176-0887-45D1-93DA-4D5F228C10E6)\'}',
-});
+};
 
 unboundAction(config, 'sample_UnboundAction', inputs4)
   .then((result: any) => {

@@ -18,7 +18,6 @@ function getWebResourceType(type: string): number {
       return 1;
     case 'CSS':
       return 2;
-    default:
     case 'JavaScript':
       return 3;
     case 'XML':
@@ -39,6 +38,8 @@ function getWebResourceType(type: string): number {
       return 11;
     case 'RESX':
       return 12;
+    default:
+      return 0;
   }
 }
 
@@ -51,17 +52,16 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
   if (files) {
     resources = [];
 
-    files
-      .split(',')
-      .forEach(file => {
-        const resource = webResources.filter(r => r.path?.endsWith(file));
+    for (const file of files.split(',')) {
+      const resource = webResources.filter(r => r.path?.endsWith(file));
 
-        if (resource.length === 0) {
-          logger.error(`web resource ${file} not found in dataverse.config.json`);
-        } else {
-          resources.push(resource[0]);
-        }
-      });
+      if (resource.length === 0) {
+        logger.error(`web resource ${file} not found in dataverse.config.json`);
+        continue;
+      }
+
+      resources.push(resource[0]);
+    }
   }
 
   const promises = resources.map(async resource => {
@@ -103,7 +103,6 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
       await publish(publishXml.join(''), apiConfig);
     } catch (error) {
       logger.error(error.message);
-      return;
     }
   }
 }

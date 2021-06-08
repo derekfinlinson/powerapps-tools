@@ -285,3 +285,41 @@ export function addOnSave(form: Xrm.FormContext, event: Xrm.Events.ContextSensit
 export function getFormattedValue(entity: Record<string, string>, field: string): string {
   return entity[`${field}@OData.Community.Display.V1.FormattedValue`];
 }
+
+/**
+ * Parse GUID by removing curly braces and converting to uppercase
+ * @param id GUID to parse
+ */
+export function parseGuid(id: string): string {
+  if (id === null || id === 'undefined' || id === '') {
+    return '';
+  }
+
+  id = id.replace(/[{}]/g, '');
+
+  if (/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(id)) {
+    return id.toUpperCase();
+  } else {
+    throw Error(`Id ${id} is not a valid GUID`);
+  }
+}
+
+/**
+ * Check if two GUIDs are equal
+ * @param id1 GUID 1
+ * @param id2 GUID 2
+ */
+export function areGuidsEqual(id1: string, id2: string): boolean {
+  try {
+    id1 = parseGuid(id1);
+    id2 = parseGuid(id2);
+
+    if (id1 === null || id2 === null || id1 === undefined || id2 === undefined || id1 === '' || id2 === '') {
+      return false;
+    }
+
+    return id1.toLowerCase() === id2.toLowerCase();
+  } catch (ex) {
+    return false;
+  }
+}
