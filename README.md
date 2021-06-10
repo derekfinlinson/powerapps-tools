@@ -2,7 +2,7 @@
 
 | Build |
 | ----- |
-| [![Build Status](https://dev.azure.com/derekfinlinson/GitHub/_apis/build/status/derekfinlinson.powerapps-tools?branchName=master)](https://dev.azure.com/derekfinlinson/GitHub/_build/latest?definitionId=9&branchName=master) |
+| [![Build Status](https://dev.azure.com/derekfinlinson/powerapps-tools/_apis/build/status/derekfinlinson.powerapps-tools?branchName=master)](https://dev.azure.com/derekfinlinson/powerapps-tools/_build/latest?definitionId=10&branchName=master) |
 
 Monorepo containing packages for Dataverse development projects
 
