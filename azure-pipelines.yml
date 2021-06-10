@@ -29,7 +29,7 @@ steps:
       pnpm build
     displayName: 'build'
   - script: |
-      npm publish:beachball
+      npm run publish:beachball
     displayName: 'beachball publish'
     env:
       npm.authtoken: $(npm.authtoken)
