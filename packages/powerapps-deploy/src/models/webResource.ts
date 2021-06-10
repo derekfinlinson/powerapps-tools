@@ -1,5 +1,5 @@
 import { addToSolution, ComponentType, publish } from '../dataverse.service';
-import { retrieveMultiple, createWithReturnData, update, WebApiConfig, parseGuid } from 'dataverse-webapi/lib/node';
+import { retrieveMultiple, createWithReturnData, update, WebApiConfig } from 'dataverse-webapi/lib/node';
 import { logger } from 'just-scripts-utils';
 import fs from 'fs';
 
@@ -137,7 +137,7 @@ async function updateResource(id: string, resource: WebResource, content: string
     content: content
   };
 
-  await update(apiConfig, 'webresourceset', parseGuid(id), webResource);
+  await update(apiConfig, 'webresourceset', id, webResource);
 
   return `<webresource>{${id}}</webresource>`;
 }
