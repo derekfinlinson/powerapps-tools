@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Remove parseGuid",
-  "packageName": "powerapps-deploy",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

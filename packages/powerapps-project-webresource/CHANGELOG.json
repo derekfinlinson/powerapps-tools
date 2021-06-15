@@ -2,6 +2,21 @@
   "name": "powerapps-project-webresource",
   "entries": [
     {
+      "date": "Tue, 15 Jun 2021 22:23:33 GMT",
+      "tag": "powerapps-project-webresource_v1.0.1",
+      "version": "1.0.1",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Remove logical from filename",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "e691fe8a98b26f58c6f5423af660a11e9c8b2e12",
+            "package": "powerapps-project-webresource"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 24 May 2021 16:33:16 GMT",
       "tag": "powerapps-project-webresource_v1.0.0",
       "version": "1.0.0",
