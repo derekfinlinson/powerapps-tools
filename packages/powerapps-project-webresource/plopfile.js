@@ -64,7 +64,7 @@ module.exports = function (plop) {
             {
                 type: 'text',
                 name: 'entity',
-                message: 'entity logical name'
+                message: 'entity name'
             },
             {
                 type: 'text',
@@ -135,7 +135,7 @@ module.exports = function (plop) {
             {
                 type: 'text',
                 name: 'entity',
-                message: 'entity logical name'
+                message: 'entity name'
             },
             {
                 type: 'text',
