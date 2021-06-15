@@ -139,6 +139,11 @@ module.exports = function (plop) {
             },
             {
                 type: 'text',
+                name: 'function',
+                message: 'function name'
+            },
+            {
+                type: 'text',
                 name: 'name',
                 message: 'script unique name (including solution prefix)'
             },
