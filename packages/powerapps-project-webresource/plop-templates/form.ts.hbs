@@ -1,5 +1,7 @@
-import {} from './entities/{{entity}}';
+import { onLoad } from './entities/{{entity}}';
 
 export function onLoad(context: Xrm.Events.EventContext): void {
-    
+  const form = context.getFormContext();
+
+  onLoad(form);
 }
