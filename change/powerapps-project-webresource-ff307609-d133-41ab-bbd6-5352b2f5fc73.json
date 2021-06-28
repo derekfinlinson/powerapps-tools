@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Prompt for function name",
-  "packageName": "powerapps-project-webresource",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
