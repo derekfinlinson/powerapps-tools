@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-webresource
 
-This log was last generated on Tue, 15 Jun 2021 22:23:33 GMT and should not be manually modified.
+This log was last generated on Mon, 28 Jun 2021 20:38:16 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.0.4
+
+Mon, 28 Jun 2021 20:38:16 GMT
+
+### Patches
+
+- Update package versions (derek.finlinson@journeyteam.com)
 
 ## 1.0.1
 
