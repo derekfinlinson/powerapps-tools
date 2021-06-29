@@ -2,6 +2,6 @@ export enum Fields {
 
 }
 
-export const formOnLoad = (formContext: Xrm.FormContext): void => {
-
+export const formOnLoad = (context: Xrm.Events.EventContext): void => {
+    const form = context.getFormContext();
 }
