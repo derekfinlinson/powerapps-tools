@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Update to pass in execution context",
+  "packageName": "powerapps-project-webresource",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
