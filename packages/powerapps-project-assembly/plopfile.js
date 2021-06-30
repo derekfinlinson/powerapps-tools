@@ -23,7 +23,7 @@ module.exports = function (plop) {
 
         if (fs.existsSync(configPath)) {
             const file = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-            const types = file.types.map(r => t.name.substring(t.name.lastIndexOf('.') + 1));
+            const types = file.types.map(t => t.name.substring(t.name.lastIndexOf('.') + 1));
 
             return types;
         }
