@@ -17,6 +17,20 @@ module.exports = function (plop) {
         return files.length === 0 ? 'Xrm' : path.basename(files[0]).replace('.csproj', '');
     };
 
+    const getTypes = () => {
+        const destinationPath = plop.getDestBasePath();
+        const configPath = path.resolve(destinationPath, 'dataverse.config.json');
+
+        if (fs.existsSync(configPath)) {
+            const file = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+            const types = file.types.map(r => t.name.substring(t.name.lastIndexOf('.') + 1));
+
+            return types;
+        }
+
+        return [];
+    };
+
     const getSteps = () => {
         const destinationPath = plop.getDestBasePath();
         const configPath = path.resolve(destinationPath, 'dataverse.config.json');
@@ -465,9 +479,12 @@ module.exports = function (plop) {
     plop.setGenerator('plugin step', {
         prompts: [
             {
-                type: 'input',
+                type: 'list',
                 name: 'filename',
-                message: 'plugin class name'
+                message: 'plugin class name',
+                choices: () => {
+                    return getTypes();
+                }
             },
             ...stepPrompts,
             ...imagePrompts
