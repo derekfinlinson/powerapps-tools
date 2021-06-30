@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Typo; Should have used TypeScript",
+  "packageName": "powerapps-project-assembly",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
