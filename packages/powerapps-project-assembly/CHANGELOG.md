@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Mon, 24 May 2021 16:33:16 GMT and should not be manually modified.
+This log was last generated on Wed, 30 Jun 2021 20:00:35 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.0.1
+
+Wed, 30 Jun 2021 20:00:35 GMT
+
+### Patches
+
+- Get list of plugin classes (derek.finlinson@journeyteam.com)
 
 ## 1.0.0
 

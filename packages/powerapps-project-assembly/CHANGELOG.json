@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Wed, 30 Jun 2021 20:00:35 GMT",
+      "tag": "powerapps-project-assembly_v1.0.1",
+      "version": "1.0.1",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Get list of plugin classes",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "8784803bc5c7be49c9c38622ce9152c388743229",
+            "package": "powerapps-project-assembly"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 24 May 2021 16:33:16 GMT",
       "tag": "powerapps-project-assembly_v1.0.0",
       "version": "1.0.0",
