@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Get list of plugin classes",
+  "packageName": "powerapps-project-assembly",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
