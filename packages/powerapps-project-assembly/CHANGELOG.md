@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Wed, 30 Jun 2021 20:00:35 GMT and should not be manually modified.
+This log was last generated on Wed, 30 Jun 2021 20:49:25 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.0.2
+
+Wed, 30 Jun 2021 20:49:25 GMT
+
+### Patches
+
+- Typo; Should have used TypeScript (derek.finlinson@journeyteam.com)
 
 ## 1.0.1
 

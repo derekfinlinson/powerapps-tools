@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Wed, 30 Jun 2021 20:49:25 GMT",
+      "tag": "powerapps-project-assembly_v1.0.2",
+      "version": "1.0.2",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Typo; Should have used TypeScript",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "d8c73256b49f0fb21adf2dcf5418695534c277a2",
+            "package": "powerapps-project-assembly"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 30 Jun 2021 20:00:35 GMT",
       "tag": "powerapps-project-assembly_v1.0.1",
       "version": "1.0.1",

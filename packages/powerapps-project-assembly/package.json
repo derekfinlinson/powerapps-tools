@@ -1,6 +1,6 @@
 {
   "name": "powerapps-project-assembly",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "files": [
     "/plop-templates",
