@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Catch auth failure",
-  "packageName": "powerapps-deploy",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

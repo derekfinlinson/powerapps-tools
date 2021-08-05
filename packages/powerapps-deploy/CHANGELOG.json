@@ -2,6 +2,21 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Thu, 05 Aug 2021 16:39:35 GMT",
+      "tag": "powerapps-deploy_v2.0.9",
+      "version": "2.0.9",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Catch auth failure",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "2d7d19ad7581b2d3939c4dd4555a174d86537f34",
+            "package": "powerapps-deploy"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 28 Jun 2021 20:38:16 GMT",
       "tag": "powerapps-deploy_v2.0.8",
       "version": "2.0.8",

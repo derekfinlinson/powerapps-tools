@@ -1,8 +1,16 @@
 # Change Log - powerapps-deploy
 
-This log was last generated on Mon, 28 Jun 2021 20:38:16 GMT and should not be manually modified.
+This log was last generated on Thu, 05 Aug 2021 16:39:35 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.9
+
+Thu, 05 Aug 2021 16:39:35 GMT
+
+### Patches
+
+- Catch auth failure (derek.finlinson@journeyteam.com)
 
 ## 2.0.8
 
