@@ -62,7 +62,7 @@ async function authenticate(url: string, tenant: string): Promise<TokenResponse>
 
     // Navigate to the get code page
     win.loadURL(
-      `${authUrl}?client_id=${clientId}&response_type=code&haschrome=1&redirect_uri=${encodeURIComponent(redirect)}&scope=openid`,
+      `${authUrl}?client_id=${clientId}&response_type=code&redirect_uri=${encodeURIComponent(redirect)}&scope=openid`,
     );
 
     win.on('closed', () => {
@@ -112,7 +112,7 @@ export default async function getAccessToken(): Promise<void> {
       authenticate(creds.server, creds.tenant).then(authToken => {
         addTokenToCache(creds.server, authToken);
         resolve();
-      });
+      }).catch((ex) => reject(ex));
     } else {
       const expiryDate = new Date(Date.parse(token.expiresOn.toString()));
       const nowDate = new Date();
