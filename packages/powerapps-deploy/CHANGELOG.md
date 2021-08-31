@@ -1,8 +1,16 @@
 # Change Log - powerapps-deploy
 
-This log was last generated on Thu, 05 Aug 2021 16:39:35 GMT and should not be manually modified.
+This log was last generated on Tue, 31 Aug 2021 17:01:51 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.10
+
+Tue, 31 Aug 2021 17:01:51 GMT
+
+### Patches
+
+- Catch errors on retrieve (derek.finlinson@journeyteam.com)
 
 ## 2.0.9
 

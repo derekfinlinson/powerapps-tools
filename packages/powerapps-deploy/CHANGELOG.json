@@ -2,6 +2,21 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Tue, 31 Aug 2021 17:01:51 GMT",
+      "tag": "powerapps-deploy_v2.0.10",
+      "version": "2.0.10",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Catch errors on retrieve",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "5db23d52a5b38ca2692da126ff2648031a081858",
+            "package": "powerapps-deploy"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 05 Aug 2021 16:39:35 GMT",
       "tag": "powerapps-deploy_v2.0.9",
       "version": "2.0.9",

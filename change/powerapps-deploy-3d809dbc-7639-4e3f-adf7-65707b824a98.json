@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Catch errors on retrieve",
-  "packageName": "powerapps-deploy",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
