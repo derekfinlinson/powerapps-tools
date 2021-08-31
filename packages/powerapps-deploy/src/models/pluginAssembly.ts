@@ -27,7 +27,14 @@ export async function deploy(config: PluginAssembly, apiConfig: WebApiConfig, so
 
   const content = fs.readFileSync(files[0]).toString('base64');
 
-  let assemblyId = await retrieveAssembly(config.name, apiConfig);
+  let assemblyId = '';
+
+  try {
+    assemblyId = await retrieveAssembly(config.name, apiConfig);
+  } catch (error) {
+    logger.error(`failed to retrieve assembly ${config.name}: ${error.message}`);
+    return;
+  }
 
   if (assemblyId != '') {
     try {

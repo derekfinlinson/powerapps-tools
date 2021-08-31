@@ -65,12 +65,19 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
   }
 
   const promises = resources.map(async resource => {
-    let resourceId = await retrieveResource(resource.name, apiConfig);
+    let resourceId = '';
+
+    try {
+      resourceId = await retrieveResource(resource.name, apiConfig);
+    } catch (error) {
+      logger.error(`failed to retrieve resource ${resource.name}: ${error.message}`);
+      return;
+    }
 
     const fileContent = fs.readFileSync(resource.path, 'utf8');
     const content = Buffer.from(fileContent).toString('base64');
 
-    if (resourceId) {
+    if (resourceId != '') {
       try {
         const updated = await updateResource(resourceId, resource, content, apiConfig);
 
