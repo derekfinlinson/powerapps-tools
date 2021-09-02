@@ -40,7 +40,6 @@ program
 // Deploy command
 program
   .command('deploy')
-  .argument('[type]',)
   .description('Deploy file(s) to dataverse (webresource, plugin, workflow)')
   .argument('[type]', 'Type of project to deploy')
   .argument('[files]', 'Comma separate list of files to deploy')
