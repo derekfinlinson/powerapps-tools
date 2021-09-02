@@ -35,7 +35,7 @@ function getPackages(type: string) {
     devDependencies: [
       'plop',
       `powerapps-project-${type}`,
-      'powerapps-deploy'
+      'dataverse-utils'
     ]
   };
 

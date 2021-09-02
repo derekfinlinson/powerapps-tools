@@ -1,0 +1,38 @@
+{
+  "name": "dataverse-utils",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "bin": {
+    "dataverse-utils": "lib/dataverse-utils.js"
+  },
+  "files": [
+    "/lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/derekfinlinson/powerapps-tools"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "lint": "eslint",
+    "prebuild": "rimraf lib",
+    "start": "electron ."
+  },
+  "dependencies": {
+    "adal-node": "^0.2.2",
+    "envinfo": "^7.8.1",
+    "prompts": "^2.4.1",
+    "dataverse-webapi": "^2.0.0",
+    "commander": "^8.1.0",
+    "just-scripts-utils": "^1.1.4",
+    "cryptr": "^6.0.2",
+    "os": "^0.1.2",
+    "electron": "^14.0.0"
+  },
+  "devDependencies": {
+    "@types/cryptr": "^4.0.1",
+    "@types/node": "^14.14.22",
+    "@types/prompts": "^2.0.14"
+  }
+}

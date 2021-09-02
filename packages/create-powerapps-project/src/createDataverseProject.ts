@@ -141,7 +141,7 @@ function done(argv: yargs.Arguments) {
   
   ## Keeping Up-to-date
   keep your build tools up-to-date by updating these two devDependencies:
-  * powerapps-deploy
+  * dataverse-utils
   * powerapps-project-${argv.type}
   ${argv.type === 'webresource' ? '* just-scripts' : ''}
   

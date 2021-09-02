@@ -1,3 +1,6 @@
+# DEPRECATED
+# Use [dataverse-utils](https://www.npmjs.com/package/dataverse-utils) Instead 
+
 # powerapps-deploy
 | NPM |
 | --- |
