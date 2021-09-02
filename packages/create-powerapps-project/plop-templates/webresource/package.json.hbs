@@ -6,7 +6,8 @@
     "build": "webpack --mode=production",
     "start": "webpack --mode=development --watch",
     "gen": "plop",
-    "auth": "dataverse-deploy auth",
-    "deploy": "npm run auth && dataverse-deploy deploy webresource"
+    "auth": "dataverse-utils auth",
+    "deploy": "npm run auth && dataverse-utils deploy webresource",
+    "generate": "npm run auth && dataverse-utils generate"
   }
 }
