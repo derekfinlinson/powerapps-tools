@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Thu, 02 Sep 2021 16:46:01 GMT",
+      "tag": "create-powerapps-project_v0.14.1",
+      "version": "0.14.1",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Update default scripts",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "c4882a89084be88ef07134299eccc78848c617a2",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 02 Sep 2021 16:22:00 GMT",
       "tag": "create-powerapps-project_v0.14.0",
       "version": "0.14.0",
