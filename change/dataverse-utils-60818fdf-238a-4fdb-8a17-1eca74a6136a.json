@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Add generate command; Rename project",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

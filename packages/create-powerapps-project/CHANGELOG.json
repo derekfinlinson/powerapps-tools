@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Thu, 02 Sep 2021 16:22:00 GMT",
+      "tag": "create-powerapps-project_v0.14.0",
+      "version": "0.14.0",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Use new dataverse-utils package",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "d1c26f12e1e58b86cc3cfe26274f0dbd35d5ad70",
+            "package": "create-powerapps-project"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 28 Jun 2021 20:38:16 GMT",
       "tag": "create-powerapps-project_v0.13.1",
       "version": "0.13.1",

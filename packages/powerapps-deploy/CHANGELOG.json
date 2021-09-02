@@ -2,6 +2,21 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Thu, 02 Sep 2021 16:22:00 GMT",
+      "tag": "powerapps-deploy_v2.0.11",
+      "version": "2.0.11",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Add generate command; Rename project",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "d1c26f12e1e58b86cc3cfe26274f0dbd35d5ad70",
+            "package": "powerapps-deploy"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 31 Aug 2021 17:01:51 GMT",
       "tag": "powerapps-deploy_v2.0.10",
       "version": "2.0.10",

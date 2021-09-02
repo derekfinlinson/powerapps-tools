@@ -1,8 +1,16 @@
 # Change Log - powerapps-deploy
 
-This log was last generated on Tue, 31 Aug 2021 17:01:51 GMT and should not be manually modified.
+This log was last generated on Thu, 02 Sep 2021 16:22:00 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.11
+
+Thu, 02 Sep 2021 16:22:00 GMT
+
+### Patches
+
+- Add generate command; Rename project (derek.finlinson@journeyteam.com)
 
 ## 2.0.10
 
