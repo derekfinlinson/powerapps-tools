@@ -8,7 +8,7 @@ import { getAccessToken } from './auth';
 import { AuthenticationResult } from '@azure/msal-node';
 
 export default async function generate(table: string): Promise<void> {
-  if (!table) {
+  while (!table) {
     const { tablePrompt } = await prompts({
       type: 'text',
       name: 'tablePrompt',

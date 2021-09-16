@@ -34,6 +34,8 @@ export function cachePlugin(org: string): ICachePlugin {
         fs.writeFile(cacheLocation, tokenCacheContext.tokenCache.serialize(), (err) => {
           if (err) {
             reject();
+          } else {
+            resolve();
           }
         });
       }
