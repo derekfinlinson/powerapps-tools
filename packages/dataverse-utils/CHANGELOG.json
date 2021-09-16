@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Thu, 16 Sep 2021 21:30:04 GMT",
+      "tag": "dataverse-utils_v2.0.2",
+      "version": "2.0.2",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Fix first time auth",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "d13f2f05e702a82bb127dbac7f9f33daf027ea64",
+            "package": "dataverse-utils"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 16 Sep 2021 20:57:31 GMT",
       "tag": "dataverse-utils_v2.0.1",
       "version": "2.0.1",

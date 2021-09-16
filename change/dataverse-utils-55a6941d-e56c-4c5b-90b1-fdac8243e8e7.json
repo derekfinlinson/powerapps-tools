@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix first time auth",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
