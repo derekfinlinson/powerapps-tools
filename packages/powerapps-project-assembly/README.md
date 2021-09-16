@@ -14,7 +14,7 @@ Plop file generator for Dataverse plugin/workflow activity projects
 
 # Generate
 
-Add plopfile.js to project that includes the following:
+Add plopfile.js to project that includes the following. Ensure you have a dataverse.config.json file.
 
 ```javascript
 module.exports = function (plop) {

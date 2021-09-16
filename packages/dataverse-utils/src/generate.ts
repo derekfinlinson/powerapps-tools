@@ -12,7 +12,7 @@ export default async function generate(table: string): Promise<void> {
     const { tablePrompt } = await prompts({
       type: 'text',
       name: 'tablePrompt',
-      message: `select table generate`
+      message: `enter table to generate`
     });
 
     table = tablePrompt;
