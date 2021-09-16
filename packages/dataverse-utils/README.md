@@ -5,17 +5,9 @@
 
 Utilities for interacting with Dataverse environments
 
-# Acquire authorization token
-
-Connection information is stored in dataverse.config.json.
-
-```sh
-dataverse-utils auth
-```
-
 # Deploy
 
-Deployment configuration is stored in dataverse.config.json.
+Deployment configuration is stored in dataverse.config.json. Access token will be acquired via device-code flow.
 
 ```sh
 dataverse-utils deploy webresource
@@ -25,7 +17,7 @@ dataverse-utils deploy assembly
 
 # Generate Early-Bound TS Files
 
-Generate early bound TypeScript files for tables
+Generate early bound TypeScript files for tables. Access token will be acquired via device-code flow.
 
 ```sh
 dataverse-utils generate account

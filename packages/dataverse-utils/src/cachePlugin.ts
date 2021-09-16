@@ -22,10 +22,11 @@ export function cachePlugin(org: string): ICachePlugin {
           if (err) {
             reject();
           } else {
-            // const crypt = new Cryptr(os.userInfo.name);
+            const crypt = new Cryptr(os.userInfo.name);
 
-            // const decrypted = crypt.decrypt(data.toString());
-            tokenCacheContext.tokenCache.deserialize(data);
+            const decrypted = crypt.decrypt(data.toString());
+
+            tokenCacheContext.tokenCache.deserialize(decrypted);
             resolve();
           }
         });
@@ -42,11 +43,11 @@ export function cachePlugin(org: string): ICachePlugin {
   const afterCacheAccess = (tokenCacheContext: TokenCacheContext): Promise<void> => {
     return new Promise((resolve, reject) => {
       if (tokenCacheContext.cacheHasChanged) {
-        // const crypt = new Cryptr(os.userInfo.name);
+        const crypt = new Cryptr(os.userInfo.name);
 
-        // const encrypted = crypt.encrypt(tokenCacheContext.tokenCache.serialize());
+        const encrypted = crypt.encrypt(tokenCacheContext.tokenCache.serialize());
 
-        fs.writeFile(cacheLocation, tokenCacheContext.tokenCache.serialize(), (err) => {
+        fs.writeFile(cacheLocation, encrypted, (err) => {
           if (err) {
             reject(err);
           }
