@@ -1,7 +1,0 @@
-{
-  "type": "major",
-  "comment": "Switch to device-code auth",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

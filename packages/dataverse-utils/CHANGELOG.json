@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Thu, 16 Sep 2021 20:49:48 GMT",
+      "tag": "dataverse-utils_v2.0.0",
+      "version": "2.0.0",
+      "comments": {
+        "major": [
+          {
+            "comment": "Switch to device-code auth",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "b1c526bdddb59fe2f4a3eb61096909ebbb2379d7",
+            "package": "dataverse-utils"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 02 Sep 2021 16:22:00 GMT",
       "tag": "dataverse-utils_v1.0.1",
       "version": "1.0.1",

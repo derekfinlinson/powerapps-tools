@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "New dataverse-utils scripts",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

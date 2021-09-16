@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Thu, 02 Sep 2021 16:46:01 GMT and should not be manually modified.
+This log was last generated on Thu, 16 Sep 2021 20:49:48 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.14.2
+
+Thu, 16 Sep 2021 20:49:48 GMT
+
+### Patches
+
+- New dataverse-utils scripts (derek.finlinson@journeyteam.com)
 
 ## 0.14.1
 

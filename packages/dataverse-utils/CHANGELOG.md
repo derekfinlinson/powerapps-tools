@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Thu, 02 Sep 2021 16:22:00 GMT and should not be manually modified.
+This log was last generated on Thu, 16 Sep 2021 20:49:48 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.0
+
+Thu, 16 Sep 2021 20:49:48 GMT
+
+### Major changes
+
+- Switch to device-code auth (derek.finlinson@journeyteam.com)
 
 ## 1.0.1
 
