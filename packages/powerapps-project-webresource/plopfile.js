@@ -31,7 +31,7 @@ module.exports = function (plop) {
 
                 file.entries[filename] = `./src/scripts/${filename}.ts`;
 
-                fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
+                fs.writeFileSync(configPath, JSON.stringify(file, null, 4), 'utf8');
 
                 return 'added to dataverse.config.json';
             } else {
@@ -50,7 +50,7 @@ module.exports = function (plop) {
 
                 file.entries[filename] = `./src/scripts/${filename}.ts`;
 
-                fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
+                fs.writeFileSync(configPath, JSON.stringify(file, null, 4), 'utf8');
 
                 return 'added to dataverse.config.json';
             }

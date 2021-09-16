@@ -6,7 +6,8 @@ import { deployAssembly } from './assemblyDeploy';
 import { deployWebResource } from './webResourceDeploy';
 import { DeployCredentials } from './dataverse.service';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
-import { getTokenFromCache } from './tokenCache';
+import { AuthenticationResult } from '@azure/msal-node';
+import { getAccessToken } from './auth';
 
 export default async function deploy(type?: string, files?: string): Promise<void> {
   if (!type || (type !== 'webresource' && type !== 'assembly')) {
@@ -17,7 +18,7 @@ export default async function deploy(type?: string, files?: string): Promise<voi
     const { typePrompt } = await prompts({
       type: 'select',
       name: 'typePrompt',
-      message: `${invalidMessage} Select project type to deploy`,
+      message: `${invalidMessage} select project type to deploy`,
       choices: [
         { title: 'web resource', value: 'webresource' },
         { title: 'plugin or workflow activity', value: 'assembly' }
@@ -37,10 +38,17 @@ export default async function deploy(type?: string, files?: string): Promise<voi
 
   const creds: DeployCredentials = JSON.parse(credsFile).connection;
 
-  const token = getTokenFromCache(creds.server);
+  let token: AuthenticationResult | null = null;
 
-  if (!token.accessToken) {
-    logger.error('use dataverse-utils auth command to get access token before deploying');
+  try {
+    token = await getAccessToken(creds.tenant, creds.server);
+  } catch (ex) {
+    logger.error(`failed to acquire access token: ${ex.message}`);
+    return;
+  }
+
+  if (token == null || token.accessToken == null) {
+    logger.error('failed to acquire access token');
     return;
   }
 

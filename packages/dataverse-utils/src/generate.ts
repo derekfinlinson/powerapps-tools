@@ -1,11 +1,23 @@
+import prompts from 'prompts';
 import fs from 'fs';
 import path from 'path';
 import { logger } from 'just-scripts-utils';
 import { DeployCredentials, getTableMetadata, TableMetadata } from './dataverse.service';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
-import { getTokenFromCache } from './tokenCache';
+import { getAccessToken } from './auth';
+import { AuthenticationResult } from '@azure/msal-node';
 
 export default async function generate(table: string): Promise<void> {
+  if (!table) {
+    const { tablePrompt } = await prompts({
+      type: 'text',
+      name: 'tablePrompt',
+      message: `select table generate`
+    });
+
+    table = tablePrompt;
+  }
+
   const currentPath = '.';
   const credsFile = fs.readFileSync(path.resolve(currentPath, 'dataverse.config.json'), 'utf8');
 
@@ -15,11 +27,17 @@ export default async function generate(table: string): Promise<void> {
   }
 
   const creds: DeployCredentials = JSON.parse(credsFile).connection;
+  let token: AuthenticationResult | null = null;
 
-  const token = getTokenFromCache(creds.server);
+  try {
+    token = await getAccessToken(creds.tenant, creds.server);
+  } catch (ex) {
+    logger.error(`failed to acquire access token: ${ex.message}`);
+    return;
+  }
 
-  if (!token.accessToken) {
-    logger.error('use dataverse-utils auth command to get access token before deploying');
+  if (token == null || token.accessToken == null) {
+    logger.error('failed to acquire access token');
     return;
   }
 

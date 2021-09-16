@@ -282,7 +282,7 @@ module.exports = function (plop) {
             file.types.push(type);
 
             // Update dataverse.config.json
-            fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
+            fs.writeFileSync(configPath, JSON.stringify(file, null, 4), 'utf8');
 
             return 'added to dataverse.config.json';
         } else {
@@ -342,7 +342,7 @@ module.exports = function (plop) {
             }
 
             // Update file
-            fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
+            fs.writeFileSync(configPath, JSON.stringify(file, null, 4), 'utf8');
             return 'added to dataverse.config.json';
         } else {
             return `no dataverse.config.json found at ${destinationPath}`;
@@ -386,7 +386,7 @@ module.exports = function (plop) {
             }
 
             // Update file
-            fs.writeFileSync(configPath, JSON.stringify(file), 'utf8');
+            fs.writeFileSync(configPath, JSON.stringify(file, null, 4), 'utf8');
             return 'added to dataverse.config.json';
         } else {
             return `no dataverse.config.json found at ${destinationPath}`;
