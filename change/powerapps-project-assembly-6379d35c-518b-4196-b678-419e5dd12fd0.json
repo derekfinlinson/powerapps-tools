@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Update formatting for dataverse.config.json",
+  "packageName": "powerapps-project-assembly",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
