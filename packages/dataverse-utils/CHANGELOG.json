@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Thu, 16 Sep 2021 20:57:31 GMT",
+      "tag": "dataverse-utils_v2.0.1",
+      "version": "2.0.1",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Update wording for entering table",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "963c071a39980f4cef59a3ab24c1f749504d0584",
+            "package": "dataverse-utils"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 16 Sep 2021 20:49:48 GMT",
       "tag": "dataverse-utils_v2.0.0",
       "version": "2.0.0",

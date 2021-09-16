@@ -2,6 +2,21 @@
   "name": "powerapps-project-webresource",
   "entries": [
     {
+      "date": "Thu, 16 Sep 2021 20:57:31 GMT",
+      "tag": "powerapps-project-webresource_v1.0.6",
+      "version": "1.0.6",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Update formatting for dataverse.config.json",
+            "author": "derek.finlinson@journeyteam.com",
+            "commit": "963c071a39980f4cef59a3ab24c1f749504d0584",
+            "package": "powerapps-project-webresource"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 30 Jun 2021 20:00:35 GMT",
       "tag": "powerapps-project-webresource_v1.0.5",
       "version": "1.0.5",

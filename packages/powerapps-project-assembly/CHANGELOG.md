@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Wed, 30 Jun 2021 20:49:25 GMT and should not be manually modified.
+This log was last generated on Thu, 16 Sep 2021 20:57:31 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.0.3
+
+Thu, 16 Sep 2021 20:57:31 GMT
+
+### Patches
+
+- Update formatting for dataverse.config.json (derek.finlinson@journeyteam.com)
 
 ## 1.0.2
 

@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Update wording for entering table",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
