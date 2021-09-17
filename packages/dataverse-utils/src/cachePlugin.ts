@@ -4,6 +4,26 @@ import path from 'path';
 import fs from 'fs';
 import Cryptr from 'cryptr';
 
+const algorithm = 'aes-256-ctr';
+
+const encrypt = (text: string) => {
+  const user = os.userInfo().username;
+  const cryptr = new Cryptr(user);
+
+  const encrypted = cryptr.encrypt(text);
+
+  return encrypted;
+};
+
+const decrypt = (text: string) => {
+  const user = os.userInfo().username;
+  const cryptr = new Cryptr(user);
+
+  const decrypted = cryptr.decrypt(text);
+
+  return decrypted;
+};
+
 export function cachePlugin(org: string): ICachePlugin {
   const getCachePath = () => {
     if (!fs.existsSync(path.join(os.homedir(), './.dataverse-utils/'))) {
@@ -22,16 +42,16 @@ export function cachePlugin(org: string): ICachePlugin {
           if (err) {
             reject();
           } else {
-            const crypt = new Cryptr(os.userInfo.name);
-
-            const decrypted = crypt.decrypt(data.toString());
+            const decrypted = decrypt(data);
 
             tokenCacheContext.tokenCache.deserialize(decrypted);
             resolve();
           }
         });
       } else {
-        fs.writeFile(cacheLocation, tokenCacheContext.tokenCache.serialize(), (err) => {
+        const encrypted = encrypt(tokenCacheContext.tokenCache.serialize());
+
+        fs.writeFile(cacheLocation, encrypted, (err) => {
           if (err) {
             reject();
           } else {
@@ -45,9 +65,7 @@ export function cachePlugin(org: string): ICachePlugin {
   const afterCacheAccess = (tokenCacheContext: TokenCacheContext): Promise<void> => {
     return new Promise((resolve, reject) => {
       if (tokenCacheContext.cacheHasChanged) {
-        const crypt = new Cryptr(os.userInfo.name);
-
-        const encrypted = crypt.encrypt(tokenCacheContext.tokenCache.serialize());
+        const encrypted = encrypt(tokenCacheContext.tokenCache.serialize());
 
         fs.writeFile(cacheLocation, encrypted, (err) => {
           if (err) {
