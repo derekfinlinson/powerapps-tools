@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Thu, 16 Sep 2021 21:30:04 GMT and should not be manually modified.
+This log was last generated on Fri, 17 Sep 2021 05:34:12 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.3
+
+Fri, 17 Sep 2021 05:34:12 GMT
+
+### Patches
+
+- Fix encryption (derek.finlinson@journeyteam.com)
 
 ## 2.0.2
 
