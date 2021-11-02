@@ -1,0 +1,10 @@
+{
+  "type": "patch",
+  "comment": {
+    "title": "",
+    "value": ""
+  },
+  "packageName": "dataverse-webapi",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
