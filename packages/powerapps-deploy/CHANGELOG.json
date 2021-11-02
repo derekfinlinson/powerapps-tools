@@ -2,6 +2,27 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Tue, 02 Nov 2021 16:20:01 GMT",
+      "tag": "powerapps-deploy_v2.0.12",
+      "version": "2.0.12",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-deploy",
+            "commit": "f8cfe1e4a4d4becf82b91fcae9a1749365053ab3",
+            "comment": "Update error handling"
+          },
+          {
+            "author": "beachball",
+            "package": "powerapps-deploy",
+            "comment": "Bump dataverse-webapi to v2.0.1",
+            "commit": "f8cfe1e4a4d4becf82b91fcae9a1749365053ab3"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 02 Sep 2021 16:22:00 GMT",
       "tag": "powerapps-deploy_v2.0.11",
       "version": "2.0.11",
