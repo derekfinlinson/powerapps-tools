@@ -54,20 +54,20 @@ export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solu
   if (stepId != '') {
     try {
       await updateStep(stepId, step, apiConfig);
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`failed to update plugin step: ${error.message}`);
     }
   } else {
     try {
       stepId = await createStep(step, apiConfig);
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`failed to create plugin step: ${error.message}`);
     }
 
     if (solution != undefined) {
       try {
         await addToSolution(stepId, solution, ComponentType.SDKMessageProcessingStep, apiConfig);
-      } catch (error) {
+      } catch (error: any) {
         throw new Error(`failed to add to solution: ${error.message}`);
       }
     }
@@ -78,7 +78,7 @@ export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solu
       const promises = images.map(image => deployImage(stepId, image, message, apiConfig));
 
       await Promise.all(promises);
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(error.message);
     }
   }

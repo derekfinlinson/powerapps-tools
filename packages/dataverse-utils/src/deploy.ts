@@ -42,8 +42,8 @@ export default async function deploy(type?: string, files?: string): Promise<voi
 
   try {
     token = await getAccessToken(creds.tenant, creds.server);
-  } catch (ex) {
-    logger.error(`failed to acquire access token: ${ex.message}`);
+  } catch (error: any) {
+    logger.error(`failed to acquire access token: ${error.message}`);
     return;
   }
 

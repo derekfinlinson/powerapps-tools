@@ -31,7 +31,7 @@ export async function deploy(config: PluginAssembly, apiConfig: WebApiConfig, so
 
   try {
     assemblyId = await retrieveAssembly(config.name, apiConfig);
-  } catch (error) {
+  } catch (error: any) {
     logger.error(`failed to retrieve assembly ${config.name}: ${error.message}`);
     return;
   }
@@ -39,20 +39,20 @@ export async function deploy(config: PluginAssembly, apiConfig: WebApiConfig, so
   if (assemblyId != '') {
     try {
       await updateAssembly(assemblyId, config, content, apiConfig);
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`failed to update assembly: ${error.message}`);
     }
   } else {
     try {
       assemblyId = await createAssembly(config, content, apiConfig);
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`failed to create assembly: ${error.message}`);
     }
 
     if (solution != undefined) {
       try {
         await addToSolution(assemblyId, solution, ComponentType.PluginAssembly, apiConfig);
-      } catch (error) {
+      } catch (error: any) {
         logger.error(`failed to add to solution: ${error.message}`);
       }
     }
@@ -67,7 +67,7 @@ export async function deploy(config: PluginAssembly, apiConfig: WebApiConfig, so
       });
 
       await Promise.all(promises);
-    } catch (error) {
+    } catch (error: any) {
       logger.error(error.message);
       return;
     }

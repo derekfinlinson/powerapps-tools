@@ -45,7 +45,7 @@ function submitRequest(requestConfig: WebApiRequestConfig, callback: RequestCall
     }
   );
 
-  req.on('error', (error) => {
+  req.on('error', (error: any) => {
     callback({ error: true, response: error });
   });
 

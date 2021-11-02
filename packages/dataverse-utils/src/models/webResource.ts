@@ -69,7 +69,7 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
 
     try {
       resourceId = await retrieveResource(resource.name, apiConfig);
-    } catch (error) {
+    } catch (error: any) {
       logger.error(`failed to retrieve resource ${resource.name}: ${error.message}`);
       return;
     }
@@ -82,20 +82,20 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
         const updated = await updateResource(resourceId, resource, content, apiConfig);
 
         publishXml.push(updated);
-      } catch (error) {
+      } catch (error: any) {
         logger.error(`failed to update resource: ${error.message}`);
       }
     } else {
       try {
         resourceId = await createResource(resource, content, apiConfig);
-      } catch (error) {
+      } catch (error: any) {
         logger.error(`failed to create resource: ${error.message}`);
       }
 
       if (solution != undefined) {
         try {
           await addToSolution(resourceId, solution, ComponentType.WebResource, apiConfig)
-        } catch (error) {
+        } catch (error: any) {
           logger.error(`failed to add to solution: ${error.message}`);
         }
       }
@@ -108,7 +108,7 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
   if (publishXml.length > 0) {
     try {
       await publish(publishXml.join(''), apiConfig);
-    } catch (error) {
+    } catch (error: any) {
       logger.error(error.message);
     }
   }

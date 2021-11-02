@@ -20,7 +20,7 @@ export async function deployWebResource(creds: DeployCredentials, apiConfig: Web
 
   try {
     await deploy(config, apiConfig, creds.solution, files);
-  } catch (error) {
+  } catch (error: any) {
     logger.error(error.message);
     return;
   }

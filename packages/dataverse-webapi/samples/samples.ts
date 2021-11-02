@@ -29,8 +29,8 @@ const account: any = {
 create(config, 'accounts', account)
   .then(() => {
     // do something
-  }, (error) => {
-    console.log(error);
+  }, (error: any) => {
+    console.log(error: any);
   });
 
 // demonstrate create with returned odata
@@ -43,8 +43,8 @@ createWithReturnData(config, 'accounts', account, '$select=name,accountid')
 retrieve(config, 'accounts', '00000000-0000-0000-0000-000000000000', '$select=name')
   .then((retrieved: any) => {
     console.log(retrieved.data.name);
-  }, (error) => {
-    console.log(error);
+  }, (error: any) => {
+    console.log(error: any);
   });
 
 // demonstrate retrieve multiple
@@ -67,8 +67,8 @@ retrieveMultiple(config, 'accounts', options)
 
       console.log(accounts.length);
     },
-    (error) => {
-      console.log(error);
+    (error: any) => {
+      console.log(error: any);
     }
   );
 
@@ -76,40 +76,40 @@ retrieveMultiple(config, 'accounts', options)
 update(config, 'accounts', '00000000-0000-0000-0000-000000000000', account)
   .then(() => {
     // do something
-  }, (error) => {
-    console.log(error);
+  }, (error: any) => {
+    console.log(error: any);
   });
 
 // demonstrate update property. Update property returns no content
 updateProperty(config, 'accounts', '00000000-0000-0000-0000-000000000000', 'name', 'Updated Account')
   .then(() => {
     // do something
-  }, (error) => {
-    console.log(error);
+  }, (error: any) => {
+    console.log(error: any);
   });
 
 // demonstrate delete. Delete returns no content
 deleteRecord(config, 'accounts', '00000000-0000-0000-0000-000000000000')
   .then(() => {
     // do something
-  }, (error) => {
-    console.log(error);
+  }, (error: any) => {
+    console.log(error: any);
   });
 
 // demonstrate delete property. Delete property returns no content
 deleteProperty(config, 'accounts', '00000000-0000-0000-0000-000000000000', 'address1_line1')
   .then(() => {
     // do something
-  }, (error) => {
-    console.log(error);
+  }, (error: any) => {
+    console.log(error: any);
   });
 
 // demonstrate delete navigation property. Delete property returns no content
 deleteProperty(config, 'accounts', '00000000-0000-0000-0000-000000000000', 'primarycontactid')
   .then(() => {
     // do something
-  }, (error) => {
-    console.log(error);
+  }, (error: any) => {
+    console.log(error: any);
   });
 
 // demonstrate associate. Associate returns no content
@@ -117,16 +117,16 @@ associate(config, 'accounts', '00000000-0000-0000-0000-000000000000',
   'contact_customer_accounts', 'contacts', '00000000-0000-0000-0000-000000000000')
   .then(() => {
     // do something
-  }, (error) => {
-    console.log(error);
+  }, (error: any) => {
+    console.log(error: any);
   });
 
 // demonstrate disassociate. Disassociate returns no content
 disassociate(config, 'accounts', '00000000-0000-0000-0000-000000000000', 'contact_customer_accounts')
   .then(() => {
     // do something
-  }, (error) => {
-    console.log(error);
+  }, (error: any) => {
+    console.log(error: any);
   });
 
 // demonstrate bound action
@@ -138,15 +138,15 @@ const inputs = {
 boundAction(config, 'accounts', '00000000-0000-0000-0000-000000000000', 'sample_BoundAction', inputs)
   .then((result: any) => {
     console.log(result.annotationid);
-  }, (error) => {
-    console.log(error);
+  }, (error: any) => {
+    console.log(error: any);
   });
 
 unboundAction(config, 'sample_UnboundAction', inputs)
   .then((result: any) => {
     console.log(result.annotationid);
-  }, (error) => {
-    console.log(error);
+  }, (error: any) => {
+    console.log(error: any);
   });
 
 // demonstrate bound function
@@ -158,8 +158,8 @@ const inputs3 = {
 boundAction(config, 'accounts', '00000000-0000-0000-0000-000000000000', 'sample_BoundFunction', inputs3)
   .then((result: any) => {
     console.log(result.annotationid);
-  }, (error) => {
-    console.log(error);
+  }, (error: any) => {
+    console.log(error: any);
   });
 
 // demonstrate create. Custom action - Add note to account
@@ -172,8 +172,8 @@ const inputs4 = {
 unboundAction(config, 'sample_UnboundAction', inputs4)
   .then((result: any) => {
     console.log(result.annotationid);
-  }, (error) => {
-    console.log(error);
+  }, (error: any) => {
+    console.log(error: any);
   });
 
 // demonstrate batch operation
@@ -201,6 +201,6 @@ const gets = [
 batchOperation(config, 'BATCH123', 'CHANGESET123', changeSets, gets)
   .then((result) => {
     console.log(result);
-  }, (error) => {
-    console.log(error);
+  }, (error: any) => {
+    console.log(error: any);
   });

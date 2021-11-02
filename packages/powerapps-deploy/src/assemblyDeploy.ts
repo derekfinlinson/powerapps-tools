@@ -20,7 +20,7 @@ export async function deployAssembly(creds: DeployCredentials, apiConfig: WebApi
 
   try {
     await deploy(config, apiConfig, creds.solution);
-  } catch (error) {
+  } catch (error: any) {
     logger.error(error.message);
     return;
   }

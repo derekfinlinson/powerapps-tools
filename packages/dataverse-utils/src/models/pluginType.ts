@@ -25,13 +25,13 @@ export async function deployType(type: PluginType, apiConfig: WebApiConfig, solu
   if (typeId != '') {
     try {
       await updateType(typeId, record, apiConfig);
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`failed to update plugin type: ${error.message}`);
     }
   } else {
     try {
       typeId = await createType(record, apiConfig);
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`failed to create plugin type: ${error.message}`);
     }
   }
@@ -46,7 +46,7 @@ export async function deployType(type: PluginType, apiConfig: WebApiConfig, solu
 
       await Promise.all(promises);
     }
-  } catch (error) {
+  } catch (error: any) {
     throw new Error(error.message);
   }
 

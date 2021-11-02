@@ -31,8 +31,8 @@ export default async function generate(table: string): Promise<void> {
 
   try {
     token = await getAccessToken(creds.tenant, creds.server);
-  } catch (ex) {
-    logger.error(`failed to acquire access token: ${ex.message}`);
+  } catch (error: any) {
+    logger.error(`failed to acquire access token: ${error.message}`);
     return;
   }
 
@@ -49,7 +49,7 @@ export default async function generate(table: string): Promise<void> {
 
   try {
     metadata = await getTableMetadata(table, apiConfig);
-  } catch (error) {
+  } catch (error: any) {
     logger.error(error.message);
     return;
   }

@@ -36,13 +36,13 @@ export async function deployImage(stepId: string, image: PluginImage, message: s
   if (imageId != '') {
     try {
       await updateImage(imageId, image, apiConfig);
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`failed to update plugin image: ${error.message}`);
     }
   } else {
     try {
       imageId = await createImage(image, apiConfig);
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`failed to create plugin image: ${error.message}`);
     }
   }

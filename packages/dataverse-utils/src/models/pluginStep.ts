@@ -25,14 +25,14 @@ export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solu
   let stepId = await retrieveStep(step.name, apiConfig);
   const messageId = await getSdkMessageId(step.message ?? '', apiConfig);
 
-  if (messageId == undefined) {
+  if (messageId == '') {
     logger.error(`sdk message ${step.message} not found`);
     return;
   }
 
   const filterId = await getSdkMessageFilterId(messageId, step.entity ?? '', apiConfig);
 
-  if (filterId == undefined) {
+  if (filterId == '') {
     logger.error(`sdk message ${step.message} for entity ${step.entity} not found`);
     return;
   }
@@ -54,20 +54,20 @@ export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solu
   if (stepId != '') {
     try {
       await updateStep(stepId, step, apiConfig);
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`failed to update plugin step: ${error.message}`);
     }
   } else {
     try {
       stepId = await createStep(step, apiConfig);
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`failed to create plugin step: ${error.message}`);
     }
 
     if (solution != undefined) {
       try {
         await addToSolution(stepId, solution, ComponentType.SDKMessageProcessingStep, apiConfig);
-      } catch (error) {
+      } catch (error: any) {
         throw new Error(`failed to add to solution: ${error.message}`);
       }
     }
@@ -78,7 +78,7 @@ export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solu
       const promises = images.map(image => deployImage(stepId, image, message, apiConfig));
 
       await Promise.all(promises);
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(error.message);
     }
   }
@@ -102,7 +102,7 @@ async function getSdkMessageFilterId(messageId: string, entityName: string, apiC
 
   const message = await retrieveMultiple(apiConfig, 'sdkmessagefilters', options);
 
-  return message.value[0].sdkmessagefilterid;
+  return message.value.length > 0 ? message.value[0].sdkmessagefilterid : '';
 }
 
 async function getSdkMessageId(name: string, apiConfig: WebApiConfig): Promise<string> {
@@ -113,7 +113,7 @@ async function getSdkMessageId(name: string, apiConfig: WebApiConfig): Promise<s
 
   const message = await retrieveMultiple(apiConfig, 'sdkmessages', options);
 
-  return message.value[0].sdkmessageid as string;
+  return message.value.length > 0 ? message.value[0].sdkmessageid as string : '';
 }
 
 async function createStep(step: PluginStep, apiConfig: WebApiConfig): Promise<string> {
