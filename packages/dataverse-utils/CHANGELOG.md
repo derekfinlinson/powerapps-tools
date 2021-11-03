@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Tue, 02 Nov 2021 16:20:01 GMT and should not be manually modified.
+This log was last generated on Wed, 03 Nov 2021 14:55:25 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.5
+
+Wed, 03 Nov 2021 14:55:25 GMT
+
+### Patches
+
+- Add catch to create calls (derek.finlinson@journeyteam.com)
 
 ## 2.0.4
 

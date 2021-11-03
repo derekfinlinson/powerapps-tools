@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Wed, 03 Nov 2021 14:55:25 GMT",
+      "tag": "dataverse-utils_v2.0.5",
+      "version": "2.0.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "3ebf5be6fd6e5bbb1fbfdb163d97f10c59a3db85",
+            "comment": "Add catch to create calls"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 02 Nov 2021 16:20:01 GMT",
       "tag": "dataverse-utils_v2.0.4",
       "version": "2.0.4",

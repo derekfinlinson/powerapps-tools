@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Add catch to create calls",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
