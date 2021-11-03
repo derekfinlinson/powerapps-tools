@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Force update package version",
+  "packageName": "dataverse-utils",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
