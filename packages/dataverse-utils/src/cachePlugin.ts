@@ -4,8 +4,6 @@ import path from 'path';
 import fs from 'fs';
 import Cryptr from 'cryptr';
 
-const algorithm = 'aes-256-ctr';
-
 const encrypt = (text: string) => {
   const user = os.userInfo().username;
   const cryptr = new Cryptr(user);
