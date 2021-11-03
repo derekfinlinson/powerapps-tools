@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Wed, 03 Nov 2021 15:06:58 GMT",
+      "tag": "dataverse-utils_v2.0.6",
+      "version": "2.0.6",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "a190400c57bc04abc65cf28a87ba10707d37566c",
+            "comment": "Force update package version"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 03 Nov 2021 14:55:25 GMT",
       "tag": "dataverse-utils_v2.0.5",
       "version": "2.0.5",

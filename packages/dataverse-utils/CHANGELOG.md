@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Wed, 03 Nov 2021 14:55:25 GMT and should not be manually modified.
+This log was last generated on Wed, 03 Nov 2021 15:06:58 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.6
+
+Wed, 03 Nov 2021 15:06:58 GMT
+
+### Patches
+
+- Force update package version (derek.finlinson@journeyteam.com)
 
 ## 2.0.5
 
