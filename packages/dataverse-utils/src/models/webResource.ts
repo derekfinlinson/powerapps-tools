@@ -1,5 +1,5 @@
 import { addToSolution, ComponentType, publish } from '../dataverse.service';
-import { retrieveMultiple, createWithReturnData, update, WebApiConfig } from 'dataverse-webapi/lib/node';
+import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity } from 'dataverse-webapi/lib/node';
 import { logger } from 'just-scripts-utils';
 import fs from 'fs';
 
@@ -132,7 +132,13 @@ async function createResource(resource: WebResource, content: string, apiConfig:
     content: content
   };
 
-  const result = await createWithReturnData(apiConfig, 'webresourceset', webResource, '$select=webresourceid');
+  let result: Entity;
+
+  try {
+    result = await createWithReturnData(apiConfig, 'webresourceset', webResource, '$select=webresourceid');
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
 
   return result.webresourceid as string;
 }

@@ -73,7 +73,7 @@ export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solu
     }
   }
 
-  if (images) {
+  if (images && images.length > 0) {
     try {
       const promises = images.map(image => deployImage(stepId, image, message, apiConfig));
 
@@ -119,7 +119,13 @@ async function getSdkMessageId(name: string, apiConfig: WebApiConfig): Promise<s
 async function createStep(step: PluginStep, apiConfig: WebApiConfig): Promise<string> {
   logger.info(`create plugin step ${step.name}`);
 
-  const result = await createWithReturnData(apiConfig, 'sdkmessageprocessingsteps', step, '$select=sdkmessageprocessingstepid');
+  let result: Entity;
+
+  try {
+    result = await createWithReturnData(apiConfig, 'sdkmessageprocessingsteps', step, '$select=sdkmessageprocessingstepid');
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
 
   return result.sdkmessageprocessingstepid as string;
 }

@@ -95,7 +95,13 @@ async function createAssembly(config: PluginAssembly, content: string, apiConfig
     culture: ''
   };
 
-  const result = await createWithReturnData(apiConfig, 'pluginassemblies', assembly, '$select=pluginassemblyid');
+  let result: Entity;
+
+  try {
+    result = await createWithReturnData(apiConfig, 'pluginassemblies', assembly, '$select=pluginassemblyid');
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
 
   return result.pluginassemblyid as string;
 }
