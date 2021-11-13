@@ -132,9 +132,13 @@ async function createResource(resource: WebResource, content: string, apiConfig:
     content: content
   };
 
-  const result = await createWithReturnData(apiConfig, 'webresourceset', webResource, '$select=webresourceid');
+  const result: any = await createWithReturnData(apiConfig, 'webresourceset', webResource, '$select=webresourceid');
 
-  return result.webresourceid as string;
+  if (result.error) {
+    throw new Error(result.error.message);
+  }
+
+  return result.webresourceid;
 }
 
 async function updateResource(id: string, resource: WebResource, content: string, apiConfig: WebApiConfig) {

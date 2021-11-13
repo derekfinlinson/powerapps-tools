@@ -119,9 +119,13 @@ async function getSdkMessageId(name: string, apiConfig: WebApiConfig): Promise<s
 async function createStep(step: PluginStep, apiConfig: WebApiConfig): Promise<string> {
   logger.info(`create plugin step ${step.name}`);
 
-  const result = await createWithReturnData(apiConfig, 'sdkmessageprocessingsteps', step, '$select=sdkmessageprocessingstepid');
+  const result: any = await createWithReturnData(apiConfig, 'sdkmessageprocessingsteps', step, '$select=sdkmessageprocessingstepid');
 
-  return result.sdkmessageprocessingstepid as string;
+  if (result.error) {
+    throw new Error(result.error.message);
+  }
+
+  return result.sdkmessageprocessingstepid;
 }
 
 async function updateStep(id: string, step: PluginStep, apiConfig: WebApiConfig) {

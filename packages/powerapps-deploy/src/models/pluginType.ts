@@ -64,9 +64,13 @@ async function retrieveType(name: string, apiConfig: WebApiConfig): Promise<stri
 async function createType(type: PluginType, apiConfig: WebApiConfig): Promise<string> {
   logger.info(`create assembly type ${type.name}`);
 
-  const result = await createWithReturnData(apiConfig, 'plugintypes', type, '$select=plugintypeid');
+  const result: any = await createWithReturnData(apiConfig, 'plugintypes', type, '$select=plugintypeid');
 
-  return result.plugintypeid as string;
+  if (result.error) {
+    throw new Error(result.error.message);
+  }
+
+  return result.plugintypeid;
 }
 
 async function updateType(id: string, type: PluginType, apiConfig: WebApiConfig) {
