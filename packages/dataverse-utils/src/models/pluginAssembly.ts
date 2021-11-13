@@ -95,15 +95,13 @@ async function createAssembly(config: PluginAssembly, content: string, apiConfig
     culture: ''
   };
 
-  let result: Entity;
-
-  try {
-    result = await createWithReturnData(apiConfig, 'pluginassemblies', assembly, '$select=pluginassemblyid');
-  } catch (error: any) {
-    throw new Error(error.message);
+  const result: any = await createWithReturnData(apiConfig, 'pluginassemblies', assembly, '$select=pluginassemblyid');
+  
+  if (result.error) {
+    throw new Error(result.error.message);
   }
 
-  return result.pluginassemblyid as string;
+  return result.pluginassemblyid;
 }
 
 async function updateAssembly(id: string, config: PluginAssembly, content: string, apiConfig: WebApiConfig) {

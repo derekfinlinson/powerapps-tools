@@ -61,15 +61,13 @@ async function retrieveImage(stepId: string, image: PluginImage, apiConfig: WebA
 async function createImage(image: PluginImage, apiConfig: WebApiConfig): Promise<string> {
   logger.info(`create plugin image ${image.name}`);
 
-  let result: Entity;
+  const result: any = await createWithReturnData(apiConfig, 'sdkmessageprocessingstepimages', image, '$select=sdkmessageprocessingstepimageid');
 
-  try {
-    result = await createWithReturnData(apiConfig, 'sdkmessageprocessingstepimages', image, '$select=sdkmessageprocessingstepimageid');
-  } catch (error: any) {
-    throw new Error(error.message);
+  if (result.error) {
+    throw new Error(result.error.message);
   }
 
-  return result.sdkmessageprocessingstepimageid as string;
+  return result.sdkmessageprocessingstepimageid;
 }
 
 async function updateImage(id: string, image: PluginImage, apiConfig: WebApiConfig) {
