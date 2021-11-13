@@ -1,8 +1,16 @@
 # Change Log - powerapps-deploy
 
-This log was last generated on Tue, 02 Nov 2021 16:20:01 GMT and should not be manually modified.
+This log was last generated on Sat, 13 Nov 2021 04:54:59 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.13
+
+Sat, 13 Nov 2021 04:54:59 GMT
+
+### Patches
+
+- Handle errors from createWithReturnData (derek.finlinson@journeyteam.com)
 
 ## 2.0.12
 

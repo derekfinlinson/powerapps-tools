@@ -2,6 +2,21 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Sat, 13 Nov 2021 04:54:59 GMT",
+      "tag": "powerapps-deploy_v2.0.13",
+      "version": "2.0.13",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-deploy",
+            "commit": "4c2542ea412eda042f6accada225c6640dd45fc8",
+            "comment": "Handle errors from createWithReturnData"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 02 Nov 2021 16:20:01 GMT",
       "tag": "powerapps-deploy_v2.0.12",
       "version": "2.0.12",
