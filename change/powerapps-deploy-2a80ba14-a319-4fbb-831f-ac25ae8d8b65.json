@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Handle errors from createWithReturnData",
+  "packageName": "powerapps-deploy",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
