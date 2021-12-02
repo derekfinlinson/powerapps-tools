@@ -51,7 +51,7 @@ export default async function create(argv: yargs.Arguments): Promise<void> {
 
   logger.info('get plop generator');
 
-  const generator = getGenerator(argv);
+  const generator = await getGenerator(argv);
 
   logger.info(`run powerapps-project-${argv.type} code generator`);
 

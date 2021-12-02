@@ -5,10 +5,10 @@ import yargs from 'yargs';
 import { Config } from './createDataverseProject';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const getGenerator = (argv: yargs.Arguments): PlopGenerator => {
+export const getGenerator = async (argv: yargs.Arguments): Promise<PlopGenerator> => {
   const plopFile = path.resolve(__dirname, 'plopfile.js');
 
-  const plop = nodePlop(plopFile, { destBasePath: argv.destination as string, force: false })
+  const plop = await nodePlop(plopFile, { destBasePath: argv.destination as string, force: false })
 
   const generator = plop.getGenerator(argv.type as string)
 
