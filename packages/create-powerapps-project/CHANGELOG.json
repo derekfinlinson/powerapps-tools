@@ -2,6 +2,27 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Thu, 02 Dec 2021 20:50:52 GMT",
+      "tag": "create-powerapps-project_v0.14.4",
+      "version": "0.14.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "ca4c93ee6ee9ab4b9ea567120f0af5e162542998",
+            "comment": "Fix node-plop"
+          },
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "9e0ff0da1cc227deca5ea47d7f10cdc38a3891a4",
+            "comment": "Update plop"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 22 Sep 2021 16:01:21 GMT",
       "tag": "create-powerapps-project_v0.14.3",
       "version": "0.14.3",

@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Sat, 13 Nov 2021 04:59:34 GMT and should not be manually modified.
+This log was last generated on Thu, 02 Dec 2021 20:50:52 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.8
+
+Thu, 02 Dec 2021 20:50:52 GMT
+
+### Patches
+
+- Fix node-plop (derek.finlinson@journeyteam.com)
 
 ## 2.0.7
 

@@ -2,6 +2,21 @@
   "name": "powerapps-project-webresource",
   "entries": [
     {
+      "date": "Thu, 02 Dec 2021 20:50:52 GMT",
+      "tag": "powerapps-project-webresource_v1.0.7",
+      "version": "1.0.7",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-webresource",
+            "commit": "9e0ff0da1cc227deca5ea47d7f10cdc38a3891a4",
+            "comment": "Update plop"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 16 Sep 2021 20:57:31 GMT",
       "tag": "powerapps-project-webresource_v1.0.6",
       "version": "1.0.6",

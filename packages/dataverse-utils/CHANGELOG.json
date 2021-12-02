@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Thu, 02 Dec 2021 20:50:52 GMT",
+      "tag": "dataverse-utils_v2.0.8",
+      "version": "2.0.8",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "ca4c93ee6ee9ab4b9ea567120f0af5e162542998",
+            "comment": "Fix node-plop"
+          }
+        ]
+      }
+    },
+    {
       "date": "Sat, 13 Nov 2021 04:59:34 GMT",
       "tag": "dataverse-utils_v2.0.7",
       "version": "2.0.7",
