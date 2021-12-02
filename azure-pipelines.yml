@@ -3,11 +3,7 @@
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-  - task: WhiteSource@21
-    inputs:
-      cwd: '$(System.DefaultWorkingDirectory)'
-      projectName: 'powerapps-tools'
+steps:  
   - task: NodeTool@0
     inputs:
       versionSpec: '12.x'
