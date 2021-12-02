@@ -6,8 +6,9 @@
     "/plop-templates",
     "plopfile.js"
   ],
+  "type": "module",
   "dependencies": {
-    "plop": "^2.7.4"
+    "plop": "^3.0.1"
   },
   "devDependencies": {}
 }
