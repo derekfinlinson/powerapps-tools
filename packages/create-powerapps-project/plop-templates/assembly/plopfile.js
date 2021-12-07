@@ -1,3 +1,3 @@
 export default function (plop) {
-  plop.load('powerapps-project-assembly/plopfile.js');
+  plop.load('powerapps-project-assembly');
 }
