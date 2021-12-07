@@ -8,9 +8,7 @@
     "/plop-templates",
     "plopfile.js"
   ],
-  "type": "commonjs",
-  "dependencies": {
-    "plop": "^3.0.2"
-  },
-  "devDependencies": {}
+  "peerDependencies": {
+    "plop": "^2.7.6"
+  }
 }

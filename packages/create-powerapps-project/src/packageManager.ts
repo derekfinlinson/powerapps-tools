@@ -33,7 +33,6 @@ export const install = (cwd: string, type: string): void => {
 function getPackages(type: string) {
   const packages: { dependencies?: string[], devDependencies: string[] } = {
     devDependencies: [
-      'plop',
       `powerapps-project-${type}`,
       'dataverse-utils'
     ]

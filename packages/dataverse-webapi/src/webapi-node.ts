@@ -1,6 +1,5 @@
-// tslint:disable-next-line: ordered-imports
 import { request } from 'https';
-import url = require('url');
+import url from 'url';
 import {
   ChangeSet, Entity, FunctionInput, QueryOptions,
   RetrieveMultipleResponse, WebApiConfig, WebApiRequestConfig, WebApiRequestResult

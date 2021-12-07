@@ -1,3 +1,3 @@
-export default function (plop) {
+module.exports = function (plop) {
   plop.load('powerapps-project-webresource');
-}
+};

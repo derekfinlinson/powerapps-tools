@@ -242,4 +242,4 @@ module.exports = function (plop) {
             }
         ]
     });
-}
+};
