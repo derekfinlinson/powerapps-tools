@@ -5,8 +5,6 @@
 
 A Dataverse Web Api TypeScript module for use in web resources or external web apps in the browser or node.
 
-All requests return Promises. To support Internet Explorer, be sure to include a promise polyfill when deploying to CRM.
-
 *Requires Dynamics CRM 2016 Online/On-Prem or later*
 
 ### Installation
