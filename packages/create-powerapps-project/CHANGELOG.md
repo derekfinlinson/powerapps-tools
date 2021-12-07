@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Tue, 07 Dec 2021 19:41:35 GMT and should not be manually modified.
+This log was last generated on Tue, 07 Dec 2021 19:52:53 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.14.7
+
+Tue, 07 Dec 2021 19:52:53 GMT
+
+### Patches
+
+- Switch to commonjs (derek.finlinson@journeyteam.com)
 
 ## 0.14.6
 
