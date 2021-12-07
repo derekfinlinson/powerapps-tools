@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Tue, 07 Dec 2021 18:44:10 GMT",
+      "tag": "dataverse-utils_v2.0.9",
+      "version": "2.0.9",
+      "comments": {
+        "none": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "b679eab6b9aa175842736c5f451f6b42a718b23c",
+            "comment": "Add license"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 07 Dec 2021 16:11:56 GMT",
       "tag": "dataverse-utils_v2.0.9",
       "version": "2.0.9",

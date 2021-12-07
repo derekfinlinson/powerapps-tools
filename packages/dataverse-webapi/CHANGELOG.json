@@ -2,6 +2,21 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Tue, 07 Dec 2021 18:44:10 GMT",
+      "tag": "dataverse-webapi_v2.0.1",
+      "version": "2.0.1",
+      "comments": {
+        "none": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-webapi",
+            "commit": "b679eab6b9aa175842736c5f451f6b42a718b23c",
+            "comment": "Add license"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 02 Nov 2021 16:20:01 GMT",
       "tag": "dataverse-webapi_v2.0.1",
       "version": "2.0.1",

@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Thu, 02 Dec 2021 20:50:52 GMT and should not be manually modified.
+This log was last generated on Tue, 07 Dec 2021 18:44:10 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.0.5
+
+Tue, 07 Dec 2021 18:44:10 GMT
+
+### Patches
+
+- Swap to commonjs (derek.finlinson@journeyteam.com)
 
 ## 1.0.4
 

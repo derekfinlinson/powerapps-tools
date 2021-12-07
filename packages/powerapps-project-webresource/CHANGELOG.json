@@ -2,6 +2,21 @@
   "name": "powerapps-project-webresource",
   "entries": [
     {
+      "date": "Tue, 07 Dec 2021 18:44:10 GMT",
+      "tag": "powerapps-project-webresource_v1.0.8",
+      "version": "1.0.8",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-webresource",
+            "commit": "b679eab6b9aa175842736c5f451f6b42a718b23c",
+            "comment": "Swap to commonjs"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 02 Dec 2021 20:50:52 GMT",
       "tag": "powerapps-project-webresource_v1.0.7",
       "version": "1.0.7",
