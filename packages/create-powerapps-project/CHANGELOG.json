@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 07 Dec 2021 18:53:08 GMT",
+      "tag": "create-powerapps-project_v0.14.5",
+      "version": "0.14.5",
+      "comments": {
+        "none": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "8f6412e011f27a8c7b9da6c7247f4f4c38919a0d",
+            "comment": "Add descriptions"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 07 Dec 2021 18:47:59 GMT",
       "tag": "create-powerapps-project_v0.14.5",
       "version": "0.14.5",
