@@ -2,6 +2,21 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Tue, 07 Dec 2021 20:03:45 GMT",
+      "tag": "dataverse-webapi_v2.0.3",
+      "version": "2.0.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-webapi",
+            "commit": "33f1ab2a6d567401398b747514a284d3d2ff8996",
+            "comment": "Remove IE since not supported"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 07 Dec 2021 19:41:35 GMT",
       "tag": "dataverse-webapi_v2.0.2",
       "version": "2.0.2",

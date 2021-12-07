@@ -1,8 +1,16 @@
 # Change Log - dataverse-webapi
 
-This log was last generated on Tue, 07 Dec 2021 19:41:35 GMT and should not be manually modified.
+This log was last generated on Tue, 07 Dec 2021 20:03:45 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.3
+
+Tue, 07 Dec 2021 20:03:45 GMT
+
+### Patches
+
+- Remove IE since not supported (derek.finlinson@journeyteam.com)
 
 ## 2.0.2
 
