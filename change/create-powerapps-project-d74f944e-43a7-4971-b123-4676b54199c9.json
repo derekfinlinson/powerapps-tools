@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Revert to plop v2",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
