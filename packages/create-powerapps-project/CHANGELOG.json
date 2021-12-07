@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 07 Dec 2021 19:52:53 GMT",
+      "tag": "create-powerapps-project_v0.14.7",
+      "version": "0.14.7",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "7ada3bfbcf286db81f5fba616560cc4f56dd9b2a",
+            "comment": "Switch to commonjs"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 07 Dec 2021 19:41:35 GMT",
       "tag": "create-powerapps-project_v0.14.6",
       "version": "0.14.6",
