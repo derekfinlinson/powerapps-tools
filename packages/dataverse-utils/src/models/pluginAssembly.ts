@@ -1,5 +1,5 @@
 import fs from 'fs';
-import glob from 'node-glob';
+import glob from 'glob';
 import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity } from 'dataverse-webapi/lib/node';
 
 import { PluginType, deployType } from './pluginType';
