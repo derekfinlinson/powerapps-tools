@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Remove IE since not supported",
+  "packageName": "dataverse-webapi",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
