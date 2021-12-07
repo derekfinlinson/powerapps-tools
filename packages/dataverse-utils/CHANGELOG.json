@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Tue, 07 Dec 2021 16:11:56 GMT",
+      "tag": "dataverse-utils_v2.0.9",
+      "version": "2.0.9",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "65e96cce1a649a1a10214d8dfd7331fdc2367366",
+            "comment": "Fix glob package"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 02 Dec 2021 20:50:52 GMT",
       "tag": "dataverse-utils_v2.0.8",
       "version": "2.0.8",

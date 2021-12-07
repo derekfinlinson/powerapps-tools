@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Thu, 02 Dec 2021 20:50:52 GMT and should not be manually modified.
+This log was last generated on Tue, 07 Dec 2021 16:11:56 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.9
+
+Tue, 07 Dec 2021 16:11:56 GMT
+
+### Patches
+
+- Fix glob package (derek.finlinson@journeyteam.com)
 
 ## 2.0.8
 
