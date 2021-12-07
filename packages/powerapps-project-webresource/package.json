@@ -1,7 +1,7 @@
 {
   "name": "powerapps-project-webresource",
   "description": "💧 plop generator for Dataverse web resources",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "license": "MIT",
   "main": "plopfile.js",
   "files": [

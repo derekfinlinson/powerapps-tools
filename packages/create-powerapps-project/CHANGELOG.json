@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 07 Dec 2021 19:41:35 GMT",
+      "tag": "create-powerapps-project_v0.14.6",
+      "version": "0.14.6",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "def26173ed0d1454365703f801c31a686f5bc380",
+            "comment": "Revert to plop v2"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 07 Dec 2021 18:53:08 GMT",
       "tag": "create-powerapps-project_v0.14.5",
       "version": "0.14.5",

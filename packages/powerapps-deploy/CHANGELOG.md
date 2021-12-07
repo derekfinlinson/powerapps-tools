@@ -1,8 +1,16 @@
 # Change Log - powerapps-deploy
 
-This log was last generated on Sat, 13 Nov 2021 04:54:59 GMT and should not be manually modified.
+This log was last generated on Tue, 07 Dec 2021 19:41:36 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.14
+
+Tue, 07 Dec 2021 19:41:36 GMT
+
+### Patches
+
+- Bump dataverse-webapi to v2.0.2
 
 ## 2.0.13
 

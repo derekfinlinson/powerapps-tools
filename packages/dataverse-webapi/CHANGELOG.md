@@ -1,8 +1,16 @@
 # Change Log - dataverse-webapi
 
-This log was last generated on Tue, 02 Nov 2021 16:20:01 GMT and should not be manually modified.
+This log was last generated on Tue, 07 Dec 2021 19:41:35 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.2
+
+Tue, 07 Dec 2021 19:41:35 GMT
+
+### Patches
+
+- Switch to esnext module (derek.finlinson@journeyteam.com)
 
 ## 2.0.1
 

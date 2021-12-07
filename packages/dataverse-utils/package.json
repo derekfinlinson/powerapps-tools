@@ -1,6 +1,6 @@
 {
   "name": "dataverse-utils",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "license": "MIT",
   "description": "Utilities for interacting with Dataverse environments",
   "main": "lib/index.js",
@@ -24,7 +24,7 @@
     "commander": "^8.2.0",
     "glob": "^7.2.0",
     "cryptr": "^6.0.2",
-    "dataverse-webapi": "^2.0.1",
+    "dataverse-webapi": "^2.0.2",
     "envinfo": "^7.8.1",
     "just-scripts-utils": "^1.1.4",
     "prompts": "^2.4.1"

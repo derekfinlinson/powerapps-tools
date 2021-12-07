@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Tue, 07 Dec 2021 19:41:36 GMT",
+      "tag": "dataverse-utils_v2.0.10",
+      "version": "2.0.10",
+      "comments": {
+        "patch": [
+          {
+            "author": "beachball",
+            "package": "dataverse-utils",
+            "comment": "Bump dataverse-webapi to v2.0.2",
+            "commit": "def26173ed0d1454365703f801c31a686f5bc380"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 07 Dec 2021 18:53:08 GMT",
       "tag": "dataverse-utils_v2.0.9",
       "version": "2.0.9",

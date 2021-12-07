@@ -2,6 +2,21 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Tue, 07 Dec 2021 19:41:35 GMT",
+      "tag": "dataverse-webapi_v2.0.2",
+      "version": "2.0.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-webapi",
+            "commit": "def26173ed0d1454365703f801c31a686f5bc380",
+            "comment": "Switch to esnext module"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 07 Dec 2021 18:44:10 GMT",
       "tag": "dataverse-webapi_v2.0.1",
       "version": "2.0.1",

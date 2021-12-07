@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-webresource
 
-This log was last generated on Tue, 07 Dec 2021 18:44:10 GMT and should not be manually modified.
+This log was last generated on Tue, 07 Dec 2021 19:41:35 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.0.9
+
+Tue, 07 Dec 2021 19:41:35 GMT
+
+### Patches
+
+- Revert to plop v2 (derek.finlinson@journeyteam.com)
 
 ## 1.0.8
 

@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Tue, 07 Dec 2021 18:47:59 GMT and should not be manually modified.
+This log was last generated on Tue, 07 Dec 2021 19:41:35 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.14.6
+
+Tue, 07 Dec 2021 19:41:35 GMT
+
+### Patches
+
+- Revert to plop v2 (derek.finlinson@journeyteam.com)
 
 ## 0.14.5
 
