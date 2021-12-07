@@ -1,14 +1,17 @@
 {
   "name": "powerapps-project-assembly",
+  "description": "💧 plop generator for Dataverse assemblies",
   "version": "1.0.4",
   "license": "MIT",
+  "main": "plopfile.js",
   "files": [
     "/plop-templates",
     "plopfile.js"
   ],
-  "type": "module",
+  "type": "commonjs",
   "dependencies": {
-    "plop": "^3.0.1"
+    "plop": "^3.0.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+  }
 }

@@ -1,7 +1,9 @@
 const path = require('path');
 const fs = require('fs');
 
-export default function (plop) {
+module.exports = function (plop) {
+    plop.setDefaultInclude({ generators: true});
+
     const getNamespace = () => {
         // Get namespace from csproj file
         let files;

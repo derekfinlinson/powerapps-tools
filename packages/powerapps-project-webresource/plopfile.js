@@ -1,7 +1,9 @@
 const path = require('path');
 const fs = require('fs');
 
-export default function (plop) {
+module.exports = function (plop) {
+    plop.setDefaultInclude({ generators: true});
+    
     plop.setActionType('addToConfig', function (answers, config, plop) {
         const destinationPath = plop.getDestBasePath();
         const configPath = path.resolve(destinationPath, 'dataverse.config.json');
