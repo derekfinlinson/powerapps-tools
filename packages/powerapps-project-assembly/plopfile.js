@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 
 module.exports = function (plop) {
-    plop.setDefaultInclude({ generators: true});
+    plop.setDefaultInclude({ generators: true });
 
     const getNamespace = () => {
         // Get namespace from csproj file
@@ -102,29 +102,6 @@ module.exports = function (plop) {
         },
         {
             type: 'list',
-            name: 'mode',
-            message: 'mode',
-            choices: [
-                {
-                    name: 'synchronous',
-                    value: 0
-                },
-                {
-                    name: 'asynchronous',
-                    value: 1
-                }
-            ],
-            when: (answers) => answers.customApi !== true
-        },
-        {
-            type: 'number',
-            name: 'rank',
-            message: 'step rank',
-            default: 1,
-            when: (answers) => answers.customApi !== true
-        },
-        {
-            type: 'list',
             name: 'stage',
             message: 'stage',
             choices: [
@@ -141,6 +118,36 @@ module.exports = function (plop) {
                     value: 40
                 }
             ],
+            when: (answers) => answers.customApi !== true
+        },
+        {
+            type: 'list',
+            name: 'mode',
+            message: 'mode',
+            choices: (answers) => {
+                const choices = [
+                    {
+                        name: 'synchronous',
+                        value: 0
+                    }
+                ];
+
+                if (answers.stage === 40) {
+                    choices.push({
+                        name: 'asynchronous',
+                        value: 1
+                    });
+                }
+
+                return choices;
+            },
+            when: (answers) => answers.customApi !== true
+        },
+        {
+            type: 'number',
+            name: 'rank',
+            message: 'step rank',
+            default: 1,
             when: (answers) => answers.customApi !== true
         },
         {
