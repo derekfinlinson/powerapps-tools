@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Thu, 23 Dec 2021 18:57:05 GMT",
+      "tag": "powerapps-project-assembly_v1.0.6",
+      "version": "1.0.6",
+      "comments": {
+        "none": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "cf97e8867314222d681146148ff7e1d9de064f3b",
+            "comment": "Update package.json with repo"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 07 Dec 2021 19:41:36 GMT",
       "tag": "powerapps-project-assembly_v1.0.6",
       "version": "1.0.6",

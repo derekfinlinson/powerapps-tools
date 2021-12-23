@@ -1,7 +1,0 @@
-{
-  "type": "none",
-  "comment": "Update package.json with repo",
-  "packageName": "powerapps-project-assembly",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "none"
-}
