@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-webresource
 
-This log was last generated on Tue, 07 Dec 2021 19:41:35 GMT and should not be manually modified.
+This log was last generated on Thu, 23 Dec 2021 18:52:54 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.1.0
+
+Thu, 23 Dec 2021 18:52:54 GMT
+
+### Minor changes
+
+- Prompt to add entity file (derek.finlinson@journeyteam.com)
 
 ## 1.0.9
 

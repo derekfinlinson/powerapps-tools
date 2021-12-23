@@ -2,6 +2,21 @@
   "name": "powerapps-project-webresource",
   "entries": [
     {
+      "date": "Thu, 23 Dec 2021 18:52:54 GMT",
+      "tag": "powerapps-project-webresource_v1.1.0",
+      "version": "1.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-webresource",
+            "commit": "d77223721f3515089ad8b7ef22b9f54a42884e00",
+            "comment": "Prompt to add entity file"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 07 Dec 2021 19:41:35 GMT",
       "tag": "powerapps-project-webresource_v1.0.9",
       "version": "1.0.9",

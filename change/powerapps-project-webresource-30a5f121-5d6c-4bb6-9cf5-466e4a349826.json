@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Prompt to add entity file",
-  "packageName": "powerapps-project-webresource",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
