@@ -2,8 +2,8 @@ const path = require('path');
 const fs = require('fs');
 
 module.exports = function (plop) {
-    plop.setDefaultInclude({ generators: true});
-    
+    plop.setDefaultInclude({ generators: true });
+
     plop.setActionType('addToConfig', function (answers, config, plop) {
         const destinationPath = plop.getDestBasePath();
         const configPath = path.resolve(destinationPath, 'dataverse.config.json');
@@ -61,36 +61,51 @@ module.exports = function (plop) {
         }
     });
 
+    const scriptPrompts = [
+        {
+            type: 'text',
+            name: 'entity',
+            message: 'entity name'
+        },
+        {
+            type: 'text',
+            name: 'name',
+            message: 'script unique name (including solution prefix)'
+        },
+        {
+            type: 'text',
+            name: 'displayName',
+            message: 'script display name'
+        },
+        {
+            type: 'confirm',
+            name: 'entityFile',
+            message: 'include entity file?',
+            default: true
+        },
+        {
+            type: 'confirm',
+            name: 'test',
+            message: 'include test file?',
+            default: true
+        }
+    ];
+
     plop.setGenerator('form script', {
-        prompts: [
-            {
-                type: 'text',
-                name: 'entity',
-                message: 'entity name'
-            },
-            {
-                type: 'text',
-                name: 'name',
-                message: 'script unique name (including solution prefix)'
-            },
-            {
-                type: 'text',
-                name: 'displayName',
-                message: 'script display name'
-            },
-            {
-                type: 'confirm',
-                name: 'test',
-                message: 'include test file?',
-                default: true
-            }
-        ],
+        prompts: scriptPrompts,
         actions: [
             {
                 type: 'add',
                 templateFile: 'plop-templates/entity.ts.hbs',
                 path: 'src/scripts/entities/{{entity}}.ts',
-                skipIfExists: true
+                skipIfExists: true,
+                skip: (data) => {
+                    if (data.entityFile) {
+                        return;
+                    } else {
+                        return 'no entity file';
+                    }
+                }
             },
             {
                 type: 'add',
@@ -133,40 +148,20 @@ module.exports = function (plop) {
     });
 
     plop.setGenerator('ribbon script', {
-        prompts: [
-            {
-                type: 'text',
-                name: 'entity',
-                message: 'entity name'
-            },
-            {
-                type: 'text',
-                name: 'function',
-                message: 'function name'
-            },
-            {
-                type: 'text',
-                name: 'name',
-                message: 'script unique name (including solution prefix)'
-            },
-            {
-                type: 'text',
-                name: 'displayName',
-                message: 'script display name'
-            },
-            {
-                type: 'confirm',
-                name: 'test',
-                message: 'include test file?',
-                default: true
-            }
-        ],
+        prompts: scriptPrompts,
         actions: [
             {
                 type: 'add',
                 templateFile: 'plop-templates/entity.ts.hbs',
                 path: 'src/scripts/entities/{{entity}}.ts',
-                skipIfExists: true
+                skipIfExists: true,
+                skip: (data) => {
+                    if (data.entityFile) {
+                        return;
+                    } else {
+                        return 'no entity file';
+                    }
+                }
             },
             {
                 type: 'add',
