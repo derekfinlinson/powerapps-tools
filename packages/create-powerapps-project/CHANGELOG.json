@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Sun, 16 Jan 2022 22:28:32 GMT",
+      "tag": "create-powerapps-project_v0.15.2",
+      "version": "0.15.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "10bfc68da12fdaf50dfd2a0f1b8d11406d578cbf",
+            "comment": "Remove pnpm"
+          }
+        ]
+      }
+    },
+    {
       "date": "Sun, 16 Jan 2022 22:08:05 GMT",
       "tag": "create-powerapps-project_v0.15.1",
       "version": "0.15.1",
