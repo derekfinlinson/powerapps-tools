@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Sun, 16 Jan 2022 21:30:27 GMT",
+      "tag": "dataverse-utils_v2.1.0",
+      "version": "2.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "bb36663768d27bdffc3165129865f8bdce4ea3c0",
+            "comment": "Remove dependencies; Fix plop dependency"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 07 Dec 2021 20:03:45 GMT",
       "tag": "dataverse-utils_v2.0.12",
       "version": "2.0.12",

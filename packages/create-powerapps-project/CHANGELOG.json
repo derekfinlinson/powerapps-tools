@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Sun, 16 Jan 2022 21:30:27 GMT",
+      "tag": "create-powerapps-project_v0.15.0",
+      "version": "0.15.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "bb36663768d27bdffc3165129865f8bdce4ea3c0",
+            "comment": "Remove dependencies; Fix plop dependency"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 07 Dec 2021 19:52:53 GMT",
       "tag": "create-powerapps-project_v0.14.7",
       "version": "0.14.7",
