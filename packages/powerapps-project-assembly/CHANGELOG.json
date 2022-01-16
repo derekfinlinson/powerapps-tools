@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Sun, 16 Jan 2022 21:30:27 GMT",
+      "tag": "powerapps-project-assembly_v1.0.7",
+      "version": "1.0.7",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "bb36663768d27bdffc3165129865f8bdce4ea3c0",
+            "comment": "Remove dependencies; Fix plop dependency"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 23 Dec 2021 18:57:05 GMT",
       "tag": "powerapps-project-assembly_v1.0.6",
       "version": "1.0.6",

@@ -1,8 +1,16 @@
 # Change Log - powerapps-deploy
 
-This log was last generated on Tue, 07 Dec 2021 20:03:45 GMT and should not be manually modified.
+This log was last generated on Sun, 16 Jan 2022 21:30:27 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.1.0
+
+Sun, 16 Jan 2022 21:30:27 GMT
+
+### Minor changes
+
+- Remove dependencies; Fix plop dependency (derek.finlinson@journeyteam.com)
 
 ## 2.0.15
 

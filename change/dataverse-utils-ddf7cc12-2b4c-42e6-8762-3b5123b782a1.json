@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Remove dependencies; Fix plop dependency",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
