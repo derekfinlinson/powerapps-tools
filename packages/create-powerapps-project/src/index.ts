@@ -1,29 +1,20 @@
 #!/usr/bin/env node
-import { program } from 'commander';
+import { Command } from 'commander';
+import kleur from 'kleur';
 import create from './createDataverseProject';
 
-program
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  .version(require('../package').version)
-  .usage('<command> [options]');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const packageJson = require('../package');
 
-// Deploy command
+const program = new Command(packageJson.name);
+
 program
-  .command('init')
+  .version(packageJson.version)
   .description('Create new Dataverse project')
+  .usage(kleur.green('[type]'))
   .argument('[type]', 'Type of project to generate')
-  .action((type) => {
+  .action(type => {
     create(type);
-  });
-
-// Show help on unknown command
-program
-  .arguments('<command>')
-  .action((cmd) => {
-    program.outputHelp();
-    console.log();
-    console.log(`Unknown command ${cmd}.`);
-    console.log();
   });
 
 program.parse(process.argv);
