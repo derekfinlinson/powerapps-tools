@@ -23,15 +23,14 @@
   },
   "dependencies": {
     "envinfo": "^7.8.1",
-    "node-plop": "^0.26.2",
+    "node-plop": "^0.26.3",
     "prompts": "^2.4.2",
-    "just-scripts-utils": "^1.1.4",
-    "yargs": "^17.3.0"
+    "commander": "^8.3.0",
+    "kleur": "^4.1.4"
   },
   "devDependencies": {
     "@types/envinfo": "^7.8.1",
     "@types/node": "^14.14.21",
-    "@types/prompts": "^2.0.14",
-    "@types/yargs": "^17.0.7"
+    "@types/prompts": "^2.0.14"
   }
 }

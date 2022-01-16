@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/derekfinlinson/powerapps-tools"
   },
-  "peerDependencies": {
+  "dependencies": {
     "plop": "^2.7.6"
   }
 }

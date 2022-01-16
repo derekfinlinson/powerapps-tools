@@ -5,7 +5,7 @@ import { addTokenToCache, getTokenFromCache } from './tokenCache';
 import fs from 'fs';
 import path from 'path';
 import { DeployCredentials } from './dataverse.service';
-import { logger } from 'just-scripts-utils';
+import { logger } from './logger';
 
 const clientId = '51f81489-12ee-4a9e-aaae-a2591f45987d';
 const authorityHostUrl = 'https://login.windows.net/common';

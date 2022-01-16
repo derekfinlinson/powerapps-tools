@@ -20,6 +20,12 @@
                 "reveal": "silent"
             },
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "deploy",
+            "type":"npm",
+            "script": "deploy",
+            "dependsOn": ["build"]
         }
     ]
 }

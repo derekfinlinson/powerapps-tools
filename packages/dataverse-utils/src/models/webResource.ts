@@ -1,6 +1,6 @@
 import { addToSolution, ComponentType, publish } from '../dataverse.service';
-import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity } from 'dataverse-webapi/lib/node';
-import { logger } from 'just-scripts-utils';
+import { retrieveMultiple, createWithReturnData, update, WebApiConfig } from 'dataverse-webapi/lib/node';
+import { logger } from '../logger';
 import fs from 'fs';
 
 export interface WebResource {

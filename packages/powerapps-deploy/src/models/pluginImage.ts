@@ -1,4 +1,4 @@
-import { logger } from 'just-scripts-utils';
+import { logger } from '../logger';
 import { retrieveMultiple, createWithReturnData, update, Entity, WebApiConfig } from 'dataverse-webapi/lib/node';
 
 export interface PluginImage extends Entity {

@@ -1,19 +1,18 @@
 import nodePlop, { PlopGenerator } from 'node-plop';
 import path from 'path';
-import { logger } from 'just-scripts-utils';
-import yargs from 'yargs';
 import { Config } from './createDataverseProject';
+import { logger } from './logger';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const getGenerator = async (argv: yargs.Arguments): Promise<PlopGenerator> => {
+export const getGenerator = async (type: string, name: string): Promise<PlopGenerator> => {
   const plopFile = path.resolve(__dirname, 'plopfile.js');
 
-  const plop = await nodePlop(plopFile, { destBasePath: argv.destination as string, force: false })
+  const plop = await nodePlop(plopFile, { destBasePath: name, force: false })
 
-  const generator = plop.getGenerator(argv.type as string)
+  const generator = plop.getGenerator(type)
 
   return generator;
-}
+};
 
 export const runGenerator = async (generator: PlopGenerator, args: Config): Promise<void> => {
   const results = await generator.runActions(args, {
@@ -32,4 +31,4 @@ export const runGenerator = async (generator: PlopGenerator, args: Config): Prom
       logger.info(change.path);
     }
   }
-}
+};

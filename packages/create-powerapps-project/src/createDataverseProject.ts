@@ -1,11 +1,10 @@
-import yargs from 'yargs';
 import prompts from 'prompts';
 import { getNugetPackageVersions, install } from './nuget';
 import path from 'path';
 import { getGenerator, runGenerator } from './plop';
 import * as pkg from './packageManager';
-import { logger, prettyPrintMarkdown } from 'just-scripts-utils';
 import { initialize } from './getEnvInfo';
+import { logger } from './logger';
 
 export interface Config {
   name: string;
@@ -17,19 +16,19 @@ export interface Config {
   sdkVersion?: string;
 }
 
-export default async function create(argv: yargs.Arguments): Promise<void> {
+export default async (type: string): Promise<void> => {
   await initialize();
 
-  argv.name = path.basename(process.cwd());
+  const name = path.basename(process.cwd());
 
-  if (!argv.type || (argv.type !== 'webresource' && argv.type !== 'assembly')) {
-    const invalid = argv.type !== undefined && argv.type !== 'webresource' && argv.type !== 'assembly';
+  if (!type || (type !== 'webresource' && type !== 'assembly')) {
+    const invalid = type !== undefined && type !== 'webresource' && type !== 'assembly';
 
-    const invalidMessage = invalid ? `${argv.type} is not a valid project type.` : '';
+    const invalidMessage = invalid ? `${type} is not a valid project type.` : '';
 
-    const { type } = await prompts({
+    const { promptType } = await prompts({
       type: 'select',
-      name: 'type',
+      name: 'promptType',
       message: `${invalidMessage} Select dataverse project to create?`,
       choices: [
         { title: 'web resource', value: 'webresource' },
@@ -37,13 +36,13 @@ export default async function create(argv: yargs.Arguments): Promise<void> {
       ]
     });
 
-    argv.type = type;
+    type = promptType;
   }
 
-  const questions = await getAnswers(argv.type as string);
+  const questions = await getAnswers(type as string);
   const config: Config = (await prompts(questions)) as Config;
 
-  if (argv.type === 'assembly') {
+  if (type === 'assembly') {
     const xrmVersions = await getNugetPackageVersions('JourneyTeam.Xrm');
 
     config.xrmVersion = xrmVersions.shift();
@@ -51,26 +50,26 @@ export default async function create(argv: yargs.Arguments): Promise<void> {
 
   logger.info('get plop generator');
 
-  const generator = await getGenerator(argv);
+  const generator = await getGenerator(type, name);
 
-  logger.info(`run powerapps-project-${argv.type} code generator`);
+  logger.info(`run powerapps-project-${type} code generator`);
 
   await runGenerator(generator, config);
 
   logger.info('initialize project');
 
-  pkg.install(process.cwd(), argv.type as string);
+  pkg.install(process.cwd(), type as string);
 
-  if (argv.type === 'assembly') {
+  if (type === 'assembly') {
     logger.info('add nuget packages');
 
     install(config.name, config.sdkVersion, config.xrmVersion);
   }
 
-  done(argv);
+  done(type);
 }
 
-async function getAnswers(type: string) {
+const getAnswers = async (type: string) => {
   let questions: prompts.PromptObject[] = [];
 
   if (type === 'webresource') {
@@ -133,30 +132,31 @@ async function getAnswers(type: string) {
   ];
 
   return questions;
-}
+};
 
-function done(argv: yargs.Arguments) {
+export const done = (type: string): void => {
   const message = `
-  ${argv.type} project created!
+  ${type} project created!
   
-  ## Keeping Up-to-date
   keep your build tools up-to-date by updating these two devDependencies:
-  * dataverse-utils
-  * powerapps-project-${argv.type}
-  ${argv.type === 'webresource' ? '* just-scripts' : ''}
+    * dataverse-utils
+    * powerapps-project-${type}
   
-  ## Next Steps
-  ${argv.type === 'webresource' ? `
-  build your project in watch mode with this command:
-      ${pkg.getYarn() ? 'yarn' : 'npm'} start
+  ${type === 'webresource' ?
+  `build your project in watch mode with this command:
+      ${pkg.getYarn() ? 'yarn' : 'npm run'} start
   build your project in production mode with this command:
-      ${pkg.getYarn() ? 'yarn' : 'npm run'} build` : `
-  build your project with this command:
-      dotnet build`}
+      ${pkg.getYarn() ? 'yarn' : 'npm run'} build
+  generate table definition files with this command:
+      ${pkg.getYarn() ? 'yarn' : 'npm run'} generate` :
+  `build your project with this command:
+      dotnet build
+  deploy your project with this command:
+      ${pkg.getYarn() ? 'yarn' : 'npm run'} deploy`}
   
   run code generator with this command:
-      ${pkg.getYarn() ? 'yarn' : 'npm run'} gen
-  `;
+      ${pkg.getYarn() ? 'yarn' : 'npm run'} gen`
+  ;
 
-  logger.info(prettyPrintMarkdown(message));
+  logger.info(message);
 }

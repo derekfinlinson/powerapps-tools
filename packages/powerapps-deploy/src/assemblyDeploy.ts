@@ -3,7 +3,7 @@ import path from 'path';
 import { PluginAssembly, deploy } from './models/pluginAssembly';
 import { DeployCredentials } from './dataverse.service';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
-import { logger } from 'just-scripts-utils';
+import { logger } from './logger';
 
 export async function deployAssembly(creds: DeployCredentials, apiConfig: WebApiConfig): Promise<void> {
   const currentPath = '.';
