@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Switch symbols",
+  "packageName": "dataverse-utils",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
