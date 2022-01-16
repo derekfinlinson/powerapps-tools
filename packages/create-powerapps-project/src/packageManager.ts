@@ -12,11 +12,6 @@ const getNpm = (): any => {
   return npmInfo && npmInfo.path;
 };
 
-const getPnpm = (): any => {
-  const pnpmInfo = getEnvInfo().npmGlobalPackages.pnpm;
-  return pnpmInfo && pnpmInfo.path;
-};
-
 export const install = (cwd: string, type: string): void => {
   const packages = getPackages(type);
 
@@ -25,12 +20,6 @@ export const install = (cwd: string, type: string): void => {
 
     if (packages.dependencies) {
       spawnSync(getYarn(), ['add', ...packages.dependencies], { stdio: 'inherit', cwd });
-    }
-  } else if (getPnpm()) {
-    spawnSync(getPnpm(), ['add', ...packages.devDependencies], { stdio: 'inherit', cwd });
-
-    if (packages.dependencies) {
-      spawnSync(getPnpm(), ['add', ...packages.dependencies], { stdio: 'inherit', cwd });
     }
   } else {
     spawnSync(getNpm(), ['add', ...packages.devDependencies], { stdio: 'inherit', cwd });

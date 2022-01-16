@@ -5,7 +5,6 @@ import path from 'path';
 
 export interface EnvInfoCache {
   Binaries: { Yarn: any, npm: any },
-  npmGlobalPackages: { pnpm: any }
 }
 
 let envInfoCache: EnvInfoCache;
@@ -18,8 +17,7 @@ export const initialize = async (): Promise<any> => {
   envInfoCache = JSON.parse(
     await envinfo.run(
       {
-        Binaries: ['Yarn', 'npm'],
-        npmGlobalPackages: ['pnpm']
+        Binaries: ['Yarn', 'npm']
       },
       { json: true, showNotFound: false }
     )
@@ -31,10 +29,6 @@ export const initialize = async (): Promise<any> => {
 
   if (envInfoCache.Binaries.npm) {
     envInfoCache.Binaries.npm.path = expandHome(envInfoCache.Binaries.npm.path);
-  }
-
-  if (envInfoCache.npmGlobalPackages.pnpm) {
-    envInfoCache.npmGlobalPackages.pnpm.path = 'pnpm';
   }
 
   return envInfoCache;
