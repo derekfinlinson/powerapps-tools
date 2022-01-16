@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Sun, 16 Jan 2022 22:57:20 GMT",
+      "tag": "dataverse-utils_v2.1.2",
+      "version": "2.1.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "acf6ca4763a9d98fa7683fe517deb872f12f4c42",
+            "comment": "Fix logging for real"
+          }
+        ]
+      }
+    },
+    {
       "date": "Sun, 16 Jan 2022 22:41:55 GMT",
       "tag": "dataverse-utils_v2.1.1",
       "version": "2.1.1",

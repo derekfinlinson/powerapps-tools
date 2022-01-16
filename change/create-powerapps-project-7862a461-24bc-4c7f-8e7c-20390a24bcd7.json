@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix logging for real",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

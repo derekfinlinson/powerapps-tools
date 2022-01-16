@@ -1,8 +1,16 @@
 # Change Log - powerapps-deploy
 
-This log was last generated on Sun, 16 Jan 2022 22:41:55 GMT and should not be manually modified.
+This log was last generated on Sun, 16 Jan 2022 22:57:19 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.1.2
+
+Sun, 16 Jan 2022 22:57:19 GMT
+
+### Patches
+
+- Fix logging for real (derek.finlinson@journeyteam.com)
 
 ## 2.1.1
 
