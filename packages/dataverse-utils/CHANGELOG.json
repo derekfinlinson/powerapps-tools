@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Sun, 16 Jan 2022 23:22:22 GMT",
+      "tag": "dataverse-utils_v2.1.3",
+      "version": "2.1.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "928a436f3d6627765a329ee4cb31d83cab714b1d",
+            "comment": "Switch symbols"
+          }
+        ]
+      }
+    },
+    {
       "date": "Sun, 16 Jan 2022 22:57:20 GMT",
       "tag": "dataverse-utils_v2.1.2",
       "version": "2.1.2",
