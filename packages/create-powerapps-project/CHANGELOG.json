@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Sun, 16 Jan 2022 22:08:05 GMT",
+      "tag": "create-powerapps-project_v0.15.1",
+      "version": "0.15.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "aeca9adacfc74eed6b3362a26bd094b4bd26039f",
+            "comment": "Fix program command"
+          }
+        ]
+      }
+    },
+    {
       "date": "Sun, 16 Jan 2022 21:30:27 GMT",
       "tag": "create-powerapps-project_v0.15.0",
       "version": "0.15.0",
