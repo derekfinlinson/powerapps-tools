@@ -13,14 +13,14 @@ const log = (method: 'info' | 'warn' | 'error', symbol: string, ...args: any[]) 
 
 export const logger = {
   info(...args: any[]): void {
-    log('info', kleur.green(square), args);
+    log('info', kleur.green(square), ...args);
   },
 
   warn(...args: any[]): void {
-    log('warn', kleur.yellow(triangle), args);
+    log('warn', kleur.yellow(triangle), ...args);
   },
 
   error(...args: any[]): void {
-    log('error', kleur.red(emptySquare), args);
+    log('error', kleur.red(emptySquare), ...args);
   }
 };
