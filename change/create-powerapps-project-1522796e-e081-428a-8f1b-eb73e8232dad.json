@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Rework logger",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
