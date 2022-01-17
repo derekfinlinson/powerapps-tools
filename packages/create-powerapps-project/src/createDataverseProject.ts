@@ -4,7 +4,9 @@ import path from 'path';
 import { getGenerator, runGenerator } from './plop';
 import * as pkg from './packageManager';
 import { initialize } from './getEnvInfo';
-import { logger } from './logger';
+import kleur from 'kleur';
+
+const tick = '√', pointer = '>';
 
 export interface Config {
   name: string;
@@ -48,20 +50,20 @@ export default async (type: string): Promise<void> => {
     config.xrmVersion = xrmVersions.shift();
   }
 
-  logger.info('get plop generator');
+  console.info(kleur.green(`${kleur.green(tick)} get plop generator`));
 
   const generator = await getGenerator(type, name);
 
-  logger.info(`run powerapps-project-${type} code generator`);
+  console.info(`${kleur.green(tick)} run powerapps-project-${type} code generator`);
 
   await runGenerator(generator, config);
 
-  logger.info('initialize project');
+  console.info(`${kleur.green(tick)} initialize project`);
 
   pkg.install(process.cwd(), type as string);
 
   if (type === 'assembly') {
-    logger.info('add nuget packages');
+    console.info(`${kleur.green(tick)} add nuget packages`);
 
     install(config.name, config.sdkVersion, config.xrmVersion);
   }
@@ -136,27 +138,29 @@ const getAnswers = async (type: string) => {
 
 export const done = (type: string): void => {
   const message = `
-  ${type} project created!
-  
-  keep your build tools up-to-date by updating these two devDependencies:
-    * dataverse-utils
-    * powerapps-project-${type}
-  
-  ${type === 'webresource' ?
-  `build your project in watch mode with this command:
-      ${pkg.getYarn() ? 'yarn' : 'npm run'} start
-  build your project in production mode with this command:
-      ${pkg.getYarn() ? 'yarn' : 'npm run'} build
-  generate table definition files with this command:
-      ${pkg.getYarn() ? 'yarn' : 'npm run'} generate` :
-  `build your project with this command:
-      dotnet build
-  deploy your project with this command:
-      ${pkg.getYarn() ? 'yarn' : 'npm run'} deploy`}
-  
-  run code generator with this command:
-      ${pkg.getYarn() ? 'yarn' : 'npm run'} gen`
-  ;
 
-  logger.info(message);
+  ${kleur.green(tick)} ${type} project created!
+  
+    keep your build tools up-to-date by updating these two devDependencies:
+      ${kleur.cyan(pointer)} dataverse-utils
+      ${kleur.cyan(pointer)} powerapps-project-${type}
+  
+    ${type === 'webresource' ?
+      `build your project in watch mode with this command:
+      ${kleur.cyan(pointer)} ${pkg.getYarn() ? 'yarn' : 'npm run'} start
+    build your project in production mode with this command:
+      ${kleur.cyan(pointer)} ${pkg.getYarn() ? 'yarn' : 'npm run'} build
+    generate table definition files with this command:
+      ${kleur.cyan(pointer)} ${pkg.getYarn() ? 'yarn' : 'npm run'} generate` :
+      `build your project with this command:
+        dotnet build
+    deploy your project with this command:
+      ${kleur.cyan(pointer)} ${pkg.getYarn() ? 'yarn' : 'npm run'} deploy`}
+  
+    run code generator with this command:
+      ${kleur.cyan(pointer)} ${pkg.getYarn() ? 'yarn' : 'npm run'} gen
+  
+  `;
+
+  console.info(message);
 }
