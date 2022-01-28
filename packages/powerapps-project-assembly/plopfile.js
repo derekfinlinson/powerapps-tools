@@ -68,6 +68,7 @@ module.exports = function (plop) {
             type: 'input',
             name: 'filteringattributes',
             message: 'filtering attributes as comma separated list:',
+            format: val => val.replaceAll(' ', ''),
             when: (answers) => answers.message === 'Update' && answers.customApi !== true
         },
         {
@@ -211,6 +212,7 @@ module.exports = function (plop) {
             type: 'input',
             name: 'imageattributes',
             message: 'comma separated list of attributes',
+            format: val => val.replaceAll(' ', ''),
             when: (answers) => (answers.addImage === undefined || answers.addImage === true) && answers.customApi !== true
         }
     ];
