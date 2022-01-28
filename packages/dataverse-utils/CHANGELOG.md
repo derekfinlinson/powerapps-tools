@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Sun, 16 Jan 2022 23:22:22 GMT and should not be manually modified.
+This log was last generated on Fri, 28 Jan 2022 23:11:16 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.1.4
+
+Fri, 28 Jan 2022 23:11:16 GMT
+
+### Patches
+
+- Prompt to delete cache on error (derek.finlinson@journeyteam.com)
 
 ## 2.1.3
 
