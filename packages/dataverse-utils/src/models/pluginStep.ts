@@ -21,8 +21,8 @@ export interface PluginStep extends Entity {
   filteringattributes?: string;
 }
 
-export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solution?: string): Promise<string | undefined> {
-  let stepId = await retrieveStep(step.name, apiConfig);
+export async function deployStep(step: PluginStep, typeId: string, apiConfig: WebApiConfig, solution?: string): Promise<string | undefined> {
+  let stepId = await retrieveStep(step.name, typeId, apiConfig);
   const messageId = await getSdkMessageId(step.message ?? '', apiConfig);
 
   if (messageId == '') {
@@ -86,8 +86,8 @@ export async function deployStep(step: PluginStep, apiConfig: WebApiConfig, solu
   return stepId;
 }
 
-async function retrieveStep(name: string, apiConfig: WebApiConfig): Promise<string> {
-  const options = `$select=sdkmessageprocessingstepid&$filter=name eq '${name}'`;
+async function retrieveStep(name: string, typeId: string, apiConfig: WebApiConfig): Promise<string> {
+  const options = `$select=sdkmessageprocessingstepid&$filter=name eq '${name}' and _plugintypeid_value eq ${typeId}`;
 
   const result = await retrieveMultiple(apiConfig, 'sdkmessageprocessingsteps', options);
 

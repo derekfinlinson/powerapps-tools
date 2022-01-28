@@ -11,8 +11,8 @@ export interface PluginType extends Entity {
   workflowactivitygroupname: string;
 }
 
-export async function deployType(type: PluginType, apiConfig: WebApiConfig, solution?: string): Promise<string> {
-  let typeId = await retrieveType(type.typename, apiConfig);
+export async function deployType(type: PluginType, assemblyId: string, apiConfig: WebApiConfig, solution?: string): Promise<string> {
+  let typeId = await retrieveType(type.typename, assemblyId, apiConfig);
 
   const record: PluginType = {
     name: type.name,
@@ -41,7 +41,7 @@ export async function deployType(type: PluginType, apiConfig: WebApiConfig, solu
       const promises = type.steps.map(async step => {
         step['plugintypeid@odata.bind'] = `/plugintypes(${typeId})`;
 
-        await deployStep(step, apiConfig, solution);
+        await deployStep(step, typeId, apiConfig, solution);
       });
 
       await Promise.all(promises);
@@ -53,8 +53,8 @@ export async function deployType(type: PluginType, apiConfig: WebApiConfig, solu
   return typeId;
 }
 
-async function retrieveType(name: string, apiConfig: WebApiConfig): Promise<string> {
-  const options = `$select=plugintypeid&$filter=typename eq '${name}'`;
+async function retrieveType(name: string, assemblyId: string, apiConfig: WebApiConfig): Promise<string> {
+  const options = `$select=plugintypeid&$filter=typename eq '${name}' and _pluginassemblyid_value eq ${assemblyId}`;
 
   const result = await retrieveMultiple(apiConfig, 'plugintypes', options);
 
