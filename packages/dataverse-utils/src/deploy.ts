@@ -8,6 +8,27 @@ import { DeployCredentials } from './dataverse.service';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
 import { AuthenticationResult } from '@azure/msal-node';
 import { getAccessToken } from './auth';
+import { cacheExists, deleteCache } from './cachePlugin';
+
+const onTokenFailure = async (url: string, error?: string): Promise<void> => {
+  if (error) {
+    logger.error(`failed to acquire access token: ${error}`);
+  } else {
+    logger.error('failed to acquire access token');
+  }
+
+  if (cacheExists(url)) {
+    const { deleteToken } = await prompts({
+      type: 'confirm',
+      name: 'deleteToken',
+      message: `delete current token cache for ${url}?`
+    });
+
+    if (deleteToken) {
+      deleteCache(url);
+    }
+  }
+};
 
 export default async function deploy(type?: string, files?: string): Promise<void> {
   if (!type || (type !== 'webresource' && type !== 'assembly')) {
@@ -43,12 +64,14 @@ export default async function deploy(type?: string, files?: string): Promise<voi
   try {
     token = await getAccessToken(creds.tenant, creds.server);
   } catch (error: any) {
-    logger.error(`failed to acquire access token: ${error.message}`);
+    onTokenFailure(creds.server, error.message);
+
     return;
   }
 
   if (token == null || token.accessToken == null) {
-    logger.error('failed to acquire access token');
+    onTokenFailure(creds.server);
+
     return;
   }
 

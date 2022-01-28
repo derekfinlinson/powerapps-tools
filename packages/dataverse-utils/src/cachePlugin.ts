@@ -22,16 +22,36 @@ const decrypt = (text: string) => {
   return decrypted;
 };
 
-export function cachePlugin(org: string): ICachePlugin {
-  const getCachePath = () => {
-    if (!fs.existsSync(path.join(os.homedir(), './.dataverse-utils/'))) {
-      fs.mkdirSync(path.join(os.homedir(), './.dataverse-utils/'));
-    }
+export const getCachePath = (url: string): string => {
+  const org = url.replace('https://', '').split('.')[0];
 
-    return path.join(os.homedir(), `./.dataverse-utils/${org}.json`);
-  };
+  if (!fs.existsSync(path.join(os.homedir(), './.dataverse-utils/'))) {
+    fs.mkdirSync(path.join(os.homedir(), './.dataverse-utils/'));
+  }
 
-  const cacheLocation = getCachePath();
+  return path.join(os.homedir(), `./.dataverse-utils/${org}.json`);
+};
+
+export const cacheExists = (url: string): boolean => {
+  const cacheLocation = getCachePath(url);
+
+  return fs.existsSync(cacheLocation);
+};
+
+export const deleteCache = (url: string): boolean => {
+  const cacheLocation = getCachePath(url);
+
+  if (fs.existsSync(cacheLocation)) {
+    fs.unlinkSync(cacheLocation);
+
+    return true;
+  } else {
+    return false;
+  }
+};
+
+export const cachePlugin = (url: string): ICachePlugin => {
+  const cacheLocation = getCachePath(url);
 
   const beforeCacheAccess = (tokenCacheContext: TokenCacheContext): Promise<void> => {
     return new Promise((resolve, reject) => {

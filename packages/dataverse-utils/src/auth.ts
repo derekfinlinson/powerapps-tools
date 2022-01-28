@@ -11,7 +11,7 @@ export const getAccessToken = async (tenant: string, url: string): Promise<Authe
       authority: `https://login.microsoftonline.com/${tenant}/`
     },
     cache: {
-      cachePlugin: cachePlugin(url.replace('https://', '').split('.')[0])
+      cachePlugin: cachePlugin(url)
     }
   };
 
