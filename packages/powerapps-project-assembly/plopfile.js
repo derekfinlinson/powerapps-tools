@@ -68,7 +68,6 @@ module.exports = function (plop) {
             type: 'input',
             name: 'filteringattributes',
             message: 'filtering attributes as comma separated list:',
-            format: val => val.replaceAll(' ', ''),
             when: (answers) => answers.message === 'Update' && answers.customApi !== true
         },
         {
@@ -212,7 +211,6 @@ module.exports = function (plop) {
             type: 'input',
             name: 'imageattributes',
             message: 'comma separated list of attributes',
-            format: val => val.replaceAll(' ', ''),
             when: (answers) => (answers.addImage === undefined || answers.addImage === true) && answers.customApi !== true
         }
     ];
@@ -273,7 +271,7 @@ module.exports = function (plop) {
                     rank: answers.rank,
                     stage: answers.stage,
                     supporteddeployment: answers.supporteddeployment,
-                    filteringattributes: answers.filteringattributes,
+                    filteringattributes: answers.filteringattributes.replace(/ /g, ''),
                     images: []
                 };
 
@@ -283,7 +281,7 @@ module.exports = function (plop) {
                         entityalias: answers.entityalias,
                         name: answers.entityalias,
                         imagetype: answers.imagetype,
-                        attributes: answers.imageattributes,
+                        attributes: answers.imageattributes.replace(/ /g, ''),
                     });
                 }
 
