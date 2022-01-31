@@ -271,7 +271,7 @@ module.exports = function (plop) {
                     rank: answers.rank,
                     stage: answers.stage,
                     supporteddeployment: answers.supporteddeployment,
-                    filteringattributes: answers.filteringattributes.replace(/ /g, ''),
+                    filteringattributes: answers.filteringattributes?.replace(/ /g, ''),
                     images: []
                 };
 
@@ -281,7 +281,7 @@ module.exports = function (plop) {
                         entityalias: answers.entityalias,
                         name: answers.entityalias,
                         imagetype: answers.imagetype,
-                        attributes: answers.imageattributes.replace(/ /g, ''),
+                        attributes: answers.imageattributes?.replace(/ /g, ''),
                     });
                 }
 
