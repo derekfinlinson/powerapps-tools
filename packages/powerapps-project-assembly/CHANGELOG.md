@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Fri, 28 Jan 2022 23:11:16 GMT and should not be manually modified.
+This log was last generated on Mon, 31 Jan 2022 17:20:52 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.0.9
+
+Mon, 31 Jan 2022 17:20:52 GMT
+
+### Patches
+
+- Add null check for attributes (derek.finlinson@journeyteam.com)
 
 ## 1.0.8
 

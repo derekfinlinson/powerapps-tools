@@ -1,7 +1,7 @@
 {
   "name": "powerapps-project-assembly",
   "description": "💧 plop generator for Dataverse assemblies",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "license": "MIT",
   "main": "plopfile.js",
   "files": [

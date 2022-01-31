@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Add null check for attributes",
-  "packageName": "powerapps-project-assembly",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
