@@ -31,6 +31,21 @@ export const install = (cwd: string, type: string): void => {
 }
 
 function getPackages(type: string) {
+  if (type === 'pcf') {
+    return {
+      dependencies: [
+        'react',
+        'react-dom',
+        '@fluentui/react'
+      ],
+      devDependencies: [
+        `powerapps-project-${type}`,
+        '@types/react',
+        '@types/react-dom'
+      ]
+    };
+  }
+
   const packages: { dependencies?: string[], devDependencies: string[] } = {
     devDependencies: [
       `powerapps-project-${type}`,

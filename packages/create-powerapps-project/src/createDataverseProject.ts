@@ -16,6 +16,7 @@ export interface Config {
   server: string;
   xrmVersion?: string;
   sdkVersion?: string;
+  react: boolean;
 }
 
 export default async (type: string): Promise<void> => {
@@ -23,8 +24,8 @@ export default async (type: string): Promise<void> => {
 
   const name = path.basename(process.cwd());
 
-  if (!type || (type !== 'webresource' && type !== 'assembly')) {
-    const invalid = type !== undefined && type !== 'webresource' && type !== 'assembly';
+  if (!type || (type !== 'webresource' && type !== 'assembly' && type !== 'pcf')) {
+    const invalid = type !== undefined && type !== 'webresource' && type !== 'assembly' && type !== 'pcf';
 
     const invalidMessage = invalid ? `${type} is not a valid project type.` : '';
 
@@ -34,7 +35,8 @@ export default async (type: string): Promise<void> => {
       message: `${invalidMessage} Select dataverse project to create?`,
       choices: [
         { title: 'web resource', value: 'webresource' },
-        { title: 'plugin or workflow activity', value: 'assembly' }
+        { title: 'plugin or workflow activity', value: 'assembly' },
+        { title: 'powerapps component framework control', value: 'pcf' }
       ]
     });
 
@@ -60,7 +62,9 @@ export default async (type: string): Promise<void> => {
 
   console.info(`${kleur.green(tick)} initialize project`);
 
-  pkg.install(process.cwd(), type as string);
+  if (type !== 'pcf' || config.react) {
+    pkg.install(process.cwd(), type as string);
+  }
 
   if (type === 'assembly') {
     console.info(`${kleur.green(tick)} add nuget packages`);
@@ -73,6 +77,37 @@ export default async (type: string): Promise<void> => {
 
 const getAnswers = async (type: string) => {
   let questions: prompts.PromptObject[] = [];
+
+  if (type === 'pcf') {
+    questions = [
+      {
+        type: 'select',
+        name: 'template',
+        message: 'template',
+        choices: [
+          { title: 'field', value: 'field' },
+          { title: 'dataset', value: 'dataset' }
+        ]
+      },
+      {
+        type: 'text',
+        name: 'namespace',
+        message: 'namespace'
+      },
+      {
+        type: 'text',
+        name: 'name',
+        message: 'name'
+      },
+      {
+        type: 'confirm',
+        name: 'react',
+        message: 'install react?'
+      }
+    ];
+
+    return questions;
+  }
 
   if (type === 'webresource') {
     questions.push({
@@ -137,7 +172,27 @@ const getAnswers = async (type: string) => {
 };
 
 export const done = (type: string): void => {
-  const message = `
+  let message: string;
+
+  if (type === 'pcf') {
+    message = `
+
+  ${kleur.green(tick)} ${type} project created!
+  
+    keep your build tools up-to-date by updating these two devDependencies:
+      ${kleur.cyan(pointer)} powerapps-project-${type}
+  
+    build your project in watch mode with this command:
+      ${kleur.cyan(pointer)} npm start watch
+    build your project in production mode with this command:
+      ${kleur.cyan(pointer)} npm run build
+  
+    run code generator with this command:
+      ${kleur.cyan(pointer)} npm run gen
+  
+  `;
+  } else {
+    message = `
 
   ${kleur.green(tick)} ${type} project created!
   
@@ -146,13 +201,13 @@ export const done = (type: string): void => {
       ${kleur.cyan(pointer)} powerapps-project-${type}
   
     ${type === 'webresource' ?
-      `build your project in watch mode with this command:
+        `build your project in watch mode with this command:
       ${kleur.cyan(pointer)} ${pkg.getYarn() ? 'yarn' : 'npm run'} start
     build your project in production mode with this command:
       ${kleur.cyan(pointer)} ${pkg.getYarn() ? 'yarn' : 'npm run'} build
     generate table definition files with this command:
       ${kleur.cyan(pointer)} ${pkg.getYarn() ? 'yarn' : 'npm run'} generate` :
-      `build your project with this command:
+        `build your project with this command:
         dotnet build
     deploy your project with this command:
       ${kleur.cyan(pointer)} ${pkg.getYarn() ? 'yarn' : 'npm run'} deploy`}
@@ -161,6 +216,7 @@ export const done = (type: string): void => {
       ${kleur.cyan(pointer)} ${pkg.getYarn() ? 'yarn' : 'npm run'} gen
   
   `;
+  }
 
   console.info(message);
 }

@@ -1,5 +1,6 @@
 import path from 'path';
 import { spawnSync } from 'child_process';
+import fs from 'fs';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -10,6 +11,23 @@ export default (plop: any): void => {
     return 'signed assembly';
   });
 
+  plop.setActionType('runPcf', (answers) => {
+    spawnSync('pac', ['pcf', 'init', '--namespace', answers.namespace, '--name', answers.name, '--template', answers.template], { stdio: 'inherit' });
+
+    return 'pcf project created';
+  });
+
+  plop.setActionType('addGenScript', () => {
+    const packagePath = path.resolve(process.cwd(), 'package.json');
+
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const packageJson = require(packagePath);
+
+    packageJson.scripts.push('"gen": "plop"');
+
+    fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 4), 'utf8');
+  });
+
   plop.setGenerator('webresource', {
     actions: [
       {
@@ -18,6 +36,33 @@ export default (plop: any): void => {
         base: '../plop-templates/webresource',
         destination: process.cwd(),
         force: true
+      }
+    ]
+  });
+
+  plop.setGenerator('pcf', {
+    actions: [
+      {
+        type: 'runPcf'
+      },
+      {
+        type: 'addMany',
+        templateFiles: [
+          '../plop-templates/pcf/App.tsx',
+          '../plop-templates/pcf/index.ts'
+        ],
+        base: '../plop-templates/pcf',
+        destination: `${process.cwd()}/{{ name }}`,
+        force: true,
+        skip: (answers) => {
+          return !answers.react;
+        }
+      },
+      {
+        type: 'addGenScript',
+        skip: (answers) => {
+          return !answers.react;
+        }
       }
     ]
   });
