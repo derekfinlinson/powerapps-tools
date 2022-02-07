@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Switch to combined logger",
+  "packageName": "dataverse-utils",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
