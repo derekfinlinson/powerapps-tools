@@ -2,6 +2,21 @@
   "name": "powerapps-project-webresource",
   "entries": [
     {
+      "date": "Mon, 07 Feb 2022 22:02:33 GMT",
+      "tag": "powerapps-project-webresource_v1.1.2",
+      "version": "1.1.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-webresource",
+            "commit": "55d633b2c3064bbdce48c5d314d8e7572a015882",
+            "comment": "Add tests; Resolve pcf generator issues"
+          }
+        ]
+      }
+    },
+    {
       "date": "Sun, 16 Jan 2022 21:30:27 GMT",
       "tag": "powerapps-project-webresource_v1.1.1",
       "version": "1.1.1",

@@ -2,6 +2,21 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Mon, 07 Feb 2022 22:02:33 GMT",
+      "tag": "dataverse-webapi_v2.0.4",
+      "version": "2.0.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-webapi",
+            "commit": "55d633b2c3064bbdce48c5d314d8e7572a015882",
+            "comment": "Add tests; Resolve pcf generator issues"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 07 Dec 2021 20:03:45 GMT",
       "tag": "dataverse-webapi_v2.0.3",
       "version": "2.0.3",

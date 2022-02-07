@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-webresource
 
-This log was last generated on Sun, 16 Jan 2022 21:30:27 GMT and should not be manually modified.
+This log was last generated on Mon, 07 Feb 2022 22:02:33 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.1.2
+
+Mon, 07 Feb 2022 22:02:33 GMT
+
+### Patches
+
+- Add tests; Resolve pcf generator issues (derek.finlinson@journeyteam.com)
 
 ## 1.1.1
 

@@ -2,6 +2,27 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Mon, 07 Feb 2022 22:02:33 GMT",
+      "tag": "dataverse-utils_v2.2.0",
+      "version": "2.2.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "55d633b2c3064bbdce48c5d314d8e7572a015882",
+            "comment": "Switch to combined logger"
+          },
+          {
+            "author": "beachball",
+            "package": "dataverse-utils",
+            "comment": "Bump dataverse-webapi to v2.0.4",
+            "commit": "83b50fd1a35a0645f279e60b8ca0eb2ace5c0ad3"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 28 Jan 2022 23:11:16 GMT",
       "tag": "dataverse-utils_v2.1.4",
       "version": "2.1.4",

@@ -1,8 +1,16 @@
 # Change Log - powerapps-common
 
-This log was last generated on Tue, 08 Jun 2021 03:58:22 GMT and should not be manually modified.
+This log was last generated on Mon, 07 Feb 2022 22:02:33 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.2.1
+
+Mon, 07 Feb 2022 22:02:33 GMT
+
+### Patches
+
+- Add tests; Resolve pcf generator issues (derek.finlinson@journeyteam.com)
 
 ## 1.2.0
 

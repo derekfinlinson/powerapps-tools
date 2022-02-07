@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Add tests; Resolve pcf generator issues",
-  "packageName": "dataverse-webapi",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Mon, 07 Feb 2022 22:02:33 GMT",
+      "tag": "powerapps-common_v1.2.1",
+      "version": "1.2.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-common",
+            "commit": "55d633b2c3064bbdce48c5d314d8e7572a015882",
+            "comment": "Add tests; Resolve pcf generator issues"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 07 Dec 2021 18:44:10 GMT",
       "tag": "powerapps-common_v1.2.0",
       "version": "1.2.0",
