@@ -2,7 +2,7 @@ import { DeployCredentials } from './dataverse.service';
 import path from 'path';
 import fs from 'fs';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
-import { logger } from './logger';
+import { logger } from '../../../logger';
 import { WebResource, deploy } from './models/webResource';
 
 export async function deployWebResource(creds: DeployCredentials, apiConfig: WebApiConfig, files?: string): Promise<void> {
@@ -25,5 +25,5 @@ export async function deployWebResource(creds: DeployCredentials, apiConfig: Web
     return;
   }
 
-  logger.info('deployed web resources');
+  logger.done('deployed web resources');
 }

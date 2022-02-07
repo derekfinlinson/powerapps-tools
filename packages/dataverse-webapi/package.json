@@ -15,7 +15,7 @@
   "scripts": {
     "build": "tsc -p .",
     "lint": "eslint",
-    "prebuild": "rimraf lib"
+    "clean": "rimraf lib"
   },
   "author": "Derek Finlinson",
   "keywords": [

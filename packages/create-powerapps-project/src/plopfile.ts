@@ -12,7 +12,18 @@ export default (plop: any): void => {
   });
 
   plop.setActionType('runPcf', (answers) => {
-    spawnSync('pac', ['pcf', 'init', '--namespace', answers.namespace, '--name', answers.name, '--template', answers.template], { stdio: 'inherit' });
+    const args = ['pcf', 'init', '-ns', answers.namespace, '-n', answers.name, '-t', answers.template];
+
+    /// Setting framework to React currently unsupported by PCF CLI
+    // if (answers.react) {
+    //   args.push('-fw', 'react');
+    // }
+
+    if (process.env.JEST_WORKER_ID !== undefined) {
+      args.push('-npm', 'false');
+    }
+
+    spawnSync('pac', args, { stdio: 'inherit' });
 
     return 'pcf project created';
   });
@@ -23,9 +34,11 @@ export default (plop: any): void => {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const packageJson = require(packagePath);
 
-    packageJson.scripts.push('"gen": "plop"');
+    packageJson.scripts.gen = 'plop';
 
     fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 4), 'utf8');
+
+    return 'added plop script to package.json';
   });
 
   plop.setGenerator('webresource', {

@@ -3,7 +3,7 @@ import path from 'path';
 import { PluginAssembly, deploy } from './models/pluginAssembly';
 import { DeployCredentials } from './dataverse.service';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
-import { logger } from './logger';
+import { logger } from '../../../logger';
 
 export async function deployAssembly(creds: DeployCredentials, apiConfig: WebApiConfig): Promise<void> {
   const currentPath = '.';
@@ -25,5 +25,5 @@ export async function deployAssembly(creds: DeployCredentials, apiConfig: WebApi
     return;
   }
 
-  logger.info(`deployed assembly ${config.name}\r\n`)
+  logger.done(`deployed assembly ${config.name}\r\n`)
 }

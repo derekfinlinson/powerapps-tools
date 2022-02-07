@@ -51,6 +51,10 @@ export const install = (project: string, sdkVersion?: string, xrmVersion?: strin
     stdio: 'inherit'
   });
 
+  if (process.env.JEST_WORKER_ID !== undefined) {
+    return;
+  }
+
   spawnSync('dotnet', ['restore'], {
     cwd: process.cwd(),
     stdio: 'inherit'

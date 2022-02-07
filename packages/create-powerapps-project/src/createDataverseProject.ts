@@ -4,9 +4,7 @@ import path from 'path';
 import { getGenerator, runGenerator } from './plop';
 import * as pkg from './packageManager';
 import { initialize } from './getEnvInfo';
-import kleur from 'kleur';
-
-const tick = '√', pointer = '>';
+import { logger, icons } from '../../../logger';
 
 export interface Config {
   name: string;
@@ -52,22 +50,22 @@ export default async (type: string): Promise<void> => {
     config.xrmVersion = xrmVersions.shift();
   }
 
-  console.info(kleur.green(`${kleur.green(tick)} get plop generator`));
+  logger.info('get plop generator');
 
   const generator = await getGenerator(type, name);
 
-  console.info(`${kleur.green(tick)} run powerapps-project-${type} code generator`);
+  logger.info(`run powerapps-project-${type} code generator`);
 
   await runGenerator(generator, config);
 
-  console.info(`${kleur.green(tick)} initialize project`);
+  logger.info('initialize project');
 
   if (type !== 'pcf' || config.react) {
     pkg.install(process.cwd(), type as string);
   }
 
   if (type === 'assembly') {
-    console.info(`${kleur.green(tick)} add nuget packages`);
+    logger.info('add nuget packages');
 
     install(config.name, config.sdkVersion, config.xrmVersion);
   }
@@ -172,48 +170,52 @@ const getAnswers = async (type: string) => {
 };
 
 export const done = (type: string): void => {
+  if (process.env.JEST_WORKER_ID !== undefined) {
+    return;
+  }
+
   let message: string;
 
   if (type === 'pcf') {
     message = `
 
-  ${kleur.green(tick)} ${type} project created!
+  ${icons.done} ${type} project created!
   
     keep your build tools up-to-date by updating these two devDependencies:
-      ${kleur.cyan(pointer)} powerapps-project-${type}
+      ${icons.info} powerapps-project-${type}
   
     build your project in watch mode with this command:
-      ${kleur.cyan(pointer)} npm start watch
+      ${icons.info} npm start watch
     build your project in production mode with this command:
-      ${kleur.cyan(pointer)} npm run build
+      ${icons.info} npm run build
   
     run code generator with this command:
-      ${kleur.cyan(pointer)} npm run gen
+      ${icons.info} npm run gen
   
   `;
   } else {
     message = `
 
-  ${kleur.green(tick)} ${type} project created!
+  ${icons.done} ${type} project created!
   
     keep your build tools up-to-date by updating these two devDependencies:
-      ${kleur.cyan(pointer)} dataverse-utils
-      ${kleur.cyan(pointer)} powerapps-project-${type}
+      ${icons.info} dataverse-utils
+      ${icons.info} powerapps-project-${type}
   
     ${type === 'webresource' ?
         `build your project in watch mode with this command:
-      ${kleur.cyan(pointer)} ${pkg.getYarn() ? 'yarn' : 'npm run'} start
+      ${icons.info} ${pkg.getYarn() ? 'yarn' : 'npm run'} start
     build your project in production mode with this command:
-      ${kleur.cyan(pointer)} ${pkg.getYarn() ? 'yarn' : 'npm run'} build
+      ${icons.info} ${pkg.getYarn() ? 'yarn' : 'npm run'} build
     generate table definition files with this command:
-      ${kleur.cyan(pointer)} ${pkg.getYarn() ? 'yarn' : 'npm run'} generate` :
+      ${icons.info} ${pkg.getYarn() ? 'yarn' : 'npm run'} generate` :
         `build your project with this command:
         dotnet build
     deploy your project with this command:
-      ${kleur.cyan(pointer)} ${pkg.getYarn() ? 'yarn' : 'npm run'} deploy`}
+      ${icons.info} ${pkg.getYarn() ? 'yarn' : 'npm run'} deploy`}
   
     run code generator with this command:
-      ${kleur.cyan(pointer)} ${pkg.getYarn() ? 'yarn' : 'npm run'} gen
+      ${icons.info} ${pkg.getYarn() ? 'yarn' : 'npm run'} gen
   
   `;
   }

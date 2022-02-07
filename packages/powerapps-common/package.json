@@ -15,7 +15,7 @@
   "scripts": {
     "build": "tsc -p .",
     "lint": "eslint",
-    "prebuild": "rimraf lib"
+    "clean": "rimraf lib"
   },
   "keywords": [
     "dynamics",
@@ -28,6 +28,7 @@
   ],
   "author": "Derek Finlinson",
   "devDependencies": {
-    "@types/xrm": "^9.0.33"
+    "@types/xrm": "^9.0.33",
+    "xrm-mock": "^3.5.7"
   }
 }

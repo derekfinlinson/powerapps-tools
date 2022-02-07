@@ -1,7 +1,7 @@
 import prompts from 'prompts';
 import fs from 'fs';
 import path from 'path';
-import { logger } from './logger';
+import { logger } from '../../../logger';
 import { DeployCredentials, getTableMetadata, TableMetadata } from './dataverse.service';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
 import { getAccessToken } from './auth';
@@ -105,5 +105,5 @@ export default async function generate(table: string): Promise<void> {
 
   fs.writeFileSync(path.resolve(currentPath, 'src', 'scripts', 'models', `${metadata.schemaName}.ts`), codeFile);
 
-  logger.info(`Table metadata output to models/${metadata.schemaName}.ts`);
+  logger.done(`Table metadata output to models/${metadata.schemaName}.ts`);
 }

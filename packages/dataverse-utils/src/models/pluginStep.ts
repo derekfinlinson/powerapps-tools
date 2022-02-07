@@ -1,6 +1,6 @@
 import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity } from 'dataverse-webapi/lib/node';
 import { addToSolution, ComponentType } from '../dataverse.service';
-import { logger } from '../logger';
+import { logger } from '../../../../logger';
 import { deployImage, PluginImage } from './pluginImage';
 
 export interface PluginStep extends Entity {
@@ -26,14 +26,14 @@ export async function deployStep(step: PluginStep, typeId: string, apiConfig: We
   const messageId = await getSdkMessageId(step.message ?? '', apiConfig);
 
   if (messageId == '') {
-    logger.error(`sdk message ${step.message} not found`);
+    logger.warn(`sdk message ${step.message} not found`);
     return;
   }
 
   const filterId = await getSdkMessageFilterId(messageId, step.entity ?? '', apiConfig);
 
   if (filterId == '') {
-    logger.error(`sdk message ${step.message} for entity ${step.entity} not found`);
+    logger.warn(`sdk message ${step.message} for entity ${step.entity} not found`);
     return;
   }
 

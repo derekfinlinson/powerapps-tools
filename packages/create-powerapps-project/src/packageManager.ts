@@ -15,6 +15,10 @@ const getNpm = (): any => {
 export const install = (cwd: string, type: string): void => {
   const packages = getPackages(type);
 
+  if (process.env.JEST_WORKER_ID !== undefined) {
+    return;
+  }
+
   if (getYarn()) {
     spawnSync(getYarn(), ['add', ...packages.devDependencies], { stdio: 'inherit', cwd });
 

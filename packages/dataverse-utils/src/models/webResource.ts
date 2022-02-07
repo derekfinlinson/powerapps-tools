@@ -1,6 +1,6 @@
 import { addToSolution, ComponentType, publish } from '../dataverse.service';
 import { retrieveMultiple, createWithReturnData, update, WebApiConfig } from 'dataverse-webapi/lib/node';
-import { logger } from '../logger';
+import { logger } from '../../../../logger';
 import fs from 'fs';
 
 export interface WebResource {
@@ -56,7 +56,7 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
       const resource = webResources.filter(r => r.path?.endsWith(file));
 
       if (resource.length === 0) {
-        logger.error(`web resource ${file} not found in dataverse.config.json`);
+        logger.warn(`web resource ${file} not found in dataverse.config.json`);
         continue;
       }
 

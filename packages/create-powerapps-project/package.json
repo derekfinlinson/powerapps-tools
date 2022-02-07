@@ -19,14 +19,14 @@
   "scripts": {
     "build": "tsc -p .",
     "lint": "eslint",
-    "prebuild": "rimraf lib"
+    "clean": "rimraf lib"
   },
   "dependencies": {
-    "envinfo": "^7.8.1",
-    "node-plop": "^0.26.3",
-    "prompts": "^2.4.2",
     "commander": "^8.3.0",
-    "kleur": "^4.1.4"
+    "envinfo": "^7.8.1",
+    "kleur": "^4.1.4",
+    "node-plop": "^0.26.3",
+    "prompts": "^2.4.2"
   },
   "devDependencies": {
     "@types/envinfo": "^7.8.1",

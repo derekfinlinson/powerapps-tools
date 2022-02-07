@@ -4,7 +4,7 @@ import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity } 
 
 import { PluginType, deployType } from './pluginType';
 import { addToSolution, ComponentType } from '../dataverse.service';
-import { logger } from '../logger';
+import { logger } from '../../../../logger';
 
 export interface PluginAssembly extends Entity {
   name: string;
@@ -21,7 +21,7 @@ export async function deploy(config: PluginAssembly, apiConfig: WebApiConfig, so
   const files = glob.sync(`**/${config.name}.dll`);
 
   if (files.length === 0) {
-    logger.error(`assembly ${config.name}.dll not found`);
+    logger.warn(`assembly ${config.name}.dll not found`);
     return;
   }
 

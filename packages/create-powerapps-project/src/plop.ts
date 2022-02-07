@@ -1,15 +1,17 @@
 import nodePlop, { PlopGenerator } from 'node-plop';
 import path from 'path';
+import { logger } from '../../../logger';
 import { Config } from './createDataverseProject';
-import kleur from 'kleur';
-
-const tick = '√';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getGenerator = async (type: string, name: string): Promise<PlopGenerator> => {
-  const plopFile = path.resolve(__dirname, 'plopfile.js');
+  let plopFile = path.resolve(__dirname, 'plopfile.js');
 
-  const plop = await nodePlop(plopFile, { destBasePath: name, force: false })
+  if (process.env.JEST_WORKER_ID !== undefined) {
+    plopFile = path.resolve(__dirname, 'plopfile.ts');
+  }
+
+  const plop = nodePlop(plopFile, { destBasePath: name, force: false })
 
   const generator = plop.getGenerator(type)
 
@@ -19,7 +21,7 @@ export const getGenerator = async (type: string, name: string): Promise<PlopGene
 export const runGenerator = async (generator: PlopGenerator, args: Config): Promise<void> => {
   const results = await generator.runActions(args, {
     onComment: (comment: string) => {
-      console.log(`${kleur.green(tick)} ${comment}`);
+      logger.done(comment);
     }
   });
 
@@ -30,7 +32,7 @@ export const runGenerator = async (generator: PlopGenerator, args: Config): Prom
   // do something after the actions have run
   for (const change of results.changes) {
     if (change.path) {
-      console.log(`${kleur.green(tick)} ${change.path}`);
+      logger.done(change.path);
     }
   }
 };
