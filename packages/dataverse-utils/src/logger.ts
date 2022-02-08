@@ -3,10 +3,10 @@ import kleur from 'kleur';
 const isTest = process.env.JEST_WORKER_ID !== undefined;
 
 export const icons = {
-  done: kleur.green('▣'),
-  info: kleur.cyan('!'),
+  done: kleur.green('◉'),
+  info: kleur.cyan('◎'),
   error: kleur.red('⨂'),
-  warn: kleur.yellow('‼')
+  warn: kleur.yellow('⨁')
 };
 
 export const logger = {
