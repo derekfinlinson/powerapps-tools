@@ -1,7 +1,7 @@
 import prompts from 'prompts';
 import fs from 'fs';
 import path from 'path';
-import { logger } from '../../../logger';
+import { logger } from './logger';
 import { DeployCredentials, getTableMetadata, TableMetadata } from './dataverse.service';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
 import { getAccessToken } from './auth';

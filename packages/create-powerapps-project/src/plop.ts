@@ -1,6 +1,6 @@
 import nodePlop, { PlopGenerator } from 'node-plop';
 import path from 'path';
-import { logger } from '../../../logger';
+import { logger } from './logger';
 import { Config } from './createDataverseProject';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

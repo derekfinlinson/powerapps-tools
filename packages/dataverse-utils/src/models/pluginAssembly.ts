@@ -4,7 +4,7 @@ import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity } 
 
 import { PluginType, deployType } from './pluginType';
 import { addToSolution, ComponentType } from '../dataverse.service';
-import { logger } from '../../../../logger';
+import { logger } from '../logger';
 
 export interface PluginAssembly extends Entity {
   name: string;

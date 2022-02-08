@@ -1,6 +1,6 @@
 import { cachePlugin } from './cachePlugin';
 import { AuthenticationResult, PublicClientApplication } from '@azure/msal-node';
-import { logger } from '../../../logger';
+import { logger } from './logger';
 
 const clientId = '51f81489-12ee-4a9e-aaae-a2591f45987d';
 

@@ -1,6 +1,6 @@
 import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity } from 'dataverse-webapi/lib/node';
 import { addToSolution, ComponentType } from '../dataverse.service';
-import { logger } from '../../../../logger';
+import { logger } from '../logger';
 import { deployImage, PluginImage } from './pluginImage';
 
 export interface PluginStep extends Entity {

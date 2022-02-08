@@ -1,7 +1,7 @@
 import prompts from 'prompts';
 import fs from 'fs';
 import path from 'path';
-import { logger } from '../../../logger';
+import { logger } from './logger';
 import { deployAssembly } from './assemblyDeploy';
 import { deployWebResource } from './webResourceDeploy';
 import { DeployCredentials } from './dataverse.service';

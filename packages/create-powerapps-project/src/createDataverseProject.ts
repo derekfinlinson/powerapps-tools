@@ -4,7 +4,7 @@ import path from 'path';
 import { getGenerator, runGenerator } from './plop';
 import * as pkg from './packageManager';
 import { initialize } from './getEnvInfo';
-import { logger, icons } from '../../../logger';
+import { logger, icons } from './logger';
 
 export interface Config {
   name: string;

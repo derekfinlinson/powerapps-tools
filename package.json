@@ -27,6 +27,5 @@
     "test": "jest"
   },
   "dependencies": {
-    "kleur": "^4.1.4"
   }
 }
