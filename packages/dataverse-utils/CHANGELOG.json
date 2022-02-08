@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Tue, 08 Feb 2022 18:13:52 GMT",
+      "tag": "dataverse-utils_v2.2.1",
+      "version": "2.2.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "cfa9121f50ea731b9ef639154153b01dc81fff85",
+            "comment": "Fix logger and file paths"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 07 Feb 2022 22:02:33 GMT",
       "tag": "dataverse-utils_v2.2.0",
       "version": "2.2.0",

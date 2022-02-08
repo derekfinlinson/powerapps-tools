@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 08 Feb 2022 18:13:53 GMT",
+      "tag": "create-powerapps-project_v0.16.1",
+      "version": "0.16.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "cfa9121f50ea731b9ef639154153b01dc81fff85",
+            "comment": "Fix logger and file paths"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 07 Feb 2022 22:02:33 GMT",
       "tag": "create-powerapps-project_v0.16.0",
       "version": "0.16.0",

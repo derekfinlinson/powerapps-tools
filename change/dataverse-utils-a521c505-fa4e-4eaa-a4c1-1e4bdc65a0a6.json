@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix logger and file paths",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
