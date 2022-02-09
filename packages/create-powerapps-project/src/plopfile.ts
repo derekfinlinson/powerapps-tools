@@ -11,6 +11,10 @@ export default (plop: any): void => {
     const keyPath = path.resolve(process.cwd(), `${answers.name}.snk`);
 
     return new Promise((resolve, reject) => {
+      if (process.env.JEST_WORKER_ID !== undefined) {
+        resolve('Testing so no need to sign');
+      }
+
       const sign = spawn(path.resolve(__dirname, '../', 'bin', 'sn.exe'), ['-q', '-k', keyPath], { stdio: 'inherit' });
 
       sign.on('close', (code) => {
@@ -48,7 +52,7 @@ export default (plop: any): void => {
     });
   });
 
-  plop.setActionType('addGenScript', () => {
+  plop.setActionType('addGenScript', async () => {
     const packagePath = path.resolve(process.cwd(), 'package.json');
 
     // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -56,7 +60,7 @@ export default (plop: any): void => {
 
     packageJson.scripts.gen = 'plop';
 
-    fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 4), 'utf8');
+    await fs.promises.writeFile(packagePath, JSON.stringify(packageJson, null, 4), 'utf8');
 
     return 'added plop script to package.json';
   });
