@@ -48,15 +48,20 @@ export default async (type: string): Promise<void> => {
     const xrmVersions = await getNugetPackageVersions('JourneyTeam.Xrm');
 
     config.xrmVersion = xrmVersions.shift();
+  } else if (type === 'webresource') {
+    config.name = name;
   }
-
-  logger.info('get plop generator');
 
   const generator = await getGenerator(type, name);
 
   logger.info(`run powerapps-project-${type} code generator`);
 
-  await runGenerator(generator, config);
+  try {
+    await runGenerator(generator, config);
+  } catch (ex: any) {
+    logger.error(ex.message);
+    return;
+  }
 
   logger.info('initialize project');
 

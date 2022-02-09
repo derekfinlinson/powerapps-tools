@@ -11,7 +11,7 @@ export const getGenerator = async (type: string, name: string): Promise<PlopGene
     plopFile = path.resolve(__dirname, 'plopfile.ts');
   }
 
-  const plop = nodePlop(plopFile, { destBasePath: name, force: false })
+  const plop = nodePlop(plopFile, { destBasePath: name, force: false });
 
   const generator = plop.getGenerator(type)
 
@@ -21,12 +21,12 @@ export const getGenerator = async (type: string, name: string): Promise<PlopGene
 export const runGenerator = async (generator: PlopGenerator, args: Config): Promise<void> => {
   const results = await generator.runActions(args, {
     onComment: (comment: string) => {
-      logger.done(comment);
+      logger.info(comment);
     }
   });
 
   if (results.failures && results.failures.length > 0) {
-    throw new Error('Error: ' + results.failures[0].error);
+    throw new Error(results.failures[0].error);
   }
 
   // do something after the actions have run

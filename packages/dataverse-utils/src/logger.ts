@@ -30,7 +30,7 @@ export const logger = {
 
   done(...args: any[]): void {
     if (!isTest) {
-      console.info(icons.info, ...args);
+      console.info(icons.done, ...args);
     }
   },
 };

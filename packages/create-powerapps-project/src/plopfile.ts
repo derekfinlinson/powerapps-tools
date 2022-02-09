@@ -1,14 +1,26 @@
 import path from 'path';
-import { spawnSync } from 'child_process';
+import { spawn } from 'child_process';
 import fs from 'fs';
+
+const didSucceed = (code: number | null) => `${code}` === '0';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default (plop: any): void => {
   plop.setActionType('signAssembly', (answers) => {
     const keyPath = path.resolve(process.cwd(), `${answers.name}.snk`);
-    spawnSync(path.resolve(__dirname, '../', 'bin', 'sn.exe'), ['-q', '-k', keyPath], { stdio: 'inherit' });
-    return 'signed assembly';
+
+    return new Promise((resolve, reject) => {
+      const sign = spawn(path.resolve(__dirname, '../', 'bin', 'sn.exe'), ['-q', '-k', keyPath], { stdio: 'inherit' });
+
+      sign.on('close', (code) => {
+        if (didSucceed(code)) {
+          resolve('signed assembly');
+        } else {
+          reject('Failed to sign assembly');
+        }
+      });
+    });
   });
 
   plop.setActionType('runPcf', (answers) => {
@@ -23,9 +35,17 @@ export default (plop: any): void => {
       args.push('-npm', 'false');
     }
 
-    spawnSync('pac', args, { stdio: 'inherit' });
+    return new Promise((resolve, reject) => {
+      const pac = spawn('pac', args, { stdio: 'inherit' });
 
-    return 'pcf project created';
+      pac.on('close', (code) => {
+        if (didSucceed(code)) {
+          resolve('pcf project created');
+        } else {
+          reject('Ensure the Power Platform CLI is installed. Command must be run from within VS Code if using the Power Platform Extension');
+        }
+      });
+    });
   });
 
   plop.setActionType('addGenScript', () => {
