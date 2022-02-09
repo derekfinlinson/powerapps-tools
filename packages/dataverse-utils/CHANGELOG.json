@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Wed, 09 Feb 2022 16:19:05 GMT",
+      "tag": "dataverse-utils_v2.2.3",
+      "version": "2.2.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "cdab4698564ece9f40c5a45327a38270a6d1c16d",
+            "comment": "Catch errors on commands"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 08 Feb 2022 18:47:13 GMT",
       "tag": "dataverse-utils_v2.2.2",
       "version": "2.2.2",

@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Catch errors on commands",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
