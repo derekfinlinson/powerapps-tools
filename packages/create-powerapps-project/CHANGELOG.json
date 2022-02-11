@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Fri, 11 Feb 2022 16:59:23 GMT",
+      "tag": "create-powerapps-project_v0.16.4",
+      "version": "0.16.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "19a5d1442fef02d2f260e59d2779d6f85df51630",
+            "comment": "Comment out pcf plop for now"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 09 Feb 2022 16:19:05 GMT",
       "tag": "create-powerapps-project_v0.16.3",
       "version": "0.16.3",
