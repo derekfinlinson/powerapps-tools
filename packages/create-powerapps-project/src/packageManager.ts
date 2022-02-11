@@ -43,7 +43,7 @@ function getPackages(type: string) {
         '@fluentui/react'
       ],
       devDependencies: [
-        `powerapps-project-${type}`,
+        //`powerapps-project-${type}`,
         '@types/react',
         '@types/react-dom'
       ]
