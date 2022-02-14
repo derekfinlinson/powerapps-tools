@@ -1,7 +1,7 @@
 {
   "name": "create-powerapps-project",
   "description": "💧 plop generator for Dataverse development",
-  "version": "0.16.4",
+  "version": "0.16.5",
   "license": "MIT",
   "main": "lib/index.js",
   "bin": {

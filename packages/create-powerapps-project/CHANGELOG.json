@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Mon, 14 Feb 2022 23:29:54 GMT",
+      "tag": "create-powerapps-project_v0.16.5",
+      "version": "0.16.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "361a315823b5558a96c191850c2fcf8863653e5b",
+            "comment": "Set class name from prompts"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 11 Feb 2022 16:59:23 GMT",
       "tag": "create-powerapps-project_v0.16.4",
       "version": "0.16.4",
