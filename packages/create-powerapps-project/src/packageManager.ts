@@ -40,12 +40,14 @@ function getPackages(type: string) {
       dependencies: [
         'react',
         'react-dom',
-        '@fluentui/react'
+        '@fluentui/react',
+        '@fluentui/font-icons-mdl2'
       ],
       devDependencies: [
         //`powerapps-project-${type}`,
         '@types/react',
-        '@types/react-dom'
+        '@types/react-dom',
+        '@types/xrm'
       ]
     };
   }
