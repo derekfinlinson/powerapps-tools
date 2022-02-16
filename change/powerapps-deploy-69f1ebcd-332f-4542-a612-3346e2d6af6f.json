@@ -1,0 +1,7 @@
+{
+  "type": "none",
+  "comment": "Re-add sn.exe; React PCF updates",
+  "packageName": "powerapps-deploy",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "none"
+}
