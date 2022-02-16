@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Re-add sn.exe; React PCF updates",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

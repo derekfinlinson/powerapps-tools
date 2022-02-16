@@ -2,6 +2,21 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Wed, 16 Feb 2022 00:36:24 GMT",
+      "tag": "powerapps-deploy_v2.1.4",
+      "version": "2.1.4",
+      "comments": {
+        "none": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-deploy",
+            "commit": "96abb993cc017edf436a612281ef7a5d3346023b",
+            "comment": "Re-add sn.exe; React PCF updates"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 07 Feb 2022 22:02:33 GMT",
       "tag": "powerapps-deploy_v2.1.4",
       "version": "2.1.4",

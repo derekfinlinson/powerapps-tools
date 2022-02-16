@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Wed, 09 Feb 2022 16:19:05 GMT and should not be manually modified.
+This log was last generated on Wed, 16 Feb 2022 00:36:25 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.2.4
+
+Wed, 16 Feb 2022 00:36:25 GMT
+
+### Patches
+
+- Re-add sn.exe; React PCF updates (derek.finlinson@journeyteam.com)
 
 ## 2.2.3
 

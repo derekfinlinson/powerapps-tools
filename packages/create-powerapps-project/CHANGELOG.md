@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Mon, 14 Feb 2022 23:29:54 GMT and should not be manually modified.
+This log was last generated on Wed, 16 Feb 2022 00:36:25 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.16.6
+
+Wed, 16 Feb 2022 00:36:25 GMT
+
+### Patches
+
+- Re-add sn.exe; React PCF updates (derek.finlinson@journeyteam.com)
 
 ## 0.16.5
 

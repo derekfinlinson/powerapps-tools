@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Re-add sn.exe; React PCF updates",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
