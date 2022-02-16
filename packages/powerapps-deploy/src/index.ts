@@ -96,7 +96,7 @@ async function authenticate(url: string, tenant: string): Promise<TokenResponse>
 
 export default async function getAccessToken(): Promise<void> {
   const currentPath = '.';
-  const credsFile = fs.readFileSync(path.resolve(currentPath, 'dataverse.config.json'), 'utf8');
+  const credsFile = await fs.promises.readFile(path.resolve(currentPath, 'dataverse.config.json'), 'utf8');
 
   if (credsFile == null) {
     throw new Error('unable to find dataverse.config.json file');

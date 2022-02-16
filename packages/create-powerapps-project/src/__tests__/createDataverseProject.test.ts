@@ -39,17 +39,23 @@ test('create pcf project', async () => {
     'PcfFieldControl/ControlManifest.Input.xml'
   ];
 
-  expectedFiles.forEach(f => {
-    expect(fs.existsSync(path.resolve(projectPath, f))).toBeTruthy();
-  });
+  for (const f of expectedFiles) {
+     await expect(fs.promises.access(path.resolve(projectPath, f))).resolves.toBeUndefined();
+  }
 
-  const indexContent = fs.readFileSync(path.resolve(projectPath, 'PcfFieldControl', 'index.ts'), 'utf8');
+  const indexContent = await fs.promises.readFile(path.resolve(projectPath, 'PcfFieldControl', 'index.ts'), 'utf8');
 
   expect(indexContent).toContain("import React from 'react';");
   expect(indexContent).toContain("import ReactDOM from 'react-dom';");
   expect(indexContent).toContain("ReactDOM.render(");
-  expect(indexContent).toContain("import { App } from './App';");
+  expect(indexContent).toContain("import { App, AppProps } from './App';");
   expect(indexContent).toContain("ReactDOM.render(");
+  expect(indexContent).toContain(`export class ${answers[2]}`);
+
+  const tsConfig = JSON.parse(await fs.promises.readFile(path.resolve(projectPath, 'tsconfig.json'), 'utf8'));
+
+  expect(tsConfig.compilerOptions.target).toBe('ES6');
+  expect(tsConfig.compilerOptions.esModuleInterop).toBe(true);
 });
 
 test('create web resource project', async () => {
@@ -78,15 +84,15 @@ test('create web resource project', async () => {
     'webpack.config.js'
   ];
 
-  expectedFiles.forEach(f => {
-    expect(fs.existsSync(path.resolve(projectPath, f))).toBeTruthy();
-  });
+  for (const f of expectedFiles) {
+     await expect(fs.promises.access(path.resolve(projectPath, f))).resolves.toBeUndefined();
+  }
 
-  const webpackContent = fs.readFileSync(path.resolve(projectPath, 'webpack.config.js'), 'utf8');
+  const webpackContent = await fs.promises.readFile(path.resolve(projectPath, 'webpack.config.js'), 'utf8');
 
   expect(webpackContent).toContain(`library: ['${answers[0]}', '[name]'],`);
 
-  const dataverseConfig = JSON.parse(fs.readFileSync(path.resolve(projectPath, 'dataverse.config.json'), 'utf8'));
+  const dataverseConfig = JSON.parse(await fs.promises.readFile(path.resolve(projectPath, 'dataverse.config.json'), 'utf8'));
 
   expect(dataverseConfig.connection.server).toBe(answers[1]);
   expect(dataverseConfig.connection.tenant).toBe(answers[2]);
@@ -118,11 +124,11 @@ test('create plugin project', async () => {
     'Entities/EarlyBoundGenerator.xml'
   ];
 
-  expectedFiles.forEach(f => {
-    expect(fs.existsSync(path.resolve(projectPath, f))).toBeTruthy();
-  });
+  for (const f of expectedFiles) {
+    await expect(fs.promises.access(path.resolve(projectPath, f))).resolves.toBeUndefined();
+ }
 
-  const dataverseConfig = JSON.parse(fs.readFileSync(path.resolve(projectPath, 'dataverse.config.json'), 'utf8'));
+  const dataverseConfig = JSON.parse(await fs.promises.readFile(path.resolve(projectPath, 'dataverse.config.json'), 'utf8'));
 
   expect(dataverseConfig.connection.server).toBe(answers[3]);
   expect(dataverseConfig.connection.tenant).toBe(answers[4]);

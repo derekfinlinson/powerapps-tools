@@ -7,7 +7,7 @@ import { WebResource, deploy } from './models/webResource';
 
 export async function deployWebResource(creds: DeployCredentials, apiConfig: WebApiConfig, files?: string): Promise<void> {
   const currentPath = '.';
-  const configFile = fs.readFileSync(path.resolve(currentPath, 'dataverse.config.json'), 'utf8');
+  const configFile = await fs.promises.readFile(path.resolve(currentPath, 'dataverse.config.json'), 'utf8');
 
   if (configFile == null) {
     logger.warn('unable to find dataverse.config.json file');

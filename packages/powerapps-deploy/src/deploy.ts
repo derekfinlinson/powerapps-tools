@@ -28,7 +28,7 @@ export default async function deploy(type?: string, files?: string): Promise<voi
   }
 
   const currentPath = '.';
-  const credsFile = fs.readFileSync(path.resolve(currentPath, 'dataverse.config.json'), 'utf8');
+  const credsFile = await fs.promises.readFile(path.resolve(currentPath, 'dataverse.config.json'), 'utf8');
 
   if (credsFile == null) {
     logger.warn('unable to find dataverse.config.json file');

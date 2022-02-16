@@ -7,7 +7,7 @@ import { logger } from './logger';
 
 export async function deployAssembly(creds: DeployCredentials, apiConfig: WebApiConfig): Promise<void> {
   const currentPath = '.';
-  const configFile = fs.readFileSync(path.resolve(currentPath, 'dataverse.config.json'), 'utf8');
+  const configFile = await fs.promises.readFile(path.resolve(currentPath, 'dataverse.config.json'), 'utf8');
 
   if (configFile == null) {
     logger.warn('unable to find dataverse.config.json file');

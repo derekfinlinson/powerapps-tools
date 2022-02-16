@@ -86,7 +86,7 @@ export default (plop: any): void => {
         type: 'addMany',
         templateFiles: [
           '../plop-templates/pcf/App.tsx',
-          '../plop-templates/pcf/index.ts'
+          '../plop-templates/pcf/index.ts.hbs'
         ],
         base: '../plop-templates/pcf',
         destination: `${process.cwd()}/{{ name }}`,
@@ -96,7 +96,22 @@ export default (plop: any): void => {
         }
       },
       {
+        type: 'add',
+        templateFile: '../plop-templates/pcf/tsconfig.json',
+        path: path.resolve(process.cwd(), 'tsconfig.json'),
+        force: true,
+        skip: (answers) => {
+          return !answers.react;
+        }
+      },
+      {
         type: 'addGenScript',
+        skip: (answers) => {
+          return !answers.react;
+        }
+      },
+      {
+        type: 'updateTsConfig',
         skip: (answers) => {
           return !answers.react;
         }

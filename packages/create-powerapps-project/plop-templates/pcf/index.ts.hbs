@@ -3,12 +3,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
 
-import { App } from './App';
+import { App, AppProps } from './App';
 
 export class {{name}} implements ComponentFramework.StandardControl<IInputs, IOutputs> {
   container: HTMLDivElement;
   context: ComponentFramework.Context<IInputs>;
   isTestHarness: boolean;
+  props: AppProps;
 
   /**
    * Empty constructor.
@@ -39,10 +40,12 @@ export class {{name}} implements ComponentFramework.StandardControl<IInputs, IOu
    * @param context The entire property bag available to control via Context Object; It contains values as set up by the customizer mapped to names defined in the manifest, as well as utility functions
    */
   public updateView(context: ComponentFramework.Context<IInputs>): void {
+    this.props = {
+      isTestHarness: this.isTestHarness
+    };
+
     ReactDOM.render(
-      React.createElement(App, {
-        isTestHarness: this.isTestHarness
-      }),
+      React.createElement(App, AppProps),
       this.container
     );
   }
@@ -60,7 +63,7 @@ export class {{name}} implements ComponentFramework.StandardControl<IInputs, IOu
    * i.e. cancelling any pending remote calls, removing listeners, etc.
    */
   public destroy(): void {
-    // Add code to cleanup control if necessary
+    ReactDOM.unmountComponentAtNode(this.container);
   }
 
 }

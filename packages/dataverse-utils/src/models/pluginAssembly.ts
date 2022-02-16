@@ -25,7 +25,7 @@ export async function deploy(config: PluginAssembly, apiConfig: WebApiConfig, so
     return;
   }
 
-  const content = fs.readFileSync(files[0]).toString('base64');
+  const content = (await fs.promises.readFile(files[0])).toString('base64');
 
   let assemblyId = '';
 

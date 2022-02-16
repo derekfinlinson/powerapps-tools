@@ -74,7 +74,7 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
       return;
     }
 
-    const fileContent = fs.readFileSync(resource.path, 'utf8');
+    const fileContent = await fs.promises.readFile(resource.path, 'utf8');
     const content = Buffer.from(fileContent).toString('base64');
 
     if (resourceId != '') {
