@@ -3,7 +3,7 @@ import { spawn } from 'child_process';
 import fs from 'fs';
 import * as nuget from './nuget';
 import * as pkg from './packageManager';
-import { ActionConfig, NodePlopAPI } from 'node-plop';
+import { ActionConfig, NodePlopAPI } from 'plop';
 import { initialize } from './getEnvInfo';
 
 const didSucceed = (code: number | null) => `${code}` === '0';
