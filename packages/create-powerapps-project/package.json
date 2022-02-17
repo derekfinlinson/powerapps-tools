@@ -3,6 +3,7 @@
   "description": "💧 plop generator for Dataverse development",
   "version": "0.16.6",
   "license": "MIT",
+  "type": "commonjs",
   "main": "lib/index.js",
   "bin": {
     "create-powerapps-project": "lib/index.js"
@@ -22,15 +23,11 @@
     "clean": "rimraf lib"
   },
   "dependencies": {
-    "commander": "^8.3.0",
     "envinfo": "^7.8.1",
-    "kleur": "^4.1.4",
-    "node-plop": "^0.26.3",
-    "prompts": "^2.4.2"
+    "plop": "^2.7.6"
   },
   "devDependencies": {
     "@types/envinfo": "^7.8.1",
-    "@types/node": "^14.14.21",
-    "@types/prompts": "^2.0.14"
+    "@types/node": "^14.14.21"
   }
 }

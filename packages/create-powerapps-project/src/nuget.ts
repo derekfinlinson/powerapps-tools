@@ -26,7 +26,7 @@ export const getNugetPackageVersions = (name: string): Promise<string[]> => {
   });
 };
 
-export const install = (project: string, sdkVersion?: string, xrmVersion?: string): void => {
+export const install = (project: string, sdkVersion: string, xrmVersion: string): void => {
   // Add solution
   spawnSync('dotnet', ['new', 'sln', '-n', project], {
     cwd: process.cwd(),
@@ -39,14 +39,12 @@ export const install = (project: string, sdkVersion?: string, xrmVersion?: strin
   });
 
   // Install nuget packages
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  spawnSync('dotnet', ['add', 'package', 'Microsoft.CrmSdk.Workflow', '-v', sdkVersion!, '-n'], {
+  spawnSync('dotnet', ['add', 'package', 'Microsoft.CrmSdk.Workflow', '-v', sdkVersion, '-n'], {
     cwd: process.cwd(),
     stdio: 'inherit'
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  spawnSync('dotnet', ['add', 'package', 'JourneyTeam.Xrm', '-v', xrmVersion!, '-n'], {
+  spawnSync('dotnet', ['add', 'package', 'JourneyTeam.Xrm', '-v', xrmVersion, '-n'], {
     cwd: process.cwd(),
     stdio: 'inherit'
   });

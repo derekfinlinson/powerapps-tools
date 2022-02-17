@@ -13,7 +13,7 @@ export const getEnvInfo = (): EnvInfoCache => {
   return envInfoCache;
 };
 
-export const initialize = async (): Promise<any> => {
+export const initialize = async (): Promise<void> => {
   envInfoCache = JSON.parse(
     await envinfo.run(
       {
@@ -21,7 +21,7 @@ export const initialize = async (): Promise<any> => {
       },
       { json: true, showNotFound: false }
     )
-  );
+  ) as EnvInfoCache;
 
   if (envInfoCache.Binaries.Yarn) {
     envInfoCache.Binaries.Yarn.path = expandHome(envInfoCache.Binaries.Yarn.path);
@@ -30,8 +30,6 @@ export const initialize = async (): Promise<any> => {
   if (envInfoCache.Binaries.npm) {
     envInfoCache.Binaries.npm.path = expandHome(envInfoCache.Binaries.npm.path);
   }
-
-  return envInfoCache;
 };
 
 const expandHome = (pathString: string) => {

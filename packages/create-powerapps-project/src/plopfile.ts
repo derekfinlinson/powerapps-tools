@@ -1,13 +1,23 @@
 import path from 'path';
 import { spawn } from 'child_process';
 import fs from 'fs';
+import * as nuget from './nuget';
+import * as pkg from './packageManager';
+import { ActionConfig, NodePlopAPI } from 'node-plop';
+import { initialize } from './getEnvInfo';
 
 const didSucceed = (code: number | null) => `${code}` === '0';
 
+interface DataversePlopConfig extends ActionConfig {
+  projectType?: string;
+}
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export default (plop: any): void => {
-  plop.setActionType('signAssembly', (answers) => {
+export default (plop: NodePlopAPI): void => {
+  void initialize();
+
+  plop.setActionType('signAssembly', (answers: any) => {
     const keyPath = path.resolve(process.cwd(), `${answers.name}.snk`);
 
     return new Promise((resolve, reject) => {
@@ -21,13 +31,17 @@ export default (plop: any): void => {
         if (didSucceed(code)) {
           resolve('signed assembly');
         } else {
-          reject('Failed to sign assembly');
+          reject('failed to sign assembly');
         }
+      });
+
+      sign.on('error', () => {
+        reject('failed to sign assembly');
       });
     });
   });
 
-  plop.setActionType('runPcf', (answers) => {
+  plop.setActionType('runPcf', (answers: any) => {
     const args = ['pcf', 'init', '-ns', answers.namespace, '-n', answers.name, '-t', answers.template];
 
     /// Setting framework to React currently unsupported by PCF CLI
@@ -49,6 +63,10 @@ export default (plop: any): void => {
           reject('Ensure the Power Platform CLI is installed. Command must be run from within VS Code if using the Power Platform Extension');
         }
       });
+
+      pac.on('error', () => {
+        reject('Ensure the Power Platform CLI is installed. Command must be run from within VS Code if using the Power Platform Extension');
+      });
     });
   });
 
@@ -65,7 +83,59 @@ export default (plop: any): void => {
     return 'added plop script to package.json';
   });
 
+  plop.setActionType('nugetInstall', async (answers: any) => {
+    const xrmVersions = await nuget.getNugetPackageVersions('JourneyTeam.Xrm');
+
+    const xrmVersion = xrmVersions.shift() as string;
+
+    nuget.install(answers.name, answers.sdkVersion, xrmVersion);
+
+    return 'installed nuget packages';
+  });
+
+  plop.setActionType('npmInstall', (_answers, config?: DataversePlopConfig) => {
+    if (config?.projectType) {
+      pkg.install(process.cwd(), config.projectType);
+    }
+
+    return 'installed npm packages';
+  });
+
+  const connectionQuestions = [
+    {
+      type: 'input',
+      name: 'server',
+      message: 'enter dataverse url (https://org.crm.dynamics.com):'
+    },
+    {
+      type: 'input',
+      name: 'tenant',
+      message: 'enter azure ad tenant (org.onmicrosoft.com):',
+      default: 'common'
+    },
+    {
+      type: 'input',
+      name: 'solution',
+      message: 'dataverse solution unique name:'
+    }
+  ];
+
   plop.setGenerator('webresource', {
+    description: 'generate dataverse web resource project',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'project name',
+        default: path.basename(process.cwd())
+      },
+      {
+        type: 'input',
+        name: 'namespace',
+        message: 'namespace for form and ribbon scripts:'
+      },
+      ...connectionQuestions
+    ],
     actions: [
       {
         type: 'addMany',
@@ -73,11 +143,45 @@ export default (plop: any): void => {
         base: '../plop-templates/webresource',
         destination: process.cwd(),
         force: true
-      }
+      },
+      {
+        type: 'npmInstall',
+        projectType: 'webresource',
+        skip: (answers) => {
+          return !answers.react;
+        }
+      } as ActionConfig
     ]
   });
 
   plop.setGenerator('pcf', {
+    description: 'generate dataverse pcf project',
+    prompts: [
+      {
+        type: 'list',
+        name: 'template',
+        message: 'template',
+        choices: [
+          { name: 'field', value: 'field' },
+          { name: 'dataset', value: 'dataset' }
+        ]
+      },
+      {
+        type: 'input',
+        name: 'namespace',
+        message: 'namespace'
+      },
+      {
+        type: 'input',
+        name: 'name',
+        message: 'name'
+      },
+      {
+        type: 'confirm',
+        name: 'react',
+        message: 'use react?'
+      }
+    ],
     actions: [
       {
         type: 'runPcf'
@@ -111,15 +215,50 @@ export default (plop: any): void => {
         }
       },
       {
-        type: 'updateTsConfig',
+        type: 'npmInstall',
+        projectType: 'pcf',
         skip: (answers) => {
           return !answers.react;
         }
-      }
+      } as ActionConfig
     ]
   });
 
   plop.setGenerator('assembly', {
+    description: 'generate dataverse assembly project',
+    prompts: [
+      {
+        type: 'list',
+        name: 'sdkVersion',
+        message: 'select sdk version',
+        choices: async () => {
+          const versions = await nuget.getNugetPackageVersions('Microsoft.CrmSdk.Workflow');
+          return versions.map(v => ({ name: v, value: v }));
+        }
+      },
+      {
+        type: 'input',
+        name: 'name',
+        message: 'default C# namespace (Company.Crm.Plugins):'
+      },
+      {
+        type: 'list',
+        name: 'isolation',
+        message: 'select isolation mode',
+        default: 2,
+        choices: [
+          {
+            name: 'sandbox',
+            value: 2
+          },
+          {
+            name: 'none',
+            value: 1
+          }
+        ]
+      },
+      ...connectionQuestions,
+    ],
     actions: [
       {
         type: 'add',
@@ -143,7 +282,14 @@ export default (plop: any): void => {
       },
       {
         type: 'signAssembly'
-      }
+      },
+      {
+        type: 'nugetInstall'
+      },
+      {
+        type: 'npmInstall',
+        projectType: 'assembly'
+      } as ActionConfig
     ]
   });
 }

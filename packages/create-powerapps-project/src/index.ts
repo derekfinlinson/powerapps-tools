@@ -1,23 +1,14 @@
 #!/usr/bin/env node
-import { Command } from 'commander';
-import create from './createDataverseProject';
+import path from 'node:path';
+import { Plop, run } from 'plop';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const packageJson = require('../package');
-
-const program = new Command(packageJson.name);
-
-program
-  .version(packageJson.version)
-  .description('Create new Dataverse project')
-  .usage('[type]')
-  .argument('[type]', 'Type of project to generate')
-  .action(type => {
-    create(type);
-  });
-
-program.parse(process.argv);
-
-if (!process.argv.slice(1).length) {
-  program.outputHelp();
-}
+Plop.launch({
+  cwd: process.cwd(),
+  configPath: path.join(__dirname, 'plopfile.js')
+}, env => {
+  const options = {
+    ...env,
+    dest: process.cwd() // this will make the destination path to be based on the cwd when calling the wrapper
+  };
+  return run(options, undefined, true)
+});

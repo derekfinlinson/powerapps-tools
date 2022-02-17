@@ -45,7 +45,7 @@ export class {{name}} implements ComponentFramework.StandardControl<IInputs, IOu
     };
 
     ReactDOM.render(
-      React.createElement(App, AppProps),
+      React.createElement(App, this.props),
       this.container
     );
   }

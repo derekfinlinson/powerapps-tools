@@ -1,7 +1,5 @@
-import createDataverseProject from '../createDataverseProject';
 import path from 'path';
 import fs from 'fs';
-import prompts from 'prompts';
 
 const projectPath = path.resolve(__dirname, '__create__');
 
@@ -22,10 +20,10 @@ test('create pcf project', async () => {
     'PcfFieldControl',
     true
   ];
+  
+  // prompts.inject(answers);
 
-  prompts.inject(answers);
-
-  await createDataverseProject('pcf');
+  // await createDataverseProject('pcf');
 
   const expectedFiles = [
     'package.json',
@@ -66,9 +64,9 @@ test('create web resource project', async () => {
     'Solution'
   ];
 
-  prompts.inject(answers);
+  // prompts.inject(answers);
 
-  await createDataverseProject('webresource');
+  // await createDataverseProject('webresource');
 
   const expectedFiles = [
     'package.json',
@@ -109,9 +107,9 @@ test('create plugin project', async () => {
     'Solution'
   ];
 
-  prompts.inject(answers);
+  // prompts.inject(answers);
 
-  await createDataverseProject('assembly');
+  // await createDataverseProject('assembly');
 
   const expectedFiles = [
     'package.json',
