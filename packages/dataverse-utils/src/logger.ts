@@ -1,12 +1,13 @@
 import kleur from 'kleur';
+import figures from 'figures';
 
 const isTest = process.env.JEST_WORKER_ID !== undefined;
 
 export const icons = {
-  done: kleur.green('◉'),
-  info: kleur.cyan('◎'),
-  error: kleur.red('⨂'),
-  warn: kleur.yellow('⨁')
+  done: kleur.green(figures.tick),
+  info: kleur.cyan(figures.pointer),
+  error: kleur.red(figures.cross),
+  warn: kleur.yellow(figures.warning)
 };
 
 export const logger = {
