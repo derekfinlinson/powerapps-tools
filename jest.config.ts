@@ -5,8 +5,7 @@ const config: InitialOptionsTsJest = {
   testEnvironment: 'node',
   projects: [
     "./packages/*"
-  ],
-  testTimeout: 60000
+  ]
 };
 
 export default config;

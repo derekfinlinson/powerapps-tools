@@ -3,6 +3,5 @@ node_modules
 # don't lint build output
 lib
 # don't lint various configs
-just.config.js
 plopfile.js
 .eslintrc.js
