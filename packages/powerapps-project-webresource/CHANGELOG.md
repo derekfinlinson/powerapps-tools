@@ -1,8 +1,24 @@
 # Change Log - powerapps-project-webresource
 
-This log was last generated on Mon, 07 Feb 2022 22:02:33 GMT and should not be manually modified.
+This log was last generated on Thu, 17 Feb 2022 01:03:11 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.1.3
+
+Thu, 17 Feb 2022 01:03:11 GMT
+
+### Patches
+
+- Use separate form template (derek.finlinson@journeyteam.com)
+
+## 1.1.3
+
+Thu, 17 Feb 2022 01:02:43 GMT
+
+### Patches
+
+- Use separate form template (derek.finlinson@journeyteam.com)
 
 ## 1.1.2
 

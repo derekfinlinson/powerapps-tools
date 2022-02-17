@@ -2,6 +2,36 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Thu, 17 Feb 2022 01:03:11 GMT",
+      "tag": "powerapps-project-assembly_v1.0.10",
+      "version": "1.0.10",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "not available",
+            "comment": "Return message on completion"
+          }
+        ]
+      }
+    },
+    {
+      "date": "Thu, 17 Feb 2022 01:02:44 GMT",
+      "tag": "powerapps-project-assembly_v1.0.10",
+      "version": "1.0.10",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "205f5973d29c92d19c7e2f5154e01a784c2fe58b",
+            "comment": "Return message on completion"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 31 Jan 2022 17:20:52 GMT",
       "tag": "powerapps-project-assembly_v1.0.9",
       "version": "1.0.9",

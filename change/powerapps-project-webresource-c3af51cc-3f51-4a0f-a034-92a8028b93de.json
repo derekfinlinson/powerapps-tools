@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Use separate form template",
-  "packageName": "powerapps-project-webresource",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

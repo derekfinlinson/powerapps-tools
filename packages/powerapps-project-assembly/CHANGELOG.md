@@ -1,8 +1,24 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Mon, 31 Jan 2022 17:20:52 GMT and should not be manually modified.
+This log was last generated on Thu, 17 Feb 2022 01:03:11 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.0.10
+
+Thu, 17 Feb 2022 01:03:11 GMT
+
+### Patches
+
+- Return message on completion (derek.finlinson@journeyteam.com)
+
+## 1.0.10
+
+Thu, 17 Feb 2022 01:02:44 GMT
+
+### Patches
+
+- Return message on completion (derek.finlinson@journeyteam.com)
 
 ## 1.0.9
 

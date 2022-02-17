@@ -2,6 +2,36 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Thu, 17 Feb 2022 01:03:11 GMT",
+      "tag": "dataverse-utils_v2.2.5",
+      "version": "2.2.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "not available",
+            "comment": "Modify icons"
+          }
+        ]
+      }
+    },
+    {
+      "date": "Thu, 17 Feb 2022 01:02:44 GMT",
+      "tag": "dataverse-utils_v2.2.5",
+      "version": "2.2.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "205f5973d29c92d19c7e2f5154e01a784c2fe58b",
+            "comment": "Modify icons"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 16 Feb 2022 00:36:25 GMT",
       "tag": "dataverse-utils_v2.2.4",
       "version": "2.2.4",

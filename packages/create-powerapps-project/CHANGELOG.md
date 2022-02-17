@@ -1,8 +1,24 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Wed, 16 Feb 2022 00:36:25 GMT and should not be manually modified.
+This log was last generated on Thu, 17 Feb 2022 01:03:11 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.17.0
+
+Thu, 17 Feb 2022 01:03:11 GMT
+
+### Minor changes
+
+- Switch to wrapping plop (derek.finlinson@journeyteam.com)
+
+## 0.17.0
+
+Thu, 17 Feb 2022 01:02:44 GMT
+
+### Minor changes
+
+- Switch to wrapping plop (derek.finlinson@journeyteam.com)
 
 ## 0.16.6
 
