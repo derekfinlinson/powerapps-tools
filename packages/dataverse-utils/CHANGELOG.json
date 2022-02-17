@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Thu, 17 Feb 2022 15:18:30 GMT",
+      "tag": "dataverse-utils_v2.2.6",
+      "version": "2.2.6",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "939644135518711560c4a61b57da71aca02cf15f",
+            "comment": "Downgrade figures version"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 17 Feb 2022 01:03:11 GMT",
       "tag": "dataverse-utils_v2.2.5",
       "version": "2.2.5",

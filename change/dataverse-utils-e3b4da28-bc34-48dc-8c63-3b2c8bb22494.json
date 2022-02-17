@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Downgrade figures version",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

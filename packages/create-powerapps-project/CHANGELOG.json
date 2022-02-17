@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Thu, 17 Feb 2022 15:18:30 GMT",
+      "tag": "create-powerapps-project_v0.17.1",
+      "version": "0.17.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "939644135518711560c4a61b57da71aca02cf15f",
+            "comment": "Import from plop instead of node-plop"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 17 Feb 2022 01:03:11 GMT",
       "tag": "create-powerapps-project_v0.17.0",
       "version": "0.17.0",

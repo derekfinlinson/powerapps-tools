@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Thu, 17 Feb 2022 01:03:11 GMT and should not be manually modified.
+This log was last generated on Thu, 17 Feb 2022 15:18:30 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.17.1
+
+Thu, 17 Feb 2022 15:18:30 GMT
+
+### Patches
+
+- Import from plop instead of node-plop (derek.finlinson@journeyteam.com)
 
 ## 0.17.0
 
