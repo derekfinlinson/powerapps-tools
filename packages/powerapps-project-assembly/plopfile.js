@@ -233,6 +233,8 @@ module.exports = function (plop) {
         }
 
         answers.stepMode = answers.customApi === true ? 'CustomAPI' : answers.mode === 0 ? 'Synchronous' : 'Asynchronous'
+
+        return 'prepped';
     });
 
     plop.setActionType('addToConfig', (answers, _config, plop) => {
