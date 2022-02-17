@@ -103,7 +103,7 @@ module.exports = function (plop) {
                     if (data.entityFile) {
                         return;
                     } else {
-                        return 'no entity file';
+                        return 'skip entity file';
                     }
                 }
             },
@@ -111,7 +111,27 @@ module.exports = function (plop) {
                 type: 'add',
                 templateFile: 'plop-templates/form.ts.hbs',
                 path: 'src/scripts/{{entity}}Form.ts',
-                skipIfExists: true
+                skipIfExists: true,
+                skip: (data) => {
+                    if (data.entityFile) {
+                        return;
+                    } else {
+                        return 'skip form file with entity';
+                    }
+                }
+            },
+            {
+                type: 'add',
+                templateFile: 'plop-templates/form.noentity.ts.hbs',
+                path: 'src/scripts/{{entity}}Form.ts',
+                skipIfExists: true,
+                skip: (data) => {
+                    if (!data.entityFile) {
+                        return;
+                    } else {
+                        return 'skip form file without entity';
+                    }
+                }
             },
             {
                 type: 'add',
@@ -122,7 +142,7 @@ module.exports = function (plop) {
                     if (data.test) {
                         return;
                     } else {
-                        return 'no tests';
+                        return 'skip test file';
                     }
                 }
             },
@@ -135,7 +155,7 @@ module.exports = function (plop) {
                     if (data.test) {
                         return;
                     } else {
-                        return 'no tests';
+                        return 'skip entity test file';
                     }
                 }
             },
