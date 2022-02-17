@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Import from plop instead of node-plop",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
