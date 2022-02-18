@@ -63,17 +63,17 @@ module.exports = function (plop) {
 
     const scriptPrompts = [
         {
-            type: 'text',
+            type: 'input',
             name: 'entity',
             message: 'entity name'
         },
         {
-            type: 'text',
+            type: 'input',
             name: 'name',
             message: 'script unique name (including solution prefix)'
         },
         {
-            type: 'text',
+            type: 'input',
             name: 'displayName',
             message: 'script display name'
         },
@@ -92,6 +92,7 @@ module.exports = function (plop) {
     ];
 
     plop.setGenerator('form script', {
+        description: 'dataverse form script',
         prompts: scriptPrompts,
         actions: [
             {
@@ -168,6 +169,7 @@ module.exports = function (plop) {
     });
 
     plop.setGenerator('ribbon script', {
+        description: 'dataverse ribbon script',
         prompts: scriptPrompts,
         actions: [
             {
@@ -224,19 +226,20 @@ module.exports = function (plop) {
     });
 
     plop.setGenerator('html', {
+        description: 'dataverse html file',
         prompts: [
             {
-                type: 'text',
+                type: 'input',
                 name: 'filename',
                 message: 'filename'
             },
             {
-                type: 'text',
+                type: 'input',
                 name: 'name',
                 message: 'file unique name (including solution prefix)'
             },
             {
-                type: 'text',
+                type: 'input',
                 name: 'displayName',
                 message: 'file display name'
             }

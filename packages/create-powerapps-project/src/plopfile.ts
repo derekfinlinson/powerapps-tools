@@ -13,7 +13,6 @@ interface DataversePlopConfig extends ActionConfig {
 }
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default (plop: NodePlopAPI): void => {
   void initialize();
 
@@ -120,36 +119,71 @@ export default (plop: NodePlopAPI): void => {
     }
   ];
 
-  plop.setGenerator('webresource', {
-    description: 'generate dataverse web resource project',
+  plop.setGenerator('assembly', {
+    description: 'generate dataverse assembly project',
     prompts: [
+      {
+        type: 'list',
+        name: 'sdkVersion',
+        message: 'select sdk version',
+        choices: async () => {
+          const versions = await nuget.getNugetPackageVersions('Microsoft.CrmSdk.Workflow');
+          return versions.map(v => ({ name: v, value: v }));
+        }
+      },
       {
         type: 'input',
         name: 'name',
-        message: 'project name',
-        default: path.basename(process.cwd())
+        message: 'default C# namespace (Company.Crm.Plugins):'
       },
       {
-        type: 'input',
-        name: 'namespace',
-        message: 'namespace for form and ribbon scripts:'
+        type: 'list',
+        name: 'isolation',
+        message: 'select isolation mode',
+        default: 2,
+        choices: [
+          {
+            name: 'sandbox',
+            value: 2
+          },
+          {
+            name: 'none',
+            value: 1
+          }
+        ]
       },
-      ...connectionQuestions
+      ...connectionQuestions,
     ],
     actions: [
       {
+        type: 'add',
+        templateFile: '../plop-templates/assembly/assembly.csproj.hbs',
+        path: path.resolve(process.cwd(), '{{name}}.csproj'),
+      },
+      {
         type: 'addMany',
-        templateFiles: ['../plop-templates/webresource/*', '../plop-templates/webresource/.*'],
-        base: '../plop-templates/webresource',
+        templateFiles: [
+          '../plop-templates/assembly/*.json.hbs',
+          '../plop-templates/assembly/*.js',
+          '../plop-templates/assembly/*.ts.hbs',
+          '../plop-templates/assembly/.gitignore',
+          '../plop-templates/assembly/Entities/EarlyBoundGenerator.xml',
+          '../plop-templates/assembly/.vscode/tasks.json',
+          '../plop-templates/assembly/.editorconfig'
+        ],
+        base: '../plop-templates/assembly',
         destination: process.cwd(),
         force: true
       },
       {
+        type: 'signAssembly'
+      },
+      {
+        type: 'nugetInstall'
+      },
+      {
         type: 'npmInstall',
-        projectType: 'webresource',
-        skip: (answers) => {
-          return !answers.react;
-        }
+        projectType: 'assembly'
       } as ActionConfig
     ]
   });
@@ -224,71 +258,36 @@ export default (plop: NodePlopAPI): void => {
     ]
   });
 
-  plop.setGenerator('assembly', {
-    description: 'generate dataverse assembly project',
+  plop.setGenerator('webresource', {
+    description: 'generate dataverse web resource project',
     prompts: [
-      {
-        type: 'list',
-        name: 'sdkVersion',
-        message: 'select sdk version',
-        choices: async () => {
-          const versions = await nuget.getNugetPackageVersions('Microsoft.CrmSdk.Workflow');
-          return versions.map(v => ({ name: v, value: v }));
-        }
-      },
       {
         type: 'input',
         name: 'name',
-        message: 'default C# namespace (Company.Crm.Plugins):'
+        message: 'project name',
+        default: path.basename(process.cwd())
       },
       {
-        type: 'list',
-        name: 'isolation',
-        message: 'select isolation mode',
-        default: 2,
-        choices: [
-          {
-            name: 'sandbox',
-            value: 2
-          },
-          {
-            name: 'none',
-            value: 1
-          }
-        ]
+        type: 'input',
+        name: 'namespace',
+        message: 'namespace for form and ribbon scripts:'
       },
-      ...connectionQuestions,
+      ...connectionQuestions
     ],
     actions: [
       {
-        type: 'add',
-        templateFile: '../plop-templates/assembly/assembly.csproj.hbs',
-        path: path.resolve(process.cwd(), '{{name}}.csproj'),
-      },
-      {
         type: 'addMany',
-        templateFiles: [
-          '../plop-templates/assembly/*.json.hbs',
-          '../plop-templates/assembly/*.js',
-          '../plop-templates/assembly/*.ts.hbs',
-          '../plop-templates/assembly/.gitignore',
-          '../plop-templates/assembly/Entities/EarlyBoundGenerator.xml',
-          '../plop-templates/assembly/.vscode/tasks.json',
-          '../plop-templates/assembly/.editorconfig'
-        ],
-        base: '../plop-templates/assembly',
+        templateFiles: ['../plop-templates/webresource/*', '../plop-templates/webresource/.*'],
+        base: '../plop-templates/webresource',
         destination: process.cwd(),
         force: true
       },
       {
-        type: 'signAssembly'
-      },
-      {
-        type: 'nugetInstall'
-      },
-      {
         type: 'npmInstall',
-        projectType: 'assembly'
+        projectType: 'webresource',
+        skip: (answers) => {
+          return !answers.react;
+        }
       } as ActionConfig
     ]
   });
