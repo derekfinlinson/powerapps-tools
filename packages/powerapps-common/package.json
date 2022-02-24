@@ -28,7 +28,9 @@
   ],
   "author": "Derek Finlinson",
   "devDependencies": {
-    "@types/xrm": "^9.0.33",
     "xrm-mock": "^3.5.7"
+  },
+  "dependencies": {
+    "@types/xrm": "^9.0.33"
   }
 }

@@ -84,8 +84,9 @@ importers:
     specifiers:
       '@types/xrm': ^9.0.33
       xrm-mock: ^3.5.7
-    devDependencies:
+    dependencies:
       '@types/xrm': 9.0.37
+    devDependencies:
       xrm-mock: 3.5.7
 
   packages/powerapps-deploy:
@@ -124,6 +125,12 @@ importers:
       '@types/prompts': 2.0.10
 
   packages/powerapps-project-assembly:
+    specifiers:
+      plop: ^2.7.6
+    dependencies:
+      plop: 2.7.6
+
+  packages/powerapps-project-pcf:
     specifiers:
       plop: ^2.7.6
     dependencies:
@@ -1003,7 +1010,6 @@ packages:
 
   /@types/xrm/9.0.37:
     resolution: {integrity: sha512-wujSjrVqBBTAklvCoIsoQJC0ClV1eae1VshRXxYi73boGNtgjd5TFw9P6ZnI6jwabEbFOQk/Ed6qOYhXgXXegQ==}
-    dev: true
 
   /@types/yargs-parser/20.2.1:
     resolution: {integrity: sha512-7tFImggNeNBVMsn0vLrpn1H1uPrUBdnARPTpZoitY37ZrdJREzf7I16tMrlK3hen349gr1NYh8CmZQa7CTG6Aw==}
