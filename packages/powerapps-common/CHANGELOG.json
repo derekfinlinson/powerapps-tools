@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Thu, 24 Feb 2022 03:24:57 GMT",
+      "tag": "powerapps-common_v1.2.2",
+      "version": "1.2.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-common",
+            "commit": "bb2a15a028f8dc6b00ef5992bf223c9ee94db3e8",
+            "comment": "Move @types/xrm to dependencies"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 07 Feb 2022 22:02:33 GMT",
       "tag": "powerapps-common_v1.2.1",
       "version": "1.2.1",

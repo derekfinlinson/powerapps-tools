@@ -1,8 +1,16 @@
 # Change Log - powerapps-common
 
-This log was last generated on Mon, 07 Feb 2022 22:02:33 GMT and should not be manually modified.
+This log was last generated on Thu, 24 Feb 2022 03:24:57 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.2.2
+
+Thu, 24 Feb 2022 03:24:57 GMT
+
+### Patches
+
+- Move @types/xrm to dependencies (derek.finlinson@journeyteam.com)
 
 ## 1.2.1
 
