@@ -26,10 +26,10 @@ export const install = (cwd: string, type: string): void => {
       spawnSync(getYarn(), ['add', ...packages.dependencies], { stdio: 'inherit', cwd });
     }
   } else {
-    spawnSync(getNpm(), ['add', ...packages.devDependencies], { stdio: 'inherit', cwd });
+    spawnSync(getNpm(), ['install', ...packages.devDependencies], { stdio: 'inherit', cwd });
 
     if (packages.dependencies) {
-      spawnSync(getNpm(), ['add', ...packages.dependencies], { stdio: 'inherit', cwd });
+      spawnSync(getNpm(), ['install', ...packages.dependencies], { stdio: 'inherit', cwd });
     }
   }
 }
@@ -47,7 +47,8 @@ function getPackages(type: string) {
         //`powerapps-project-${type}`,
         '@types/react',
         '@types/react-dom',
-        '@types/xrm'
+        '@types/xrm',
+        '-D'
       ]
     };
   }
