@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Add dev dependencies switch",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
