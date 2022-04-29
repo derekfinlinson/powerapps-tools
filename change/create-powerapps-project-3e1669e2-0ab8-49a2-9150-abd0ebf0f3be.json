@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Update PCF template for React 18",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
