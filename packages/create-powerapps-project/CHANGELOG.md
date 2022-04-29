@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Thu, 28 Apr 2022 18:44:44 GMT and should not be manually modified.
+This log was last generated on Fri, 29 Apr 2022 21:08:49 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.18.0
+
+Fri, 29 Apr 2022 21:08:49 GMT
+
+### Minor changes
+
+- Update PCF template for React 18 (derek.finlinson@journeyteam.com)
 
 ## 0.17.2
 

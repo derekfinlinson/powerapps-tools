@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Fri, 29 Apr 2022 21:08:49 GMT",
+      "tag": "create-powerapps-project_v0.18.0",
+      "version": "0.18.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "38a08d101b15a31526db1a8d10fe2b3a2986924e",
+            "comment": "Update PCF template for React 18"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 28 Apr 2022 18:44:44 GMT",
       "tag": "create-powerapps-project_v0.17.2",
       "version": "0.17.2",
