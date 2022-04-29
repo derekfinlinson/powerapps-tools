@@ -1,12 +1,13 @@
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot, Root } from 'react-dom/client';
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
 
 import { App, AppProps } from './App';
 
 export class {{name}} implements ComponentFramework.StandardControl<IInputs, IOutputs> {
   container: HTMLDivElement;
+  root: Root;
   context: ComponentFramework.Context<IInputs>;
   isTestHarness: boolean;
   props: AppProps;
@@ -32,6 +33,7 @@ export class {{name}} implements ComponentFramework.StandardControl<IInputs, IOu
     this.container = container;
     this.context = context;
     this.isTestHarness = document.getElementById('control-dimensions') !== null;
+    this.root = createRoot(this.container);
   }
 
 
@@ -44,9 +46,8 @@ export class {{name}} implements ComponentFramework.StandardControl<IInputs, IOu
       isTestHarness: this.isTestHarness
     };
 
-    ReactDOM.render(
-      React.createElement(App, this.props),
-      this.container
+    this.root.render(
+      React.createElement(App, this.props)
     );
   }
 
@@ -63,7 +64,7 @@ export class {{name}} implements ComponentFramework.StandardControl<IInputs, IOu
    * i.e. cancelling any pending remote calls, removing listeners, etc.
    */
   public destroy(): void {
-    ReactDOM.unmountComponentAtNode(this.container);
+    this.root.unmount();
   }
 
 }
