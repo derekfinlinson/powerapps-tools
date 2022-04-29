@@ -38,15 +38,15 @@ function getPackages(type: string) {
   if (type === 'pcf') {
     return {
       dependencies: [
-        'react',
-        'react-dom',
+        'react@17.0.2',
+        'react-dom@17.0.2',
         '@fluentui/react',
         '@fluentui/font-icons-mdl2'
       ],
       devDependencies: [
         //`powerapps-project-${type}`,
-        '@types/react',
-        '@types/react-dom',
+        '@types/react@17.0.39',
+        '@types/react-dom@17.0.11',
         '@types/xrm',
         '-D'
       ]
