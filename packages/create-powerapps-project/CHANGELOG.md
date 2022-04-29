@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Fri, 29 Apr 2022 21:08:49 GMT and should not be manually modified.
+This log was last generated on Fri, 29 Apr 2022 21:20:14 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.19.0
+
+Fri, 29 Apr 2022 21:20:14 GMT
+
+### Minor changes
+
+- Force React 17 until Fluent UI updates (derek.finlinson@journeyteam.com)
 
 ## 0.18.0
 

@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Fri, 29 Apr 2022 21:20:14 GMT",
+      "tag": "create-powerapps-project_v0.19.0",
+      "version": "0.19.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "ad4047f29687d5b2733ecdbda3a459d6a769e22b",
+            "comment": "Force React 17 until Fluent UI updates"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 29 Apr 2022 21:08:49 GMT",
       "tag": "create-powerapps-project_v0.18.0",
       "version": "0.18.0",

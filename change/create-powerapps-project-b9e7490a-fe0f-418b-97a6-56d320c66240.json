@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Force React 17 until Fluent UI updates",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
