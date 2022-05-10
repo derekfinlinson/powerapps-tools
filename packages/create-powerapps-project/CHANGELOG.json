@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 10 May 2022 18:23:50 GMT",
+      "tag": "create-powerapps-project_v0.19.1",
+      "version": "0.19.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "4d989b34db0164bd830a8bd319d6328cb0fc985c",
+            "comment": "Fix skip on react"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 29 Apr 2022 21:20:14 GMT",
       "tag": "create-powerapps-project_v0.19.0",
       "version": "0.19.0",

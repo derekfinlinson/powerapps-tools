@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Fri, 29 Apr 2022 21:20:14 GMT and should not be manually modified.
+This log was last generated on Tue, 10 May 2022 18:23:50 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.19.1
+
+Tue, 10 May 2022 18:23:50 GMT
+
+### Patches
+
+- Fix skip on react (derek.finlinson@journeyteam.com)
 
 ## 0.19.0
 
