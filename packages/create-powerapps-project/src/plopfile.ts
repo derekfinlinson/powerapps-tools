@@ -230,7 +230,9 @@ export default (plop: NodePlopAPI): void => {
         destination: `${process.cwd()}/{{ name }}`,
         force: true,
         skip: (answers) => {
-          return !answers.react;
+          if (!answers.react) {
+            return 'react not included';
+          }
         }
       },
       {
@@ -239,20 +241,26 @@ export default (plop: NodePlopAPI): void => {
         path: path.resolve(process.cwd(), 'tsconfig.json'),
         force: true,
         skip: (answers) => {
-          return !answers.react;
+          if (!answers.react) {
+            return 'react not included';
+          }
         }
       },
       {
         type: 'addGenScript',
         skip: (answers) => {
-          return !answers.react;
+          if (!answers.react) {
+            return 'react not included';
+          }
         }
       },
       {
         type: 'npmInstall',
         projectType: 'pcf',
         skip: (answers) => {
-          return !answers.react;
+          if (!answers.react) {
+            return 'react not included';
+          }
         }
       } as ActionConfig
     ]
@@ -281,14 +289,7 @@ export default (plop: NodePlopAPI): void => {
         base: '../plop-templates/webresource',
         destination: process.cwd(),
         force: true
-      },
-      {
-        type: 'npmInstall',
-        projectType: 'webresource',
-        skip: (answers) => {
-          return !answers.react;
-        }
-      } as ActionConfig
+      }
     ]
   });
 }
