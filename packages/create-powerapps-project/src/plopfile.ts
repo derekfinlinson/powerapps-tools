@@ -92,9 +92,9 @@ export default (plop: NodePlopAPI): void => {
     return 'installed nuget packages';
   });
 
-  plop.setActionType('npmInstall', (_answers, config?: DataversePlopConfig) => {
-    if (config?.projectType) {
-      pkg.install(process.cwd(), config.projectType);
+  plop.setActionType('npmInstall', (answers: any) => {
+    if (answers.projectType) {
+      pkg.install(process.cwd(), answers.projectType);
     }
 
     return 'installed npm packages';
@@ -183,8 +183,10 @@ export default (plop: NodePlopAPI): void => {
       },
       {
         type: 'npmInstall',
-        projectType: 'assembly'
-      } as ActionConfig
+        data: {
+          projectType: 'assembly'
+        }
+      }
     ]
   });
 
@@ -233,6 +235,8 @@ export default (plop: NodePlopAPI): void => {
           if (!answers.react) {
             return 'react not included';
           }
+
+          return;
         }
       },
       {
@@ -244,25 +248,23 @@ export default (plop: NodePlopAPI): void => {
           if (!answers.react) {
             return 'react not included';
           }
-        }
-      },
-      {
-        type: 'addGenScript',
-        skip: (answers) => {
-          if (!answers.react) {
-            return 'react not included';
-          }
+
+          return;
         }
       },
       {
         type: 'npmInstall',
-        projectType: 'pcf',
+        data: {
+          projectType: 'pcf'
+        },
         skip: (answers) => {
           if (!answers.react) {
             return 'react not included';
           }
+
+          return;
         }
-      } as ActionConfig
+      }
     ]
   });
 
