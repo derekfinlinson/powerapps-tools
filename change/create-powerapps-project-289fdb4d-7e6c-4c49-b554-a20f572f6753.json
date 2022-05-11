@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Don't add gen script for PCF projects",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
