@@ -1,8 +1,16 @@
 # Change Log - powerapps-common
 
-This log was last generated on Thu, 24 Feb 2022 03:24:57 GMT and should not be manually modified.
+This log was last generated on Fri, 13 May 2022 23:28:18 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.3.0
+
+Fri, 13 May 2022 23:28:18 GMT
+
+### Minor changes
+
+- Added function to generate a pre filtered report (dcfinlinson@gmail.com)
 
 ## 1.2.2
 
