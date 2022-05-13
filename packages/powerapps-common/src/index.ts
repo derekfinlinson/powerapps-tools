@@ -1,3 +1,5 @@
+import { generateReport, ReportFormat } from './models/report';
+
 /**
  * Set a field's requirement level
  * @param fieldName Name of field
@@ -322,4 +324,26 @@ export function areGuidsEqual(id1: string, id2: string): boolean {
   } catch (ex) {
     return false;
   }
+}
+
+/**
+ * Generate a pre-filtered report
+ * @param rowId Row id of record
+ * @param reportId Report id
+ * @param table Logical table name of record
+ * @param format Format for exported report
+ * @param reportParameter Report pre filter parameter name
+ */
+export async function generatePrefilteredReport(rowId: string, reportId: string, table: string, format: ReportFormat, parameterName: string): Promise<string> {
+  const config = {
+    id: rowId,
+    table: table,
+    reportId: reportId,
+    format: format,
+    parameterName: parameterName
+  };
+
+  const report = await generateReport(config);
+
+  return report;
 }
