@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 11 May 2022 16:18:22 GMT",
+      "tag": "create-powerapps-project_v0.20.0",
+      "version": "0.20.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "f8b7e77f3c567a77a9716f2754f6c0e79c7a0ad9",
+            "comment": "Don't add gen script for PCF projects"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 10 May 2022 18:23:50 GMT",
       "tag": "create-powerapps-project_v0.19.1",
       "version": "0.19.1",
