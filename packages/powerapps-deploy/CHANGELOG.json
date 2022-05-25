@@ -2,6 +2,21 @@
   "name": "powerapps-deploy",
   "entries": [
     {
+      "date": "Wed, 25 May 2022 23:09:53 GMT",
+      "tag": "powerapps-deploy_v2.1.5",
+      "version": "2.1.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "beachball",
+            "package": "powerapps-deploy",
+            "comment": "Bump dataverse-webapi to v2.0.5",
+            "commit": "ff2d51ba2c748c2cfada71a28587b86e84c72486"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 16 Feb 2022 00:36:24 GMT",
       "tag": "powerapps-deploy_v2.1.4",
       "version": "2.1.4",

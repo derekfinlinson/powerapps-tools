@@ -1,6 +1,6 @@
 {
   "name": "powerapps-deploy",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "license": "MIT",
   "main": "lib/index.js",
   "bin": {
@@ -22,7 +22,7 @@
   "dependencies": {
     "adal-node": "^0.2.1",
     "cryptr": "^6.0.2",
-    "dataverse-webapi": "^2.0.4",
+    "dataverse-webapi": "^2.0.5",
     "electron": "^11.2.1",
     "envinfo": "^7.8.1",
     "commander": "^7.0.0",
