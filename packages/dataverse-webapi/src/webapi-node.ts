@@ -35,7 +35,7 @@ function submitRequest(requestConfig: WebApiRequestConfig, callback: RequestCall
       });
 
       result.on('end', () => {
-        if ((result.statusCode ?? 0 >= 200) && (result.statusCode ?? 0 < 300)) {
+        if ((result.statusCode || 0 >= 200) && (result.statusCode || 0 < 300)) {
           callback({ error: false, response: body, headers: result.headers });
         } else {
           callback({ error: true, response: body, headers: result.headers });
