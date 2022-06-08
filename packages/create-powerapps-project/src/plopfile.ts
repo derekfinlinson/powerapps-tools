@@ -3,19 +3,12 @@ import { spawn } from 'child_process';
 import fs from 'fs';
 import * as nuget from './nuget';
 import * as pkg from './packageManager';
-import { ActionConfig, NodePlopAPI } from 'plop';
-import { initialize } from './getEnvInfo';
+import { NodePlopAPI } from 'plop';
 
 const didSucceed = (code: number | null) => `${code}` === '0';
 
-interface DataversePlopConfig extends ActionConfig {
-  projectType?: string;
-}
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default (plop: NodePlopAPI): void => {
-  void initialize();
-
   plop.setActionType('signAssembly', (answers: any) => {
     const keyPath = path.resolve(process.cwd(), `${answers.name}.snk`);
 
@@ -43,12 +36,12 @@ export default (plop: NodePlopAPI): void => {
   plop.setActionType('runPcf', (answers: any) => {
     const args = ['pcf', 'init', '-ns', answers.namespace, '-n', answers.name, '-t', answers.template];
 
-    /// Setting framework to React currently unsupported by PCF CLI
-    // if (answers.react) {
-    //   args.push('-fw', 'react');
-    // }
+    // Set framework to React if selected
+    if (answers.react) {
+      args.push('-fw', 'react');
+    }
 
-    if (process.env.JEST_WORKER_ID !== undefined) {
+    if (process.env.JEST_WORKER_ID !== undefined || answers.package !== 'npm') {
       args.push('-npm', 'false');
     }
 
@@ -93,14 +86,28 @@ export default (plop: NodePlopAPI): void => {
   });
 
   plop.setActionType('npmInstall', (answers: any) => {
-    if (answers.projectType) {
-      pkg.install(process.cwd(), answers.projectType);
+    if (process.env.JEST_WORKER_ID !== undefined) {
+      if (answers.projectType) {
+        pkg.install(process.cwd(), answers.projectType, answers.package);
+      }
     }
 
     return 'installed npm packages';
   });
 
-  const connectionQuestions = [
+  const packageQuestion = {
+    type: 'list',
+    name: 'package',
+    message: 'package manager (ensure selected option is installed)',
+    choices: [
+      { name: 'npm', value: 'npm' },
+      { name: 'pnpm', value: 'pnpm' },
+      { name: 'yarn', value: 'yarn' }
+    ],
+    default: 'npm'
+  };
+
+  const sharedQuestions = [
     {
       type: 'input',
       name: 'server',
@@ -152,7 +159,8 @@ export default (plop: NodePlopAPI): void => {
           }
         ]
       },
-      ...connectionQuestions,
+      packageQuestion,
+      ...sharedQuestions,
     ],
     actions: [
       {
@@ -216,50 +224,51 @@ export default (plop: NodePlopAPI): void => {
         type: 'confirm',
         name: 'react',
         message: 'use react?'
-      }
+      },
+      packageQuestion
     ],
     actions: [
       {
         type: 'runPcf'
       },
-      {
-        type: 'addMany',
-        templateFiles: [
-          '../plop-templates/pcf/App.tsx',
-          '../plop-templates/pcf/index.ts.hbs'
-        ],
-        base: '../plop-templates/pcf',
-        destination: `${process.cwd()}/{{ name }}`,
-        force: true,
-        skip: (answers) => {
-          if (!answers.react) {
-            return 'react not included';
-          }
+      // {
+      //   type: 'addMany',
+      //   templateFiles: [
+      //     '../plop-templates/pcf/App.tsx',
+      //     '../plop-templates/pcf/index.ts.hbs'
+      //   ],
+      //   base: '../plop-templates/pcf',
+      //   destination: `${process.cwd()}/{{ name }}`,
+      //   force: true,
+      //   skip: (answers) => {
+      //     if (!answers.react) {
+      //       return 'react not included';
+      //     }
 
-          return;
-        }
-      },
-      {
-        type: 'add',
-        templateFile: '../plop-templates/pcf/tsconfig.json',
-        path: path.resolve(process.cwd(), 'tsconfig.json'),
-        force: true,
-        skip: (answers) => {
-          if (!answers.react) {
-            return 'react not included';
-          }
+      //     return;
+      //   }
+      // },
+      // {
+      //   type: 'add',
+      //   templateFile: '../plop-templates/pcf/tsconfig.json',
+      //   path: path.resolve(process.cwd(), 'tsconfig.json'),
+      //   force: true,
+      //   skip: (answers) => {
+      //     if (!answers.react) {
+      //       return 'react not included';
+      //     }
 
-          return;
-        }
-      },
+      //     return;
+      //   }
+      // },
       {
         type: 'npmInstall',
         data: {
           projectType: 'pcf'
         },
         skip: (answers) => {
-          if (!answers.react) {
-            return 'react not included';
+          if (answers.package === 'npm') {
+            return 'using npm package manager';
           }
 
           return;
@@ -282,7 +291,8 @@ export default (plop: NodePlopAPI): void => {
         name: 'namespace',
         message: 'namespace for form and ribbon scripts:'
       },
-      ...connectionQuestions
+      packageQuestion,
+      ...sharedQuestions
     ],
     actions: [
       {
@@ -291,6 +301,12 @@ export default (plop: NodePlopAPI): void => {
         base: '../plop-templates/webresource',
         destination: process.cwd(),
         force: true
+      },
+      {
+        type: 'npmInstall',
+        data: {
+          projectType: 'webresource'
+        }
       }
     ]
   });

@@ -1,7 +1,9 @@
 import path from 'path';
 import fs from 'fs';
+import nodePlop from 'node-plop';
 
 const projectPath = path.resolve(__dirname, '__create__');
+const plop = nodePlop(path.resolve(__dirname, '..', 'plopfile.ts'));
 
 beforeEach(async () => {
   await fs.promises.mkdir(projectPath);
@@ -14,16 +16,17 @@ afterEach(async () => {
 });
 
 test('create pcf project', async () => {
-  const answers = [
-    'field',
-    'Pcf',
-    'PcfFieldControl',
-    true
-  ];
+  const answers = {
+    template: 'field',
+    namespace: 'Pcf',
+    name: 'PcfFieldControl',
+    react: true,
+    package: 'npm'
+  };
   
-  // prompts.inject(answers);
+  const generator = plop.getGenerator('pcf');
 
-  // await createDataverseProject('pcf');
+  await generator.runActions(answers);
 
   const expectedFiles = [
     'package.json',
@@ -32,7 +35,6 @@ test('create pcf project', async () => {
     '.eslintrc.json',
     '__create__.pcfproj',
     'PcfFieldControl',
-    'PcfFieldControl/App.tsx',
     'PcfFieldControl/index.ts',
     'PcfFieldControl/ControlManifest.Input.xml'
   ];
@@ -43,30 +45,22 @@ test('create pcf project', async () => {
 
   const indexContent = await fs.promises.readFile(path.resolve(projectPath, 'PcfFieldControl', 'index.ts'), 'utf8');
 
-  expect(indexContent).toContain("import React from 'react';");
-  expect(indexContent).toContain("import ReactDOM from 'react-dom';");
-  expect(indexContent).toContain("ReactDOM.render(");
-  expect(indexContent).toContain("import { App, AppProps } from './App';");
-  expect(indexContent).toContain("ReactDOM.render(");
-  expect(indexContent).toContain(`export class ${answers[2]}`);
-
-  const tsConfig = JSON.parse(await fs.promises.readFile(path.resolve(projectPath, 'tsconfig.json'), 'utf8'));
-
-  expect(tsConfig.compilerOptions.target).toBe('ES6');
-  expect(tsConfig.compilerOptions.esModuleInterop).toBe(true);
+  expect(indexContent).toContain(`export class ${answers.name}`);
 });
 
 test('create web resource project', async () => {
-  const answers = [
-    'Org',
-    'https://org.crm.dynamics.com',
-    'common',
-    'Solution'
-  ];
+  const answers = {
+    name: 'webresource',
+    namespace: 'Org',
+    package: 'npm',
+    server: 'https://org.crm.dynamics.com',
+    tenant: 'common',
+    solution: 'Solution'
+  };
 
-  // prompts.inject(answers);
+  const generator = plop.getGenerator('webresource');
 
-  // await createDataverseProject('webresource');
+  await generator.runActions(answers);
 
   const expectedFiles = [
     'package.json',
@@ -88,28 +82,29 @@ test('create web resource project', async () => {
 
   const webpackContent = await fs.promises.readFile(path.resolve(projectPath, 'webpack.config.js'), 'utf8');
 
-  expect(webpackContent).toContain(`library: ['${answers[0]}', '[name]'],`);
+  expect(webpackContent).toContain(`library: ['${answers.namespace}', '[name]'],`);
 
   const dataverseConfig = JSON.parse(await fs.promises.readFile(path.resolve(projectPath, 'dataverse.config.json'), 'utf8'));
 
-  expect(dataverseConfig.connection.server).toBe(answers[1]);
-  expect(dataverseConfig.connection.tenant).toBe(answers[2]);
-  expect(dataverseConfig.connection.solution).toBe(answers[3]);
+  expect(dataverseConfig.connection.server).toBe(answers.server);
+  expect(dataverseConfig.connection.tenant).toBe(answers.tenant);
+  expect(dataverseConfig.connection.solution).toBe(answers.solution);
 });
 
 test('create plugin project', async () => {
-  const answers = [
-    '9.0',
-    'Namespace',
-    2,
-    'https://org.crm.dynamics.com',
-    'common',
-    'Solution'
-  ];
+  const answers = {
+    sdkVersion: '9.0',
+    name: 'Namespace',
+    isolation: 2,
+    package: 'npm',
+    server: 'https://org.crm.dynamics.com',
+    tenant: 'common',
+    solution: 'Solution'
+  };
 
-  // prompts.inject(answers);
+  const generator = plop.getGenerator('assembly');
 
-  // await createDataverseProject('assembly');
+  await generator.runActions(answers);
 
   const expectedFiles = [
     'package.json',
@@ -128,8 +123,8 @@ test('create plugin project', async () => {
 
   const dataverseConfig = JSON.parse(await fs.promises.readFile(path.resolve(projectPath, 'dataverse.config.json'), 'utf8'));
 
-  expect(dataverseConfig.connection.server).toBe(answers[3]);
-  expect(dataverseConfig.connection.tenant).toBe(answers[4]);
-  expect(dataverseConfig.connection.solution).toBe(answers[5]);
+  expect(dataverseConfig.connection.server).toBe(answers.server);
+  expect(dataverseConfig.connection.tenant).toBe(answers.tenant);
+  expect(dataverseConfig.connection.solution).toBe(answers.solution);
   expect(dataverseConfig.isolationmode).toBe('2');
 });

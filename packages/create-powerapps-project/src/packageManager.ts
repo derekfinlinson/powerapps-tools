@@ -1,58 +1,27 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { spawnSync } from 'child_process';
-import { getEnvInfo } from './getEnvInfo';
 
-export const getYarn = (): any => {
-  const yarnInfo = getEnvInfo().Binaries.Yarn;
-  return yarnInfo && yarnInfo.path;
-};
-
-const getNpm = (): any => {
-  const npmInfo = getEnvInfo().Binaries.npm;
-  return npmInfo && npmInfo.path;
-};
-
-export const install = (cwd: string, type: string): void => {
+export const install = (cwd: string, type: string, packageManager: string): void => {
   const packages = getPackages(type);
 
   if (process.env.JEST_WORKER_ID !== undefined) {
     return;
   }
 
-  if (getYarn()) {
-    spawnSync(getYarn(), ['add', ...packages.devDependencies], { stdio: 'inherit', cwd });
-
-    if (packages.dependencies) {
-      spawnSync(getYarn(), ['add', ...packages.dependencies], { stdio: 'inherit', cwd });
-    }
+  if (type === 'pcf') {
+    spawnSync(packageManager, ['install']);
   } else {
-    spawnSync(getNpm(), ['install', ...packages.devDependencies], { stdio: 'inherit', cwd });
+    if (packageManager === 'yarn') {
+      spawnSync(packageManager, ['add', ...packages.devDependencies], { stdio: 'inherit', cwd });
 
-    if (packages.dependencies) {
-      spawnSync(getNpm(), ['install', ...packages.dependencies], { stdio: 'inherit', cwd });
+      if (packages.dependencies) {
+        spawnSync(packageManager, ['add', ...packages.dependencies], { stdio: 'inherit', cwd });
+      }
     }
   }
 }
 
 function getPackages(type: string) {
-  if (type === 'pcf') {
-    return {
-      dependencies: [
-        'react@17.0.2',
-        'react-dom@17.0.2',
-        '@fluentui/react',
-        '@fluentui/font-icons-mdl2'
-      ],
-      devDependencies: [
-        //`powerapps-project-${type}`,
-        '@types/react@17.0.39',
-        '@types/react-dom@17.0.11',
-        '@types/xrm',
-        '-D'
-      ]
-    };
-  }
-
   const packages: { dependencies?: string[], devDependencies: string[] } = {
     devDependencies: [
       `powerapps-project-${type}`,
