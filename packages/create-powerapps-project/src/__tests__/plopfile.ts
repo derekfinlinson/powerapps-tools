@@ -12,7 +12,7 @@ beforeEach(async () => {
 
 afterEach(async () => {
   process.chdir(__dirname);
-  await fs.promises.rm(projectPath, { recursive: true, force: true });
+  await fs.promises.rm('__create__', { recursive: true, force: true });
 });
 
 test('create pcf project', async () => {
