@@ -17,7 +17,7 @@ export default (plop: NodePlopAPI): void => {
         resolve('Testing so no need to sign');
       }
 
-      const sign = spawn(path.resolve(__dirname, '../', 'bin', 'sn.exe'), ['-q', '-k', keyPath], { stdio: 'inherit' });
+      const sign = spawn(path.resolve(__dirname, '..', 'bin', 'sn.exe'), ['-q', '-k', keyPath], { stdio: 'inherit' });
 
       sign.on('close', (code) => {
         if (didSucceed(code)) {
