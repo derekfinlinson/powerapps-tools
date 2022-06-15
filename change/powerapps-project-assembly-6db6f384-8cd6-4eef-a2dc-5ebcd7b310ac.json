@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Enfroce naming conventions",
+  "packageName": "powerapps-project-assembly",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
