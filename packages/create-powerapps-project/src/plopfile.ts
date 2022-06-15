@@ -231,36 +231,47 @@ export default (plop: NodePlopAPI): void => {
       {
         type: 'runPcf'
       },
-      // {
-      //   type: 'addMany',
-      //   templateFiles: [
-      //     '../plop-templates/pcf/App.tsx',
-      //     '../plop-templates/pcf/index.ts.hbs'
-      //   ],
-      //   base: '../plop-templates/pcf',
-      //   destination: `${process.cwd()}/{{ name }}`,
-      //   force: true,
-      //   skip: (answers) => {
-      //     if (!answers.react) {
-      //       return 'react not included';
-      //     }
+      {
+        type: 'add',
+        templateFile: '../plop-templates/pcf/tsconfig.json',
+        path: path.resolve(process.cwd(), 'tsconfig.json'),
+        force: true
+      },
+      {
+        type: 'addMany',
+        templateFiles: [
+          '../plop-templates/pcf/App.tsx',
+          '../plop-templates/pcf/AppContext.ts'
+        ],
+        base: '../plop-templates/pcf',
+        destination: `${process.cwd()}/{{ name }}`,
+        force: true,
+        skip: (answers) => {
+          if (!answers.react) {
+            return 'react not included';
+          }
 
-      //     return;
-      //   }
-      // },
-      // {
-      //   type: 'add',
-      //   templateFile: '../plop-templates/pcf/tsconfig.json',
-      //   path: path.resolve(process.cwd(), 'tsconfig.json'),
-      //   force: true,
-      //   skip: (answers) => {
-      //     if (!answers.react) {
-      //       return 'react not included';
-      //     }
-
-      //     return;
-      //   }
-      // },
+          return;
+        }
+      },
+      {
+        type: 'modify',
+        path: `${process.cwd()}/{{ name }}/index.ts`,
+        pattern: 'import { HelloWorld, IHelloWorldProps } from "./HelloWorld";',
+        template: `import { App, IAppProps } from './App';`
+      },
+      {
+        type: 'modify',
+        path: `${process.cwd()}/{{ name }}/index.ts`,
+        pattern: 'HelloWorld, props',
+        template: 'App, props'
+      },
+      {
+        type: 'modify',
+        path: `${process.cwd()}/{{ name }}/index.ts`,
+        pattern: `const props: IHelloWorldProps = { name: 'Hello, World!' };`,
+        template: `const props: IAppProps = { context: context };`
+      },
       {
         type: 'npmInstall',
         data: {

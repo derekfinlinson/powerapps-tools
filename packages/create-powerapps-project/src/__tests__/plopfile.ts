@@ -6,13 +6,23 @@ const projectPath = path.resolve(__dirname, '__create__');
 const plop = nodePlop(path.resolve(__dirname, '..', 'plopfile.ts'));
 
 beforeEach(async () => {
-  await fs.promises.mkdir(projectPath);
+  try {
+    await fs.promises.mkdir(projectPath);
+  } catch (ex) {
+    console.log(ex);
+  }
+
   process.chdir(projectPath);
 });
 
 afterEach(async () => {
-  process.chdir(__dirname);
-  await fs.promises.rm('__create__', { recursive: true, force: true });
+  process.chdir(path.resolve(__dirname));
+
+  try {
+    await fs.promises.rm(projectPath, { recursive: true, force: true });
+  } catch (ex) {
+    console.log(ex);
+  }
 });
 
 test('create pcf project', async () => {
@@ -23,7 +33,7 @@ test('create pcf project', async () => {
     react: true,
     package: 'npm'
   };
-  
+
   const generator = plop.getGenerator('pcf');
 
   await generator.runActions(answers);
@@ -40,7 +50,7 @@ test('create pcf project', async () => {
   ];
 
   for (const f of expectedFiles) {
-     await expect(fs.promises.access(path.resolve(projectPath, f))).resolves.toBeUndefined();
+    await expect(fs.promises.access(path.resolve(projectPath, f))).resolves.toBeUndefined();
   }
 
   const indexContent = await fs.promises.readFile(path.resolve(projectPath, 'PcfFieldControl', 'index.ts'), 'utf8');
@@ -48,7 +58,7 @@ test('create pcf project', async () => {
   expect(indexContent).toContain(`export class ${answers.name}`);
 });
 
-test('create web resource project', async () => {
+test.only('create web resource project', async () => {
   const answers = {
     name: 'webresource',
     namespace: 'Org',
@@ -77,7 +87,7 @@ test('create web resource project', async () => {
   ];
 
   for (const f of expectedFiles) {
-     await expect(fs.promises.access(path.resolve(projectPath, f))).resolves.toBeUndefined();
+    await expect(fs.promises.access(path.resolve(projectPath, f))).resolves.toBeUndefined();
   }
 
   const webpackContent = await fs.promises.readFile(path.resolve(projectPath, 'webpack.config.js'), 'utf8');
@@ -119,7 +129,7 @@ test('create plugin project', async () => {
 
   for (const f of expectedFiles) {
     await expect(fs.promises.access(path.resolve(projectPath, f))).resolves.toBeUndefined();
- }
+  }
 
   const dataverseConfig = JSON.parse(await fs.promises.readFile(path.resolve(projectPath, 'dataverse.config.json'), 'utf8'));
 

@@ -1,20 +1,19 @@
 import React from 'react';
-import { ThemeProvider } from '@fluentui/react/lib/utilities/ThemeProvider/ThemeProvider';
+import AppContext from './AppContext';
 
 export interface AppProps {
-  isTestHarness: boolean;
+  context: ComponentFramework.Context<IInputs>;
 }
 
 export const App = React.memo((props: AppProps) => {
   const {
-    isTestHarness
+    context,
   } = props;
-  
+
   return (
-    <ThemeProvider dir='ltr'>
-    </ThemeProvider>
+    <AppContext.Provider value={{ context: context }}>
+    </AppContext.Provider>
   );
 });
 
 App.displayName = 'App';
-
