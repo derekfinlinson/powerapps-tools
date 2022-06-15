@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 15 Jun 2022 20:34:51 GMT",
+      "tag": "create-powerapps-project_v0.21.0",
+      "version": "0.21.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "9d77e9e5603842444ddfb78d93605a6f79975204",
+            "comment": "Add validators; Update PCF generator"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 11 May 2022 16:18:22 GMT",
       "tag": "create-powerapps-project_v0.20.0",
       "version": "0.20.0",

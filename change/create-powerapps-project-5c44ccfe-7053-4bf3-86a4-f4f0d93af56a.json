@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Add validators; Update PCF generator",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

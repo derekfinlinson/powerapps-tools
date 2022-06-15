@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Thu, 17 Feb 2022 01:03:11 GMT and should not be manually modified.
+This log was last generated on Wed, 15 Jun 2022 20:34:51 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.1.0
+
+Wed, 15 Jun 2022 20:34:51 GMT
+
+### Minor changes
+
+- Enfroce naming conventions (derek.finlinson@journeyteam.com)
 
 ## 1.0.10
 
