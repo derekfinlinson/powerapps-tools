@@ -68,7 +68,7 @@ module.exports = function (plop) {
             type: 'input',
             name: 'filteringattributes',
             message: 'filtering attributes as comma separated list:',
-            when: (answers) => answers.message === 'Update' && answers.customApi !== true
+            when: (answers) => plop.renderString('{{ pascalCase message }}', answers) === 'Update' && answers.customApi !== true
         },
         {
             type: 'input',
@@ -124,6 +124,7 @@ module.exports = function (plop) {
             type: 'list',
             name: 'mode',
             message: 'mode',
+            default: 0,
             choices: (answers) => {
                 const choices = [
                     {
@@ -141,7 +142,7 @@ module.exports = function (plop) {
 
                 return choices;
             },
-            when: (answers) => answers.customApi !== true
+            when: (answers) => answers.customApi !== true && answers.stage === 40
         },
         {
             type: 'number',
@@ -254,9 +255,9 @@ module.exports = function (plop) {
 
             // Create plugin type config
             const type = {
-                name: `${namespace}.${answers.filename}`,
-                typename: `${namespace}.${answers.filename}`,
-                friendlyname: answers.friendlyname || `${namespace}.${answers.filename}`,
+                name: `${namespace}.${plop.renderString('{{pascalCase filename }}', answers)}`,
+                typename: `${namespace}.${plop.renderString('{{pascalCase filename }}', answers)}`,
+                friendlyname: answers.friendlyname || `${namespace}.${plop.renderString('{{pascalCase filename }}', answers)}`,
                 workflowactivitygroupname: answers.group,
                 steps: []
             };
@@ -265,7 +266,7 @@ module.exports = function (plop) {
             if (answers.name !== undefined) {
                 const step = {
                     name: answers.name,
-                    message: answers.message,
+                    message: plop.renderString('{{ pascalCase message }}', answers),
                     entity: answers.entity,
                     configuration: answers.configuration,
                     description: answers.description,
@@ -317,7 +318,7 @@ module.exports = function (plop) {
 
             const namespace = getNamespace();
 
-            const type = file.types.filter(t => t.name === `${namespace}.${answers.filename}`);
+            const type = file.types.filter(t => t.name === `${namespace}.${plop.renderString('{{pascalCase filename }}', answers)}`);
 
             // If plugin type not already in file, run assembly addToConfig
             if (type.length === 0) {
@@ -326,7 +327,7 @@ module.exports = function (plop) {
                 // Add step to existing config
                 const step = {
                     name: answers.name,
-                    message: answers.message,
+                    message: plop.renderString('{{ pascalCase message }}', answers),
                     entity: answers.entity,
                     configuration: answers.configuration,
                     description: answers.description,
@@ -433,7 +434,7 @@ module.exports = function (plop) {
             {
                 type: 'add',
                 templateFile: 'plop-templates/plugin.cs.hbs',
-                path: 'Plugins/{{filename}}.cs',
+                path: 'Plugins/{{pascalCase filename}}.cs',
                 skipIfExists: true
             },
             {
@@ -477,7 +478,7 @@ module.exports = function (plop) {
             {
                 type: 'add',
                 templateFile: 'plop-templates/workflow.cs.hbs',
-                path: 'Activities/{{filename}}.cs',
+                path: 'Activities/{{pascalCase filename}}.cs',
                 skipIfExists: true,
                 data: { namespace: getNamespace() }
             },
@@ -508,7 +509,7 @@ module.exports = function (plop) {
                 type: 'append',
                 path: 'Plugins/{{filename}}.cs',
                 pattern: /new RegisteredEvent\(.*\)/,
-                template: 'new RegisteredEvent(PipelineStage.{{operation}}, SdkMessageProcessingStepMode.{{stepMode}}, "{{message}}", "{{entity}}")',
+                template: 'new RegisteredEvent(PipelineStage.{{operation}}, SdkMessageProcessingStepMode.{{stepMode}}, "{{pascalCase message}}", "{{entity}}")',
                 separator: ',\n\t\t\t\t'
             },
             {

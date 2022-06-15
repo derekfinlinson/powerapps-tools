@@ -9,91 +9,7 @@ const didSucceed = (code: number | null) => `${code}` === '0';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default (plop: NodePlopAPI): void => {
-  plop.setActionType('signAssembly', (answers: any) => {
-    const keyPath = path.resolve(process.cwd(), `${answers.name}.snk`);
-
-    return new Promise((resolve, reject) => {
-      if (process.env.JEST_WORKER_ID !== undefined) {
-        resolve('Testing so no need to sign');
-      } else {
-        const sign = spawn(path.resolve(__dirname, '..', 'bin', 'sn.exe'), ['-q', '-k', keyPath], { stdio: 'inherit' });
-
-        sign.on('close', (code) => {
-          if (didSucceed(code)) {
-            resolve('signed assembly');
-          } else {
-            reject('failed to sign assembly');
-          }
-        });
-
-        sign.on('error', () => {
-          reject('failed to sign assembly');
-        });
-      }
-    });
-  });
-
-  plop.setActionType('runPcf', (answers: any) => {
-    const args = ['pcf', 'init', '-ns', answers.namespace, '-n', answers.name, '-t', answers.template];
-
-    // Set framework to React if selected
-    if (answers.react) {
-      args.push('-fw', 'react');
-    }
-
-    if (process.env.JEST_WORKER_ID !== undefined || answers.package !== 'npm') {
-      args.push('-npm', 'false');
-    }
-
-    return new Promise((resolve, reject) => {
-      const pac = spawn('pac', args, { stdio: 'inherit' });
-
-      pac.on('close', (code) => {
-        if (didSucceed(code)) {
-          resolve('pcf project created');
-        } else {
-          reject('Ensure the Power Platform CLI is installed. Command must be run from within VS Code if using the Power Platform Extension');
-        }
-      });
-
-      pac.on('error', () => {
-        reject('Ensure the Power Platform CLI is installed. Command must be run from within VS Code if using the Power Platform Extension');
-      });
-    });
-  });
-
-  plop.setActionType('addGenScript', async () => {
-    const packagePath = path.resolve(process.cwd(), 'package.json');
-
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const packageJson = require(packagePath);
-
-    packageJson.scripts.gen = 'plop';
-
-    await fs.promises.writeFile(packagePath, JSON.stringify(packageJson, null, 4), 'utf8');
-
-    return 'added plop script to package.json';
-  });
-
-  plop.setActionType('nugetInstall', async (answers: any) => {
-    const xrmVersions = await nuget.getNugetPackageVersions('JourneyTeam.Xrm');
-
-    const xrmVersion = xrmVersions.shift() as string;
-
-    nuget.install(answers.name, answers.sdkVersion, xrmVersion);
-
-    return 'installed nuget packages';
-  });
-
-  plop.setActionType('npmInstall', (answers: any) => {
-    if (process.env.JEST_WORKER_ID !== undefined) {
-      if (answers.projectType) {
-        pkg.install(process.cwd(), answers.projectType, answers.package);
-      }
-    }
-
-    return 'installed npm packages';
-  });
+  plop.setWelcomeMessage('[DATAVERSE] Please choose type of project to create.');
 
   const packageQuestion = {
     type: 'list',
@@ -126,6 +42,25 @@ export default (plop: NodePlopAPI): void => {
     }
   ];
 
+  plop.setActionType('addScript', async (answers: any) => {
+    const packagePath = path.resolve(process.cwd(), 'package.json');
+
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const packageJson = require(packagePath);
+
+    packageJson.scripts[answers.scriptKey] = answers.scriptValue;
+
+    await fs.promises.writeFile(packagePath, JSON.stringify(packageJson, null, 4), 'utf8');
+
+    return `added ${answers.scriptKey} script to package.json`;
+  });
+
+  plop.setActionType('npmInstall', (answers: any) => {
+    pkg.install(process.cwd(), answers.projectType, answers.package);
+
+    return 'installed npm packages';
+  });
+
   plop.setGenerator('assembly', {
     description: 'generate dataverse assembly project',
     prompts: [
@@ -141,7 +76,24 @@ export default (plop: NodePlopAPI): void => {
       {
         type: 'input',
         name: 'name',
-        message: 'default C# namespace (Company.Crm.Plugins):'
+        message: 'default C# namespace (Company.Crm.Plugins):',
+        validate: (name: string) => {
+          const namespace = name.split('.');
+
+          if (namespace.length !== 3) {
+            return `enter namespace using 'Company.Crm.Plugins' convention`;
+          }
+
+          for (const item of namespace) {
+            const title = plop.renderString('{{titleCase name}}', { name: item});
+
+            if  (title !== item) {
+              return `enter namespace using pascal case (Company.Crm.Plugins)`;
+            }
+          }
+
+          return true;
+        }
       },
       {
         type: 'list',
@@ -183,11 +135,37 @@ export default (plop: NodePlopAPI): void => {
         destination: process.cwd(),
         force: true
       },
-      {
-        type: 'signAssembly'
+      (answers: any) => {
+        const keyPath = path.resolve(process.cwd(), `${answers.name}.snk`);
+
+        return new Promise((resolve, reject) => {
+          if (process.env.JEST_WORKER_ID !== undefined) {
+            resolve('Testing so no need to sign');
+          } else {
+            const sign = spawn(path.resolve(__dirname, '..', 'bin', 'sn.exe'), ['-q', '-k', keyPath], { stdio: 'inherit' });
+
+            sign.on('close', (code) => {
+              if (didSucceed(code)) {
+                resolve('signed assembly');
+              } else {
+                reject('failed to sign assembly');
+              }
+            });
+
+            sign.on('error', () => {
+              reject('failed to sign assembly');
+            });
+          }
+        });
       },
-      {
-        type: 'nugetInstall'
+      async (answers: any) => {
+        const xrmVersions = await nuget.getNugetPackageVersions('JourneyTeam.Xrm');
+
+        const xrmVersion = xrmVersions.shift() as string;
+
+        nuget.install(answers.name, answers.sdkVersion, xrmVersion);
+
+        return 'installed nuget packages';
       },
       {
         type: 'npmInstall',
@@ -228,8 +206,35 @@ export default (plop: NodePlopAPI): void => {
       packageQuestion
     ],
     actions: [
-      {
-        type: 'runPcf'
+      (answers: any) => {
+        const args = ['pcf', 'init', '-ns', answers.namespace, '-n', answers.name, '-t', answers.template];
+
+        // Set framework to React if selected
+        if (answers.react) {
+          args.push('-fw', 'react');
+        }
+
+        if (process.env.JEST_WORKER_ID !== undefined || answers.package !== 'npm') {
+          args.push('-npm', 'false');
+        } else {
+          args.push('-npm', 'true');
+        }
+
+        return new Promise((resolve, reject) => {
+          const pac = spawn('pac', args, { stdio: 'inherit' });
+
+          pac.on('close', (code) => {
+            if (didSucceed(code)) {
+              resolve('pcf project created');
+            } else {
+              reject('Ensure the Power Platform CLI is installed. Command must be run from within Visual Studio Code if using the Power Platform Extension');
+            }
+          });
+
+          pac.on('error', () => {
+            reject('Ensure the Power Platform CLI is installed. Command must be run from within Visual Studio Code if using the Power Platform Extension');
+          });
+        });
       },
       {
         type: 'add',
@@ -240,12 +245,11 @@ export default (plop: NodePlopAPI): void => {
       {
         type: 'addMany',
         templateFiles: [
-          '../plop-templates/pcf/App.tsx',
+          '../plop-templates/pcf/App.tsx.hbs',
           '../plop-templates/pcf/AppContext.ts'
         ],
         base: '../plop-templates/pcf',
         destination: `${process.cwd()}/{{ name }}`,
-        force: true,
         skip: (answers) => {
           if (!answers.react) {
             return 'react not included';
@@ -273,16 +277,26 @@ export default (plop: NodePlopAPI): void => {
         template: `const props: IAppProps = { context: context };`
       },
       {
+        type: 'addScript',
+        data: {
+          scriptKey: 'build:prod',
+          scriptValue: 'pcf-scripts build --buildMode production'
+        }
+      },
+      async (answers: any) => {
+        await fs.promises.rm(path.resolve(process.cwd(), answers.name, 'HelloWorld.tsx'));
+
+        return 'removed HelloWorld component';
+      },
+      {
         type: 'npmInstall',
         data: {
           projectType: 'pcf'
         },
         skip: (answers) => {
           if (answers.package === 'npm') {
-            return 'using npm package manager';
+            return 'npm packages already installed';
           }
-
-          return;
         }
       }
     ]

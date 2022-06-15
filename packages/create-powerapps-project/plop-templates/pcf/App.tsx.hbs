@@ -1,17 +1,18 @@
 import React from 'react';
+import { IInputs } from './generated/ManifestTypes';
 import AppContext from './AppContext';
 
-export interface AppProps {
+export interface IAppProps {
   context: ComponentFramework.Context<IInputs>;
 }
 
-export const App = React.memo((props: AppProps) => {
+export const App = React.memo((props: IAppProps) => {
   const {
     context,
   } = props;
 
   return (
-    <AppContext.Provider value={{ context: context }}>
+    <AppContext.Provider value=\{{ context: context }}>
     </AppContext.Provider>
   );
 });

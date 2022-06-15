@@ -2,21 +2,19 @@
 import { spawnSync } from 'child_process';
 
 export const install = (cwd: string, type: string, packageManager: string): void => {
-  const packages = getPackages(type);
-
-  if (process.env.JEST_WORKER_ID !== undefined) {
+  if (process.env.JEST_WORKER_ID != undefined) {
     return;
   }
 
   if (type === 'pcf') {
-    spawnSync(packageManager, ['install']);
+    spawnSync(packageManager, ['install'], { stdio: 'inherit', shell: true });
   } else {
-    if (packageManager === 'yarn') {
-      spawnSync(packageManager, ['add', ...packages.devDependencies], { stdio: 'inherit', cwd });
+    const packages = getPackages(type);
 
-      if (packages.dependencies) {
-        spawnSync(packageManager, ['add', ...packages.dependencies], { stdio: 'inherit', cwd });
-      }
+    spawnSync(packageManager, ['add', ...packages.devDependencies], { stdio: 'inherit', shell: true });
+
+    if (packages.dependencies) {
+      spawnSync(packageManager, ['add', ...packages.dependencies], { stdio: 'inherit', shell: true });
     }
   }
 }
