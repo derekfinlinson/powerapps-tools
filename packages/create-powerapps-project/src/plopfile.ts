@@ -7,9 +7,12 @@ import { NodePlopAPI } from 'plop';
 
 const didSucceed = (code: number | null) => `${code}` === '0';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const version = require('../package').version;
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default (plop: NodePlopAPI): void => {
-  plop.setWelcomeMessage('[DATAVERSE] Please choose type of project to create.');
+  plop.setWelcomeMessage(`Creating new Dataverse project using create-powerapps-project v${version}. Please choose type of project to create.`);
 
   const packageQuestion = {
     type: 'list',
