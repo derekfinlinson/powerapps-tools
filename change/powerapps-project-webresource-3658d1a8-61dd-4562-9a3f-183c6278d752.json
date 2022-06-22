@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Add no entity ribbon template",
-  "packageName": "powerapps-project-webresource",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

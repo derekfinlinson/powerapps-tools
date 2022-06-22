@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Wed, 22 Jun 2022 05:16:05 GMT",
+      "tag": "powerapps-project-assembly_v1.2.0",
+      "version": "1.2.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "b3b588cc9bf567034eb75a7025b9e42084b7620a",
+            "comment": "Add custom welcome message"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 15 Jun 2022 20:34:51 GMT",
       "tag": "powerapps-project-assembly_v1.1.0",
       "version": "1.1.0",

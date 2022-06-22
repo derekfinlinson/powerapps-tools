@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-webresource
 
-This log was last generated on Thu, 17 Feb 2022 01:03:11 GMT and should not be manually modified.
+This log was last generated on Wed, 22 Jun 2022 05:16:05 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.2.0
+
+Wed, 22 Jun 2022 05:16:05 GMT
+
+### Minor changes
+
+- Add no entity ribbon template (derek.finlinson@journeyteam.com)
 
 ## 1.1.3
 
