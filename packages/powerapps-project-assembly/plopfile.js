@@ -1,7 +1,10 @@
 const path = require('path');
 const fs = require('fs');
+const version = require('../package').version;
 
 module.exports = function (plop) {
+    plop.setWelcomeMessage(`Adding Dataverse assembly file using powerapps-project-assembly v${version}. Please choose type of file to create.`);
+
     plop.setDefaultInclude({ generators: true });
 
     const getNamespace = () => {
