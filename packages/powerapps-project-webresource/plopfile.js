@@ -173,7 +173,14 @@ module.exports = function (plop) {
 
     plop.setGenerator('ribbon script', {
         description: 'dataverse ribbon script',
-        prompts: scriptPrompts,
+        prompts: [
+            ...scriptPrompts,
+            {
+                type: 'input',
+                name: 'function',
+                message: 'function name'
+            }
+        ],
         actions: [
             {
                 type: 'add',
@@ -192,7 +199,27 @@ module.exports = function (plop) {
                 type: 'add',
                 templateFile: 'plop-templates/ribbon.ts.hbs',
                 path: 'src/scripts/{{entity}}Ribbon.ts',
-                skipIfExists: true
+                skipIfExists: true,
+                skip: (data) => {
+                    if (data.entityFile) {
+                        return;
+                    } else {
+                        return 'skip form file with entity';
+                    }
+                }
+            },
+            {
+                type: 'add',
+                templateFile: 'plop-templates/ribbon.noentity.ts.hbs',
+                path: 'src/scripts/{{entity}}Ribbon.ts',
+                skipIfExists: true,
+                skip: (data) => {
+                    if (!data.entityFile) {
+                        return;
+                    } else {
+                        return 'skip form file without entity';
+                    }
+                }
             },
             {
                 type: 'add',
