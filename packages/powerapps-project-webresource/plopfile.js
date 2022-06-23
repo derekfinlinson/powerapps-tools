@@ -26,9 +26,9 @@ module.exports = function (plop) {
                             type: config.resourceType
                         },
                         {
-                            path: `./lib/scripts/${answers.filename}.js`,
+                            path: `./lib/${answers.filename}.js`,
                             name: answers.name,
-                            displayname: `${answers.displayName}`,
+                            displayname: `${answers.displayName} Script`,
                             type: 'JavaScript'
                         }
                     );
@@ -45,7 +45,7 @@ module.exports = function (plop) {
                 if (file.webResources != null) {
                     file.webResources.push(
                         {
-                            path: `./lib/${filename}.js`,
+                            path: `./lib/scripts/${filename}.js`,
                             name: answers.name,
                             displayname: answers.displayName,
                             type: config.resourceType
