@@ -26,7 +26,7 @@ module.exports = function (plop) {
                             type: config.resourceType
                         },
                         {
-                            path: `./lib/${answers.filename}.js`,
+                            path: `./lib/scripts/${answers.filename}.js`,
                             name: answers.name,
                             displayname: `${answers.displayName} Script`,
                             type: 'JavaScript'
