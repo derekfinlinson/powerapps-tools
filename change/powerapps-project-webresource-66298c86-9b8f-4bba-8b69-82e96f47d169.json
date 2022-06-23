@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix path for real",
-  "packageName": "powerapps-project-webresource",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
