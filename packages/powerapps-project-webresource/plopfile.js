@@ -28,7 +28,7 @@ module.exports = function (plop) {
                         {
                             path: `./lib/scripts/${answers.filename}.js`,
                             name: answers.name,
-                            displayname: `${answers.displayName} Script`,
+                            displayname: `${answers.displayName}`,
                             type: 'JavaScript'
                         }
                     );
