@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix package path",
-  "packageName": "powerapps-project-assembly",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
