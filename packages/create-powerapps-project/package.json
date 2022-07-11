@@ -3,7 +3,6 @@
   "description": "💧 plop generator for Dataverse development",
   "version": "0.21.1",
   "license": "MIT",
-  "type": "commonjs",
   "main": "lib/index.js",
   "bin": {
     "create-powerapps-project": "lib/index.js"
@@ -26,7 +25,6 @@
     "plop": "^2.7.6"
   },
   "devDependencies": {
-    "@types/node": "^14.14.21",
-    "node-plop": "^0.26.3"
+    "@types/node": "^14.14.21"
   }
 }

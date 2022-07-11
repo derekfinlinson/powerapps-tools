@@ -3,7 +3,8 @@
     "compilerOptions": {
         "outDir": "./lib",
         "noImplicitAny": false,
-        "declaration": false
+        "declaration": false,
+        "resolveJsonModule": true
     },
     "include": [
         "src/index.ts"
