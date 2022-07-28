@@ -3,6 +3,7 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     plugins: [
         '@typescript-eslint',
+        "@microsoft/power-apps"
     ],
     extends: [
         'eslint:recommended',

@@ -48,6 +48,7 @@ function getPackages(type: string) {
       'webpack-cli',
       'cross-spawn',
       'ts-node',
+      '@microsoft/eslint-plugin-power-apps',
       '-D'
     ];
 
