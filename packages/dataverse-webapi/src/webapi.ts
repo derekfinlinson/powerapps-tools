@@ -17,6 +17,7 @@ export function getHeaders(config: WebApiRequestConfig): Record<string, string> 
     headers.Authorization = `Bearer ${config.apiConfig.accessToken}`;
   }
 
+  // Add prefer header
   headers.Prefer = getPreferHeader(config.queryOptions);
 
   if (config.queryOptions != null && typeof (config.queryOptions) !== 'undefined') {
