@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Wed, 25 May 2022 23:09:53 GMT and should not be manually modified.
+This log was last generated on Thu, 28 Jul 2022 22:38:13 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.2.11
+
+Thu, 28 Jul 2022 22:38:13 GMT
+
+### Patches
+
+- Require instead of import package.json (derek.finlinson@journeyteam.com)
 
 ## 2.2.7
 

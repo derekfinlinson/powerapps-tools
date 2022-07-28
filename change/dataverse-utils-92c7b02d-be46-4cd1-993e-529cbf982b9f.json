@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Require instead of import package.json",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

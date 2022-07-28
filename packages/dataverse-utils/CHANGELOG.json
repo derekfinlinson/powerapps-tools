@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Thu, 28 Jul 2022 22:38:13 GMT",
+      "tag": "dataverse-utils_v2.2.11",
+      "version": "2.2.11",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "45152ede204e74e944956f91145f5170f305ecee",
+            "comment": "Require instead of import package.json"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 25 May 2022 23:09:53 GMT",
       "tag": "dataverse-utils_v2.2.7",
       "version": "2.2.7",
