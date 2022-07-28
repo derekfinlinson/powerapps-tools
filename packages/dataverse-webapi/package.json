@@ -1,6 +1,6 @@
 {
   "name": "dataverse-webapi",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Dataverse Web Api TypeScript Module",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
