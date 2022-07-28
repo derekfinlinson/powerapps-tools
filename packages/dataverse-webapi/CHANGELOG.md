@@ -1,8 +1,16 @@
 # Change Log - dataverse-webapi
 
-This log was last generated on Thu, 28 Jul 2022 18:01:11 GMT and should not be manually modified.
+This log was last generated on Thu, 28 Jul 2022 18:05:38 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.7
+
+Thu, 28 Jul 2022 18:05:38 GMT
+
+### Patches
+
+- Forgot to build prefer header change (derek.finlinson@journeyteam.com)
 
 ## 2.0.6
 

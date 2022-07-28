@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Forgot to build prefer header change",
-  "packageName": "dataverse-webapi",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
