@@ -17,9 +17,9 @@ export function getHeaders(config: WebApiRequestConfig): Record<string, string> 
     headers.Authorization = `Bearer ${config.apiConfig.accessToken}`;
   }
 
-  if (config.queryOptions != null && typeof (config.queryOptions) !== 'undefined') {
-    headers.Prefer = getPreferHeader(config.queryOptions);
+  headers.Prefer = getPreferHeader(config.queryOptions);
 
+  if (config.queryOptions != null && typeof (config.queryOptions) !== 'undefined') {
     if (config.queryOptions.impersonateUserId != null) {
       headers.CallerObjectId = config.queryOptions.impersonateUserId;
     }
@@ -28,18 +28,18 @@ export function getHeaders(config: WebApiRequestConfig): Record<string, string> 
   return headers;
 }
 
-function getPreferHeader(queryOptions: QueryOptions): string {
+function getPreferHeader(queryOptions?: QueryOptions): string {
   const prefer: string[] = [
     'odata.include-annotations="*"'
   ];
 
   // add max page size to prefer request header
-  if (queryOptions.maxPageSize) {
+  if (queryOptions?.maxPageSize) {
     prefer.push(`odata.maxpagesize=${queryOptions.maxPageSize}`);
   }
 
   // add formatted values to prefer request header
-  if (queryOptions.representation) {
+  if (queryOptions?.representation) {
     prefer.push('return=representation');
   }
 
@@ -616,7 +616,7 @@ export function boundFunction(apiConfig: WebApiConfig, entitySet: string, id: st
  */
 export function unboundFunction(apiConfig: WebApiConfig, functionName: string, submitRequest: RequestCallback, inputs?: FunctionInput[], queryOptions?: QueryOptions): Promise<unknown> {
   let queryString = `${functionName}(`;
-  
+
   queryString = getFunctionInputs(queryString, inputs);
 
   const config = {
