@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Thu, 28 Jul 2022 22:45:26 GMT",
+      "tag": "dataverse-utils_v2.2.12",
+      "version": "2.2.12",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "4aa690ab937cee9cb5505bb15e5d328da61e6eae",
+            "comment": "Revert figures version"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 28 Jul 2022 22:38:13 GMT",
       "tag": "dataverse-utils_v2.2.11",
       "version": "2.2.11",
