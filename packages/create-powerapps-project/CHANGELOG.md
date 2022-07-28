@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Mon, 20 Jun 2022 20:02:44 GMT and should not be manually modified.
+This log was last generated on Thu, 28 Jul 2022 18:01:11 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.21.2
+
+Thu, 28 Jul 2022 18:01:11 GMT
+
+### Patches
+
+- Include powerapps eslint (derek.finlinson@journeyteam.com)
 
 ## 0.21.1
 

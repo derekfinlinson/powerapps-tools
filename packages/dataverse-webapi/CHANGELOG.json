@@ -2,6 +2,21 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Thu, 28 Jul 2022 18:01:11 GMT",
+      "tag": "dataverse-webapi_v2.0.6",
+      "version": "2.0.6",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-webapi",
+            "commit": "95bb49d448ab4ea2d2a16eaefd3c0e8d5edb922d",
+            "comment": "Always add prefer header"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 25 May 2022 23:09:53 GMT",
       "tag": "dataverse-webapi_v2.0.5",
       "version": "2.0.5",
