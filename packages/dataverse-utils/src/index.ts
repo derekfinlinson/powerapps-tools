@@ -3,7 +3,9 @@ import { program } from 'commander';
 
 import deploy from './deploy';
 import generate from './generate';
-import packageJson from '../package.json';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const packageJson = require('../package.json');
 
 program
   .version(packageJson.version)
