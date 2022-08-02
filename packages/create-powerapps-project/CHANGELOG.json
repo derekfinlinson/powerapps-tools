@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 02 Aug 2022 22:50:09 GMT",
+      "tag": "create-powerapps-project_v0.21.3",
+      "version": "0.21.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "ce9da678a9b5c93ed29efff3686c24d9b6f3c77a",
+            "comment": "Add powerapps eslint rules"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 28 Jul 2022 18:01:11 GMT",
       "tag": "create-powerapps-project_v0.21.2",
       "version": "0.21.2",
