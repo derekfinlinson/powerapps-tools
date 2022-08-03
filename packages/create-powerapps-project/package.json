@@ -22,9 +22,11 @@
     "clean": "rimraf lib"
   },
   "dependencies": {
-    "plop": "^2.7.6"
+    "plop": "^2.7.6",
+    "minimist": "^1.2.6"
   },
   "devDependencies": {
+    "@types/minimist": "^1.2.2",
     "@types/node": "^14.14.21"
   }
 }
