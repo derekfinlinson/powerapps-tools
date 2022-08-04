@@ -61,7 +61,7 @@ export function setControlLabel(controlName: string, label: string): boolean {
  * @param value Default value
  * @param fireOnChange Fire field on change event
  */
-export function setDefaultValue(fieldName: string, value: never, fireOnChange?: boolean): boolean {
+export function setDefaultValue(fieldName: string, value: string | number | Xrm.LookupValue[] | boolean, fireOnChange?: boolean): boolean {
   const field = Xrm.Page.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field == null || field.getValue() != null) {
@@ -139,7 +139,7 @@ export function removeOnChange(fieldName: string, event: Xrm.Page.ContextSensiti
  * @param value Value
  * @param fireOnChange Fire field on change event
  */
-export function setValue(fieldName: string, value: never, fireOnChange?: boolean): boolean {
+export function setValue(fieldName: string, value: string | number | Xrm.LookupValue[] | boolean, fireOnChange?: boolean): boolean {
   const field = Xrm.Page.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field == null) {
@@ -229,7 +229,7 @@ export function navigateToForm(label: string): void {
  * @param attributeFilter Logical name of the attribute to filter on
  * @param values Values for the filter
  */
-export function addLookupFilter(lookupAttribute: string, attributeFilter: string, values: never[]): boolean {
+export function addLookupFilter(lookupAttribute: string, attributeFilter: string, values: string[] | number[] | boolean[]): boolean {
   if (values.length === 0) {
     return false;
   }

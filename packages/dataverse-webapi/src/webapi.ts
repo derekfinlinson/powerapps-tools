@@ -338,7 +338,7 @@ export function updateWithReturnData(apiConfig: WebApiConfig, entitySet: string,
  * @param attribute Attribute to update
  * @param queryOptions Various query options for the query
  */
-export function updateProperty(apiConfig: WebApiConfig, entitySet: string, id: string, attribute: string, value: unknown, submitRequest: RequestCallback, queryOptions?: QueryOptions): Promise<void> {
+export function updateProperty(apiConfig: WebApiConfig, entitySet: string, id: string, attribute: string, value: string | number | boolean, submitRequest: RequestCallback, queryOptions?: QueryOptions): Promise<void> {
   const config = {
     method: 'PUT',
     contentType: 'application/json; charset=utf-8',

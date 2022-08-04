@@ -4,6 +4,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/derekfinlinson/powerapps-tools"
+  },
   "devDependencies": {
     "@types/jest": "^27.5.0",
     "@types/node": "^17.0.32",

@@ -125,7 +125,7 @@ export function updateWithReturnData(apiConfig: WebApiConfig, entitySet: string,
  * @param attribute Attribute to update
  * @param queryOptions Various query options for the query
  */
-export function updateProperty(apiConfig: WebApiConfig, entitySet: string, id: string, attribute: string, value: unknown, queryOptions?: QueryOptions): Promise<void> {
+export function updateProperty(apiConfig: WebApiConfig, entitySet: string, id: string, attribute: string, value: string | number | boolean, queryOptions?: QueryOptions): Promise<void> {
   return webApi.updateProperty(apiConfig, entitySet, id, attribute, value, submitRequest, queryOptions);
 }
 
