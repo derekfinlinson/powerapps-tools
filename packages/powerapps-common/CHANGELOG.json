@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Thu, 04 Aug 2022 15:44:46 GMT",
+      "tag": "powerapps-common_v1.4.0",
+      "version": "1.4.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-common",
+            "commit": "5e7c08414453db7798c8f5e486a4c5603f7776c5",
+            "comment": "Replace unknown/never with types"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 13 May 2022 23:28:18 GMT",
       "tag": "powerapps-common_v1.3.0",
       "version": "1.3.0",

@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Replace unknown/never with types",
-  "packageName": "powerapps-common",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

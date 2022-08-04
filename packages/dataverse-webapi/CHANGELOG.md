@@ -1,8 +1,16 @@
 # Change Log - dataverse-webapi
 
-This log was last generated on Thu, 28 Jul 2022 19:46:35 GMT and should not be manually modified.
+This log was last generated on Thu, 04 Aug 2022 15:44:46 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.1.0
+
+Thu, 04 Aug 2022 15:44:46 GMT
+
+### Minor changes
+
+- Replace unknown/never with types (derek.finlinson@journeyteam.com)
 
 ## 2.0.8
 

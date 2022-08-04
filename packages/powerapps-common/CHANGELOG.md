@@ -1,8 +1,16 @@
 # Change Log - powerapps-common
 
-This log was last generated on Fri, 13 May 2022 23:28:18 GMT and should not be manually modified.
+This log was last generated on Thu, 04 Aug 2022 15:44:46 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.4.0
+
+Thu, 04 Aug 2022 15:44:46 GMT
+
+### Minor changes
+
+- Replace unknown/never with types (derek.finlinson@journeyteam.com)
 
 ## 1.3.0
 
