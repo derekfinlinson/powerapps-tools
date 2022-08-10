@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-webresource
 
-This log was last generated on Thu, 28 Jul 2022 18:01:11 GMT and should not be manually modified.
+This log was last generated on Wed, 10 Aug 2022 16:03:33 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.2.4
+
+Wed, 10 Aug 2022 16:03:33 GMT
+
+### Patches
+
+- Fix output JS path (derek.finlinson@journeyteam.com)
 
 ## 1.2.3
 

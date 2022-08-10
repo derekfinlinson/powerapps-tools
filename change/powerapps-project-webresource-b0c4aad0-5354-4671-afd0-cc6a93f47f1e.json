@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix output JS path",
-  "packageName": "powerapps-project-webresource",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

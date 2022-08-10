@@ -2,6 +2,21 @@
   "name": "powerapps-project-webresource",
   "entries": [
     {
+      "date": "Wed, 10 Aug 2022 16:03:33 GMT",
+      "tag": "powerapps-project-webresource_v1.2.4",
+      "version": "1.2.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-webresource",
+            "commit": "4adfe3da192ce014ac170ff6c4f6f07d5a88f2f6",
+            "comment": "Fix output JS path"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 28 Jul 2022 18:01:11 GMT",
       "tag": "powerapps-project-webresource_v1.2.3",
       "version": "1.2.3",
