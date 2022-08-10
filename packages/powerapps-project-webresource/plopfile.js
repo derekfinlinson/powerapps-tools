@@ -17,7 +17,6 @@ module.exports = (plop) => {
 
             if (config.resourceType === 'HTML') {
                 if (file.webResources != null) {
-                    // where does filename come from?                    
                     file.webResources.push(
                         {
                             path: `./lib/${answers.filename}.html`,
@@ -45,7 +44,7 @@ module.exports = (plop) => {
                 if (file.webResources != null) {
                     file.webResources.push(
                         {
-                            path: `./lib/scripts/${filename}.js`,
+                            path: `./lib/${filename}.js`,
                             name: answers.name,
                             displayname: answers.displayName,
                             type: config.resourceType
