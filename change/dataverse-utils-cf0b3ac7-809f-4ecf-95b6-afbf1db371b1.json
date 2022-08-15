@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Add support for plugin package deployment",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

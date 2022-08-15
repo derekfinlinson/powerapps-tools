@@ -2,6 +2,21 @@
   "name": "powerapps-project-webresource",
   "entries": [
     {
+      "date": "Mon, 15 Aug 2022 23:43:07 GMT",
+      "tag": "powerapps-project-webresource_v1.2.5",
+      "version": "1.2.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-webresource",
+            "commit": "8bb22a1fa616328f1835b18f3c09f76b35f9c284",
+            "comment": "Small prompt message change"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 10 Aug 2022 16:03:33 GMT",
       "tag": "powerapps-project-webresource_v1.2.4",
       "version": "1.2.4",

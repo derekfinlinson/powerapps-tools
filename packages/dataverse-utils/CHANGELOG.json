@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Mon, 15 Aug 2022 23:43:07 GMT",
+      "tag": "dataverse-utils_v2.3.0",
+      "version": "2.3.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "8bb22a1fa616328f1835b18f3c09f76b35f9c284",
+            "comment": "Add support for plugin package deployment"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 04 Aug 2022 15:44:46 GMT",
       "tag": "dataverse-utils_v2.2.13",
       "version": "2.2.13",
