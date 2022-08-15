@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Add new plugin package option; Refactor",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
