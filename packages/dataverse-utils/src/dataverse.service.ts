@@ -5,7 +5,8 @@ export enum ComponentType {
   PluginType = 90,
   PluginAssembly = 91,
   SDKMessageProcessingStep = 92,
-  SDKMessageProcessingStepImage = 93
+  SDKMessageProcessingStepImage = 93,
+  PluginPackage = 10865
 }
 
 export interface DeployCredentials {

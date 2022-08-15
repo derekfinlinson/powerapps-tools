@@ -2,8 +2,8 @@ import prompts from 'prompts';
 import fs from 'fs';
 import path from 'path';
 import { logger } from './logger';
-import { deployAssembly } from './assemblyDeploy';
-import { deployWebResource } from './webResourceDeploy';
+import { assemblyDeploy } from './assemblyDeploy';
+import { webResourceDeploy } from './webResourceDeploy';
 import { DeployCredentials } from './dataverse.service';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
 import { AuthenticationResult } from '@azure/msal-node';
@@ -79,10 +79,10 @@ export default async function deploy(type?: string, files?: string): Promise<voi
 
   switch (type) {
     case 'webresource':
-      await deployWebResource(creds, apiConfig, files as string);
+      await webResourceDeploy(creds, apiConfig, files as string);
       break;
     case 'assembly':
-      await deployAssembly(creds, apiConfig);
+      await assemblyDeploy(creds, apiConfig);
       break;
     default:
       break;

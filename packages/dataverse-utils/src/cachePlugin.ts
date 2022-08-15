@@ -23,7 +23,7 @@ const decrypt = (text: string) => {
 };
 
 export const getCachePath = (url: string): string => {
-  const org = url.replace('https://', '').split('.')[0];
+  const org = new URL(url).hostname.split('.')[0];
 
   if (!fs.existsSync(path.join(os.homedir(), './.dataverse-utils/'))) {
     fs.mkdirSync(path.join(os.homedir(), './.dataverse-utils/'));

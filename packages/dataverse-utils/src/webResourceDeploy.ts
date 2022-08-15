@@ -5,7 +5,7 @@ import { WebApiConfig } from 'dataverse-webapi/lib/node';
 import { logger } from './logger';
 import { WebResource, deploy } from './models/webResource';
 
-export async function deployWebResource(creds: DeployCredentials, apiConfig: WebApiConfig, files?: string): Promise<void> {
+export async function webResourceDeploy(creds: DeployCredentials, apiConfig: WebApiConfig, files?: string): Promise<void> {
   const currentPath = '.';
   const configFile = await fs.promises.readFile(path.resolve(currentPath, 'dataverse.config.json'), 'utf8');
 

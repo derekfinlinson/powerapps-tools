@@ -8,6 +8,7 @@ import { logger } from '../logger';
 
 export interface PluginAssembly extends Entity {
   name: string;
+  'packageid@odata.bind'?: string;
   content?: string;
   isolationmode?: number;
   version?: string;
@@ -17,7 +18,7 @@ export interface PluginAssembly extends Entity {
   types?: PluginType[];
 }
 
-export async function deploy(config: PluginAssembly, apiConfig: WebApiConfig, solution?: string): Promise<void> {
+export async function deployAssembly(config: PluginAssembly, apiConfig: WebApiConfig, solution?: string): Promise<void> {
   const files = glob.sync(`**/${config.name}.dll`);
 
   if (files.length === 0) {
