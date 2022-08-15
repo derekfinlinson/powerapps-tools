@@ -14,6 +14,7 @@ Project generator for Dataverse development
   * Unit tests using [xrm-mock](https://github.com/camelCaseDave/xrm-mock) and [Jest](https://jestjs.io/)
   * Deploy web resources
 * Plugin project scaffolding
+  * Support for [plugin packages](https://docs.microsoft.com/en-us/power-apps/developer/data-platform/dependent-assembly-plugins) (dependent assemblies)
   * Base plugin classes
   * No ILMerge needed
   * Deploy plugin assemblies and types
