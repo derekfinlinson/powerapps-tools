@@ -72,7 +72,7 @@ module.exports = (plop) => {
         {
             type: 'input',
             name: 'name',
-            message: 'script unique name (including solution prefix)'
+            message: 'script unique name (including publisher prefix)'
         },
         {
             type: 'input',
@@ -265,7 +265,7 @@ module.exports = (plop) => {
             {
                 type: 'input',
                 name: 'name',
-                message: 'file unique name (including solution prefix)'
+                message: 'file unique name (including publisher prefix)'
             },
             {
                 type: 'input',

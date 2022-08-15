@@ -50,7 +50,7 @@ importers:
       '@types/prompts': ^2.0.14
       commander: ^8.3.0
       cryptr: ^6.0.3
-      dataverse-webapi: ^2.0.8
+      dataverse-webapi: ^2.1.0
       envinfo: ^7.8.1
       figures: ^3.2.0
       glob: ^7.2.0
@@ -98,7 +98,7 @@ importers:
       adal-node: ^0.2.1
       commander: ^7.0.0
       cryptr: ^6.0.2
-      dataverse-webapi: ^2.0.8
+      dataverse-webapi: ^2.1.0
       electron: ^11.2.1
       envinfo: ^7.8.1
       glob: ^7.2.0
