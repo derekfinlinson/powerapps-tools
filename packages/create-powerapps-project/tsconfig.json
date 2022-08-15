@@ -8,6 +8,7 @@
   },
   "include": [
     "src/index.ts",
-    "src/plopfile.ts"
+    "src/plopfile.ts",
+    "src/plopActions.ts"
   ]
 }

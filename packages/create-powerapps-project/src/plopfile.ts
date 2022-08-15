@@ -1,11 +1,7 @@
 import path from 'path';
-import { spawn } from 'child_process';
 import fs from 'fs';
-import * as nuget from './nuget';
-import * as pkg from './packageManager';
 import { NodePlopAPI } from 'plop';
-
-const didSucceed = (code: number | null) => `${code}` === '0';
+import { getNugetPackageVersions } from './nuget';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const version = require('../package').version;
@@ -13,6 +9,8 @@ const version = require('../package').version;
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default (plop: NodePlopAPI): void => {
   plop.setWelcomeMessage(`Creating new Dataverse project using create-powerapps-project v${version}. Please choose type of project to create.`);
+
+  plop.load('./plopActions');
 
   const packageQuestion = {
     type: 'list',
@@ -30,7 +28,20 @@ export default (plop: NodePlopAPI): void => {
     {
       type: 'input',
       name: 'server',
-      message: 'enter dataverse url (https://org.crm.dynamics.com):'
+      message: 'enter dataverse url (https://org.crm.dynamics.com):',
+      validate: (server: string) => {
+        try {
+          const url = new URL(server);
+
+          if (url.protocol !== 'https:') {
+            return 'server should begin with https';
+          }
+          
+          return true;
+        } catch (ex) {
+          return 'enter a valid URL';
+        }
+      }
     },
     {
       type: 'input',
@@ -45,35 +56,52 @@ export default (plop: NodePlopAPI): void => {
     }
   ];
 
-  plop.setActionType('addScript', async (answers: any) => {
-    const packagePath = path.resolve(process.cwd(), 'package.json');
-
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const packageJson = require(packagePath);
-
-    packageJson.scripts[answers.scriptKey] = answers.scriptValue;
-
-    await fs.promises.writeFile(packagePath, JSON.stringify(packageJson, null, 4), 'utf8');
-
-    return `added ${answers.scriptKey} script to package.json`;
-  });
-
-  plop.setActionType('npmInstall', (answers: any) => {
-    pkg.install(process.cwd(), answers.projectType, answers.package);
-
-    return 'installed npm packages';
-  });
-
   plop.setGenerator('assembly', {
-    description: 'generate dataverse assembly project',
+    description: 'generate dataverse plugin or workflow activity project',
     prompts: [
+      {
+        type: 'confirm',
+        name: 'pluginPackage',
+        message: 'use plugin package (preview)?'
+      },
+      {
+        type: 'input',
+        name: 'prefix',
+        message: 'publisher prefix (no underscore):',
+        validate: (prefix: string) => {
+          if (prefix.slice(-1) === '_') {
+            return 'enter publisher prefix without the underscore';
+          }
+
+          return true;
+        },
+        when: (answers) => answers.pluginPackage
+      },
+      {
+        type: 'input',
+        name: 'author',
+        message: 'package author:',
+        when: (answers) => answers.pluginPackage
+      },
+      {
+        type: 'input',
+        name: 'company',
+        message: 'package company:',
+        when: (answers) => answers.pluginPackage
+      },
       {
         type: 'list',
         name: 'sdkVersion',
-        message: 'select sdk version',
-        choices: async () => {
-          const versions = await nuget.getNugetPackageVersions('Microsoft.CrmSdk.Workflow');
-          return versions.map(v => ({ name: v, value: v }));
+        message: (answers) => {
+          const crmPackage = answers.pluginPackage ? 'Microsoft.CrmSdk.CoreAssemblies' : 'Microsoft.CrmSdk.Workflow';
+
+          return `select ${crmPackage} version`;
+        },
+        choices: async (answers) => {
+          const crmPackage = answers.pluginPackage ? 'Microsoft.CrmSdk.CoreAssemblies' : 'Microsoft.CrmSdk.Workflow';
+          const versions = await getNugetPackageVersions(crmPackage);
+
+          return versions;
         }
       },
       {
@@ -88,9 +116,9 @@ export default (plop: NodePlopAPI): void => {
           }
 
           for (const item of namespace) {
-            const title = plop.renderString('{{titleCase name}}', { name: item});
+            const title = plop.renderString('{{titleCase name}}', { name: item });
 
-            if  (title !== item) {
+            if (title !== item) {
               return `enter namespace using pascal case (Company.Crm.Plugins)`;
             }
           }
@@ -118,62 +146,90 @@ export default (plop: NodePlopAPI): void => {
       ...sharedQuestions,
     ],
     actions: [
+      async (answers: any) => {
+        const xrmVersions = await getNugetPackageVersions('JourneyTeam.Xrm');
+
+        answers.xrmVersion = xrmVersions.shift();
+
+        return `retrieved latest JourneyTeam.Xrm version ${answers.xrmVersion}`;
+      },
       {
         type: 'add',
         templateFile: '../plop-templates/assembly/assembly.csproj.hbs',
         path: path.resolve(process.cwd(), '{{name}}.csproj'),
+        skip: (answers) => {
+          if (answers.pluginPackage) {
+            return 'generating plugin package';
+          } else {
+            return;
+          }
+        }
+      },
+      {
+        type: 'add',
+        templateFile: '../plop-templates/assembly/package.csproj.hbs',
+        path: path.resolve(process.cwd(), '{{name}}.csproj'),
+        skip: (answers) => {
+          if (!answers.pluginPackage) {
+            return 'generating regular assembly';
+          } else {
+            return;
+          }
+        }
+      },
+      {
+        type: 'add',
+        templateFile: '../plop-templates/assembly/dataverse.config.json.hbs',
+        path: path.resolve(process.cwd(), 'dataverse.config.json'),
+        skip: (answers) => {
+          if (answers.pluginPackage) {
+            return 'generating plugin package';
+          } else {
+            return;
+          }
+        }
+      },
+      {
+        type: 'add',
+        templateFile: '../plop-templates/assembly/dataverse.package.config.json.hbs',
+        path: path.resolve(process.cwd(), 'dataverse.config.json'),
+        skip: (answers) => {
+          if (!answers.pluginPackage) {
+            return 'generating regular assembly';
+          } else {
+            return;
+          }
+        }
       },
       {
         type: 'addMany',
         templateFiles: [
-          '../plop-templates/assembly/*.json.hbs',
-          '../plop-templates/assembly/*.js',
-          '../plop-templates/assembly/*.ts.hbs',
+          '../plop-templates/assembly/package.json.hbs',
+          '../plop-templates/assembly/plopfile.js',
           '../plop-templates/assembly/.gitignore',
           '../plop-templates/assembly/Entities/EarlyBoundGenerator.xml',
-          '../plop-templates/assembly/.vscode/tasks.json',
+          '../plop-templates/assembly/.vscode/tasks.json.hbs',
           '../plop-templates/assembly/.editorconfig'
         ],
         base: '../plop-templates/assembly',
         destination: process.cwd(),
         force: true
       },
-      (answers: any) => {
-        const keyPath = path.resolve(process.cwd(), `${answers.name}.snk`);
-
-        return new Promise((resolve, reject) => {
-          if (process.env.JEST_WORKER_ID !== undefined) {
-            resolve('Testing so no need to sign');
-          } else {
-            const sign = spawn(path.resolve(__dirname, '..', 'bin', 'sn.exe'), ['-q', '-k', keyPath], { stdio: 'inherit' });
-
-            sign.on('close', (code) => {
-              if (didSucceed(code)) {
-                resolve('signed assembly');
-              } else {
-                reject('failed to sign assembly');
-              }
-            });
-
-            sign.on('error', () => {
-              reject('failed to sign assembly');
-            });
-          }
-        });
+      {
+        type: 'signAssembly'
       },
-      async (answers: any) => {
-        const xrmVersions = await nuget.getNugetPackageVersions('JourneyTeam.Xrm');
-
-        const xrmVersion = xrmVersions.shift() as string;
-
-        nuget.install(answers.name, answers.sdkVersion, xrmVersion);
-
-        return 'installed nuget packages';
+      {
+        type: 'nugetRestore'
       },
       {
         type: 'npmInstall',
         data: {
-          projectType: 'assembly'
+          packages: {
+            devDependencies: [
+              'powerapps-project-assembly',
+              'dataverse-utils'
+            ]
+          }
         }
       }
     ]
@@ -209,35 +265,8 @@ export default (plop: NodePlopAPI): void => {
       packageQuestion
     ],
     actions: [
-      (answers: any) => {
-        const args = ['pcf', 'init', '-ns', answers.namespace, '-n', answers.name, '-t', answers.template];
-
-        // Set framework to React if selected
-        if (answers.react) {
-          args.push('-fw', 'react');
-        }
-
-        if (process.env.JEST_WORKER_ID !== undefined || answers.package !== 'npm') {
-          args.push('-npm', 'false');
-        } else {
-          args.push('-npm', 'true');
-        }
-
-        return new Promise((resolve, reject) => {
-          const pac = spawn('pac', args, { stdio: 'inherit' });
-
-          pac.on('close', (code) => {
-            if (didSucceed(code)) {
-              resolve('pcf project created');
-            } else {
-              reject('Ensure the Power Platform CLI is installed. Command must be run from within Visual Studio Code if using the Power Platform Extension');
-            }
-          });
-
-          pac.on('error', () => {
-            reject('Ensure the Power Platform CLI is installed. Command must be run from within Visual Studio Code if using the Power Platform Extension');
-          });
-        });
+      {
+        type: 'runPcf'
       },
       {
         type: 'add',
@@ -293,9 +322,6 @@ export default (plop: NodePlopAPI): void => {
       },
       {
         type: 'npmInstall',
-        data: {
-          projectType: 'pcf'
-        },
         skip: (answers) => {
           if (answers.package === 'npm') {
             return 'npm packages already installed';
@@ -333,7 +359,38 @@ export default (plop: NodePlopAPI): void => {
       {
         type: 'npmInstall',
         data: {
-          projectType: 'webresource'
+          packages: {
+            devDependencies: [
+              'powerapps-project-webresource',
+              'dataverse-utils',
+              '@types/xrm',
+              'typescript',
+              'eslint',
+              '@typescript-eslint/eslint-plugin',
+              '@typescript-eslint/parser',
+              'webpack-event-plugin',
+              'clean-webpack-plugin',
+              'source-map-loader',
+              'babel-loader',
+              'ts-loader',
+              '@babel/core',
+              '@babel/preset-env',
+              '@babel/preset-typescript',
+              'xrm-mock',
+              'webpack',
+              'webpack-cli',
+              'cross-spawn',
+              'ts-node',
+              '@microsoft/eslint-plugin-power-apps',
+              '-D'
+            ],
+            dependencies: [
+              'core-js',
+              'regenerator-runtime',
+              'powerapps-common',
+              'dataverse-webapi'
+            ]
+          }
         }
       }
     ]

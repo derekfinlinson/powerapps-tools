@@ -12,12 +12,17 @@ export const getNugetPackageVersions = (name: string): Promise<string[]> => {
         });
 
         response.on('end', () => {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const versions = JSON.parse(body).data[0].versions.map((v: any) => {
-            return v.version;
-          }).reverse();
+          const result = JSON.parse(body);
 
-          resolve(versions);
+          if (result.data.length > 0) {
+            const versions = result.data[0].versions.map((v: { version: string }) => {
+              return v.version;
+            }).reverse();
+
+            resolve(versions);
+          } else {
+            reject(`package ${name} not found`);
+          }
         });
       }
     ).on('error', (e) => {
@@ -26,36 +31,11 @@ export const getNugetPackageVersions = (name: string): Promise<string[]> => {
   });
 };
 
-export const install = (project: string, sdkVersion: string, xrmVersion: string): void => {
-  // Add solution
-  spawnSync('dotnet', ['new', 'sln', '-n', project], {
-    cwd: process.cwd(),
-    stdio: 'inherit'
-  });
-
-  spawnSync('dotnet', ['sln', 'add', `${project}.csproj`], {
-    cwd: process.cwd(),
-    stdio: 'inherit'
-  });
-
+export const nugetRestore = async (): Promise<void> => {
   // Install nuget packages
-  spawnSync('dotnet', ['add', 'package', 'Microsoft.CrmSdk.Workflow', '-v', sdkVersion, '-n'], {
-    cwd: process.cwd(),
-    stdio: 'inherit'
-  });
-
-  spawnSync('dotnet', ['add', 'package', 'JourneyTeam.Xrm', '-v', xrmVersion, '-n'], {
-    cwd: process.cwd(),
-    stdio: 'inherit'
-  });
-
   if (process.env.JEST_WORKER_ID !== undefined) {
     return;
   }
 
-  spawnSync('dotnet', ['restore'], {
-    cwd: process.cwd(),
-    stdio: 'inherit'
-  });
+  spawnSync('dotnet', ['restore'], { cwd: process.cwd(), stdio: 'inherit' });
 };
-
