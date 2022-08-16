@@ -111,15 +111,11 @@ export default (plop: NodePlopAPI): void => {
         validate: (name: string) => {
           const namespace = name.split('.');
 
-          if (namespace.length !== 3) {
-            return `enter namespace using 'Company.Crm.Plugins' convention`;
-          }
-
           for (const item of namespace) {
             const title = plop.renderString('{{titleCase name}}', { name: item });
 
             if (title !== item) {
-              return `enter namespace using pascal case (Company.Crm.Plugins)`;
+              return `enter namespace using PascalCase`;
             }
           }
 
