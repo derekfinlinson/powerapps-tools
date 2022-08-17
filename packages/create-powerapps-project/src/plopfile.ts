@@ -109,6 +109,12 @@ export default (plop: NodePlopAPI): void => {
         name: 'name',
         message: 'default C# namespace (Company.Crm.Plugins):',
         validate: (name: string) => {
+          const validNamespace = name.replace(/[^a-zA-Z.]+/g, '');
+
+          if (validNamespace !== name) {
+            return 'namespace must contain only alpha characters and periods';
+          }
+
           const namespace = name.split('.');
 
           for (const item of namespace) {
