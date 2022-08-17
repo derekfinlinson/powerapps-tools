@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 17 Aug 2022 14:12:54 GMT",
+      "tag": "create-powerapps-project_v0.23.1",
+      "version": "0.23.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "54dc3b782f081a3f23e845c78a3f52d01797d472",
+            "comment": "Default mode when skipped"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 15 Aug 2022 23:43:07 GMT",
       "tag": "create-powerapps-project_v0.23.0",
       "version": "0.23.0",

@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Default mode when skipped",
-  "packageName": "powerapps-project-assembly",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
