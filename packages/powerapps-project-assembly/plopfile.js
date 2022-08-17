@@ -145,7 +145,15 @@ module.exports = (plop) => {
 
                 return choices;
             },
-            when: (answers) => answers.customApi !== true && answers.stage === 40
+            when: (answers) => {
+                const show = answers.customApi !== true && answers.stage === 40;
+
+                if (!show && answers.customApi !== true) {
+                    answers.mode = 0;
+                }
+
+                return show;
+            }
         },
         {
             type: 'number',
