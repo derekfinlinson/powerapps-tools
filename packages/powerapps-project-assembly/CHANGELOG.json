@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Wed, 17 Aug 2022 14:12:54 GMT",
+      "tag": "powerapps-project-assembly_v1.2.3",
+      "version": "1.2.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "54dc3b782f081a3f23e845c78a3f52d01797d472",
+            "comment": "Default mode when skipped"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 28 Jul 2022 18:01:11 GMT",
       "tag": "powerapps-project-assembly_v1.2.2",
       "version": "1.2.2",
