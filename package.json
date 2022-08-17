@@ -25,7 +25,7 @@
     "build": "pnpm -r --stream clean && pnpm -r --stream build",
     "change": "beachball change",
     "bump": "beachball bump",
-    "publish:beachball": "beachball publish -n $(npm.authtoken) -y",
+    "publish:beachball": "beachball publish -y",
     "publish:manual": "beachball publish",
     "preinstall": "npx only-allow pnpm -y",
     "test": "jest"
