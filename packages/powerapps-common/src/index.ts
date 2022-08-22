@@ -347,3 +347,35 @@ export async function generatePrefilteredReport(rowId: string, reportId: string,
 
   return report;
 }
+
+/**
+ * Get environment variable
+ * @param variableName Name of environment variable to return
+ * @returns Current or default variable value
+ */
+export async function getEnvironmentVariable(variableName: string): Promise<string | number | boolean | undefined> {
+  const fetch = [
+    '?fetchXml=',
+    '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">',
+    '<entity name="environmentvariabledefinition">',
+    '<attribute name="defaultvalue" alias="default" />',
+    '<filter type="and">',
+    `<condition attribute="schemaname" operator="eq" value="${variableName}" />`,
+    '</filter>',
+    '<link-entity name="environmentvariablevalue" from="environmentvariabledefinitionid" to="environmentvariabledefinitionid" link-type="outer">',
+    '<attribute name="value" alias="current" />',
+    '</link-entity>',
+    '</entity>',
+    '</fetch>'
+  ].join('');
+
+  const variables = await Xrm.WebApi.retrieveMultipleRecords('environmentvariabledefinitions', fetch);
+
+  if (variables.entities.length === 0) {
+    return;
+  }
+
+  const variable = variables.entities[0];
+
+  return variable.current ?? variable.default;
+}
