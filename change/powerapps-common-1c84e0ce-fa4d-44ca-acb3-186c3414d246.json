@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Mistyped entity name",
+  "packageName": "powerapps-common",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
