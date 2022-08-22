@@ -369,7 +369,7 @@ export async function getEnvironmentVariable(variableName: string): Promise<stri
     '</fetch>'
   ].join('');
 
-  const variables = await Xrm.WebApi.retrieveMultipleRecords('environmentvariabledefinitions', fetch);
+  const variables = await Xrm.WebApi.retrieveMultipleRecords('environmentvariabledefinition', fetch);
 
   if (variables.entities.length === 0) {
     return;
