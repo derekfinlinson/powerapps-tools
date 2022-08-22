@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Mon, 22 Aug 2022 23:28:16 GMT",
+      "tag": "powerapps-common_v1.5.1",
+      "version": "1.5.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-common",
+            "commit": "d9261fc88f1b40d11029fd3645d2203ed6d7ef15",
+            "comment": "Mistyped entity name"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 22 Aug 2022 22:58:43 GMT",
       "tag": "powerapps-common_v1.5.0",
       "version": "1.5.0",

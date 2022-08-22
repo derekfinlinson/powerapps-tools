@@ -1,8 +1,16 @@
 # Change Log - powerapps-common
 
-This log was last generated on Mon, 22 Aug 2022 22:58:43 GMT and should not be manually modified.
+This log was last generated on Mon, 22 Aug 2022 23:28:16 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.5.1
+
+Mon, 22 Aug 2022 23:28:16 GMT
+
+### Patches
+
+- Mistyped entity name (derek.finlinson@journeyteam.com)
 
 ## 1.5.0
 
