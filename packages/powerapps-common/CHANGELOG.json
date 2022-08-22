@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Mon, 22 Aug 2022 22:58:43 GMT",
+      "tag": "powerapps-common_v1.5.0",
+      "version": "1.5.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-common",
+            "commit": "48387ee641b90aa64c2f0610e2f4456a4e9b0064",
+            "comment": "Add function to get environment variable"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 04 Aug 2022 15:44:46 GMT",
       "tag": "powerapps-common_v1.4.0",
       "version": "1.4.0",

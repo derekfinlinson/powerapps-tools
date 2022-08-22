@@ -1,8 +1,16 @@
 # Change Log - powerapps-common
 
-This log was last generated on Thu, 04 Aug 2022 15:44:46 GMT and should not be manually modified.
+This log was last generated on Mon, 22 Aug 2022 22:58:43 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.5.0
+
+Mon, 22 Aug 2022 22:58:43 GMT
+
+### Minor changes
+
+- Add function to get environment variable (derek.finlinson@journeyteam.com)
 
 ## 1.4.0
 
