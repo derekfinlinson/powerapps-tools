@@ -4,7 +4,7 @@ import path from 'path';
 import { logger } from './logger';
 import { DeployCredentials, getTableMetadata, TableMetadata } from './dataverse.service';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
-import { getAccessToken } from './auth';
+import { getAccessToken, onTokenFailure } from './auth';
 import { AuthenticationResult } from '@azure/msal-node';
 
 export default async function generate(table: string): Promise<void> {
@@ -32,12 +32,14 @@ export default async function generate(table: string): Promise<void> {
   try {
     token = await getAccessToken(creds.tenant, creds.server);
   } catch (error: any) {
-    logger.error(`failed to acquire access token: ${error.message}`);
+    onTokenFailure(creds.server, error.message);
+
     return;
   }
 
   if (token == null || token.accessToken == null) {
-    logger.error('failed to acquire access token');
+    onTokenFailure(creds.server);
+
     return;
   }
 

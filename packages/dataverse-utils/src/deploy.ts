@@ -7,28 +7,7 @@ import { webResourceDeploy } from './webResourceDeploy';
 import { DeployCredentials } from './dataverse.service';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
 import { AuthenticationResult } from '@azure/msal-node';
-import { getAccessToken } from './auth';
-import { cacheExists, deleteCache } from './cachePlugin';
-
-const onTokenFailure = async (url: string, error?: string): Promise<void> => {
-  if (error) {
-    logger.error(`failed to acquire access token: ${error}`);
-  } else {
-    logger.error('failed to acquire access token');
-  }
-
-  if (cacheExists(url)) {
-    const { deleteToken } = await prompts({
-      type: 'confirm',
-      name: 'deleteToken',
-      message: `delete current token cache for ${url}?`
-    });
-
-    if (deleteToken) {
-      deleteCache(url);
-    }
-  }
-};
+import { getAccessToken, onTokenFailure } from './auth';
 
 export default async function deploy(type?: string, files?: string): Promise<void> {
   if (!type || (type !== 'webresource' && type !== 'assembly')) {
