@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Wed, 31 Aug 2022 17:55:14 GMT",
+      "tag": "powerapps-common_v1.6.0",
+      "version": "1.6.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-common",
+            "commit": "a889d0f202ec0f0ae56dc78d2640e169e6bf3413",
+            "comment": "Add sleep function"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 22 Aug 2022 23:28:16 GMT",
       "tag": "powerapps-common_v1.5.1",
       "version": "1.5.1",

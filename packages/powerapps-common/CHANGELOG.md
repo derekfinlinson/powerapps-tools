@@ -1,8 +1,16 @@
 # Change Log - powerapps-common
 
-This log was last generated on Mon, 22 Aug 2022 23:28:16 GMT and should not be manually modified.
+This log was last generated on Wed, 31 Aug 2022 17:55:14 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.6.0
+
+Wed, 31 Aug 2022 17:55:14 GMT
+
+### Minor changes
+
+- Add sleep function (derek.finlinson@journeyteam.com)
 
 ## 1.5.1
 

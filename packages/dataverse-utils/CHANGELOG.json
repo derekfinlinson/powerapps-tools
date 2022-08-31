@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Wed, 31 Aug 2022 17:55:14 GMT",
+      "tag": "dataverse-utils_v2.3.1",
+      "version": "2.3.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "a889d0f202ec0f0ae56dc78d2640e169e6bf3413",
+            "comment": "Refactor token failure check"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 15 Aug 2022 23:43:07 GMT",
       "tag": "dataverse-utils_v2.3.0",
       "version": "2.3.0",

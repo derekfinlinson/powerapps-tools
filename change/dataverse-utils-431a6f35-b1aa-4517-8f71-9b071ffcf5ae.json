@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Refactor token failure check",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
