@@ -379,3 +379,12 @@ export async function getEnvironmentVariable(variableName: string): Promise<stri
 
   return variable.current ?? variable.default;
 }
+
+/**
+ * Pause execution for specified period of time
+ * @param ms Time to pause in milliseconds
+ * @returns 
+ */
+ export async function sleep(ms: number): Promise<void> {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
