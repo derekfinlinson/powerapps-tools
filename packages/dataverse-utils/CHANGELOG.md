@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Wed, 31 Aug 2022 17:55:14 GMT and should not be manually modified.
+This log was last generated on Wed, 07 Sep 2022 21:35:05 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.4.0
+
+Wed, 07 Sep 2022 21:35:05 GMT
+
+### Minor changes
+
+- Get new token if refresh token expired (derek.finlinson@journeyteam.com)
 
 ## 2.3.1
 

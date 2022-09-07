@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Wed, 07 Sep 2022 21:35:05 GMT",
+      "tag": "dataverse-utils_v2.4.0",
+      "version": "2.4.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "429f34a20a309257589e952b44b94dc4368d76a0",
+            "comment": "Get new token if refresh token expired"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 31 Aug 2022 17:55:14 GMT",
       "tag": "dataverse-utils_v2.3.1",
       "version": "2.3.1",

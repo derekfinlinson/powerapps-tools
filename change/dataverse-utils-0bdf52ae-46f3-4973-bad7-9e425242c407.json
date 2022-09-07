@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Get new token if refresh token expired",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
