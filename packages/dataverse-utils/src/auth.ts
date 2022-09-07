@@ -46,25 +46,31 @@ export const getAccessToken = async (tenant: string, url: string): Promise<Authe
 
   // Try to get token silently
   if (accounts.length > 0) {
-    const silentToken = await pca.acquireTokenSilent({
-      account: accounts[0],
-      scopes: [`${url}/.default`]
-    }).catch(ex => {
-      throw new Error(ex.message);
-    });
+    try {
+      const silentToken = await pca.acquireTokenSilent({
+        account: accounts[0],
+        scopes: [`${url}/.default`]
+      });
 
-    if (silentToken) {
-      return silentToken;
+      if (silentToken) {
+        return silentToken;
+      }
+    } catch (ex: any) {
+      if (ex.message.indexOf('The refresh token has expired due to inactivity') === -1) {
+        throw new Error(ex.message);
+      }
     }
   }
 
   // Acquire token by device code
-  const token = await pca.acquireTokenByDeviceCode({
-    scopes: [`${url}/.default`],
-    deviceCodeCallback: (response) => logger.info(response.message)
-  }).catch(ex => {
-    throw new Error(ex.message);
-  });
+  try {
+    const token = await pca.acquireTokenByDeviceCode({
+      scopes: [`${url}/.default`],
+      deviceCodeCallback: (response) => logger.info(response.message)
+    });
 
-  return token;
+    return token;
+  } catch (ex: any) {
+    throw new Error(ex.message);
+  }
 };
