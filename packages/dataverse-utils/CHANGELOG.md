@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Wed, 07 Sep 2022 21:35:05 GMT and should not be manually modified.
+This log was last generated on Thu, 08 Sep 2022 03:26:30 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.4.1
+
+Thu, 08 Sep 2022 03:26:30 GMT
+
+### Patches
+
+- Log step name along with image (derek.finlinson@journeyteam.com)
 
 ## 2.4.0
 
