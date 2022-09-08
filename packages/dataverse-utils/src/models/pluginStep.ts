@@ -75,7 +75,7 @@ export async function deployStep(step: PluginStep, typeId: string, apiConfig: We
 
   if (images && images.length > 0) {
     try {
-      const promises = images.map(image => deployImage(stepId, image, message, apiConfig));
+      const promises = images.map(image => deployImage(stepId, step.name, image, message, apiConfig));
 
       await Promise.all(promises);
     } catch (error: any) {

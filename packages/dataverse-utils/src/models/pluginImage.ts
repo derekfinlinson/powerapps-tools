@@ -10,7 +10,7 @@ export interface PluginImage extends Entity {
   'sdkmessageprocessingstepid@odata.bind'?: string;
 }
 
-export async function deployImage(stepId: string, image: PluginImage, message: string | undefined, apiConfig: WebApiConfig): Promise<string> {
+export async function deployImage(stepId: string, stepName: string, image: PluginImage, message: string | undefined, apiConfig: WebApiConfig): Promise<string> {
   image['sdkmessageprocessingstepid@odata.bind'] = `/sdkmessageprocessingsteps(${stepId})`;
 
   switch (message) {
@@ -35,13 +35,13 @@ export async function deployImage(stepId: string, image: PluginImage, message: s
 
   if (imageId != '') {
     try {
-      await updateImage(imageId, image, apiConfig);
+      await updateImage(imageId, image, stepName, apiConfig);
     } catch (error: any) {
       throw new Error(`failed to update plugin image: ${error.message}`);
     }
   } else {
     try {
-      imageId = await createImage(image, apiConfig);
+      imageId = await createImage(image, stepName, apiConfig);
     } catch (error: any) {
       throw new Error(`failed to create plugin image: ${error.message}`);
     }
@@ -58,8 +58,8 @@ async function retrieveImage(stepId: string, image: PluginImage, apiConfig: WebA
   return result.value.length > 0 ? result.value[0].sdkmessageprocessingstepimageid as string : '';
 }
 
-async function createImage(image: PluginImage, apiConfig: WebApiConfig): Promise<string> {
-  logger.info(`create plugin image ${image.name}`);
+async function createImage(image: PluginImage, stepName: string, apiConfig: WebApiConfig): Promise<string> {
+  logger.info(`create plugin image ${image.name} for step ${stepName}`);
 
   const result: any = await createWithReturnData(apiConfig, 'sdkmessageprocessingstepimages', image, '$select=sdkmessageprocessingstepimageid');
 
@@ -70,8 +70,8 @@ async function createImage(image: PluginImage, apiConfig: WebApiConfig): Promise
   return result.sdkmessageprocessingstepimageid;
 }
 
-async function updateImage(id: string, image: PluginImage, apiConfig: WebApiConfig) {
-  logger.info(`update plugin image ${image.name}`);
+async function updateImage(id: string, image: PluginImage, stepName: string, apiConfig: WebApiConfig) {
+  logger.info(`update plugin image ${image.name} for step ${stepName}`);
 
   return update(apiConfig, 'sdkmessageprocessingstepimages', id, image);
 }
