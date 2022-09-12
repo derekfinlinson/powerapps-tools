@@ -36,7 +36,7 @@ export default (plop: NodePlopAPI): void => {
           if (url.protocol !== 'https:') {
             return 'server should begin with https';
           }
-          
+
           return true;
         } catch (ex) {
           return 'enter a valid URL';
@@ -218,6 +218,13 @@ export default (plop: NodePlopAPI): void => {
         force: true
       },
       {
+        type: 'addScript',
+        data: {
+          scriptKey: 'preinstall',
+          scriptValue: 'npx only-allow {{ package }}'
+        }
+      },
+      {
         type: 'signAssembly'
       },
       {
@@ -317,6 +324,13 @@ export default (plop: NodePlopAPI): void => {
           scriptValue: 'pcf-scripts build --buildMode production'
         }
       },
+      {
+        type: 'addScript',
+        data: {
+          scriptKey: 'preinstall',
+          scriptValue: 'npx only-allow {{ package }}'
+        }
+      },
       async (answers: any) => {
         await fs.promises.rm(path.resolve(process.cwd(), answers.name, 'HelloWorld.tsx'));
 
@@ -357,6 +371,13 @@ export default (plop: NodePlopAPI): void => {
         base: '../plop-templates/webresource',
         destination: process.cwd(),
         force: true
+      },
+      {
+        type: 'addScript',
+        data: {
+          scriptKey: 'preinstall',
+          scriptValue: 'npx only-allow {{ package }}'
+        }
       },
       {
         type: 'npmInstall',

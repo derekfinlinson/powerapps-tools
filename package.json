@@ -27,7 +27,7 @@
     "bump": "beachball bump",
     "publish:beachball": "beachball publish -y",
     "publish:manual": "beachball publish",
-    "preinstall": "npx only-allow pnpm -y",
+    "preinstall": "npx only-allow pnpm",
     "test": "jest"
   }
 }
