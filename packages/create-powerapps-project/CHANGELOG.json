@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Mon, 12 Sep 2022 16:08:34 GMT",
+      "tag": "create-powerapps-project_v0.24.0",
+      "version": "0.24.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "0404c24f8f88da2a706e4d3c8e1dd5bee1d72f5f",
+            "comment": "Force using selected package manager"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 17 Aug 2022 14:12:54 GMT",
       "tag": "create-powerapps-project_v0.23.1",
       "version": "0.23.1",
