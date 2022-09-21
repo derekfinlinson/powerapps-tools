@@ -1,4 +1,5 @@
 import { retrieveMultiple, unboundAction, WebApiConfig } from 'dataverse-webapi/lib/node';
+import { logger } from './logger';
 
 export enum ComponentType {
   WebResource = 61,
@@ -41,6 +42,8 @@ export async function addToSolution(id: string, solution: string, type: Componen
     AddRequiredComponents: false,
     IncludedComponentSettingsValues: null
   };
+
+  logger.info(`add component ${id} to solution ${solution}`);
 
   await unboundAction(apiConfig, 'AddSolutionComponent', data);
 }

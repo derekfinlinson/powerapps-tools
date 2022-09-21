@@ -75,8 +75,8 @@ async function retrievePackage(prefix: string, name: string, apiConfig: WebApiCo
   return result.value.length > 0 ? result.value[0].pluginassemblyid as string : '';
 }
 
-async function createPackage(config: PluginAssembly, content: string, apiConfig: WebApiConfig): Promise<string> {
-  logger.info(`create assembly ${config.name}`);
+async function createPackage(config: PluginPackage, content: string, apiConfig: WebApiConfig): Promise<string> {
+  logger.info(`create package ${config.name}`);
 
   const pluginPackage = {
     name: `${config.prefix}_${config.name}`,
@@ -93,8 +93,8 @@ async function createPackage(config: PluginAssembly, content: string, apiConfig:
   return result.pluginpackageid;
 }
 
-async function updatePackage(id: string, config: PluginAssembly, content: string, apiConfig: WebApiConfig) {
-  logger.info(`update assembly ${config.name}`);
+async function updatePackage(id: string, config: PluginPackage, content: string, apiConfig: WebApiConfig) {
+  logger.info(`update package ${config.name}`);
 
   const assembly = {
     content: content,
