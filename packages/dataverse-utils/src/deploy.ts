@@ -10,17 +10,18 @@ import { AuthenticationResult } from '@azure/msal-node';
 import { getAccessToken, onTokenFailure } from './auth';
 
 export default async function deploy(type?: string, files?: string): Promise<void> {
-  if (!type || (type !== 'webresource' && type !== 'assembly')) {
-    const invalid = type !== undefined && type !== 'webresource' && type !== 'assembly';
+  if (!type || (type !== 'webresource' && type !== 'assembly' && type !== 'pcf')) {
+    const invalid = type !== undefined && type !== 'webresource' && type !== 'assembly' && type !== 'pcf';
 
-    const invalidMessage = invalid ? `${type} is not a valid project type.` : '';
+    const invalidMessage = invalid ? `${type} is not a valid project type. ` : '';
 
     const { typePrompt } = await prompts({
       type: 'select',
       name: 'typePrompt',
-      message: `${invalidMessage} select project type to deploy`,
+      message: `${invalidMessage}select project type to deploy`,
       choices: [
         { title: 'web resource', value: 'webresource' },
+        { title: 'pcf', value: 'webresource' },
         { title: 'plugin or workflow activity', value: 'assembly' }
       ]
     });
@@ -62,6 +63,9 @@ export default async function deploy(type?: string, files?: string): Promise<voi
       break;
     case 'assembly':
       await assemblyDeploy(creds, apiConfig);
+      break;
+    case 'pcf':
+      logger.error('PCF deploy coming soon');
       break;
     default:
       break;
