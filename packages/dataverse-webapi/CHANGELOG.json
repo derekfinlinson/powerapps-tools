@@ -2,6 +2,21 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Mon, 10 Oct 2022 23:14:29 GMT",
+      "tag": "dataverse-webapi_v2.2.0",
+      "version": "2.2.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-webapi",
+            "commit": "d33956dda7e2122c09d8ba63d45b965fe9479b34",
+            "comment": "Add additional retrieve methods"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 04 Aug 2022 15:44:46 GMT",
       "tag": "dataverse-webapi_v2.1.0",
       "version": "2.1.0",

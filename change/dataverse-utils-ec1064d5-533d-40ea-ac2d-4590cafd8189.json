@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Initial support for deploying pcf",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

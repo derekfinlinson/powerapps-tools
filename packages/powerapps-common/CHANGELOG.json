@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Mon, 10 Oct 2022 23:14:29 GMT",
+      "tag": "powerapps-common_v1.6.0",
+      "version": "1.6.0",
+      "comments": {
+        "none": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-common",
+            "commit": "d33956dda7e2122c09d8ba63d45b965fe9479b34",
+            "comment": "Update license"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 31 Aug 2022 17:55:14 GMT",
       "tag": "powerapps-common_v1.6.0",
       "version": "1.6.0",

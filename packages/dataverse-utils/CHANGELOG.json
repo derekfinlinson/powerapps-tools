@@ -2,6 +2,27 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Mon, 10 Oct 2022 23:14:29 GMT",
+      "tag": "dataverse-utils_v2.5.0",
+      "version": "2.5.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "d33956dda7e2122c09d8ba63d45b965fe9479b34",
+            "comment": "Initial support for deploying pcf"
+          },
+          {
+            "author": "beachball",
+            "package": "dataverse-utils",
+            "comment": "Bump dataverse-webapi to v2.2.0",
+            "commit": "2163b6ab83c9a45a41ccafac2b05c74f88062165"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 08 Sep 2022 03:26:30 GMT",
       "tag": "dataverse-utils_v2.4.1",
       "version": "2.4.1",

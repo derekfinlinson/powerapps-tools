@@ -1,8 +1,16 @@
 # Change Log - dataverse-webapi
 
-This log was last generated on Thu, 04 Aug 2022 15:44:46 GMT and should not be manually modified.
+This log was last generated on Mon, 10 Oct 2022 23:14:29 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.2.0
+
+Mon, 10 Oct 2022 23:14:29 GMT
+
+### Minor changes
+
+- Add additional retrieve methods (derek.finlinson@journeyteam.com)
 
 ## 2.1.0
 

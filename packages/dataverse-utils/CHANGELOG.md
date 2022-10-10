@@ -1,8 +1,17 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Thu, 08 Sep 2022 03:26:30 GMT and should not be manually modified.
+This log was last generated on Mon, 10 Oct 2022 23:14:29 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.5.0
+
+Mon, 10 Oct 2022 23:14:29 GMT
+
+### Minor changes
+
+- Initial support for deploying pcf (derek.finlinson@journeyteam.com)
+- Bump dataverse-webapi to v2.2.0
 
 ## 2.4.1
 

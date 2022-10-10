@@ -2,6 +2,21 @@
   "name": "powerapps-project-webresource",
   "entries": [
     {
+      "date": "Mon, 10 Oct 2022 23:14:29 GMT",
+      "tag": "powerapps-project-webresource_v1.2.5",
+      "version": "1.2.5",
+      "comments": {
+        "none": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-webresource",
+            "commit": "d33956dda7e2122c09d8ba63d45b965fe9479b34",
+            "comment": "Update license"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 15 Aug 2022 23:43:07 GMT",
       "tag": "powerapps-project-webresource_v1.2.5",
       "version": "1.2.5",
