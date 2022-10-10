@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Mon, 12 Sep 2022 16:08:34 GMT and should not be manually modified.
+This log was last generated on Mon, 10 Oct 2022 23:18:08 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.24.1
+
+Mon, 10 Oct 2022 23:18:08 GMT
+
+### Patches
+
+- Fix restricing package manager (derek.finlinson@journeyteam.com)
 
 ## 0.24.0
 
