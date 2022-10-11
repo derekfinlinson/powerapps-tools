@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 11 Oct 2022 02:54:42 GMT",
+      "tag": "create-powerapps-project_v0.24.2",
+      "version": "0.24.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "9f8b78d9ff65b9d3f79319aa2ffe4a16694f04db",
+            "comment": "Fix adding scripts"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 10 Oct 2022 23:18:08 GMT",
       "tag": "create-powerapps-project_v0.24.1",
       "version": "0.24.1",
