@@ -25,7 +25,8 @@ afterEach(async () => {
   }
 });
 
-test('create pcf project', async () => {
+
+test.only('create pcf project', async () => {
   const answers = {
     template: 'field',
     namespace: 'Pcf',

@@ -147,101 +147,103 @@ export default (plop: NodePlopAPI): void => {
       packageQuestion,
       ...sharedQuestions,
     ],
-    actions: [
-      async (answers: any) => {
-        const xrmVersions = await getNugetPackageVersions('JourneyTeam.Xrm');
+    actions: (data: any) => {
+      return [
+        async (answers: any) => {
+          const xrmVersions = await getNugetPackageVersions('JourneyTeam.Xrm');
 
-        answers.xrmVersion = xrmVersions.shift();
+          answers.xrmVersion = xrmVersions.shift();
 
-        return `retrieved latest JourneyTeam.Xrm version ${answers.xrmVersion}`;
-      },
-      {
-        type: 'add',
-        templateFile: '../plop-templates/assembly/assembly.csproj.hbs',
-        path: path.resolve(process.cwd(), '{{name}}.csproj'),
-        skip: (answers) => {
-          if (answers.pluginPackage) {
-            return 'generating plugin package';
-          } else {
-            return;
+          return `retrieved latest JourneyTeam.Xrm version ${answers.xrmVersion}`;
+        },
+        {
+          type: 'add',
+          templateFile: '../plop-templates/assembly/assembly.csproj.hbs',
+          path: path.resolve(process.cwd(), '{{name}}.csproj'),
+          skip: (answers) => {
+            if (answers.pluginPackage) {
+              return 'generating plugin package';
+            } else {
+              return;
+            }
+          }
+        },
+        {
+          type: 'add',
+          templateFile: '../plop-templates/assembly/package.csproj.hbs',
+          path: path.resolve(process.cwd(), '{{name}}.csproj'),
+          skip: (answers) => {
+            if (!answers.pluginPackage) {
+              return 'generating regular assembly';
+            } else {
+              return;
+            }
+          }
+        },
+        {
+          type: 'add',
+          templateFile: '../plop-templates/assembly/dataverse.config.json.hbs',
+          path: path.resolve(process.cwd(), 'dataverse.config.json'),
+          skip: (answers) => {
+            if (answers.pluginPackage) {
+              return 'generating plugin package';
+            } else {
+              return;
+            }
+          }
+        },
+        {
+          type: 'add',
+          templateFile: '../plop-templates/assembly/dataverse.package.config.json.hbs',
+          path: path.resolve(process.cwd(), 'dataverse.config.json'),
+          skip: (answers) => {
+            if (!answers.pluginPackage) {
+              return 'generating regular assembly';
+            } else {
+              return;
+            }
+          }
+        },
+        {
+          type: 'addMany',
+          templateFiles: [
+            '../plop-templates/assembly/package.json.hbs',
+            '../plop-templates/assembly/plopfile.js',
+            '../plop-templates/assembly/.gitignore',
+            '../plop-templates/assembly/Entities/EarlyBoundGenerator.xml',
+            '../plop-templates/assembly/.vscode/tasks.json.hbs',
+            '../plop-templates/assembly/.editorconfig'
+          ],
+          base: '../plop-templates/assembly',
+          destination: process.cwd(),
+          force: true
+        },
+        {
+          type: 'addScript',
+          data: {
+            scriptKey: 'preinstall',
+            scriptValue: `npx only-allow ${data.package}`
+          }
+        },
+        {
+          type: 'signAssembly'
+        },
+        {
+          type: 'nugetRestore'
+        },
+        {
+          type: 'npmInstall',
+          data: {
+            packages: {
+              devDependencies: [
+                'powerapps-project-assembly',
+                'dataverse-utils'
+              ]
+            }
           }
         }
-      },
-      {
-        type: 'add',
-        templateFile: '../plop-templates/assembly/package.csproj.hbs',
-        path: path.resolve(process.cwd(), '{{name}}.csproj'),
-        skip: (answers) => {
-          if (!answers.pluginPackage) {
-            return 'generating regular assembly';
-          } else {
-            return;
-          }
-        }
-      },
-      {
-        type: 'add',
-        templateFile: '../plop-templates/assembly/dataverse.config.json.hbs',
-        path: path.resolve(process.cwd(), 'dataverse.config.json'),
-        skip: (answers) => {
-          if (answers.pluginPackage) {
-            return 'generating plugin package';
-          } else {
-            return;
-          }
-        }
-      },
-      {
-        type: 'add',
-        templateFile: '../plop-templates/assembly/dataverse.package.config.json.hbs',
-        path: path.resolve(process.cwd(), 'dataverse.config.json'),
-        skip: (answers) => {
-          if (!answers.pluginPackage) {
-            return 'generating regular assembly';
-          } else {
-            return;
-          }
-        }
-      },
-      {
-        type: 'addMany',
-        templateFiles: [
-          '../plop-templates/assembly/package.json.hbs',
-          '../plop-templates/assembly/plopfile.js',
-          '../plop-templates/assembly/.gitignore',
-          '../plop-templates/assembly/Entities/EarlyBoundGenerator.xml',
-          '../plop-templates/assembly/.vscode/tasks.json.hbs',
-          '../plop-templates/assembly/.editorconfig'
-        ],
-        base: '../plop-templates/assembly',
-        destination: process.cwd(),
-        force: true
-      },
-      {
-        type: 'addScript',
-        data: {
-          scriptKey: 'preinstall',
-          scriptValue: 'npx only-allow {{ package }}'
-        }
-      },
-      {
-        type: 'signAssembly'
-      },
-      {
-        type: 'nugetRestore'
-      },
-      {
-        type: 'npmInstall',
-        data: {
-          packages: {
-            devDependencies: [
-              'powerapps-project-assembly',
-              'dataverse-utils'
-            ]
-          }
-        }
-      }
-    ]
+      ];
+    }
   });
 
   plop.setGenerator('pcf', {
@@ -273,78 +275,80 @@ export default (plop: NodePlopAPI): void => {
       },
       packageQuestion
     ],
-    actions: [
-      {
-        type: 'runPcf'
-      },
-      {
-        type: 'add',
-        templateFile: '../plop-templates/pcf/tsconfig.json',
-        path: path.resolve(process.cwd(), 'tsconfig.json'),
-        force: true
-      },
-      {
-        type: 'addMany',
-        templateFiles: [
-          '../plop-templates/pcf/App.tsx.hbs',
-          '../plop-templates/pcf/AppContext.ts'
-        ],
-        base: '../plop-templates/pcf',
-        destination: `${process.cwd()}/{{ name }}`,
-        skip: (answers) => {
-          if (!answers.react) {
-            return 'react not included';
-          }
+    actions: (data: any) => {
+      return [
+        {
+          type: 'runPcf'
+        },
+        {
+          type: 'add',
+          templateFile: '../plop-templates/pcf/tsconfig.json',
+          path: path.resolve(process.cwd(), 'tsconfig.json'),
+          force: true
+        },
+        {
+          type: 'addMany',
+          templateFiles: [
+            '../plop-templates/pcf/App.tsx.hbs',
+            '../plop-templates/pcf/AppContext.ts'
+          ],
+          base: '../plop-templates/pcf',
+          destination: `${process.cwd()}/{{name}}`,
+          skip: (answers) => {
+            if (!answers.react) {
+              return 'react not included';
+            }
 
-          return;
-        }
-      },
-      {
-        type: 'modify',
-        path: `${process.cwd()}/{{ name }}/index.ts`,
-        pattern: 'import { HelloWorld, IHelloWorldProps } from "./HelloWorld";',
-        template: `import { App, IAppProps } from './App';`
-      },
-      {
-        type: 'modify',
-        path: `${process.cwd()}/{{ name }}/index.ts`,
-        pattern: 'HelloWorld, props',
-        template: 'App, props'
-      },
-      {
-        type: 'modify',
-        path: `${process.cwd()}/{{ name }}/index.ts`,
-        pattern: `const props: IHelloWorldProps = { name: 'Hello, World!' };`,
-        template: `const props: IAppProps = { context: context };`
-      },
-      {
-        type: 'addScript',
-        data: {
-          scriptKey: 'build:prod',
-          scriptValue: 'pcf-scripts build --buildMode production'
-        }
-      },
-      {
-        type: 'addScript',
-        data: {
-          scriptKey: 'preinstall',
-          scriptValue: 'npx only-allow {{ package }}'
-        }
-      },
-      async (answers: any) => {
-        await fs.promises.rm(path.resolve(process.cwd(), answers.name, 'HelloWorld.tsx'));
+            return;
+          }
+        },
+        {
+          type: 'modify',
+          path: `${process.cwd()}/{{name}}/index.ts`,
+          pattern: 'import { HelloWorld, IHelloWorldProps } from "./HelloWorld";',
+          template: `import { App, IAppProps } from './App';`
+        },
+        {
+          type: 'modify',
+          path: `${process.cwd()}/{{name}}/index.ts`,
+          pattern: 'HelloWorld, props',
+          template: 'App, props'
+        },
+        {
+          type: 'modify',
+          path: `${process.cwd()}/{{name}}/index.ts`,
+          pattern: `const props: IHelloWorldProps = { name: 'Hello, World!' };`,
+          template: `const props: IAppProps = { context: context };`
+        },
+        {
+          type: 'addScript',
+          data: {
+            scriptKey: 'build:prod',
+            scriptValue: 'pcf-scripts build --buildMode production'
+          }
+        },
+        {
+          type: 'addScript',
+          data: {
+            scriptKey: 'preinstall',
+            scriptValue: `npx only-allow ${data.package}`
+          }
+        },
+        async (answers: any) => {
+          await fs.promises.rm(path.resolve(process.cwd(), answers.name, 'HelloWorld.tsx'));
 
-        return 'removed HelloWorld component';
-      },
-      {
-        type: 'npmInstall',
-        skip: (answers) => {
-          if (answers.package === 'npm') {
-            return 'npm packages already installed';
+          return 'removed HelloWorld component';
+        },
+        {
+          type: 'npmInstall',
+          skip: (answers) => {
+            if (answers.package === 'npm') {
+              return 'npm packages already installed';
+            }
           }
         }
-      }
-    ]
+      ];
+    }
   });
 
   plop.setGenerator('webresource', {
@@ -364,58 +368,60 @@ export default (plop: NodePlopAPI): void => {
       packageQuestion,
       ...sharedQuestions
     ],
-    actions: [
-      {
-        type: 'addMany',
-        templateFiles: ['../plop-templates/webresource/*', '../plop-templates/webresource/.*'],
-        base: '../plop-templates/webresource',
-        destination: process.cwd(),
-        force: true
-      },
-      {
-        type: 'addScript',
-        data: {
-          scriptKey: 'preinstall',
-          scriptValue: 'npx only-allow {{ package }}'
-        }
-      },
-      {
-        type: 'npmInstall',
-        data: {
-          packages: {
-            devDependencies: [
-              'powerapps-project-webresource',
-              'dataverse-utils',
-              '@types/xrm',
-              'typescript',
-              'eslint',
-              '@typescript-eslint/eslint-plugin',
-              '@typescript-eslint/parser',
-              'webpack-event-plugin',
-              'clean-webpack-plugin',
-              'source-map-loader',
-              'babel-loader',
-              'ts-loader',
-              '@babel/core',
-              '@babel/preset-env',
-              '@babel/preset-typescript',
-              'xrm-mock',
-              'webpack',
-              'webpack-cli',
-              'cross-spawn',
-              'ts-node',
-              '@microsoft/eslint-plugin-power-apps',
-              '-D'
-            ],
-            dependencies: [
-              'core-js',
-              'regenerator-runtime',
-              'powerapps-common',
-              'dataverse-webapi'
-            ]
+    actions: (data: any) => {
+      return [
+        {
+          type: 'addMany',
+          templateFiles: ['../plop-templates/webresource/*', '../plop-templates/webresource/.*'],
+          base: '../plop-templates/webresource',
+          destination: process.cwd(),
+          force: true
+        },
+        {
+          type: 'addScript',
+          data: {
+            scriptKey: 'preinstall',
+            scriptValue: `npx only-allow ${data.package}`
+          }
+        },
+        {
+          type: 'npmInstall',
+          data: {
+            packages: {
+              devDependencies: [
+                'powerapps-project-webresource',
+                'dataverse-utils',
+                '@types/xrm',
+                'typescript',
+                'eslint',
+                '@typescript-eslint/eslint-plugin',
+                '@typescript-eslint/parser',
+                'webpack-event-plugin',
+                'clean-webpack-plugin',
+                'source-map-loader',
+                'babel-loader',
+                'ts-loader',
+                '@babel/core',
+                '@babel/preset-env',
+                '@babel/preset-typescript',
+                'xrm-mock',
+                'webpack',
+                'webpack-cli',
+                'cross-spawn',
+                'ts-node',
+                '@microsoft/eslint-plugin-power-apps',
+                '-D'
+              ],
+              dependencies: [
+                'core-js',
+                'regenerator-runtime',
+                'powerapps-common',
+                'dataverse-webapi'
+              ]
+            }
           }
         }
-      }
-    ]
+      ];
+    }
   });
 }

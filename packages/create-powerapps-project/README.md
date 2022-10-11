@@ -23,11 +23,12 @@ Project generator for Dataverse development
   * Workflow activity base class
   * No ILMerge needed
   * Deploy workflow assemblies and types
+* PCF project scaffolding
 
 # Create project
 
 ```sh
-npm init powerapps-project
+npx create-powerapps-project
 ```
 
 # Add files to project

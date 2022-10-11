@@ -27,8 +27,6 @@ export default (plop: NodePlopAPI): void => {
 
     packageJson.scripts[answers.scriptKey] = answers.scriptValue;
 
-    answers.scriptValue = plop.renderString(answers.scriptValue, answers);
-
     await fs.promises.writeFile(packagePath, JSON.stringify(packageJson, null, 4), 'utf8');
 
     return `added ${answers.scriptKey} script to package.json`;
