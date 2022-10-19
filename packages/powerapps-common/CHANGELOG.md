@@ -1,8 +1,16 @@
 # Change Log - powerapps-common
 
-This log was last generated on Wed, 31 Aug 2022 17:55:14 GMT and should not be manually modified.
+This log was last generated on Wed, 19 Oct 2022 16:33:41 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.7.0
+
+Wed, 19 Oct 2022 16:33:41 GMT
+
+### Minor changes
+
+- Export models from index (derek.finlinson@journeyteam.com)
 
 ## 1.6.0
 
