@@ -1,3 +1,4 @@
+export * from './models/models';
 import { generateReport, ReportFormat } from './models/report';
 
 /**
