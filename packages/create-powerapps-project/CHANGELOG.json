@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Thu, 20 Oct 2022 03:29:09 GMT",
+      "tag": "create-powerapps-project_v0.24.3",
+      "version": "0.24.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "138d4a40c2e5aa200c1190d3fe894f4ab8faa808",
+            "comment": "Add prettier to template"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 11 Oct 2022 02:54:42 GMT",
       "tag": "create-powerapps-project_v0.24.2",
       "version": "0.24.2",

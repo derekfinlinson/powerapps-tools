@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Tue, 11 Oct 2022 02:54:42 GMT and should not be manually modified.
+This log was last generated on Thu, 20 Oct 2022 03:29:09 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.24.3
+
+Thu, 20 Oct 2022 03:29:09 GMT
+
+### Patches
+
+- Add prettier to template (derek.finlinson@journeyteam.com)
 
 ## 0.24.2
 

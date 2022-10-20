@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Add prettier to template",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
