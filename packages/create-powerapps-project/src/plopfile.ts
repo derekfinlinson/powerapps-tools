@@ -394,6 +394,8 @@ export default (plop: NodePlopAPI): void => {
                 '@types/xrm',
                 'typescript',
                 'eslint',
+                'prettier',
+                'eslint-config-prettier',
                 '@typescript-eslint/eslint-plugin',
                 '@typescript-eslint/parser',
                 'webpack-event-plugin',

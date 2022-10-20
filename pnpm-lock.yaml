@@ -11,6 +11,7 @@ importers:
       beachball: ^2.22.2
       eslint: ^7.32.0
       jest: ^27.5.1
+      prettier: ^2.7.1
       rimraf: ^3.0.2
       ts-jest: ^27.1.4
       ts-node: ^10.7.0
@@ -23,6 +24,7 @@ importers:
       beachball: 2.26.0
       eslint: 7.32.0
       jest: 27.5.1_ts-node@10.9.1
+      prettier: 2.7.1
       rimraf: 3.0.2
       ts-jest: 27.1.5_mqaoisgizytgigbr3gbjwvnjie
       ts-node: 10.9.1_x2utdhayajzrh747hktprshhby
@@ -50,7 +52,7 @@ importers:
       '@types/xrm': ^9.0.63
       '@typescript-eslint/eslint-plugin': ^4.29.0
       '@typescript-eslint/parser': ^4.29.0
-      dataverse-webapi: ^2.1.0
+      dataverse-webapi: ^2.2.0
       eslint: ^7.32.0
       eslint-plugin-import: ^2.23.4
       eslint-plugin-node: ^11.1.0
@@ -87,7 +89,7 @@ importers:
       '@types/prompts': ^2.0.14
       commander: ^8.3.0
       cryptr: ^6.0.3
-      dataverse-webapi: ^2.1.0
+      dataverse-webapi: ^2.2.0
       envinfo: ^7.8.1
       figures: ^3.2.0
       glob: ^7.2.0
@@ -4717,6 +4719,12 @@ packages:
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+    dev: true
+
+  /prettier/2.7.1:
+    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /pretty-format/27.5.1:

@@ -8,6 +8,7 @@ module.exports = {
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
+        "prettier"
     ],
     rules: {
         "@microsoft/power-apps/avoid-2011-api": "error",
