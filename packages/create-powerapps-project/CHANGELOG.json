@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Fri, 21 Oct 2022 17:16:03 GMT",
+      "tag": "create-powerapps-project_v0.24.4",
+      "version": "0.24.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "8d1d122bf3400640e8017b6495b3f0af555d7edc",
+            "comment": "Modify prettier config"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 20 Oct 2022 03:29:09 GMT",
       "tag": "create-powerapps-project_v0.24.3",
       "version": "0.24.3",
