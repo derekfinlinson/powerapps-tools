@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Fri, 21 Oct 2022 17:16:03 GMT and should not be manually modified.
+This log was last generated on Mon, 24 Oct 2022 19:18:33 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.24.5
+
+Mon, 24 Oct 2022 19:18:33 GMT
+
+### Patches
+
+- Add printWidth to prettier config (derek.finlinson@journeyteam.com)
 
 ## 0.24.4
 

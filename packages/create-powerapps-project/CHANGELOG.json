@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Mon, 24 Oct 2022 19:18:33 GMT",
+      "tag": "create-powerapps-project_v0.24.5",
+      "version": "0.24.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "6e264909f765d5190f4999247bc45d7607e7d2c7",
+            "comment": "Add printWidth to prettier config"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 21 Oct 2022 17:16:03 GMT",
       "tag": "create-powerapps-project_v0.24.4",
       "version": "0.24.4",
