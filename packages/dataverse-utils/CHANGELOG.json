@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Tue, 25 Oct 2022 15:54:52 GMT",
+      "tag": "dataverse-utils_v2.5.1",
+      "version": "2.5.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "23ee64d7f7ea390f5a3d34260f2fe10e979befd7",
+            "comment": "Fix global plugin assemblies"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 10 Oct 2022 23:14:29 GMT",
       "tag": "dataverse-utils_v2.5.0",
       "version": "2.5.0",

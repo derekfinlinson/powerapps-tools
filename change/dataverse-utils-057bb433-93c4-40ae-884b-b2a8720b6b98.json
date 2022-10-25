@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix global plugin assemblies",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
