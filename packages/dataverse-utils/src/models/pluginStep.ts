@@ -21,7 +21,12 @@ export interface PluginStep extends Entity {
   filteringattributes?: string;
 }
 
-export async function deployStep(step: PluginStep, typeId: string, apiConfig: WebApiConfig, solution?: string): Promise<string | undefined> {
+export async function deployStep(
+  step: PluginStep,
+  typeId: string,
+  apiConfig: WebApiConfig,
+  solution?: string
+): Promise<string | undefined> {
   let stepId = await retrieveStep(step.name, typeId, apiConfig);
   const messageId = await getSdkMessageId(step.message ?? '', apiConfig);
 
@@ -30,14 +35,17 @@ export async function deployStep(step: PluginStep, typeId: string, apiConfig: We
     return;
   }
 
-  const filterId = await getSdkMessageFilterId(messageId, step.entity ?? '', apiConfig);
+  if (step.entity !== '' && step.entity !== 'none') {
+    const filterId = await getSdkMessageFilterId(messageId, step.entity ?? '', apiConfig);
 
-  if (filterId == '') {
-    logger.warn(`sdk message ${step.message} for entity ${step.entity} not found`);
-    return;
+    if (filterId == '') {
+      logger.warn(`sdk message ${step.message} for entity ${step.entity} not found`);
+      return;
+    }
+
+    step['sdkmessagefilterid@odata.bind'] = `/sdkmessagefilters(${filterId})`;
   }
 
-  step['sdkmessagefilterid@odata.bind'] = `/sdkmessagefilters(${filterId})`;
   step['sdkmessageid@odata.bind'] = `/sdkmessages(${messageId})`;
 
   if (step.mode === 1) {
@@ -50,10 +58,6 @@ export async function deployStep(step: PluginStep, typeId: string, apiConfig: We
   delete step.images;
   delete step.message;
   delete step.entity;
-
-  if (step.entity === 'none') {
-    delete step.entity;
-  }
 
   if (stepId != '') {
     try {
@@ -79,7 +83,7 @@ export async function deployStep(step: PluginStep, typeId: string, apiConfig: We
 
   if (images && images.length > 0) {
     try {
-      const promises = images.map(image => deployImage(stepId, step.name, image, message, apiConfig));
+      const promises = images.map((image) => deployImage(stepId, step.name, image, message, apiConfig));
 
       await Promise.all(promises);
     } catch (error: any) {
@@ -95,7 +99,7 @@ async function retrieveStep(name: string, typeId: string, apiConfig: WebApiConfi
 
   const result = await retrieveMultiple(apiConfig, 'sdkmessageprocessingsteps', options);
 
-  return result.value.length > 0 ? result.value[0].sdkmessageprocessingstepid as string : '';
+  return result.value.length > 0 ? (result.value[0].sdkmessageprocessingstepid as string) : '';
 }
 
 async function getSdkMessageFilterId(messageId: string, entityName: string, apiConfig: WebApiConfig) {
@@ -110,14 +114,11 @@ async function getSdkMessageFilterId(messageId: string, entityName: string, apiC
 }
 
 async function getSdkMessageId(name: string, apiConfig: WebApiConfig): Promise<string> {
-  const options = [
-    `?$filter=name eq '${name}'`,
-    '&$select=sdkmessageid'
-  ].join('');
+  const options = [`?$filter=name eq '${name}'`, '&$select=sdkmessageid'].join('');
 
   const message = await retrieveMultiple(apiConfig, 'sdkmessages', options);
 
-  return message.value.length > 0 ? message.value[0].sdkmessageid as string : '';
+  return message.value.length > 0 ? (message.value[0].sdkmessageid as string) : '';
 }
 
 async function createStep(step: PluginStep, apiConfig: WebApiConfig): Promise<string> {
