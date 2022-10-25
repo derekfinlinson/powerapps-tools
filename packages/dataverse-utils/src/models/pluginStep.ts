@@ -51,6 +51,10 @@ export async function deployStep(step: PluginStep, typeId: string, apiConfig: We
   delete step.message;
   delete step.entity;
 
+  if (step.entity === 'none') {
+    delete step.entity;
+  }
+
   if (stepId != '') {
     try {
       await updateStep(stepId, step, apiConfig);
