@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Tue, 25 Oct 2022 15:54:52 GMT and should not be manually modified.
+This log was last generated on Tue, 25 Oct 2022 16:18:03 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.5.2
+
+Tue, 25 Oct 2022 16:18:03 GMT
+
+### Patches
+
+- Don't need message filter for global plugin step (derek.finlinson@journeyteam.com)
 
 ## 2.5.1
 

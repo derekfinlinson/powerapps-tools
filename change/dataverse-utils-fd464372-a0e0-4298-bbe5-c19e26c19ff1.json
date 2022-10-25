@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Don't need message filter for global plugin step",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
