@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix adding plugins to package type projects",
-  "packageName": "powerapps-project-assembly",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

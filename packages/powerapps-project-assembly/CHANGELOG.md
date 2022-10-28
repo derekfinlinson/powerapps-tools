@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Wed, 17 Aug 2022 14:12:54 GMT and should not be manually modified.
+This log was last generated on Fri, 28 Oct 2022 05:20:27 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.2.4
+
+Fri, 28 Oct 2022 05:20:27 GMT
+
+### Patches
+
+- Fix adding plugins to package type projects (derek.finlinson@journeyteam.com)
 
 ## 1.2.3
 
