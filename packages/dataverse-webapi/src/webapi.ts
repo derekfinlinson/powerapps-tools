@@ -1,12 +1,18 @@
 import {
-  ChangeSet, Entity, FunctionInput, QueryOptions, RetrieveMultipleResponse,
-  WebApiConfig, WebApiRequestConfig, WebApiRequestResult
+  ChangeSet,
+  Entity,
+  FunctionInput,
+  QueryOptions,
+  RetrieveMultipleResponse,
+  WebApiConfig,
+  WebApiRequestConfig,
+  WebApiRequestResult
 } from './models';
 
 type RequestCallback = (config: WebApiRequestConfig, callback: (result: WebApiRequestResult) => void) => void;
 
 export function getHeaders(config: WebApiRequestConfig): Record<string, string> {
-  const headers: Record<string, string> = {};
+  let headers: Record<string, string> = {};
 
   headers.Accept = 'application/json';
   headers['OData-MaxVersion'] = '4.0';
@@ -19,9 +25,13 @@ export function getHeaders(config: WebApiRequestConfig): Record<string, string> 
 
   headers.Prefer = getPreferHeader(config.queryOptions);
 
-  if (config.queryOptions != null && typeof (config.queryOptions) !== 'undefined') {
+  if (config.queryOptions != null && typeof config.queryOptions !== 'undefined') {
     if (config.queryOptions.impersonateUserId != null) {
       headers.CallerObjectId = config.queryOptions.impersonateUserId;
+    }
+
+    if (config.queryOptions.customHeaders != null) {
+      headers = { ...headers, ...config.queryOptions.customHeaders };
     }
   }
 
@@ -29,9 +39,7 @@ export function getHeaders(config: WebApiRequestConfig): Record<string, string> 
 }
 
 function getPreferHeader(queryOptions?: QueryOptions): string {
-  const prefer: string[] = [
-    'odata.include-annotations="*"'
-  ];
+  const prefer: string[] = ['odata.include-annotations="*"'];
 
   // add max page size to prefer request header
   if (queryOptions?.maxPageSize) {
@@ -89,13 +97,19 @@ function handleError(result: string): unknown {
  * @param queryString OData query string parameters
  * @param queryOptions Various query options for the query
  */
-export function retrieve(apiConfig: WebApiConfig, entitySet: string, id: string, submitRequest: RequestCallback, queryString?: string, queryOptions?: QueryOptions): Promise<Entity> {
-  if (queryString != null && ! /^[?]/.test(queryString)) {
+export function retrieve(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  submitRequest: RequestCallback,
+  queryString?: string,
+  queryOptions?: QueryOptions
+): Promise<Entity> {
+  if (queryString != null && !/^[?]/.test(queryString)) {
     queryString = `?${queryString}`;
   }
 
-  const query: string =
-    (queryString != null) ? `${entitySet}(${id})${queryString}` : `${entitySet}(${id})`;
+  const query: string = queryString != null ? `${entitySet}(${id})${queryString}` : `${entitySet}(${id})`;
 
   const config = {
     method: 'GET',
@@ -106,15 +120,13 @@ export function retrieve(apiConfig: WebApiConfig, entitySet: string, id: string,
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
-        } else {
-          resolve(JSON.parse(result.response));
-        }
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        resolve(JSON.parse(result.response));
       }
-    );
+    });
   });
 }
 
@@ -125,7 +137,13 @@ export function retrieve(apiConfig: WebApiConfig, entitySet: string, id: string,
  * @param id Id of record to retrieve
  * @param property Property to retrieve
  */
- export function retrieveProperty(apiConfig: WebApiConfig, entitySet: string, id: string, submitRequest: RequestCallback, property: string): Promise<Entity> {
+export function retrieveProperty(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  submitRequest: RequestCallback,
+  property: string
+): Promise<Entity> {
   const query = `${entitySet}(${id})/${property}`;
 
   const config = {
@@ -137,15 +155,13 @@ export function retrieve(apiConfig: WebApiConfig, entitySet: string, id: string,
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
-        } else {
-          resolve(JSON.parse(result.response));
-        }
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        resolve(JSON.parse(result.response));
       }
-    );
+    });
   });
 }
 
@@ -158,13 +174,20 @@ export function retrieve(apiConfig: WebApiConfig, entitySet: string, id: string,
  * @param queryString OData query string parameters
  * @param queryOptions Various query options for the query
  */
- export function retrieveNavigationProperties(apiConfig: WebApiConfig, entitySet: string, id: string, submitRequest: RequestCallback, property: string, queryString?: string, queryOptions?: QueryOptions): Promise<Entity> {
-  if (queryString != null && ! /^[?]/.test(queryString)) {
+export function retrieveNavigationProperties(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  submitRequest: RequestCallback,
+  property: string,
+  queryString?: string,
+  queryOptions?: QueryOptions
+): Promise<Entity> {
+  if (queryString != null && !/^[?]/.test(queryString)) {
     queryString = `?${queryString}`;
   }
 
-  const query: string =
-    (queryString != null) ? `${entitySet}(${id})/${property}${queryString}` : `${entitySet}(${id})/${property}`;
+  const query: string = queryString != null ? `${entitySet}(${id})/${property}${queryString}` : `${entitySet}(${id})/${property}`;
 
   const config = {
     method: 'GET',
@@ -175,15 +198,13 @@ export function retrieve(apiConfig: WebApiConfig, entitySet: string, id: string,
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
-        } else {
-          resolve(JSON.parse(result.response));
-        }
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        resolve(JSON.parse(result.response));
       }
-    );
+    });
   });
 }
 
@@ -194,13 +215,18 @@ export function retrieve(apiConfig: WebApiConfig, entitySet: string, id: string,
  * @param queryString OData query string parameters
  * @param queryOptions Various query options for the query
  */
-export function retrieveMultiple(apiConfig: WebApiConfig, entitySet: string, submitRequest: RequestCallback, queryString?: string, queryOptions?: QueryOptions): Promise<RetrieveMultipleResponse> {
-  if (queryString != null && ! /^[?]/.test(queryString)) {
+export function retrieveMultiple(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  submitRequest: RequestCallback,
+  queryString?: string,
+  queryOptions?: QueryOptions
+): Promise<RetrieveMultipleResponse> {
+  if (queryString != null && !/^[?]/.test(queryString)) {
     queryString = `?${queryString}`;
   }
 
-  const query: string =
-    (queryString != null) ? entitySet + queryString : entitySet;
+  const query: string = queryString != null ? entitySet + queryString : entitySet;
 
   const config = {
     method: 'GET',
@@ -211,15 +237,13 @@ export function retrieveMultiple(apiConfig: WebApiConfig, entitySet: string, sub
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
-        } else {
-          resolve(JSON.parse(result.response));
-        }
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        resolve(JSON.parse(result.response));
       }
-    );
+    });
   });
 }
 
@@ -229,7 +253,12 @@ export function retrieveMultiple(apiConfig: WebApiConfig, entitySet: string, sub
  * @param url Query from the @odata.nextlink property of a retrieveMultiple
  * @param queryOptions Various query options for the query
  */
-export function retrieveMultipleNextPage(apiConfig: WebApiConfig, url: string, submitRequest: RequestCallback, queryOptions?: QueryOptions): Promise<RetrieveMultipleResponse> {
+export function retrieveMultipleNextPage(
+  apiConfig: WebApiConfig,
+  url: string,
+  submitRequest: RequestCallback,
+  queryOptions?: QueryOptions
+): Promise<RetrieveMultipleResponse> {
   apiConfig.url = url;
 
   const config = {
@@ -241,15 +270,13 @@ export function retrieveMultipleNextPage(apiConfig: WebApiConfig, url: string, s
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
-        } else {
-          resolve(JSON.parse(result.response));
-        }
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        resolve(JSON.parse(result.response));
       }
-    );
+    });
   });
 }
 
@@ -260,7 +287,13 @@ export function retrieveMultipleNextPage(apiConfig: WebApiConfig, url: string, s
  * @param entity Entity to create
  * @param queryOptions Various query options for the query
  */
-export function create(apiConfig: WebApiConfig, entitySet: string, entity: Entity, submitRequest: RequestCallback, queryOptions?: QueryOptions): Promise<void> {
+export function create(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  entity: Entity,
+  submitRequest: RequestCallback,
+  queryOptions?: QueryOptions
+): Promise<void> {
   const config = {
     method: 'POST',
     contentType: 'application/json; charset=utf-8',
@@ -271,15 +304,13 @@ export function create(apiConfig: WebApiConfig, entitySet: string, entity: Entit
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
-        } else {
-          resolve();
-        }
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        resolve();
       }
-    );
+    });
   });
 }
 
@@ -291,8 +322,15 @@ export function create(apiConfig: WebApiConfig, entitySet: string, entity: Entit
  * @param select Select odata query parameter
  * @param queryOptions Various query options for the query
  */
-export function createWithReturnData(apiConfig: WebApiConfig, entitySet: string, entity: Entity, select: string, submitRequest: RequestCallback, queryOptions?: QueryOptions): Promise<Entity> {
-  if (select != null && ! /^[?]/.test(select)) {
+export function createWithReturnData(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  entity: Entity,
+  select: string,
+  submitRequest: RequestCallback,
+  queryOptions?: QueryOptions
+): Promise<Entity> {
+  if (select != null && !/^[?]/.test(select)) {
     select = `?${select}`;
   }
 
@@ -313,15 +351,13 @@ export function createWithReturnData(apiConfig: WebApiConfig, entitySet: string,
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
-        } else {
-          resolve(JSON.parse(result.response));
-        }
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        resolve(JSON.parse(result.response));
       }
-    );
+    });
   });
 }
 
@@ -333,7 +369,14 @@ export function createWithReturnData(apiConfig: WebApiConfig, entitySet: string,
  * @param entity Entity fields to update
  * @param queryOptions Various query options for the query
  */
-export function update(apiConfig: WebApiConfig, entitySet: string, id: string, entity: Entity, submitRequest: RequestCallback, queryOptions?: QueryOptions): Promise<void> {
+export function update(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  entity: Entity,
+  submitRequest: RequestCallback,
+  queryOptions?: QueryOptions
+): Promise<void> {
   const config = {
     method: 'PATCH',
     contentType: 'application/json; charset=utf-8',
@@ -344,15 +387,13 @@ export function update(apiConfig: WebApiConfig, entitySet: string, id: string, e
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
-        } else {
-          resolve();
-        }
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        resolve();
       }
-    );
+    });
   });
 }
 
@@ -365,8 +406,16 @@ export function update(apiConfig: WebApiConfig, entitySet: string, id: string, e
  * @param select Select odata query parameter
  * @param queryOptions Various query options for the query
  */
-export function updateWithReturnData(apiConfig: WebApiConfig, entitySet: string, id: string, entity: Entity, select: string, submitRequest: RequestCallback, queryOptions?: QueryOptions): Promise<Entity> {
-  if (select != null && ! /^[?]/.test(select)) {
+export function updateWithReturnData(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  entity: Entity,
+  select: string,
+  submitRequest: RequestCallback,
+  queryOptions?: QueryOptions
+): Promise<Entity> {
+  if (select != null && !/^[?]/.test(select)) {
     select = `?${select}`;
   }
 
@@ -387,15 +436,13 @@ export function updateWithReturnData(apiConfig: WebApiConfig, entitySet: string,
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
-        } else {
-          resolve(JSON.parse(result.response));
-        }
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        resolve(JSON.parse(result.response));
       }
-    );
+    });
   });
 }
 
@@ -407,7 +454,15 @@ export function updateWithReturnData(apiConfig: WebApiConfig, entitySet: string,
  * @param attribute Attribute to update
  * @param queryOptions Various query options for the query
  */
-export function updateProperty(apiConfig: WebApiConfig, entitySet: string, id: string, attribute: string, value: string | number | boolean, submitRequest: RequestCallback, queryOptions?: QueryOptions): Promise<void> {
+export function updateProperty(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  attribute: string,
+  value: string | number | boolean,
+  submitRequest: RequestCallback,
+  queryOptions?: QueryOptions
+): Promise<void> {
   const config = {
     method: 'PUT',
     contentType: 'application/json; charset=utf-8',
@@ -418,15 +473,13 @@ export function updateProperty(apiConfig: WebApiConfig, entitySet: string, id: s
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
-        } else {
-          resolve();
-        }
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        resolve();
       }
-    );
+    });
   });
 }
 
@@ -445,15 +498,13 @@ export function deleteRecord(apiConfig: WebApiConfig, entitySet: string, id: str
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
-        } else {
-          resolve();
-        }
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        resolve();
       }
-    );
+    });
   });
 }
 
@@ -464,7 +515,13 @@ export function deleteRecord(apiConfig: WebApiConfig, entitySet: string, id: str
  * @param id Id of record to update
  * @param attribute Attribute to delete
  */
-export function deleteProperty(apiConfig: WebApiConfig, entitySet: string, id: string, attribute: string, submitRequest: RequestCallback): Promise<void> {
+export function deleteProperty(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  attribute: string,
+  submitRequest: RequestCallback
+): Promise<void> {
   const queryString = `/${attribute}`;
 
   const config = {
@@ -475,15 +532,13 @@ export function deleteProperty(apiConfig: WebApiConfig, entitySet: string, id: s
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
-        } else {
-          resolve();
-        }
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        resolve();
       }
-    );
+    });
   });
 }
 
@@ -497,7 +552,16 @@ export function deleteProperty(apiConfig: WebApiConfig, entitySet: string, id: s
  * @param relatedEntityId Id of secondary record
  * @param queryOptions Various query options for the query
  */
-export function associate(apiConfig: WebApiConfig, entitySet: string, id: string, relationship: string, relatedEntitySet: string, relatedEntityId: string, submitRequest: RequestCallback, queryOptions?: QueryOptions): Promise<void> {
+export function associate(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  relationship: string,
+  relatedEntitySet: string,
+  relatedEntityId: string,
+  submitRequest: RequestCallback,
+  queryOptions?: QueryOptions
+): Promise<void> {
   const related = {
     '@odata.id': `${apiConfig.url}/${relatedEntitySet}(${relatedEntityId})`
   };
@@ -512,15 +576,13 @@ export function associate(apiConfig: WebApiConfig, entitySet: string, id: string
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
-        } else {
-          resolve();
-        }
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        resolve();
       }
-    );
+    });
   });
 }
 
@@ -532,7 +594,14 @@ export function associate(apiConfig: WebApiConfig, entitySet: string, id: string
  * @param property Schema name of property or relationship
  * @param relatedEntityId Id of secondary record. Only needed for collection-valued navigation properties
  */
-export function disassociate(apiConfig: WebApiConfig, entitySet: string, id: string, property: string, submitRequest: RequestCallback, relatedEntityId?: string): Promise<void> {
+export function disassociate(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  property: string,
+  submitRequest: RequestCallback,
+  relatedEntityId?: string
+): Promise<void> {
   let queryString: string = property;
 
   if (relatedEntityId != null) {
@@ -549,15 +618,13 @@ export function disassociate(apiConfig: WebApiConfig, entitySet: string, id: str
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
-        } else {
-          resolve();
-        }
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        resolve();
       }
-    );
+    });
   });
 }
 
@@ -570,7 +637,15 @@ export function disassociate(apiConfig: WebApiConfig, entitySet: string, id: str
  * @param inputs Any inputs required by the action
  * @param queryOptions Various query options for the query
  */
-export function boundAction(apiConfig: WebApiConfig, entitySet: string, id: string, actionName: string, submitRequest: RequestCallback, inputs?: Record<string, unknown>, queryOptions?: QueryOptions): Promise<unknown> {
+export function boundAction(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  actionName: string,
+  submitRequest: RequestCallback,
+  inputs?: Record<string, unknown>,
+  queryOptions?: QueryOptions
+): Promise<unknown> {
   const config: WebApiRequestConfig = {
     method: 'POST',
     contentType: 'application/json; charset=utf-8',
@@ -584,19 +659,17 @@ export function boundAction(apiConfig: WebApiConfig, entitySet: string, id: stri
   }
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        if (result.response) {
+          resolve(JSON.parse(result.response));
         } else {
-          if (result.response) {
-            resolve(JSON.parse(result.response));
-          } else {
-            resolve(null);
-          }
+          resolve(null);
         }
       }
-    );
+    });
   });
 }
 
@@ -607,7 +680,13 @@ export function boundAction(apiConfig: WebApiConfig, entitySet: string, id: stri
  * @param inputs Any inputs required by the action
  * @param queryOptions Various query options for the query
  */
-export function unboundAction(apiConfig: WebApiConfig, actionName: string, submitRequest: RequestCallback, inputs?: Record<string, unknown>, queryOptions?: QueryOptions): Promise<unknown> {
+export function unboundAction(
+  apiConfig: WebApiConfig,
+  actionName: string,
+  submitRequest: RequestCallback,
+  inputs?: Record<string, unknown>,
+  queryOptions?: QueryOptions
+): Promise<unknown> {
   const config: WebApiRequestConfig = {
     method: 'POST',
     contentType: 'application/json; charset=utf-8',
@@ -621,19 +700,17 @@ export function unboundAction(apiConfig: WebApiConfig, actionName: string, submi
   }
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        if (result.response) {
+          resolve(JSON.parse(result.response));
         } else {
-          if (result.response) {
-            resolve(JSON.parse(result.response));
-          } else {
-            resolve(null);
-          }
+          resolve(null);
         }
       }
-    );
+    });
   });
 }
 
@@ -646,7 +723,15 @@ export function unboundAction(apiConfig: WebApiConfig, actionName: string, submi
  * @param inputs Any inputs required by the action
  * @param queryOptions Various query options for the query
  */
-export function boundFunction(apiConfig: WebApiConfig, entitySet: string, id: string, functionName: string, submitRequest: RequestCallback, inputs?: FunctionInput[], queryOptions?: QueryOptions): Promise<unknown> {
+export function boundFunction(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  functionName: string,
+  submitRequest: RequestCallback,
+  inputs?: FunctionInput[],
+  queryOptions?: QueryOptions
+): Promise<unknown> {
   let queryString = `${entitySet}(${id})/Microsoft.Dynamics.CRM.${functionName}(`;
 
   queryString = getFunctionInputs(queryString, inputs);
@@ -660,19 +745,17 @@ export function boundFunction(apiConfig: WebApiConfig, entitySet: string, id: st
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        if (result.response) {
+          resolve(JSON.parse(result.response));
         } else {
-          if (result.response) {
-            resolve(JSON.parse(result.response));
-          } else {
-            resolve(null);
-          }
+          resolve(null);
         }
       }
-    );
+    });
   });
 }
 
@@ -683,7 +766,13 @@ export function boundFunction(apiConfig: WebApiConfig, entitySet: string, id: st
  * @param inputs Any inputs required by the action
  * @param queryOptions Various query options for the query
  */
-export function unboundFunction(apiConfig: WebApiConfig, functionName: string, submitRequest: RequestCallback, inputs?: FunctionInput[], queryOptions?: QueryOptions): Promise<unknown> {
+export function unboundFunction(
+  apiConfig: WebApiConfig,
+  functionName: string,
+  submitRequest: RequestCallback,
+  inputs?: FunctionInput[],
+  queryOptions?: QueryOptions
+): Promise<unknown> {
   let queryString = `${functionName}(`;
 
   queryString = getFunctionInputs(queryString, inputs);
@@ -697,19 +786,17 @@ export function unboundFunction(apiConfig: WebApiConfig, functionName: string, s
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        if (result.response) {
+          resolve(JSON.parse(result.response));
         } else {
-          if (result.response) {
-            resolve(JSON.parse(result.response));
-          } else {
-            resolve(null);
-          }
+          resolve(null);
         }
       }
-    );
+    });
   });
 }
 
@@ -722,7 +809,15 @@ export function unboundFunction(apiConfig: WebApiConfig, functionName: string, s
  * @param batchGets Array of get requests for the operation
  * @param queryOptions Various query options for the query
  */
-export function batchOperation(apiConfig: WebApiConfig, batchId: string, changeSetId: string, changeSets: ChangeSet[], batchGets: string[], submitRequest: RequestCallback, queryOptions?: QueryOptions): Promise<unknown> {
+export function batchOperation(
+  apiConfig: WebApiConfig,
+  batchId: string,
+  changeSetId: string,
+  changeSets: ChangeSet[],
+  batchGets: string[],
+  submitRequest: RequestCallback,
+  queryOptions?: QueryOptions
+): Promise<unknown> {
   // build post body
   const body: string[] = [];
 
@@ -778,18 +873,16 @@ export function batchOperation(apiConfig: WebApiConfig, batchId: string, changeS
   };
 
   return new Promise((resolve, reject) => {
-    submitRequest(config,
-      (result: WebApiRequestResult) => {
-        if (result.error) {
-          reject(handleError(result.response));
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        if (result.response) {
+          resolve(result.response);
         } else {
-          if (result.response) {
-            resolve(result.response);
-          } else {
-            resolve(null);
-          }
+          resolve(null);
         }
       }
-    );
+    });
   });
 }

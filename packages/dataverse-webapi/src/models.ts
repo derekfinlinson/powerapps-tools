@@ -44,6 +44,7 @@ export interface QueryOptions {
   maxPageSize?: number;
   impersonateUserId?: string;
   representation?: boolean;
+  customHeaders?: Record<string, string>;
 }
 
 export interface Entity {
