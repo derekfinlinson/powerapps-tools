@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Update word and excel report formats",
-  "packageName": "powerapps-common",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

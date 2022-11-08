@@ -1,8 +1,16 @@
 # Change Log - powerapps-common
 
-This log was last generated on Wed, 19 Oct 2022 16:33:41 GMT and should not be manually modified.
+This log was last generated on Tue, 08 Nov 2022 23:51:51 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.7.1
+
+Tue, 08 Nov 2022 23:51:51 GMT
+
+### Patches
+
+- Update word and excel report formats (derek.finlinson@journeyteam.com)
 
 ## 1.7.0
 

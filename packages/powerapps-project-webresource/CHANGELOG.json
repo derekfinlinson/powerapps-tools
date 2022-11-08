@@ -2,6 +2,21 @@
   "name": "powerapps-project-webresource",
   "entries": [
     {
+      "date": "Tue, 08 Nov 2022 23:51:51 GMT",
+      "tag": "powerapps-project-webresource_v1.2.6",
+      "version": "1.2.6",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-webresource",
+            "commit": "3cf6971208a32b73bd44dd031aaf52c26894293f",
+            "comment": "Validate script name contains publisher prefix"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 10 Oct 2022 23:14:29 GMT",
       "tag": "powerapps-project-webresource_v1.2.5",
       "version": "1.2.5",
