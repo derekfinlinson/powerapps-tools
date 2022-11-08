@@ -2,8 +2,8 @@ export const enum ReportFormat {
   PDF = "PDF",
   CSV = "CSV",
   XML = "XML",
-  Word = "Word",
-  Excel = "Excel",
+  Word = "WORDOPENXML",
+  Excel = "EXCELOPENXML",
   HTML5 = "HTML 5"
 }
 
