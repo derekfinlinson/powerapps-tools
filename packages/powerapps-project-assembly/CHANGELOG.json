@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Thu, 10 Nov 2022 14:47:51 GMT",
+      "tag": "powerapps-project-assembly_v1.2.5",
+      "version": "1.2.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "d9ff1bd80866299b564940f12fffe55d3b9ae5ec",
+            "comment": "Remove unneeded import"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 28 Oct 2022 05:20:27 GMT",
       "tag": "powerapps-project-assembly_v1.2.4",
       "version": "1.2.4",
