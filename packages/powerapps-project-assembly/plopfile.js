@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const { FileWatcherEventKind } = require('typescript');
 const version = require('./package').version;
 
 module.exports = (plop) => {
