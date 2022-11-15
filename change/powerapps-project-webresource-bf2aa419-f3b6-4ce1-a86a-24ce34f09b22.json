@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Fix validating name",
+  "packageName": "powerapps-project-webresource",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
