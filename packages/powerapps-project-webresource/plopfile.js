@@ -73,8 +73,8 @@ module.exports = (plop) => {
             type: 'input',
             name: 'name',
             message: 'script unique name (including publisher prefix)',
-            validate: (answers) => {
-                if (answers.name.indexOf('_') === -1) {
+            validate: (name) => {
+                if (name.indexOf('_') === -1) {
                     return 'include publisher prefix in name';
                 }
 
