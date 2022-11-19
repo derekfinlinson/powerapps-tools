@@ -13,6 +13,7 @@
     "url": "https://github.com/derekfinlinson/powerapps-tools"
   },
   "dependencies": {
+    "inquirer-file-tree-selection-prompt": "1",
     "plop": "^2.7.6"
   }
 }

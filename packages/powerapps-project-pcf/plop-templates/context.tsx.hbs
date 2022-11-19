@@ -1,0 +1,15 @@
+import React from 'react';
+
+const {{pascalCase name}}Context = React.createContext();
+
+interface {{pascalCase name}}ProviderProps {
+  children?: React.ReactNode;
+}
+
+export const {{pascalCase name}}ContextProvider = (props: {{pascalCase name}}ProviderProps): JSX.Element => {
+  const { children } = props;
+
+  return <{{pascalCase name}}Context.Provider>{children}</{{pascalCase name}}Context.Provider>;
+};
+
+export const use{{pascalCase name}} = () => React.useContext({{pascalCase name}}Context);
