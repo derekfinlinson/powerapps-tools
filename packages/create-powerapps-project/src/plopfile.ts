@@ -29,9 +29,9 @@ export default (plop: NodePlopAPI): void => {
       type: 'input',
       name: 'server',
       message: 'enter dataverse url (https://org.crm.dynamics.com):',
-      validate: (server: string) => {
+      validate: (answer: string) => {
         try {
-          const url = new URL(server);
+          const url = new URL(answer);
 
           if (url.protocol !== 'https:') {
             return 'server should begin with https';
@@ -68,8 +68,8 @@ export default (plop: NodePlopAPI): void => {
         type: 'input',
         name: 'prefix',
         message: 'publisher prefix (no underscore):',
-        validate: (prefix: string) => {
-          if (prefix.slice(-1) === '_') {
+        validate: (answer: string) => {
+          if (answer.slice(-1) === '_') {
             return 'enter publisher prefix without the underscore';
           }
 
@@ -108,14 +108,14 @@ export default (plop: NodePlopAPI): void => {
         type: 'input',
         name: 'name',
         message: 'default C# namespace (Company.Crm.Plugins):',
-        validate: (name: string) => {
-          const validNamespace = name.replace(/[^a-zA-Z.]+/g, '');
+        validate: (answer: string) => {
+          const validNamespace = answer.replace(/[^a-zA-Z.]+/g, '');
 
-          if (validNamespace !== name) {
+          if (validNamespace !== answer) {
             return 'namespace must contain only alpha characters and periods';
           }
 
-          const namespace = name.split('.');
+          const namespace = answer.split('.');
 
           for (const item of namespace) {
             const title = plop.renderString('{{titleCase name}}', { name: item });
@@ -287,6 +287,18 @@ export default (plop: NodePlopAPI): void => {
           force: true
         },
         {
+          type: 'add',
+          templateFile: '../plop-templates/pcf/plopfile.js',
+          path: path.resolve(process.cwd(), 'plopfile.js'),
+          force: true
+        },
+        {
+          type: 'add',
+          templateFile: '../plop-templates/pcf/.gitattributes',
+          path: path.resolve(process.cwd(), '.gitattributes'),
+          force: true
+        },
+        {
           type: 'addMany',
           templateFiles: [
             '../plop-templates/pcf/App.tsx.hbs',
@@ -340,10 +352,15 @@ export default (plop: NodePlopAPI): void => {
           return 'removed HelloWorld component';
         },
         {
+          type: 'npmInstall'
+        },
+        {
           type: 'npmInstall',
-          skip: (answers) => {
-            if (answers.package === 'npm') {
-              return 'npm packages already installed';
+          data: {
+            packages: {
+              devDependencies: [
+                'powerapps-project-pcf'
+              ]
             }
           }
         }

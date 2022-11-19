@@ -69,17 +69,11 @@ export default (plop: NodePlopAPI): void => {
   });
 
   plop.setActionType('runPcf', async (answers: any) => {
-    const args = ['pcf', 'init', '-ns', answers.namespace, '-n', answers.name, '-t', answers.template];
+    const args = ['pcf', 'init', '-ns', answers.namespace, '-n', answers.name, '-t', answers.template, '-npm', 'false'];
 
     // Set framework to React if selected
     if (answers.react) {
       args.push('-fw', 'react');
-    }
-
-    if (process.env.JEST_WORKER_ID !== undefined || answers.package !== 'npm') {
-      args.push('-npm', 'false');
-    } else {
-      args.push('-npm', 'true');
     }
 
     return new Promise((resolve, reject) => {

@@ -1,10 +1,17 @@
 import React from 'react';
 import { IInputs } from './generated/ManifestTypes';
 
-interface IAppContext {
+const AppContext = React.createContext<ComponentFramework.Context<IInputs>>({} as ComponentFramework.Context<IInputs>);
+
+interface IAppContextProviderProps {
   context: ComponentFramework.Context<IInputs>;
+  children?: React.ReactNode;
 }
 
-const AppContext = React.createContext<IAppContext>({} as IAppContext);
+export const AppContextProvider = (props: IAppContextProviderProps): JSX.Element => {
+  const { context, children } = props;
 
-export default AppContext;
+  return <AppContext.Provider value={context}>{children}</AppContext.Provider>;
+};
+
+export const useAppContext = (): ComponentFramework.Context<IInputs> => React.useContext(AppContext);

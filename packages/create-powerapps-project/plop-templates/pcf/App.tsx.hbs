@@ -1,6 +1,6 @@
 import React from 'react';
 import { IInputs } from './generated/ManifestTypes';
-import AppContext from './AppContext';
+import { AppContextProvider } from './AppContext';
 
 export interface IAppProps {
   context: ComponentFramework.Context<IInputs>;
@@ -12,8 +12,8 @@ export const App = React.memo((props: IAppProps) => {
   } = props;
 
   return (
-    <AppContext.Provider value=\{{ context: context }}>
-    </AppContext.Provider>
+    <AppContextProvider value=\{{ context: context }}>
+    </AppContextProvider>
   );
 });
 
