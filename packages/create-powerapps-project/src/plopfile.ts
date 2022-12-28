@@ -401,7 +401,7 @@ export default (plop: NodePlopAPI): void => {
       return [
         {
           type: 'addMany',
-          templateFiles: ['../plop-templates/webresource/*', '../plop-templates/webresource/.*'],
+          templateFiles: ['../plop-templates/webresource/*', '../plop-templates/webresource/.*', '.gitignore'],
           base: '../plop-templates/webresource',
           destination: process.cwd(),
           force: true
