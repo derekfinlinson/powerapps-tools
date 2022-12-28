@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Wed, 28 Dec 2022 16:24:55 GMT and should not be manually modified.
+This log was last generated on Wed, 28 Dec 2022 18:55:00 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.25.1
+
+Wed, 28 Dec 2022 18:55:00 GMT
+
+### Patches
+
+- Fix gitignore not copying over (derek.finlinson@journeyteam.com)
 
 ## 0.25.0
 

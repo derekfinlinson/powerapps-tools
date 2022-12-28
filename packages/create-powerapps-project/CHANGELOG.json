@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 28 Dec 2022 18:55:00 GMT",
+      "tag": "create-powerapps-project_v0.25.1",
+      "version": "0.25.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "50a2a40e551cb8d7c2f74c19ad81c9acd0b23963",
+            "comment": "Fix gitignore not copying over"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 28 Dec 2022 16:24:55 GMT",
       "tag": "create-powerapps-project_v0.25.0",
       "version": "0.25.0",
