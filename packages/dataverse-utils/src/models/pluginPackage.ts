@@ -1,9 +1,8 @@
 import fs from 'fs';
 import glob from 'glob';
-import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity } from 'dataverse-webapi/lib/node';
+import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity, QueryOptions } from 'dataverse-webapi/lib/node';
 
 import { PluginAssembly, deployAssembly } from './pluginAssembly';
-import { addToSolution, ComponentType } from '../dataverse.service';
 import { logger } from '../logger';
 
 export interface PluginPackage extends Entity {
@@ -14,7 +13,7 @@ export interface PluginPackage extends Entity {
   assembly?: PluginAssembly;
 }
 
-export async function deployPluginPackage(config: PluginPackage, apiConfig: WebApiConfig, solution?: string): Promise<void> {
+export async function deployPluginPackage(config: PluginPackage, apiConfig: WebApiConfig, solution?: string): Promise<string | undefined> {
   const files = glob.sync(`**/${config.name}.*.nupkg`);
 
   if (files.length === 0) {
@@ -41,30 +40,26 @@ export async function deployPluginPackage(config: PluginPackage, apiConfig: WebA
     }
   } else {
     try {
-      packageId = await createPackage(config, content, apiConfig);
+      packageId = await createPackage(config, content, apiConfig, solution);
     } catch (error: any) {
       throw new Error(`failed to create package: ${error.message}`);
     }
-
-    if (solution != undefined) {
-      try {
-        await addToSolution(packageId, solution, ComponentType.PluginPackage, apiConfig);
-      } catch (error: any) {
-        logger.error(`failed to add package to solution: ${error.message}`);
-      }
-    }
   }
+
+  let assemblyId: string | undefined;
 
   if (config.assembly != null) {
     try {
       config.assembly['packageid@odata.bind'] = `/pluginpackages(${packageId})`;
 
-      await deployAssembly(config.assembly, apiConfig, solution);
+      assemblyId = await deployAssembly(config.assembly, apiConfig, solution);
     } catch (error: any) {
       logger.error(error.message);
       return;
     }
   }
+
+  return assemblyId;
 }
 
 async function retrievePackage(prefix: string, name: string, apiConfig: WebApiConfig): Promise<string> {
@@ -75,7 +70,7 @@ async function retrievePackage(prefix: string, name: string, apiConfig: WebApiCo
   return result.value.length > 0 ? result.value[0].pluginassemblyid as string : '';
 }
 
-async function createPackage(config: PluginPackage, content: string, apiConfig: WebApiConfig): Promise<string> {
+async function createPackage(config: PluginPackage, content: string, apiConfig: WebApiConfig, solution?: string): Promise<string> {
   logger.info(`create package ${config.name}`);
 
   const pluginPackage = {
@@ -84,7 +79,13 @@ async function createPackage(config: PluginPackage, content: string, apiConfig: 
     content: content
   };
 
-  const result: any = await createWithReturnData(apiConfig, 'pluginpackages', pluginPackage, '$select=pluginpackageid');
+  const options: QueryOptions = {};
+
+  if (solution) {
+    options.customHeaders = { 'MSCRM.SolutionUniqueName': solution };
+  }
+
+  const result: any = await createWithReturnData(apiConfig, 'pluginpackages', pluginPackage, '$select=pluginpackageid', options);
 
   if (result.error) {
     throw new Error(result.error.message);

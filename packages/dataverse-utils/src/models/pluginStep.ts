@@ -1,5 +1,4 @@
-import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity } from 'dataverse-webapi/lib/node';
-import { addToSolution, ComponentType } from '../dataverse.service';
+import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity, QueryOptions } from 'dataverse-webapi/lib/node';
 import { logger } from '../logger';
 import { deployImage, PluginImage } from './pluginImage';
 
@@ -67,17 +66,9 @@ export async function deployStep(
     }
   } else {
     try {
-      stepId = await createStep(step, apiConfig);
+      stepId = await createStep(step, apiConfig, solution);
     } catch (error: any) {
       throw new Error(`failed to create plugin step: ${error.message}`);
-    }
-
-    if (solution != undefined) {
-      try {
-        await addToSolution(stepId, solution, ComponentType.SDKMessageProcessingStep, apiConfig);
-      } catch (error: any) {
-        throw new Error(`failed to add to solution: ${error.message}`);
-      }
     }
   }
 
@@ -121,10 +112,16 @@ async function getSdkMessageId(name: string, apiConfig: WebApiConfig): Promise<s
   return message.value.length > 0 ? (message.value[0].sdkmessageid as string) : '';
 }
 
-async function createStep(step: PluginStep, apiConfig: WebApiConfig): Promise<string> {
+async function createStep(step: PluginStep, apiConfig: WebApiConfig, solution?: string): Promise<string> {
   logger.info(`create plugin step ${step.name}`);
 
-  const result: any = await createWithReturnData(apiConfig, 'sdkmessageprocessingsteps', step, '$select=sdkmessageprocessingstepid');
+  const options: QueryOptions = {};
+
+  if (solution) {
+    options.customHeaders = { 'MSCRM.SolutionUniqueName': solution };
+  }
+  
+  const result: any = await createWithReturnData(apiConfig, 'sdkmessageprocessingsteps', step, '$select=sdkmessageprocessingstepid', options);
 
   if (result.error) {
     throw new Error(result.error.message);

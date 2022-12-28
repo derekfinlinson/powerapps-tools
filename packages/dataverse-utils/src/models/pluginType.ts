@@ -11,37 +11,37 @@ export interface PluginType extends Entity {
   workflowactivitygroupname: string;
 }
 
-export async function deployType(type: PluginType, assemblyId: string, apiConfig: WebApiConfig, solution?: string): Promise<string> {
-  let typeId = await retrieveType(type.typename, assemblyId, apiConfig);
+export async function deployType(config: PluginType, assemblyId: string, apiConfig: WebApiConfig, solution?: string): Promise<string> {
+  let typeId = await retrieveType(config.typename, assemblyId, apiConfig);
 
-  const record: PluginType = {
-    name: type.name,
-    friendlyname: type.friendlyname,
-    typename: type.typename,
-    'pluginassemblyid@odata.bind': type['pluginassemblyid@odata.bind'],
-    workflowactivitygroupname: type.workflowactivitygroupname
+  const type: PluginType = {
+    name: config.name,
+    friendlyname: config.friendlyname,
+    typename: config.typename,
+    'pluginassemblyid@odata.bind': config['pluginassemblyid@odata.bind'],
+    workflowactivitygroupname: config.workflowactivitygroupname
   };
 
   if (typeId != '') {
     try {
-      await updateType(typeId, record, apiConfig);
+      await updateType(typeId, type, apiConfig);
     } catch (error: any) {
       throw new Error(`failed to update plugin type: ${error.message}`);
     }
   } else {
     try {
-      typeId = await createType(record, apiConfig);
+      typeId = await createType(type, apiConfig);
     } catch (error: any) {
       throw new Error(`failed to create plugin type: ${error.message}`);
     }
   }
 
   try {
-    if (type.steps) {
-      const promises = type.steps.map(async step => {
+    if (config.steps) {
+      const promises = config.steps.map((step) => {
         step['plugintypeid@odata.bind'] = `/plugintypes(${typeId})`;
 
-        await deployStep(step, typeId, apiConfig, solution);
+        return deployStep(step, typeId, apiConfig, solution);
       });
 
       await Promise.all(promises);
@@ -53,12 +53,12 @@ export async function deployType(type: PluginType, assemblyId: string, apiConfig
   return typeId;
 }
 
-async function retrieveType(name: string, assemblyId: string, apiConfig: WebApiConfig): Promise<string> {
+export async function retrieveType(name: string, assemblyId: string, apiConfig: WebApiConfig): Promise<string> {
   const options = `$select=plugintypeid&$filter=typename eq '${name}' and _pluginassemblyid_value eq ${assemblyId}`;
 
   const result = await retrieveMultiple(apiConfig, 'plugintypes', options);
 
-  return result.value.length > 0 ? result.value[0].plugintypeid as string : '';
+  return result.value.length > 0 ? (result.value[0].plugintypeid as string) : '';
 }
 
 async function createType(type: PluginType, apiConfig: WebApiConfig): Promise<string> {

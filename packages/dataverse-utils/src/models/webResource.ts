@@ -1,5 +1,5 @@
-import { addToSolution, ComponentType, publish } from '../dataverse.service';
-import { retrieveMultiple, createWithReturnData, update, WebApiConfig } from 'dataverse-webapi/lib/node';
+import { publish } from '../dataverse.service';
+import { retrieveMultiple, createWithReturnData, update, WebApiConfig, QueryOptions } from 'dataverse-webapi/lib/node';
 import { logger } from '../logger';
 import fs from 'fs';
 
@@ -87,17 +87,9 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
       }
     } else {
       try {
-        resourceId = await createResource(resource, content, apiConfig);
+        resourceId = await createResource(resource, content, apiConfig, solution);
       } catch (error: any) {
         logger.error(`failed to create resource: ${error.message}`);
-      }
-
-      if (solution != undefined) {
-        try {
-          await addToSolution(resourceId, solution, ComponentType.WebResource, apiConfig)
-        } catch (error: any) {
-          logger.error(`failed to add to solution: ${error.message}`);
-        }
       }
     }
   });
@@ -122,7 +114,7 @@ async function retrieveResource(name: string, apiConfig: WebApiConfig): Promise<
   return result.value.length > 0 ? result.value[0].webresourceid as string : '';
 }
 
-async function createResource(resource: WebResource, content: string, apiConfig: WebApiConfig): Promise<string> {
+async function createResource(resource: WebResource, content: string, apiConfig: WebApiConfig, solution?: string): Promise<string> {
   logger.info(`create web resource ${resource.name}`);
 
   const webResource = {
@@ -132,7 +124,13 @@ async function createResource(resource: WebResource, content: string, apiConfig:
     content: content
   };
 
-  const result: any = await createWithReturnData(apiConfig, 'webresourceset', webResource, '$select=webresourceid');
+  const options: QueryOptions = {};
+
+  if (solution) {
+    options.customHeaders = { 'MSCRM.SolutionUniqueName': solution };
+  }
+
+  const result: any = await createWithReturnData(apiConfig, 'webresourceset', webResource, '$select=webresourceid', options);
 
   if (result.error) {
     throw new Error(result.error.message);
