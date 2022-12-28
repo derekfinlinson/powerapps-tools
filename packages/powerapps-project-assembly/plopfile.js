@@ -1,11 +1,14 @@
 const path = require('path');
 const fs = require('fs');
 const version = require('./package').version;
+const inquirerRecursive = require('inquirer-recursive');
 
 module.exports = (plop) => {
   plop.setWelcomeMessage(
     `Adding Dataverse assembly file using powerapps-project-assembly v${version}. Please choose type of file to create.`
   );
+
+  plop.stepPrompts('recursive', inquirerRecursive);
 
   plop.setDefaultInclude({ generators: true });
 
@@ -201,7 +204,7 @@ module.exports = (plop) => {
     {
       type: 'confirm',
       name: 'addImage',
-      message: 'include pre/post image',
+      message: 'include pre/post image?',
       default: false,
       when: (answers) => answers.customApi !== true
     }
@@ -239,6 +242,137 @@ module.exports = (plop) => {
       name: 'imageattributes',
       message: 'comma separated list of attributes',
       when: (answers) => (answers.addImage === undefined || answers.addImage === true) && answers.customApi !== true
+    }
+  ];
+
+  const parameterTypes = [
+    {
+      name: 'Boolean',
+      value: 0
+    },
+    {
+      name: 'DateTime',
+      value: 1
+    },
+    {
+      name: 'Decimal',
+      value: 2
+    },
+    {
+      name: 'Entity',
+      value: 3
+    },
+    {
+      name: 'EntityCollection',
+      value: 4
+    },
+    {
+      name: 'EntityReference',
+      value: 5
+    },
+    {
+      name: 'Float',
+      value: 6
+    },
+    {
+      name: 'Integer',
+      value: 7
+    },
+    {
+      name: 'Money',
+      value: 8
+    },
+    {
+      name: 'Picklist',
+      value: 9
+    },
+    {
+      name: 'String',
+      value: 10
+    },
+    {
+      name: 'StringArray',
+      value: 11
+    },
+    {
+      name: 'Guid',
+      value: 12
+    }
+  ];
+
+  const customApiParameterPrompts = [
+    {
+      type: 'input',
+      name: 'uniquename',
+      message: 'unique name (cannot be changed)'
+    },
+    {
+      type: 'input',
+      name: 'name',
+      message: 'name'
+    },
+    {
+      type: 'input',
+      name: 'displayname',
+      message: 'display name'
+    },
+    {
+      type: 'input',
+      name: 'description',
+      message: 'description'
+    },
+    {
+      type: 'list',
+      name: 'type',
+      message: 'type (cannot be changed)',
+      choices: parameterTypes
+    },
+    {
+      type: 'input',
+      name: 'logicalentityname',
+      message: 'entity logical name (cannot be changed)',
+      when: (answers) => answers.type === 3 || answers.type === 4
+    },
+    {
+      type: 'confirm',
+      name: 'isoptional',
+      message: 'is optional (cannot be changed)?',
+      default: false
+    }
+  ];
+
+  const customApiResponsePrompts = [
+    {
+      type: 'input',
+      name: 'uniquename',
+      message: 'unique name (cannot be changed)'
+    },
+    {
+      type: 'input',
+      name: 'name',
+      message: 'name'
+    },
+    {
+      type: 'input',
+      name: 'displayname',
+      message: 'display name'
+    },
+    {
+      type: 'input',
+      name: 'description',
+      message: 'description'
+    },
+    {
+      type: 'list',
+      name: 'type',
+      message: 'type (cannot be changed)',
+      choices: parameterTypes
+    },
+    {
+      type: 'input',
+      name: 'logicalentityname',
+      message: 'entity logical name',
+      when: (answers) => answers.type === 3
     }
   ];
 
@@ -362,7 +496,7 @@ module.exports = (plop) => {
       let type;
 
       if (file.assembly) {
-        type = file.assmebly.types.filter((t) => t.name === `${namespace}.${plop.renderString('{{pascalCase filename }}', answers)}`);
+        type = file.assembly.types.filter((t) => t.name === `${namespace}.${plop.renderString('{{pascalCase filename }}', answers)}`);
       } else {
         type = file.types.filter((t) => t.name === `${namespace}.${plop.renderString('{{pascalCase filename }}', answers)}`);
       }
@@ -399,6 +533,47 @@ module.exports = (plop) => {
         // Add step
         type[0].steps.push(step);
       }
+
+      // Update file
+      fs.writeFileSync(configPath, JSON.stringify(file, null, 4), 'utf8');
+      return 'added to dataverse.config.json';
+    } else {
+      return `no dataverse.config.json found at ${destinationPath}`;
+    }
+  });
+
+  plop.setActionType('addApiConfig', (answers, _config, plop) => {
+    const destinationPath = plop.getDestBasePath();
+    const configPath = path.resolve(destinationPath, 'dataverse.config.json');
+
+    // Get dataverse.config.json if it exists
+    if (fs.existsSync(configPath)) {
+      const file = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+
+      // If no types property found, just run assembly addToConfig
+      if (file.customapis == null) {
+        file.customapis = [];
+      }
+
+      // Add step to existing config
+      const api = {
+        uniquename: answers.uniquename,
+        name: answers.name,
+        displayname: answers.displayname,
+        description: answers.description,
+        bindingtype: answers.bindingtype,
+        boundentitylogicalname: answers.boundentitylogicalname,
+        isfunction: answers.isfunction,
+        isprivate: answers.isprivate,
+        workflowsdkstepenabled: answers.workflowstepenabled,
+        allowedcustomprocessingsteptype: answers.allowedcustomprocessingsteptype,
+        executeprivilegename: answers.executeprivilegename,
+        plugintype: answers.plugintype,
+        CustomAPIRequestParameters: answers.CustomAPIRequestParameters ?? [],
+        CustomAPIResponseProperties: answers.CustomAPIResponseProperties ?? []
+      };
+
+      file.customapis.push(api);
 
       // Update file
       fs.writeFileSync(configPath, JSON.stringify(file, null, 4), 'utf8');
@@ -466,7 +641,7 @@ module.exports = (plop) => {
       {
         type: 'confirm',
         name: 'customApi',
-        message: 'plugin for custom api',
+        message: 'plugin for custom api?',
         default: false
       },
       {
@@ -598,6 +773,138 @@ module.exports = (plop) => {
     actions: [
       {
         type: 'addImage'
+      }
+    ]
+  });
+
+  plop.setGenerator('custom api', {
+    prompts: [
+      {
+        type: 'input',
+        name: 'uniquename',
+        message: 'unique name (must include publisher prefix)',
+        validate: (answer) => {
+          if (answer.indexOf('_') === -1) {
+            return 'include publisher prefix in name';
+          }
+
+          return true;
+        }
+      },
+      {
+        type: 'input',
+        name: 'name',
+        message: 'name'
+      },
+      {
+        type: 'input',
+        name: 'displayname',
+        message: 'custom api display name',
+        default: (answers) => answers.name
+      },
+      {
+        type: 'input',
+        name: 'description',
+        message: 'custom api description'
+      },
+      {
+        type: 'list',
+        name: 'bindingtype',
+        message: 'binding type',
+        choices: [
+          {
+            name: 'Global',
+            value: 0
+          },
+          {
+            name: 'Entity',
+            value: 1
+          },
+          {
+            name: 'Entity Collection',
+            value: 2
+          }
+        ]
+      },
+      {
+        type: 'input',
+        name: 'boundentitylogicalname',
+        message: 'bound entity logical name',
+        when: (answers) => answers.bindingtype !== 0
+      },
+      {
+        type: 'confirm',
+        name: 'isfunction',
+        message: 'is function?',
+        default: false
+      },
+      {
+        type: 'confirm',
+        name: 'isprivate',
+        message: 'is private?',
+        default: false
+      },
+      {
+        type: 'confirm',
+        name: 'workflowsdkstepenabled',
+        message: 'enabled for workflow?',
+        default: false
+      },
+      {
+        type: 'list',
+        name: 'allowedcustomprocessingsteptype',
+        message: 'allowed custom processing step type',
+        choices: [
+          {
+            name: 'None',
+            value: 0
+          },
+          {
+            name: 'Async Only',
+            value: 1
+          },
+          {
+            name: 'Sync and Async',
+            value: 2
+          }
+        ]
+      },
+      {
+        type: 'input',
+        name: 'executeprivilegename',
+        message: 'execute privilege name'
+      },
+      {
+        type: 'confirm',
+        name: 'hasType',
+        message: 'plugin provides main operation?',
+        default: true
+      },
+      {
+        type: 'list',
+        name: 'plugintype',
+        message: 'plugin type',
+        when: (answers) => answers.hasType,
+        choices: () => {
+          return getTypes();
+        }
+      },
+      {
+        type: 'recursive',
+        name: 'CustomAPIRequestParameters',
+        message: 'add custom API request parameter?',
+        prompts: customApiParameterPrompts
+      },
+      {
+        type: 'recursive',
+        name: 'CustomAPIResponseProperties',
+        message: 'add custom API response property?',
+        prompts: customApiResponsePrompts
+      }
+    ],
+    actions: [
+      {
+        type: 'addApiConfig'
       }
     ]
   });
