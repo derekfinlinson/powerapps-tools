@@ -20,7 +20,7 @@
     "clean": "rimraf lib"
   },
   "dependencies": {
-    "@azure/msal-node": "^1.12.0",
+    "@azure/msal-node": "^1.14.5",
     "commander": "^8.3.0",
     "cryptr": "^6.0.3",
     "dataverse-webapi": "^2.2.1",
