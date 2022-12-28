@@ -18,6 +18,7 @@ export function getHeaders(config: WebApiRequestConfig): Record<string, string> 
   headers['OData-MaxVersion'] = '4.0';
   headers['OData-Version'] = '4.0';
   headers['Content-Type'] = config.contentType;
+  headers['If-None-Match'] = 'null';
 
   if (config.apiConfig.accessToken != null) {
     headers.Authorization = `Bearer ${config.apiConfig.accessToken}`;
