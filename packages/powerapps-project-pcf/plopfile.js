@@ -1,10 +1,9 @@
-const inquirer = require('inquirer');
 const inquirerFileTreeSelection = require('inquirer-file-tree-selection-prompt');
-
-inquirer.registerPrompt('file-tree-selection', inquirerFileTreeSelection);
 
 module.exports = function (plop) {
   plop.setDefaultInclude({ generators: true });
+
+  plop.setPrompt('file-tree-selection', inquirerFileTreeSelection);
 
   plop.setGenerator('component', {
     description: '⚛ react component',
