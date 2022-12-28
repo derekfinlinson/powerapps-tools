@@ -7,7 +7,11 @@ import { generateReport, ReportFormat } from './models/report';
  * @param requiredLevel Requirement level
  * @param form Form context
  */
-export function setFieldRequirementLevel(fieldName: string, requiredLevel: Xrm.Attributes.RequirementLevel, form: Xrm.FormContext): boolean {
+export function setFieldRequirementLevel(
+  fieldName: string,
+  requiredLevel: Xrm.Attributes.RequirementLevel,
+  form: Xrm.FormContext
+): boolean {
   const field = form.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field == null) {
@@ -20,12 +24,12 @@ export function setFieldRequirementLevel(fieldName: string, requiredLevel: Xrm.A
 }
 
 /**
-* Set a control's visibility
-* @param controlName Name of control
-* @param visible Visible
-* @param allControls Apply to all controls
-* @param form Form context
-*/
+ * Set a control's visibility
+ * @param controlName Name of control
+ * @param visible Visible
+ * @param allControls Apply to all controls
+ * @param form Form context
+ */
 export function setControlVisibility(controlName: string, allControls: boolean, visible: boolean, form: Xrm.FormContext): boolean {
   const control = form.getControl<Xrm.Controls.StandardControl>(controlName.toLowerCase());
 
@@ -34,9 +38,9 @@ export function setControlVisibility(controlName: string, allControls: boolean, 
   }
 
   if (allControls) {
-    control.getAttribute().controls.forEach(c => {
+    control.getAttribute().controls.forEach((c) => {
       (c as Xrm.Controls.StandardControl).setVisible(visible);
-    })
+    });
   } else {
     control.setVisible(visible);
   }
@@ -45,11 +49,11 @@ export function setControlVisibility(controlName: string, allControls: boolean, 
 }
 
 /**
-* Set a control's label
-* @param controlName Name of control
-* @param label Label for control
-* @param form Form context
-*/
+ * Set a control's label
+ * @param controlName Name of control
+ * @param label Label for control
+ * @param form Form context
+ */
 export function setControlLabel(controlName: string, label: string, form: Xrm.FormContext): boolean {
   const control = form.getControl<Xrm.Controls.StandardControl>(controlName.toLowerCase());
 
@@ -63,13 +67,18 @@ export function setControlLabel(controlName: string, label: string, form: Xrm.Fo
 }
 
 /**
-* Set a default value on a field
-* @param fieldName Name of field
-* @param value Default value
-* @param form Form context
-* @param fireOnChange Fire field on change event
-*/
-export function setDefaultValue(fieldName: string, value: string | number | Xrm.LookupValue[] | boolean, form: Xrm.FormContext, fireOnChange?: boolean): boolean {
+ * Set a default value on a field
+ * @param fieldName Name of field
+ * @param value Default value
+ * @param form Form context
+ * @param fireOnChange Fire field on change event
+ */
+export function setDefaultValue(
+  fieldName: string,
+  value: string | number | Xrm.LookupValue[] | boolean,
+  form: Xrm.FormContext,
+  fireOnChange?: boolean
+): boolean {
   const field = form.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field == null || field.getValue() != null) {
@@ -86,15 +95,20 @@ export function setDefaultValue(fieldName: string, value: string | number | Xrm.
 }
 
 /**
-* Add a form notification that is cleared after a certain time
-* @param message Notification message
-* @param level Form notification level
-* @param uniqueId Unique Id for the message
-* @param timeout Timeout before clearing the notififcation
-* @param form Form context
-*/
-export function addFormNotification(message: string, level: Xrm.Page.ui.FormNotificationLevel,
-  uniqueId: string, timeout = 10000, form: Xrm.FormContext): boolean {
+ * Add a form notification that is cleared after a certain time
+ * @param message Notification message
+ * @param level Form notification level
+ * @param uniqueId Unique Id for the message
+ * @param timeout Timeout before clearing the notififcation
+ * @param form Form context
+ */
+export function addFormNotification(
+  message: string,
+  level: Xrm.Page.ui.FormNotificationLevel,
+  uniqueId: string,
+  timeout = 10000,
+  form: Xrm.FormContext
+): boolean {
   form.ui.setFormNotification(message, level, uniqueId);
 
   setTimeout(() => {
@@ -105,11 +119,11 @@ export function addFormNotification(message: string, level: Xrm.Page.ui.FormNoti
 }
 
 /**
-* Add an on change event to a field
-* @param fieldName Name of field
-* @param event Event to fire
-* @param form Form context
-*/
+ * Add an on change event to a field
+ * @param fieldName Name of field
+ * @param event Event to fire
+ * @param form Form context
+ */
 export function addOnChange(fieldName: string, event: Xrm.Events.ContextSensitiveHandler, form: Xrm.FormContext): boolean {
   const field = form.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
@@ -125,11 +139,11 @@ export function addOnChange(fieldName: string, event: Xrm.Events.ContextSensitiv
 }
 
 /**
-* Remove an on change event from a field
-* @param fieldName Name of field 
-* @param event Event to fire
-* @param form Form context
-*/
+ * Remove an on change event from a field
+ * @param fieldName Name of field
+ * @param event Event to fire
+ * @param form Form context
+ */
 export function removeOnChange(fieldName: string, event: Xrm.Page.ContextSensitiveHandler, form: Xrm.FormContext): boolean {
   const field = form.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
@@ -143,13 +157,18 @@ export function removeOnChange(fieldName: string, event: Xrm.Page.ContextSensiti
 }
 
 /**
-* Set a value on a field
-* @param fieldName Name of field
-* @param value Value
-* @param form Form context
-* @param fireOnChange Fire field on change event
-*/
-export function setValue(fieldName: string, value: string | number | Xrm.LookupValue[] | boolean, form: Xrm.FormContext, fireOnChange?: boolean): boolean {
+ * Set a value on a field
+ * @param fieldName Name of field
+ * @param value Value
+ * @param form Form context
+ * @param fireOnChange Fire field on change event
+ */
+export function setValue(
+  fieldName: string,
+  value: string | number | Xrm.LookupValue[] | boolean,
+  form: Xrm.FormContext,
+  fireOnChange?: boolean
+): boolean {
   const field = form.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field == null) {
@@ -169,10 +188,10 @@ export function setValue(fieldName: string, value: string | number | Xrm.LookupV
 }
 
 /**
-* Check if a field contains data
-* @param fieldName Name of field
-* @param form Form context
-*/
+ * Check if a field contains data
+ * @param fieldName Name of field
+ * @param form Form context
+ */
 export function fieldContainsData(fieldName: string, form: Xrm.FormContext): boolean {
   const field = form.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
@@ -180,11 +199,11 @@ export function fieldContainsData(fieldName: string, form: Xrm.FormContext): boo
 }
 
 /**
-* Disable/enable controls for a field
-* @param fieldName Name of control
-* @param disabled Disable or enable field
-* @param form Form context
-*/
+ * Disable/enable controls for a field
+ * @param fieldName Name of control
+ * @param disabled Disable or enable field
+ * @param form Form context
+ */
 export function setDisabled(fieldName: string, allControls: boolean, disabled: boolean, form: Xrm.FormContext): boolean {
   const control = form.getControl<Xrm.Controls.StandardControl>(fieldName.toLowerCase());
 
@@ -193,7 +212,7 @@ export function setDisabled(fieldName: string, allControls: boolean, disabled: b
   }
 
   if (allControls) {
-    control.getAttribute().controls.forEach(c => {
+    control.getAttribute().controls.forEach((c) => {
       (c as Xrm.Controls.StandardControl).setDisabled(disabled);
     });
   } else {
@@ -204,11 +223,11 @@ export function setDisabled(fieldName: string, allControls: boolean, disabled: b
 }
 
 /**
-* Add presearch event to lookup control
-* @param fieldName Name of control
-* @param handler Handler for presearch
-* @param form Form context
-*/
+ * Add presearch event to lookup control
+ * @param fieldName Name of control
+ * @param handler Handler for presearch
+ * @param form Form context
+ */
 export function addPreSearch(fieldName: string, handler: Xrm.Events.ContextSensitiveHandler, form: Xrm.FormContext): boolean {
   const field = form.getAttribute<Xrm.Attributes.LookupAttribute>(fieldName.toLowerCase());
 
@@ -232,7 +251,7 @@ export function navigateToForm(form: Xrm.FormContext, label: string): void {
   const current = form.ui.formSelector.getCurrentItem();
 
   if (current.getLabel() !== label) {
-    form.ui.formSelector.items.forEach(f => {
+    form.ui.formSelector.items.forEach((f) => {
       if (f.getLabel() === label) {
         f.navigate();
       }
@@ -247,24 +266,21 @@ export function navigateToForm(form: Xrm.FormContext, label: string): void {
  * @param attributeFilter Logical name of the attribute to filter on
  * @param values Values for the filter
  */
-export function addLookupFilter(form: Xrm.FormContext, lookupAttribute: string, attributeFilter: string, values: string[] | number[] | boolean[]): boolean {
+export function addLookupFilter(
+  form: Xrm.FormContext,
+  lookupAttribute: string,
+  attributeFilter: string,
+  values: string[] | number[] | boolean[]
+): boolean {
   if (values.length === 0) {
     return false;
   }
 
-  const value = values.map(v => `<value>${v}</value>`);
+  const value = values.map((v) => `<value>${v}</value>`);
 
-  const filter = [
-    "<filter>",
-    `<condition attribute='${attributeFilter}' operator='in'>`,
-    value,
-    "</condition>",
-    "</filter>"
-  ].join("");
+  const filter = ['<filter>', `<condition attribute='${attributeFilter}' operator='in'>`, value, '</condition>', '</filter>'].join('');
 
-  form
-    .getAttribute<Xrm.Attributes.LookupAttribute>(lookupAttribute)
-    .controls.forEach(c => c.addCustomFilter(filter));
+  form.getAttribute<Xrm.Attributes.LookupAttribute>(lookupAttribute).controls.forEach((c) => c.addCustomFilter(filter));
 
   return true;
 }
@@ -335,7 +351,13 @@ export function areGuidsEqual(id1: string, id2: string): boolean {
  * @param format Format for exported report
  * @param reportParameter Report pre filter parameter name
  */
-export async function generatePrefilteredReport(rowId: string, reportId: string, table: string, format: ReportFormat, parameterName: string): Promise<string> {
+export async function generatePrefilteredReport(
+  rowId: string,
+  reportId: string,
+  table: string,
+  format: ReportFormat,
+  parameterName: string
+): Promise<string> {
   const config = {
     id: rowId,
     table: table,
@@ -384,8 +406,27 @@ export async function getEnvironmentVariable(variableName: string): Promise<stri
 /**
  * Pause execution for specified period of time
  * @param ms Time to pause in milliseconds
- * @returns 
+ * @returns Promise
  */
- export async function sleep(ms: number): Promise<void> {
-  return new Promise(resolve => setTimeout(resolve, ms));
+export async function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
+ * Set a fields value based on the name of a lookup field
+ * @param fieldToSet Logical name of field to set
+ * @param lookupField Logical name of lookup field
+ * @param form Form context
+ * @returns True or false if value was set
+ */
+export function setValueFromLookupFieldName(fieldToSet: string, lookupField: string, form: Xrm.FormContext): boolean {
+  const lookup = form.getAttribute<Xrm.Attributes.LookupAttribute>(lookupField).getValue();
+
+  if (lookup == null) {
+    return false;
+  }
+
+  form.getAttribute(fieldToSet).setValue(lookup[0].name);
+
+  return true;
 }
