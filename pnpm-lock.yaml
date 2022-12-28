@@ -82,7 +82,7 @@ importers:
 
   packages/dataverse-utils:
     specifiers:
-      '@azure/msal-node': ^1.12.0
+      '@azure/msal-node': ^1.14.5
       '@types/cryptr': ^4.0.1
       '@types/glob': ^7.2.0
       '@types/node': ^16.9.1
@@ -96,7 +96,7 @@ importers:
       kleur: ^4.1.5
       prompts: ^2.4.2
     dependencies:
-      '@azure/msal-node': 1.12.0
+      '@azure/msal-node': 1.14.5
       commander: 8.3.0
       cryptr: 6.0.3
       dataverse-webapi: link:../dataverse-webapi
@@ -130,14 +130,18 @@ importers:
 
   packages/powerapps-project-assembly:
     specifiers:
+      inquirer-recursive: ^0.0.7
       plop: ^2.7.6
     dependencies:
+      inquirer-recursive: 0.0.7
       plop: 2.7.6
 
   packages/powerapps-project-pcf:
     specifiers:
+      inquirer-file-tree-selection-prompt: '1'
       plop: ^2.7.6
     dependencies:
+      inquirer-file-tree-selection-prompt: 1.0.19
       plop: 2.7.6
 
   packages/powerapps-project-webresource:
@@ -156,16 +160,16 @@ packages:
       '@jridgewell/trace-mapping': 0.3.14
     dev: true
 
-  /@azure/msal-common/7.2.0:
-    resolution: {integrity: sha512-+Oz8LKTOACDHqDmv+MZy/z+DZRH8RZbMjhadmvp0scQ0R75OrzZro+HkxifWhtDG8l1ViYkvV9NHb4pEZyajAQ==}
+  /@azure/msal-common/9.0.1:
+    resolution: {integrity: sha512-eNNHIW/cwPTZDWs9KtYgb1X6gtQ+cC+FGX2YN+t4AUVsBdUbqlMTnUs6/c/VBxC2AAGIhgLREuNnO3F66AN2zQ==}
     engines: {node: '>=0.8.0'}
     dev: false
 
-  /@azure/msal-node/1.12.0:
-    resolution: {integrity: sha512-bNJe5xx3YXj7lrj9wUYl7HX4g1Be7s8VHjDhKPzOnlI54JnRKI+nQ95EmFBs3ckUYM9u82HUsHumDcB21YIC9w==}
+  /@azure/msal-node/1.14.5:
+    resolution: {integrity: sha512-NcVdMfn8Z3ogN+9RjOSF7uwf2Gki5DEJl0BdDSL83KUAgVAobtkZi5W8EqxbJLrTO/ET0jv5DregrcR5qg2pEA==}
     engines: {node: 10 || 12 || 14 || 16 || 18}
     dependencies:
-      '@azure/msal-common': 7.2.0
+      '@azure/msal-common': 9.0.1
       jsonwebtoken: 8.5.1
       uuid: 8.3.2
     dev: false
@@ -3025,6 +3029,23 @@ packages:
     resolution: {integrity: sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==}
     dev: false
 
+  /inquirer-file-tree-selection-prompt/1.0.19:
+    resolution: {integrity: sha512-aL01njANm5bJhQtUNBKWurniroUJ9I+rnJ20DBG3xY9gtKBxgpRFSRs0lzjx42iCRJ4J083IZ2SrN4t8ejPlEQ==}
+    dependencies:
+      chalk: 4.1.2
+      cli-cursor: 3.1.0
+      figures: 3.2.0
+      lodash: 4.17.21
+      rxjs: 7.5.7
+    dev: false
+
+  /inquirer-recursive/0.0.7:
+    resolution: {integrity: sha512-z15FD5N3GrzXM7OwEijm/9FbZzUiQUJQxrtUM0mOy3KeKshp3v/FhjspM8E3a9IgG6sYlN619lHpAdupn90ikQ==}
+    dependencies:
+      inquirer: 7.3.3
+      lodash: 4.17.21
+    dev: false
+
   /inquirer/7.3.3:
     resolution: {integrity: sha512-JG3eIAj5V9CwcGvuOmoo6LB9kbAYT8HXffUl6memuszlwDC/qvFAJw49XJ5NROSFNPxp3iQg1GqkFhaY/CR0IA==}
     engines: {node: '>=8.0.0'}
@@ -4976,6 +4997,12 @@ packages:
       tslib: 1.14.1
     dev: false
 
+  /rxjs/7.5.7:
+    resolution: {integrity: sha512-z9MzKh/UcOqB3i20H6rtrlaE/CgjLOvheWK/9ILrbhROGTweAi1BaFsTT9FbwZi5Trr1qNRs+MXkhmR06awzQA==}
+    dependencies:
+      tslib: 2.4.1
+    dev: false
+
   /safe-buffer/5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
     dev: true
@@ -5512,6 +5539,10 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
+
+  /tslib/2.4.1:
+    resolution: {integrity: sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==}
+    dev: false
 
   /tsutils/3.21.0_typescript@4.7.4:
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
