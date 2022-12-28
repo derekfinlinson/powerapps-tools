@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Mon, 24 Oct 2022 19:18:33 GMT and should not be manually modified.
+This log was last generated on Wed, 28 Dec 2022 16:24:55 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.25.0
+
+Wed, 28 Dec 2022 16:24:55 GMT
+
+### Minor changes
+
+- Prompt for publisher prefix to add pac push script (derek.finlinson@journeyteam.com)
 
 ## 0.24.5
 

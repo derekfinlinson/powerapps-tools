@@ -1,8 +1,17 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Fri, 28 Oct 2022 05:20:28 GMT and should not be manually modified.
+This log was last generated on Wed, 28 Dec 2022 16:24:55 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.6.0
+
+Wed, 28 Dec 2022 16:24:55 GMT
+
+### Minor changes
+
+- Support for adding custom API's (derek.finlinson@journeyteam.com)
+- Bump dataverse-webapi to v2.3.0
 
 ## 2.5.3
 

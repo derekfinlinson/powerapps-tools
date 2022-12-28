@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Add function to copy lookup field to text field",
-  "packageName": "powerapps-common",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

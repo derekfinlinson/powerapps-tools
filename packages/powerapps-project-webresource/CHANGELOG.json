@@ -2,6 +2,21 @@
   "name": "powerapps-project-webresource",
   "entries": [
     {
+      "date": "Wed, 28 Dec 2022 16:24:55 GMT",
+      "tag": "powerapps-project-webresource_v1.2.8",
+      "version": "1.2.8",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-webresource",
+            "commit": "5a8fa26aea4b78af763c4aaa52616b420849a2b2",
+            "comment": "Formatting"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 15 Nov 2022 16:28:24 GMT",
       "tag": "powerapps-project-webresource_v1.2.7",
       "version": "1.2.7",

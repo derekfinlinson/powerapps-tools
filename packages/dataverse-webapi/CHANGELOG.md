@@ -1,8 +1,16 @@
 # Change Log - dataverse-webapi
 
-This log was last generated on Fri, 28 Oct 2022 05:20:27 GMT and should not be manually modified.
+This log was last generated on Wed, 28 Dec 2022 16:24:55 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.3.0
+
+Wed, 28 Dec 2022 16:24:55 GMT
+
+### Minor changes
+
+- Add If-None-Match header (derek.finlinson@journeyteam.com)
 
 ## 2.2.1
 

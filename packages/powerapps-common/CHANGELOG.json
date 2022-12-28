@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Wed, 28 Dec 2022 16:24:55 GMT",
+      "tag": "powerapps-common_v1.8.0",
+      "version": "1.8.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-common",
+            "commit": "5a8fa26aea4b78af763c4aaa52616b420849a2b2",
+            "comment": "Add function to copy lookup field to text field"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 08 Nov 2022 23:51:51 GMT",
       "tag": "powerapps-common_v1.7.1",
       "version": "1.7.1",

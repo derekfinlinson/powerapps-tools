@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Prompt for publisher prefix to add pac push script",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

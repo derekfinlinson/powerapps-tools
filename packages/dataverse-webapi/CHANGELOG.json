@@ -2,6 +2,21 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Wed, 28 Dec 2022 16:24:55 GMT",
+      "tag": "dataverse-webapi_v2.3.0",
+      "version": "2.3.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-webapi",
+            "commit": "5a8fa26aea4b78af763c4aaa52616b420849a2b2",
+            "comment": "Add If-None-Match header"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 28 Oct 2022 05:20:27 GMT",
       "tag": "dataverse-webapi_v2.2.1",
       "version": "2.2.1",

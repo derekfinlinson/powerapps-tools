@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 28 Dec 2022 16:24:55 GMT",
+      "tag": "create-powerapps-project_v0.25.0",
+      "version": "0.25.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "5a8fa26aea4b78af763c4aaa52616b420849a2b2",
+            "comment": "Prompt for publisher prefix to add pac push script"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 24 Oct 2022 19:18:33 GMT",
       "tag": "create-powerapps-project_v0.24.5",
       "version": "0.24.5",

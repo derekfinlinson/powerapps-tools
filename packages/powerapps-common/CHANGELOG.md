@@ -1,8 +1,16 @@
 # Change Log - powerapps-common
 
-This log was last generated on Tue, 08 Nov 2022 23:51:51 GMT and should not be manually modified.
+This log was last generated on Wed, 28 Dec 2022 16:24:55 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.8.0
+
+Wed, 28 Dec 2022 16:24:55 GMT
+
+### Minor changes
+
+- Add function to copy lookup field to text field (derek.finlinson@journeyteam.com)
 
 ## 1.7.1
 

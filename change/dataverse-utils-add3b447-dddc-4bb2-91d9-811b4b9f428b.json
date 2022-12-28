@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Support for adding custom API's",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

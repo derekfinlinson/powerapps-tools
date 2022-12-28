@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Wed, 28 Dec 2022 16:24:55 GMT",
+      "tag": "powerapps-project-assembly_v1.3.0",
+      "version": "1.3.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "5a8fa26aea4b78af763c4aaa52616b420849a2b2",
+            "comment": "Support for adding custom API's"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 10 Nov 2022 14:47:51 GMT",
       "tag": "powerapps-project-assembly_v1.2.5",
       "version": "1.2.5",

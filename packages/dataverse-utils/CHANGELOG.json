@@ -2,6 +2,27 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Wed, 28 Dec 2022 16:24:55 GMT",
+      "tag": "dataverse-utils_v2.6.0",
+      "version": "2.6.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "5a8fa26aea4b78af763c4aaa52616b420849a2b2",
+            "comment": "Support for adding custom API's"
+          },
+          {
+            "author": "beachball",
+            "package": "dataverse-utils",
+            "comment": "Bump dataverse-webapi to v2.3.0",
+            "commit": "5a8fa26aea4b78af763c4aaa52616b420849a2b2"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 28 Oct 2022 05:20:28 GMT",
       "tag": "dataverse-utils_v2.5.3",
       "version": "2.5.3",
