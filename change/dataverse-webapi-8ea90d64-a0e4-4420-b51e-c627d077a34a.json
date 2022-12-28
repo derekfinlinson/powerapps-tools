@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Add If-None-Match header",
+  "packageName": "dataverse-webapi",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
