@@ -1,7 +1,9 @@
 import fs from 'fs';
 import path from 'path';
+
 import { deployAssembly } from './models/pluginAssembly';
 import { deployPluginPackage } from './models/pluginPackage';
+import { deployApi } from './models/customApi';
 import { DeployCredentials } from './dataverse.service';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
 import { logger } from './logger';
@@ -17,11 +19,13 @@ export async function assemblyDeploy(creds: DeployCredentials, apiConfig: WebApi
 
   const config = JSON.parse(configFile);
 
-  if (config.prefix) {
+  let assemblyId: string | undefined;
+
+  if (config.assembly) {
     logger.info('deploy plugin package');
 
     try {
-      await deployPluginPackage(config, apiConfig, creds.solution);
+      assemblyId = await deployPluginPackage(config, apiConfig, creds.solution);
     } catch (error: any) {
       logger.error(error.message);
       return;
@@ -32,12 +36,22 @@ export async function assemblyDeploy(creds: DeployCredentials, apiConfig: WebApi
     logger.info('deploy assembly');
 
     try {
-      await deployAssembly(config, apiConfig, creds.solution);
+      assemblyId = await deployAssembly(config, apiConfig, creds.solution);
     } catch (error: any) {
       logger.error(error.message);
       return;
     }
 
     logger.done(`deployed assembly ${config.name}\r\n`);
+  }
+
+  if (config.customapis != null && assemblyId) {
+    try {
+      const promises = config.customapis.map((a) => deployApi(a, assemblyId as string, apiConfig, creds.solution));
+
+      await Promise.all(promises);
+    } catch (error: any) {
+      logger.error(error.message);
+    }
   }
 }
