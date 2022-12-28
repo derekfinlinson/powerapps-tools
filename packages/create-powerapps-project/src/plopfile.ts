@@ -118,7 +118,7 @@ export default (plop: NodePlopAPI): void => {
           const namespace = answer.split('.');
 
           for (const item of namespace) {
-            const title = plop.renderString('{{titleCase name}}', { name: item });
+            const title = plop.renderString('{{pascalCase name}}', { name: item });
 
             if (title !== item) {
               return `enter namespace using PascalCase`;
@@ -269,6 +269,11 @@ export default (plop: NodePlopAPI): void => {
         message: 'name'
       },
       {
+        type: 'input',
+        name: 'prefix',
+        message: 'publisher prefix'
+      },
+      {
         type: 'confirm',
         name: 'react',
         message: 'use react?'
@@ -337,6 +342,13 @@ export default (plop: NodePlopAPI): void => {
           data: {
             scriptKey: 'build:prod',
             scriptValue: 'pcf-scripts build --buildMode production'
+          }
+        },
+        {
+          type: 'addScript',
+          data: {
+            scriptKey: 'push',
+            scriptValue: `pac pcf version --strategy manifest && pac pcf push -pp ${data.prefix}`
           }
         },
         {
