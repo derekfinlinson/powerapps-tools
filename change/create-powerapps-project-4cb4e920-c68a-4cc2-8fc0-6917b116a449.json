@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix gitignore not copying over",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
