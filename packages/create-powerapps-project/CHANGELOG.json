@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Fri, 30 Dec 2022 18:40:18 GMT",
+      "tag": "create-powerapps-project_v0.25.2",
+      "version": "0.25.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "4eda5d805d6a900cc28647b7f6ef0030b0d44433",
+            "comment": "Fix AppContext file type"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 28 Dec 2022 18:55:00 GMT",
       "tag": "create-powerapps-project_v0.25.1",
       "version": "0.25.1",

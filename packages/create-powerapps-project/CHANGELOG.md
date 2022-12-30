@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Wed, 28 Dec 2022 18:55:00 GMT and should not be manually modified.
+This log was last generated on Fri, 30 Dec 2022 18:40:18 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.25.2
+
+Fri, 30 Dec 2022 18:40:18 GMT
+
+### Patches
+
+- Fix AppContext file type (derek.finlinson@journeyteam.com)
 
 ## 0.25.1
 
