@@ -52,7 +52,7 @@ importers:
       '@types/xrm': ^9.0.63
       '@typescript-eslint/eslint-plugin': ^4.29.0
       '@typescript-eslint/parser': ^4.29.0
-      dataverse-webapi: ^2.2.1
+      dataverse-webapi: ^2.3.0
       eslint: ^7.32.0
       eslint-plugin-import: ^2.23.4
       eslint-plugin-node: ^11.1.0
@@ -89,7 +89,7 @@ importers:
       '@types/prompts': ^2.0.14
       commander: ^8.3.0
       cryptr: ^6.0.3
-      dataverse-webapi: ^2.2.1
+      dataverse-webapi: ^2.3.0
       envinfo: ^7.8.1
       figures: ^3.2.0
       glob: ^7.2.0

@@ -307,7 +307,7 @@ export default (plop: NodePlopAPI): void => {
           type: 'addMany',
           templateFiles: [
             '../plop-templates/pcf/App.tsx.hbs',
-            '../plop-templates/pcf/AppContext.ts'
+            '../plop-templates/pcf/AppContext.tsx'
           ],
           base: '../plop-templates/pcf',
           destination: `${process.cwd()}/{{name}}`,
