@@ -11,7 +11,7 @@ export interface TableMetadata {
 }
 
 export interface ColumnMetadata {
-  AttributeType: number;
+  AttributeType: string;
   DisplayName: string;
   EntityLogicalName: string;
   LogicalName: string;
