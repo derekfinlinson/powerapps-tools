@@ -61,10 +61,10 @@ export const useTableMetadata = (utils: ComponentFramework.Utility, tableName: s
         utils.getEntityMetadata(tableName)
       ]);
 
-      const [attributes, optionSets, booleans, states, statuses] = results;
+      const [attributes, optionSets, booleans, states, statuses, table] = results;
 
       setMetadata({
-        table: metadata,
+        table: table,
         columns: <unknown>attributes.value as ColumnMetadata[],
         choices: <unknown>optionSets.value as ChoiceColumnMetadata[],
         booleans: <unknown>booleans.value as BooleanColumnMetadata[],
