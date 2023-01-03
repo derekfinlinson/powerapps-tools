@@ -2,6 +2,21 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Tue, 03 Jan 2023 16:40:10 GMT",
+      "tag": "dataverse-webapi_v2.3.0",
+      "version": "2.3.0",
+      "comments": {
+        "none": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-webapi",
+            "commit": "deb4f692646a53f317c6c25f6641e8f53d382da8",
+            "comment": "Update examples"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 28 Dec 2022 16:24:55 GMT",
       "tag": "dataverse-webapi_v2.3.0",
       "version": "2.3.0",

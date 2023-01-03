@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix table metadata",
-  "packageName": "dataverse-react",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
