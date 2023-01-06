@@ -8,7 +8,7 @@ module.exports = (plop) => {
     `Adding Dataverse assembly file using powerapps-project-assembly v${version}. Please choose type of file to create.`
   );
 
-  plop.stepPrompts('recursive', inquirerRecursive);
+  plop.setPrompt('recursive', inquirerRecursive);
 
   plop.setDefaultInclude({ generators: true });
 
