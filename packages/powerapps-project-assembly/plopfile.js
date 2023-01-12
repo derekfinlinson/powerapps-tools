@@ -395,6 +395,8 @@ module.exports = (plop) => {
 
     answers.stepMode = answers.customApi === true ? 'CustomAPI' : answers.mode === 0 ? 'Synchronous' : 'Asynchronous';
 
+    answers.function = `${answers.message}${answers.operation}${answers.stepMode}`;
+
     return 'prepped';
   });
 
@@ -736,7 +738,7 @@ module.exports = (plop) => {
         path: 'Plugins/{{filename}}.cs',
         pattern: /new RegisteredEvent\(.*\)/,
         template:
-          'new RegisteredEvent(PipelineStage.{{operation}}, SdkMessageProcessingStepMode.{{stepMode}}, "{{pascalCase message}}", "{{entity}}")',
+          'new RegisteredEvent(PipelineStage.{{operation}}, SdkMessageProcessingStepMode.{{stepMode}}, "{{pascalCase message}}", "{{entity}}", {{function}})',
         separator: ',\n\t\t\t\t'
       },
       {

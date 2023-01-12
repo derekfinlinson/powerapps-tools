@@ -13,10 +13,15 @@ namespace {{namespace}}
             // Add Registered Events
             var events = new List<RegisteredEvent>
             {
-                new RegisteredEvent(PipelineStage.{{operation}}, SdkMessageProcessingStepMode.{{stepMode}}, "{{message}}", "{{entity}}")
+                new RegisteredEvent(PipelineStage.{{operation}}, SdkMessageProcessingStepMode.{{stepMode}}, "{{message}}", "{{entity}}", {{function}})
             };
 
             return events;
+        }
+
+        public void {{function}}(IExtendedPluginContext context)
+        {
+            
         }
 
         public override void ExecutePlugin(IExtendedPluginContext context)
