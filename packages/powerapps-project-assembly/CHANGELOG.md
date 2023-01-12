@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Fri, 06 Jan 2023 15:53:25 GMT and should not be manually modified.
+This log was last generated on Thu, 12 Jan 2023 20:45:56 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.4.0
+
+Thu, 12 Jan 2023 20:45:56 GMT
+
+### Minor changes
+
+- Include action names in plugin steps (derek.finlinson@journeyteam.com)
 
 ## 1.3.1
 
