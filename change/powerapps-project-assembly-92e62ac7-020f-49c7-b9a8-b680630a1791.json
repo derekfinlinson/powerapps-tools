@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Include action names in plugin steps",
+  "packageName": "powerapps-project-assembly",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
