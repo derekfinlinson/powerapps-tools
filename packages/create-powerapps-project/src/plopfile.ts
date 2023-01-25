@@ -148,6 +148,8 @@ export default (plop: NodePlopAPI): void => {
       ...sharedQuestions,
     ],
     actions: (data: any) => {
+      data.org = new URL(data.server).hostname.split('.')[0];
+      
       return [
         async (answers: any) => {
           const xrmVersions = await getNugetPackageVersions('JourneyTeam.Xrm');
