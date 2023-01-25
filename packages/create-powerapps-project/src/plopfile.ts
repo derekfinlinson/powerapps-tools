@@ -210,7 +210,7 @@ export default (plop: NodePlopAPI): void => {
             '../plop-templates/assembly/package.json.hbs',
             '../plop-templates/assembly/plopfile.js',
             '../plop-templates/assembly/.gitignore',
-            '../plop-templates/assembly/Entities/EarlyBoundGenerator.xml',
+            '../plop-templates/assembly/builderSettings.json',
             '../plop-templates/assembly/.vscode/tasks.json.hbs',
             '../plop-templates/assembly/.editorconfig'
           ],
