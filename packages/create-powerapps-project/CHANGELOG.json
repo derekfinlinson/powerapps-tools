@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 25 Jan 2023 17:02:21 GMT",
+      "tag": "create-powerapps-project_v0.26.0",
+      "version": "0.26.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "eddadbaa29d84331e26ed3c84f202e6202b4f397",
+            "comment": "pac modelbuilder support"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 30 Dec 2022 18:40:18 GMT",
       "tag": "create-powerapps-project_v0.25.2",
       "version": "0.25.2",

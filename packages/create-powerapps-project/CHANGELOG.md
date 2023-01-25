@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Fri, 30 Dec 2022 18:40:18 GMT and should not be manually modified.
+This log was last generated on Wed, 25 Jan 2023 17:02:21 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.26.0
+
+Wed, 25 Jan 2023 17:02:21 GMT
+
+### Minor changes
+
+- pac modelbuilder support (derek.finlinson@journeyteam.com)
 
 ## 0.25.2
 
