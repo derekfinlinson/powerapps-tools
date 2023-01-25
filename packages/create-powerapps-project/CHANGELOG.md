@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Wed, 25 Jan 2023 17:02:21 GMT and should not be manually modified.
+This log was last generated on Wed, 25 Jan 2023 17:49:01 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.27.0
+
+Wed, 25 Jan 2023 17:49:01 GMT
+
+### Minor changes
+
+- Add additional pac scripts (derek.finlinson@journeyteam.com)
 
 ## 0.26.0
 

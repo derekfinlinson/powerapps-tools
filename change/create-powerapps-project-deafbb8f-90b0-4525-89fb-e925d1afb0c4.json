@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Add additional pac scripts",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 25 Jan 2023 17:49:01 GMT",
+      "tag": "create-powerapps-project_v0.27.0",
+      "version": "0.27.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "0527b00c5bfbdc743eeb1d95028a2a38178429a7",
+            "comment": "Add additional pac scripts"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 25 Jan 2023 17:02:21 GMT",
       "tag": "create-powerapps-project_v0.26.0",
       "version": "0.26.0",
