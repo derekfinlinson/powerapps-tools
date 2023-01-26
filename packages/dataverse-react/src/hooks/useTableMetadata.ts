@@ -45,8 +45,8 @@ export interface ChoiceColumnMetadata extends ColumnMetadata {
   };
 }
 
-export const useTableMetadata = (utils: ComponentFramework.Utility, tableName: string): TableMetadata => {
-  const [metadata, setMetadata] = React.useState<TableMetadata>({ table: {}, columns: [], choices: [], booleans: [], statuses: [], states: [] });
+export const useTableMetadata = (utils: ComponentFramework.Utility, tableName: string): TableMetadata | undefined => {
+  const [metadata, setMetadata] = React.useState<TableMetadata>();
 
   const config = new WebApiConfig('9.1');
 
