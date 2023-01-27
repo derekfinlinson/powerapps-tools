@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Fri, 27 Jan 2023 17:27:45 GMT",
+      "tag": "create-powerapps-project_v0.27.1",
+      "version": "0.27.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "e1106f5acf2c35f32ae592285aa647f73f216388",
+            "comment": "Fix App template"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 25 Jan 2023 17:49:01 GMT",
       "tag": "create-powerapps-project_v0.27.0",
       "version": "0.27.0",
