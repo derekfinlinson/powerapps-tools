@@ -8,7 +8,9 @@ const version = require('../package').version;
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default (plop: NodePlopAPI): void => {
-  plop.setWelcomeMessage(`Creating new Dataverse project using create-powerapps-project v${version}. Please choose type of project to create.`);
+  plop.setWelcomeMessage(
+    `Creating new Dataverse project using create-powerapps-project v${version}. Please choose type of project to create.`
+  );
 
   plop.load('./plopActions');
 
@@ -145,11 +147,11 @@ export default (plop: NodePlopAPI): void => {
         ]
       },
       packageQuestion,
-      ...sharedQuestions,
+      ...sharedQuestions
     ],
     actions: (data: any) => {
       data.org = new URL(data.server).hostname.split('.')[0];
-      
+
       return [
         async (answers: any) => {
           const xrmVersions = await getNugetPackageVersions('JourneyTeam.Xrm');
@@ -237,10 +239,7 @@ export default (plop: NodePlopAPI): void => {
           type: 'npmInstall',
           data: {
             packages: {
-              devDependencies: [
-                'powerapps-project-assembly',
-                'dataverse-utils'
-              ]
+              devDependencies: ['powerapps-project-assembly', 'dataverse-utils']
             }
           }
         }
@@ -307,10 +306,7 @@ export default (plop: NodePlopAPI): void => {
         },
         {
           type: 'addMany',
-          templateFiles: [
-            '../plop-templates/pcf/App.tsx.hbs',
-            '../plop-templates/pcf/AppContext.tsx'
-          ],
+          templateFiles: ['../plop-templates/pcf/App.tsx.hbs', '../plop-templates/pcf/AppContext.tsx'],
           base: '../plop-templates/pcf',
           destination: `${process.cwd()}/{{name}}`,
           skip: (answers) => {
@@ -361,9 +357,13 @@ export default (plop: NodePlopAPI): void => {
           }
         },
         async (answers: any) => {
-          await fs.promises.rm(path.resolve(process.cwd(), answers.name, 'HelloWorld.tsx'));
+          if (answers.react) {
+            await fs.promises.rm(path.resolve(process.cwd(), answers.name, 'HelloWorld.tsx'));
 
-          return 'removed HelloWorld component';
+            return 'removed HelloWorld component';
+          }
+
+          return 'react not included';
         },
         {
           type: 'npmInstall'
@@ -372,9 +372,7 @@ export default (plop: NodePlopAPI): void => {
           type: 'npmInstall',
           data: {
             packages: {
-              devDependencies: [
-                'powerapps-project-pcf'
-              ]
+              devDependencies: ['powerapps-project-pcf']
             }
           }
         }
@@ -445,16 +443,11 @@ export default (plop: NodePlopAPI): void => {
                 '@microsoft/eslint-plugin-power-apps',
                 '-D'
               ],
-              dependencies: [
-                'core-js',
-                'regenerator-runtime',
-                'powerapps-common',
-                'dataverse-webapi'
-              ]
+              dependencies: ['core-js', 'regenerator-runtime', 'powerapps-common', 'dataverse-webapi']
             }
           }
         }
       ];
     }
   });
-}
+};
