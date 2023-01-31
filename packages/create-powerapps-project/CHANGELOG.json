@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 31 Jan 2023 21:59:28 GMT",
+      "tag": "create-powerapps-project_v0.27.2",
+      "version": "0.27.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "fdd2176f0ab7c1c36a3976d46e19cb2184143c12",
+            "comment": "Skip removing HelloWorld if not react"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 27 Jan 2023 17:27:45 GMT",
       "tag": "create-powerapps-project_v0.27.1",
       "version": "0.27.1",

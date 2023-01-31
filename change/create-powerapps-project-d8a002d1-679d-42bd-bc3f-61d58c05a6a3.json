@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Skip removing HelloWorld if not react",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
