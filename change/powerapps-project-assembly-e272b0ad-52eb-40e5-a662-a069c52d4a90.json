@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Add entity to builderSettings",
+  "packageName": "powerapps-project-assembly",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
