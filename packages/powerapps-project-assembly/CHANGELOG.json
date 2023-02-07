@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Tue, 07 Feb 2023 17:05:48 GMT",
+      "tag": "powerapps-project-assembly_v1.5.0",
+      "version": "1.5.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "6d59159316a1589e37d68d96ecb3c01c64ed2db2",
+            "comment": "Add entity to builderSettings"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 12 Jan 2023 20:45:56 GMT",
       "tag": "powerapps-project-assembly_v1.4.0",
       "version": "1.4.0",
