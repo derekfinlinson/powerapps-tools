@@ -403,6 +403,23 @@ module.exports = (plop) => {
   plop.setActionType('addToConfig', (answers, _config, plop) => {
     const destinationPath = plop.getDestBasePath();
     const configPath = path.resolve(destinationPath, 'dataverse.config.json');
+    const builderPath = path.resolve(destinationPath, 'builderSettings.json');
+
+    // Check if builderSettings.json exists
+    if (fs.existsSync(builderPath)) {
+      const file = JSON.parse(fs.readFileSync(builderPath, 'utf8'));
+
+      if (file.entityNamesFilter) {
+        const index = file.entityNamesFilter.findIndex(e => e === answers.entity);
+
+        if (index === -1) {
+          file.entityNamesFilter.push(answers.entity);
+        }
+      }
+
+      // Update builderSettings.json
+      fs.writeFileSync(builderPath, JSON.stringify(file, null, 4), 'utf8');
+    }
 
     // Check if dataverse.config.json exists
     if (fs.existsSync(configPath)) {
