@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Mon, 13 Feb 2023 22:31:59 GMT",
+      "tag": "create-powerapps-project_v0.28.0",
+      "version": "0.28.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "93f5675ae0090e11eb9abf121daf71642bf4a239",
+            "comment": "Add react typings"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 31 Jan 2023 21:59:28 GMT",
       "tag": "create-powerapps-project_v0.27.2",
       "version": "0.27.2",

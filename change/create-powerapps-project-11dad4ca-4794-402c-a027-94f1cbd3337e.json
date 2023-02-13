@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Add react typings",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
