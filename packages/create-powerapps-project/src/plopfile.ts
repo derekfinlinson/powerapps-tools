@@ -372,7 +372,7 @@ export default (plop: NodePlopAPI): void => {
           type: 'npmInstall',
           data: {
             packages: {
-              devDependencies: ['powerapps-project-pcf']
+              devDependencies: ['powerapps-project-pcf', '@types/react@16', '@types/react-dom@16']
             }
           }
         }
