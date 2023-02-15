@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Wed, 15 Feb 2023 20:45:23 GMT and should not be manually modified.
+This log was last generated on Wed, 15 Feb 2023 23:18:27 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.6.2
+
+Wed, 15 Feb 2023 23:18:27 GMT
+
+### Patches
+
+- Added custom api log messages (derek.finlinson@journeyteam.com)
 
 ## 2.6.1
 

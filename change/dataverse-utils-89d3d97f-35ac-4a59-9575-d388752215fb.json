@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Added custom api log messages",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
