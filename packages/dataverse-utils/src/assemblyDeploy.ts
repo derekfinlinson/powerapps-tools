@@ -42,10 +42,12 @@ export async function assemblyDeploy(creds: DeployCredentials, apiConfig: WebApi
       return;
     }
 
-    logger.done(`deployed assembly ${config.name}\r\n`);
+    logger.done(`deployed assembly ${config.name}`);
   }
 
   if (config.customapis != null && assemblyId) {
+    logger.info('deploy custom api');
+
     try {
       const promises = config.customapis.map((a) => deployApi(a, assemblyId as string, apiConfig, creds.solution));
 
@@ -53,5 +55,7 @@ export async function assemblyDeploy(creds: DeployCredentials, apiConfig: WebApi
     } catch (error: any) {
       logger.error(error.message);
     }
+
+    logger.done('deployed custom api');
   }
 }
