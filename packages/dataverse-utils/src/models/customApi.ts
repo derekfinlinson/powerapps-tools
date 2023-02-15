@@ -89,7 +89,7 @@ async function createApi(api: CustomApi, apiConfig: WebApiConfig, solution?: str
     options.customHeaders = { 'MSCRM.SolutionUniqueName': solution };
   }
 
-  const result: any = await createWithReturnData(apiConfig, 'plugintypes', api, '$select=plugintypeid', options);
+  const result: any = await createWithReturnData(apiConfig, 'customapis', api, '$select=plugintypeid', options);
 
   if (result.error) {
     throw new Error(result.error.message);
