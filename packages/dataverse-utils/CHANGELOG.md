@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Wed, 28 Dec 2022 16:24:55 GMT and should not be manually modified.
+This log was last generated on Wed, 15 Feb 2023 20:45:23 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.6.1
+
+Wed, 15 Feb 2023 20:45:23 GMT
+
+### Patches
+
+- Fix select on custom api create (derek.finlinson@journeyteam.com)
 
 ## 2.6.0
 

@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix select on custom api create",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
