@@ -2,9 +2,9 @@
 
 | Build |
 | ----- |
-| [![Build Status](https://dev.azure.com/derekfinlinson/powerapps-tools/_apis/build/status/derekfinlinson.powerapps-tools?branchName=master)](https://dev.azure.com/derekfinlinson/powerapps-tools/_build/latest?definitionId=10&branchName=master) |
+| ![Build Status](https://github.com/derekfinlinson/powerapps-tools/actions/workflows/ci.yml/badge.svg) |
 
-Monorepo containing packages for Dataverse development projects
+Monorepo containing packages for Microsoft Dataverse development projects
 
 # Packages
 
