@@ -37,9 +37,9 @@ module.exports = (plop) => {
       let types;
 
       if (file.assembly) {
-        types = file.assembly.types.map((t) => t.name.substring(t.name.lastIndexOf('.') + 1));
+        types = file.assembly.types.map((t) => t.name);
       } else {
-        types = file.types.map((t) => t.name.substring(t.name.lastIndexOf('.') + 1));
+        types = file.types.map((t) => t.name);
       }
 
       return types;
