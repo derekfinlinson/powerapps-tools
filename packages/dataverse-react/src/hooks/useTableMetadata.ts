@@ -19,6 +19,7 @@ export interface ColumnMetadata {
   MinValue?: number;
   MaxLength?: number;
   IsValidForUpdate: boolean;
+  Precision?: number;
 }
 
 export interface BooleanColumnMetadata extends ColumnMetadata {
