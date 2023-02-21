@@ -2,6 +2,21 @@
   "name": "dataverse-react",
   "entries": [
     {
+      "date": "Tue, 21 Feb 2023 04:03:17 GMT",
+      "tag": "dataverse-react_v0.1.0",
+      "version": "0.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-react",
+            "commit": "3adebd60c5a90b5720d613ca4a8d01ae185aa7e1",
+            "comment": "Add precision"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 26 Jan 2023 16:45:06 GMT",
       "tag": "dataverse-react_v0.0.7",
       "version": "0.0.7",
