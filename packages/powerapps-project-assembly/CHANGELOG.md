@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Wed, 15 Feb 2023 19:39:33 GMT and should not be manually modified.
+This log was last generated on Wed, 22 Feb 2023 22:28:36 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.5.2
+
+Wed, 22 Feb 2023 22:28:36 GMT
+
+### Patches
+
+- Revert full type and add namespace to api plugintype (derek.finlinson@journeyteam.com)
 
 ## 1.5.1
 
