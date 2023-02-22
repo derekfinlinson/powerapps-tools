@@ -37,9 +37,9 @@ module.exports = (plop) => {
       let types;
 
       if (file.assembly) {
-        types = file.assembly.types.map((t) => t.name);
+        types = file.assembly.types.map((t) => t.name.substring(t.name.lastIndexOf('.') + 1));
       } else {
-        types = file.types.map((t) => t.name);
+        types = file.types.map((t) => t.name.substring(t.name.lastIndexOf('.') + 1));
       }
 
       return types;
@@ -574,6 +574,8 @@ module.exports = (plop) => {
         file.customapis = [];
       }
 
+      const namespace = getNamespace();
+
       // Add step to existing config
       const api = {
         uniquename: answers.uniquename,
@@ -587,7 +589,7 @@ module.exports = (plop) => {
         workflowsdkstepenabled: answers.workflowstepenabled,
         allowedcustomprocessingsteptype: answers.allowedcustomprocessingsteptype,
         executeprivilegename: answers.executeprivilegename,
-        plugintype: answers.plugintype,
+        plugintype: `${namespace}.${answers.plugintype}`,
         CustomAPIRequestParameters: answers.CustomAPIRequestParameters ?? [],
         CustomAPIResponseProperties: answers.CustomAPIResponseProperties ?? []
       };
