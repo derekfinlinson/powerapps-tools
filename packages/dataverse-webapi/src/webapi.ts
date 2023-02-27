@@ -11,6 +11,20 @@ import {
 
 type RequestCallback = (config: WebApiRequestConfig, callback: (result: WebApiRequestResult) => void) => void;
 
+function parseGuid(id: string): string {
+  if (id === null || id === 'undefined' || id === '') {
+    return '';
+  }
+
+  id = id.replace(/[{}]/g, '');
+
+  if (/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(id)) {
+    return id.toUpperCase();
+  } else {
+    throw Error(`Id ${id} is not a valid GUID`);
+  }
+}
+
 export function getHeaders(config: WebApiRequestConfig): Record<string, string> {
   let headers: Record<string, string> = {};
 
@@ -110,6 +124,8 @@ export function retrieve(
     queryString = `?${queryString}`;
   }
 
+  id = parseGuid(id);
+
   const query: string = queryString != null ? `${entitySet}(${id})${queryString}` : `${entitySet}(${id})`;
 
   const config = {
@@ -145,6 +161,8 @@ export function retrieveProperty(
   submitRequest: RequestCallback,
   property: string
 ): Promise<Entity> {
+  id = parseGuid(id);
+
   const query = `${entitySet}(${id})/${property}`;
 
   const config = {
@@ -184,6 +202,8 @@ export function retrieveNavigationProperties(
   queryString?: string,
   queryOptions?: QueryOptions
 ): Promise<Entity> {
+  id = parseGuid(id);
+
   if (queryString != null && !/^[?]/.test(queryString)) {
     queryString = `?${queryString}`;
   }
@@ -378,6 +398,8 @@ export function update(
   submitRequest: RequestCallback,
   queryOptions?: QueryOptions
 ): Promise<void> {
+  id = parseGuid(id);
+
   const config = {
     method: 'PATCH',
     contentType: 'application/json; charset=utf-8',
@@ -416,6 +438,8 @@ export function updateWithReturnData(
   submitRequest: RequestCallback,
   queryOptions?: QueryOptions
 ): Promise<Entity> {
+  id = parseGuid(id);
+
   if (select != null && !/^[?]/.test(select)) {
     select = `?${select}`;
   }
@@ -464,6 +488,8 @@ export function updateProperty(
   submitRequest: RequestCallback,
   queryOptions?: QueryOptions
 ): Promise<void> {
+  id = parseGuid(id);
+
   const config = {
     method: 'PUT',
     contentType: 'application/json; charset=utf-8',
@@ -491,6 +517,8 @@ export function updateProperty(
  * @param id Id of record to delete
  */
 export function deleteRecord(apiConfig: WebApiConfig, entitySet: string, id: string, submitRequest: RequestCallback): Promise<void> {
+  id = parseGuid(id);
+
   const config = {
     method: 'DELETE',
     contentType: 'application/json; charset=utf-8',
@@ -523,6 +551,8 @@ export function deleteProperty(
   attribute: string,
   submitRequest: RequestCallback
 ): Promise<void> {
+  id = parseGuid(id);
+
   const queryString = `/${attribute}`;
 
   const config = {
@@ -563,6 +593,8 @@ export function associate(
   submitRequest: RequestCallback,
   queryOptions?: QueryOptions
 ): Promise<void> {
+  id = parseGuid(id);
+
   const related = {
     '@odata.id': `${apiConfig.url}/${relatedEntitySet}(${relatedEntityId})`
   };
@@ -603,6 +635,8 @@ export function disassociate(
   submitRequest: RequestCallback,
   relatedEntityId?: string
 ): Promise<void> {
+  id = parseGuid(id);
+
   let queryString: string = property;
 
   if (relatedEntityId != null) {
@@ -647,6 +681,8 @@ export function boundAction(
   inputs?: Record<string, unknown>,
   queryOptions?: QueryOptions
 ): Promise<unknown> {
+  id = parseGuid(id);
+
   const config: WebApiRequestConfig = {
     method: 'POST',
     contentType: 'application/json; charset=utf-8',
@@ -733,6 +769,8 @@ export function boundFunction(
   inputs?: FunctionInput[],
   queryOptions?: QueryOptions
 ): Promise<unknown> {
+  id = parseGuid(id);
+  
   let queryString = `${entitySet}(${id})/Microsoft.Dynamics.CRM.${functionName}(`;
 
   queryString = getFunctionInputs(queryString, inputs);
