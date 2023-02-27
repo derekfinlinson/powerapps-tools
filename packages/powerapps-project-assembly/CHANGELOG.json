@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Wed, 22 Feb 2023 22:28:36 GMT",
+      "tag": "powerapps-project-assembly_v1.5.2",
+      "version": "1.5.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "5f4535b4e5f23f2e62fd3930e9023489acb632e7",
+            "comment": "Revert full type and add namespace to api plugintype"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 15 Feb 2023 19:39:33 GMT",
       "tag": "powerapps-project-assembly_v1.5.1",
       "version": "1.5.1",
