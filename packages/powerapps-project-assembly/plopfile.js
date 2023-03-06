@@ -406,7 +406,7 @@ module.exports = (plop) => {
     const builderPath = path.resolve(destinationPath, 'builderSettings.json');
 
     // Check if builderSettings.json exists
-    if (fs.existsSync(builderPath)) {
+    if (fs.existsSync(builderPath) && answers.entity) {
       const file = JSON.parse(fs.readFileSync(builderPath, 'utf8'));
 
       if (file.entityNamesFilter) {
