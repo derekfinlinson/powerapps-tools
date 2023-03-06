@@ -32,5 +32,8 @@
   },
   "dependencies": {
     "@types/xrm": "^9.0.33"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }

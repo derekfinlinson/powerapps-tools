@@ -15,5 +15,8 @@
   "dependencies": {
     "inquirer-file-tree-selection-prompt": "1",
     "plop": "^2.7.6"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }

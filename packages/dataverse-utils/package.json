@@ -35,5 +35,8 @@
     "@types/glob": "^7.2.0",
     "@types/node": "^16.9.1",
     "@types/prompts": "^2.0.14"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }
