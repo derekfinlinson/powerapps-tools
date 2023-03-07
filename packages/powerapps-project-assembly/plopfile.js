@@ -372,7 +372,7 @@ module.exports = (plop) => {
       type: 'input',
       name: 'logicalentityname',
       message: 'entity logical name',
-      when: (answers) => answers.type === 3
+      when: (answers) => answers.type === 3 || answers.type === 4
     }
   ];
 
