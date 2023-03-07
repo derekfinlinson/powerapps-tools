@@ -213,11 +213,11 @@ export default (plop: NodePlopAPI): void => {
           templateFiles: [
             '../plop-templates/assembly/package.json.hbs',
             '../plop-templates/assembly/plopfile.js',
-            '../plop-templates/assembly/{{fake}}.gitignore.hbs',
-            '../plop-templates/assembly/{{fake}}.gitattributes.hbs',
+            '../plop-templates/assembly/.gitignore',
+            '../plop-templates/assembly/.gitattributes',
             '../plop-templates/assembly/builderSettings.json',
             '../plop-templates/assembly/.vscode/tasks.json.hbs',
-            '../plop-templates/assembly/{{fake}}.editorconfig.hbs'
+            '../plop-templates/assembly/.editorconfig'
           ],
           base: '../plop-templates/assembly',
           destination: process.cwd(),
@@ -310,7 +310,7 @@ export default (plop: NodePlopAPI): void => {
           templateFiles: [
             '../plop-templates/pcf/App.tsx.hbs',
             '../plop-templates/pcf/AppContext.tsx',
-            '../plop-templates/webresource/{{fake}}.gitattributes.hbs'
+            '../plop-templates/webresource/.gitattributes'
           ],
           base: '../plop-templates/pcf',
           destination: `${process.cwd()}/{{name}}`,
@@ -409,10 +409,10 @@ export default (plop: NodePlopAPI): void => {
           templateFiles: [
             '../plop-templates/webresource/*',
             '../plop-templates/webresource/.*',
-            '../plop-templates/webresource/{{fake}}.gitignore.hbs',
-            '../plop-templates/webresource/{{fake}}.gitattributes.hbs',
-            '../plop-templates/webresource/{{fake}}.eslintignore.hbs',
-            '../plop-templates/webresource/{{fake}}.prettierignore.hbs'
+            '../plop-templates/webresource/.gitignore',
+            '../plop-templates/webresource/.gitattributes',
+            '../plop-templates/webresource/.eslintignore',
+            '../plop-templates/webresource/.prettierignore'
           ],
           base: '../plop-templates/webresource',
           destination: process.cwd(),
