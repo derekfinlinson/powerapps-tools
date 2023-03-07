@@ -1,0 +1,7 @@
+{
+  "type": "major",
+  "comment": "Switch to ESM",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
