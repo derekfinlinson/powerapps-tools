@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Tue, 07 Mar 2023 14:48:23 GMT",
+      "tag": "powerapps-project-assembly_v1.5.4",
+      "version": "1.5.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "e7b561f082d4347011817a86d8ce457de8bcfb61",
+            "comment": "Add EntityCollection to condition"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 06 Mar 2023 17:32:35 GMT",
       "tag": "powerapps-project-assembly_v1.5.3",
       "version": "1.5.3",

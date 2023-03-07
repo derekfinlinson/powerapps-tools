@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Add EntityCollection to condition",
-  "packageName": "powerapps-project-assembly",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
