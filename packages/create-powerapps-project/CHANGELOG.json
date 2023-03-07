@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 07 Mar 2023 14:40:14 GMT",
+      "tag": "create-powerapps-project_v0.28.1",
+      "version": "0.28.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "e5438bdf43a6a01061a4bad0d2a155bee3b474c9",
+            "comment": "Fix copying dot files"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 13 Feb 2023 22:31:59 GMT",
       "tag": "create-powerapps-project_v0.28.0",
       "version": "0.28.0",
