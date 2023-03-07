@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Mon, 13 Feb 2023 22:31:59 GMT and should not be manually modified.
+This log was last generated on Tue, 07 Mar 2023 14:40:14 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.28.1
+
+Tue, 07 Mar 2023 14:40:14 GMT
+
+### Patches
+
+- Fix copying dot files (derek.finlinson@journeyteam.com)
 
 ## 0.28.0
 
