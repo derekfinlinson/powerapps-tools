@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Mon, 06 Mar 2023 17:32:35 GMT and should not be manually modified.
+This log was last generated on Tue, 07 Mar 2023 14:48:23 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.5.4
+
+Tue, 07 Mar 2023 14:48:23 GMT
+
+### Patches
+
+- Add EntityCollection to condition (derek.finlinson@journeyteam.com)
 
 ## 1.5.3
 
