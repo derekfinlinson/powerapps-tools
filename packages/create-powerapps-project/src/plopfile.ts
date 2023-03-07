@@ -213,10 +213,11 @@ export default (plop: NodePlopAPI): void => {
           templateFiles: [
             '../plop-templates/assembly/package.json.hbs',
             '../plop-templates/assembly/plopfile.js',
-            '../plop-templates/assembly/.gitignore',
+            '../plop-templates/assembly/{{fake}}.gitignore.hbs',
+            '../plop-templates/assembly/{{fake}}.gitattributes.hbs',
             '../plop-templates/assembly/builderSettings.json',
             '../plop-templates/assembly/.vscode/tasks.json.hbs',
-            '../plop-templates/assembly/.editorconfig'
+            '../plop-templates/assembly/{{fake}}.editorconfig.hbs'
           ],
           base: '../plop-templates/assembly',
           destination: process.cwd(),
@@ -306,7 +307,11 @@ export default (plop: NodePlopAPI): void => {
         },
         {
           type: 'addMany',
-          templateFiles: ['../plop-templates/pcf/App.tsx.hbs', '../plop-templates/pcf/AppContext.tsx'],
+          templateFiles: [
+            '../plop-templates/pcf/App.tsx.hbs',
+            '../plop-templates/pcf/AppContext.tsx',
+            '../plop-templates/webresource/{{fake}}.gitattributes.hbs'
+          ],
           base: '../plop-templates/pcf',
           destination: `${process.cwd()}/{{name}}`,
           skip: (answers) => {
@@ -401,7 +406,14 @@ export default (plop: NodePlopAPI): void => {
       return [
         {
           type: 'addMany',
-          templateFiles: ['../plop-templates/webresource/*', '../plop-templates/webresource/.*', '.gitignore'],
+          templateFiles: [
+            '../plop-templates/webresource/*',
+            '../plop-templates/webresource/.*',
+            '../plop-templates/webresource/{{fake}}.gitignore.hbs',
+            '../plop-templates/webresource/{{fake}}.gitattributes.hbs',
+            '../plop-templates/webresource/{{fake}}.eslintignore.hbs',
+            '../plop-templates/webresource/{{fake}}.prettierignore.hbs'
+          ],
           base: '../plop-templates/webresource',
           destination: process.cwd(),
           force: true
