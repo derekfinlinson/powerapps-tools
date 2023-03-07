@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Tue, 07 Mar 2023 15:04:47 GMT and should not be manually modified.
+This log was last generated on Tue, 07 Mar 2023 23:46:07 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.0.0
+
+Tue, 07 Mar 2023 23:46:07 GMT
+
+### Major changes
+
+- Switch to ESM (derek.finlinson@journeyteam.com)
 
 ## 0.28.2
 

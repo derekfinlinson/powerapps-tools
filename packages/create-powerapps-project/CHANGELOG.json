@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 07 Mar 2023 23:46:07 GMT",
+      "tag": "create-powerapps-project_v1.0.0",
+      "version": "1.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "b47ac7b499d3aef65d1c73cb8a22a5b3f50b5538",
+            "comment": "Switch to ESM"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 07 Mar 2023 15:04:47 GMT",
       "tag": "create-powerapps-project_v0.28.2",
       "version": "0.28.2",
