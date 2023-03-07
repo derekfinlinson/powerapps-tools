@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { spawnSync } from 'child_process';
+import { spawnSync } from 'node:child_process';
 
 export const install = async (packageManager: string, packages?: { dependencies?: string[], devDependencies?: string[] }): Promise<void> => {
   if (process.env.JEST_WORKER_ID != undefined) {

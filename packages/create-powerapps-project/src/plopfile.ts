@@ -1,18 +1,13 @@
-import path from 'path';
-import fs from 'fs';
+import path from 'node:path';
+import fs from 'node:fs';
 import { NodePlopAPI } from 'plop';
-import { getNugetPackageVersions } from './nuget';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const version = require('../package').version;
+import { getNugetPackageVersions } from './nuget.js';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default (plop: NodePlopAPI): void => {
-  plop.setWelcomeMessage(
-    `Creating new Dataverse project using create-powerapps-project v${version}. Please choose type of project to create.`
-  );
+export default async (plop: NodePlopAPI): Promise<void> => {
+  plop.setWelcomeMessage('Creating new Dataverse project using create-powerapps-project. Please choose type of project to create.');
 
-  plop.load('./plopActions');
+  await plop.load('./plopActions');
 
   const packageQuestion = {
     type: 'list',

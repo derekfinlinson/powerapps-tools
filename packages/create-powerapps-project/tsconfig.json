@@ -4,7 +4,9 @@
     "outDir": "./lib",
     "noImplicitAny": false,
     "declaration": false,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "module": "NodeNext",
+    "moduleResolution": "nodenext"
   },
   "include": [
     "src/index.ts",

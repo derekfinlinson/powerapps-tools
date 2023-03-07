@@ -1,5 +1,5 @@
-import https from 'https';
-import { spawnSync } from 'child_process';
+import https from 'node:https';
+import { spawnSync } from 'node:child_process';
 
 export const getNugetPackageVersions = (name: string): Promise<string[]> => {
   return new Promise((resolve, reject) => {

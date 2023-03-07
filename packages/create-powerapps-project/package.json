@@ -3,7 +3,10 @@
   "description": "💧 plop generator for Dataverse development",
   "version": "0.28.2",
   "license": "MIT",
-  "main": "lib/index.js",
+  "exports": "./lib/index.js",
+  "engines": {
+    "node": ">=14.16"
+  },
   "bin": {
     "create-powerapps-project": "lib/index.js"
   },
@@ -21,8 +24,9 @@
     "lint": "eslint",
     "clean": "rimraf lib"
   },
+  "type": "module",
   "dependencies": {
-    "plop": "^2.7.6",
+    "plop": "^3.1.2",
     "minimist": "^1.2.6"
   },
   "devDependencies": {

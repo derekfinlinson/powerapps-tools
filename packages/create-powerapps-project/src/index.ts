@@ -1,24 +1,20 @@
 #!/usr/bin/env node
-import path from 'node:path';
 import { Plop, run } from 'plop';
-import minimist from 'minimist';
+import path, { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const packageJson = require('../package.json');
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const argv = minimist(process.argv.slice(2));
-
-if (argv.version || argv.v) {
-  console.log(`${packageJson.version}`);
-} else {
-  Plop.launch({
+Plop.prepare(
+  {
     cwd: process.cwd(),
     configPath: path.join(__dirname, 'plopfile.js')
-  }, env => {
+  },
+  (env) => {
     const options = {
       ...env,
       dest: process.cwd()
     };
-    return run(options, undefined, true)
-  });
-}
+    return run(options, undefined, true);
+  }
+);

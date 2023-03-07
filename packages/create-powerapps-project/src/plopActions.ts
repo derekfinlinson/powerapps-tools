@@ -1,9 +1,12 @@
-import path from 'path';
-import { spawnSync, spawn } from 'child_process';
-import fs from 'fs';
-import * as nuget from './nuget';
-import * as pkg from './packageManager';
+import path, { dirname } from 'node:path';
+import { spawnSync, spawn } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import fs from 'node:fs';
+import * as nuget from './nuget.js';
+import * as pkg from './packageManager.js';
 import { NodePlopAPI } from 'plop';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const didSucceed = (code: number | null) => `${code}` === '0';
 
@@ -22,8 +25,7 @@ export default (plop: NodePlopAPI): void => {
   plop.setActionType('addScript', async (answers: any) => {
     const packagePath = path.resolve(process.cwd(), 'package.json');
 
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const packageJson = require(packagePath);
+    const packageJson = JSON.parse(fs.readFileSync(packagePath, 'utf-8'));
 
     packageJson.scripts[answers.scriptKey] = answers.scriptValue;
 
@@ -83,13 +85,17 @@ export default (plop: NodePlopAPI): void => {
         if (didSucceed(code)) {
           resolve('pcf project created');
         } else {
-          reject('Ensure the Power Platform CLI is installed. Command must be run from within Visual Studio Code if using the Power Platform Extension');
+          reject(
+            'Ensure the Power Platform CLI is installed. Command must be run from within Visual Studio Code if using the Power Platform Extension'
+          );
         }
       });
 
       pac.on('error', () => {
-        reject('Ensure the Power Platform CLI is installed. Command must be run from within Visual Studio Code if using the Power Platform Extension');
+        reject(
+          'Ensure the Power Platform CLI is installed. Command must be run from within Visual Studio Code if using the Power Platform Extension'
+        );
       });
     });
   });
-}
+};
