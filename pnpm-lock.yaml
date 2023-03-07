@@ -32,15 +32,11 @@ importers:
 
   packages/create-powerapps-project:
     specifiers:
-      '@types/minimist': ^1.2.2
       '@types/node': ^14.14.21
-      minimist: ^1.2.6
       plop: ^3.1.2
     dependencies:
-      minimist: 1.2.6
       plop: 3.1.2
     devDependencies:
-      '@types/minimist': 1.2.2
       '@types/node': 14.18.22
 
   packages/dataverse-react:
@@ -962,10 +958,6 @@ packages:
 
   /@types/minimatch/3.0.5:
     resolution: {integrity: sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==}
-
-  /@types/minimist/1.2.2:
-    resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
-    dev: true
 
   /@types/node/14.18.22:
     resolution: {integrity: sha512-qzaYbXVzin6EPjghf/hTdIbnVW1ErMx8rPzwRNJhlbyJhu2SyqlvjGOY/tbUt6VFyzg56lROcOeSQRInpt63Yw==}
