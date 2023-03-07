@@ -26,11 +26,9 @@
   },
   "type": "module",
   "dependencies": {
-    "plop": "^3.1.2",
-    "minimist": "^1.2.6"
+    "plop": "^3.1.2"
   },
   "devDependencies": {
-    "@types/minimist": "^1.2.2",
     "@types/node": "^14.14.21"
   },
   "volta": {
