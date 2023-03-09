@@ -127,10 +127,10 @@ importers:
   packages/powerapps-project-assembly:
     specifiers:
       inquirer-recursive: ^0.0.7
-      plop: ^2.7.6
+      plop: ^3.1.2
     dependencies:
       inquirer-recursive: 0.0.7
-      plop: 2.7.6
+      plop: 3.1.2
 
   packages/powerapps-project-pcf:
     specifiers:
