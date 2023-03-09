@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Thu, 09 Mar 2023 14:48:25 GMT",
+      "tag": "powerapps-project-assembly_v2.0.0",
+      "version": "2.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "46e13772f48e825b5b4e1853e17777366402d6f8",
+            "comment": "Upgrade to plop v3"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 07 Mar 2023 14:48:23 GMT",
       "tag": "powerapps-project-assembly_v1.5.4",
       "version": "1.5.4",

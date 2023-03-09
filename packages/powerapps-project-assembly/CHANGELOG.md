@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Tue, 07 Mar 2023 14:48:23 GMT and should not be manually modified.
+This log was last generated on Thu, 09 Mar 2023 14:48:25 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.0
+
+Thu, 09 Mar 2023 14:48:25 GMT
+
+### Major changes
+
+- Upgrade to plop v3 (derek.finlinson@journeyteam.com)
 
 ## 1.5.4
 
