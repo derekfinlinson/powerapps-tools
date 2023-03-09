@@ -1,0 +1,7 @@
+{
+  "type": "major",
+  "comment": "Upgrade to plop v3",
+  "packageName": "powerapps-project-webresource",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
