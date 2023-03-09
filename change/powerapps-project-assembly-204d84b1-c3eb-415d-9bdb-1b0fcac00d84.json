@@ -1,0 +1,7 @@
+{
+  "type": "major",
+  "comment": "Upgrade to plop v3",
+  "packageName": "powerapps-project-assembly",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
