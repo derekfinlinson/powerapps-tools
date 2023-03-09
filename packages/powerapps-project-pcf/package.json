@@ -4,6 +4,7 @@
   "version": "1.1.4",
   "license": "MIT",
   "main": "plopfile.js",
+  "type": "commonjs",
   "files": [
     "/plop-templates",
     "plopfile.js"
@@ -14,7 +15,7 @@
   },
   "dependencies": {
     "inquirer-file-tree-selection-prompt": "1",
-    "plop": "^2.7.6"
+    "plop": "^3.1.2"
   },
   "volta": {
     "extends": "../../package.json"

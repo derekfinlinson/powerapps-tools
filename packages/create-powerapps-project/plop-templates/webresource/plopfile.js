@@ -1,3 +1,3 @@
-module.exports = function (plop) {
-  plop.load('powerapps-project-webresource');
+module.exports = async function (plop) {
+  await plop.load('powerapps-project-webresource');
 };

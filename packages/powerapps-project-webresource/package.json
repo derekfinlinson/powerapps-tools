@@ -4,6 +4,7 @@
   "version": "1.2.8",
   "license": "MIT",
   "main": "plopfile.js",
+  "type": "commonjs",
   "files": [
     "/plop-templates",
     "plopfile.js"
@@ -13,7 +14,7 @@
     "url": "https://github.com/derekfinlinson/powerapps-tools"
   },
   "dependencies": {
-    "plop": "^2.7.6"
+    "plop": "^3.1.2"
   },
   "volta": {
     "extends": "../../package.json"
