@@ -6,7 +6,7 @@ export interface IAppProps {
   context: ComponentFramework.Context<IInputs>;
 }
 
-export const App = React.memo((props: IAppProps) => {
+export const App = (props: IAppProps) => {
   const {
     context
   } = props;
@@ -15,6 +15,6 @@ export const App = React.memo((props: IAppProps) => {
     <AppContextProvider context={context}>
     </AppContextProvider>
   );
-});
+};
 
 App.displayName = 'App';

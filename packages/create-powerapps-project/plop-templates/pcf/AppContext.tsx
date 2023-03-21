@@ -1,10 +1,14 @@
 import React from 'react';
 import { IInputs } from './generated/ManifestTypes';
 
-const AppContext = React.createContext<ComponentFramework.Context<IInputs>>({} as ComponentFramework.Context<IInputs>);
-
-interface IAppContextProviderProps {
+interface IAppContext {
   context: ComponentFramework.Context<IInputs>;
+  theme?: Record<string, string>;
+}
+
+const AppContext = React.createContext<IAppContext>({} as IAppContext);
+
+interface IAppContextProviderProps extends IAppContext {
   children?: React.ReactNode;
 }
 
@@ -14,4 +18,4 @@ export const AppContextProvider = (props: IAppContextProviderProps): JSX.Element
   return <AppContext.Provider value={context}>{children}</AppContext.Provider>;
 };
 
-export const useAppContext = (): ComponentFramework.Context<IInputs> => React.useContext(AppContext);
+export const useAppContext = (): IAppContext => React.useContext(AppContext);
