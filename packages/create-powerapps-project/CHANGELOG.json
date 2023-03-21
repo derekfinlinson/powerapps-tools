@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Thu, 09 Mar 2023 15:05:47 GMT",
+      "tag": "create-powerapps-project_v1.2.0",
+      "version": "1.2.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "fcdc8cc9f9438d5c1a04d3ef5bf4a3d959b05169",
+            "comment": "Upgrade to plop v3"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 09 Mar 2023 14:48:25 GMT",
       "tag": "create-powerapps-project_v1.1.0",
       "version": "1.1.0",

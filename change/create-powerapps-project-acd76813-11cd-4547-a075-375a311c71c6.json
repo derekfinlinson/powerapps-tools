@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Upgrade to plop v3",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
