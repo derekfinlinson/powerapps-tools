@@ -15,7 +15,7 @@ interface IAppContextProviderProps extends IAppContext {
 export const AppContextProvider = (props: IAppContextProviderProps): JSX.Element => {
   const { context, children } = props;
 
-  return <AppContext.Provider value={context}>{children}</AppContext.Provider>;
+  return <AppContext.Provider value={{ context }}>{children}</AppContext.Provider>;
 };
 
 export const useAppContext = (): IAppContext => React.useContext(AppContext);
