@@ -372,8 +372,15 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           type: 'npmInstall',
           data: {
             packages: {
-              devDependencies: ['powerapps-project-pcf', '@types/react@16', '@types/react-dom@16']
+              devDependencies: ['powerapps-project-pcf', '@types/react@16', '@types/react-dom@16', 'eslint-plugin-react-hooks']
             }
+          },
+          skip: (answers) => {
+            if (!answers.react) {
+              return 'react not included';
+            }
+
+            return;
           }
         }
       ];
