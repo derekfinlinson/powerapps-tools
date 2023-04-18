@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 18 Apr 2023 20:35:37 GMT",
+      "tag": "create-powerapps-project_v1.2.3",
+      "version": "1.2.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "084a4eaa683096d63ac5d1846d670a72414703f3",
+            "comment": "Install eslint react-hooks"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 24 Mar 2023 21:52:05 GMT",
       "tag": "create-powerapps-project_v1.2.2",
       "version": "1.2.2",
