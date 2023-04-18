@@ -67,7 +67,7 @@ async function retrievePackage(prefix: string, name: string, apiConfig: WebApiCo
 
   const result = await retrieveMultiple(apiConfig, 'pluginpackages', options);
 
-  return result.value.length > 0 ? result.value[0].pluginassemblyid as string : '';
+  return result.value.length > 0 ? result.value[0].pluginpackageid as string : '';
 }
 
 async function createPackage(config: PluginPackage, content: string, apiConfig: WebApiConfig, solution?: string): Promise<string> {
