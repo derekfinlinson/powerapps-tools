@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Update naming",
+  "packageName": "dataverse-utils",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
