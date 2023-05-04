@@ -7,7 +7,7 @@
     "gen": "plop",
     "deploy": "dataverse-utils deploy assembly",
     "modelbuilder": "pac auth select --name {{org}} && pac modelbuilder build -stf builderSettings.json -o Model",
-    "authenticate": "pac auth create --url {{server}} --name {{org}}",
+    "authenticate": "pac auth create --url {{server}} --name {{org}} --deviceCode",
     "prt": "pac tool prt"
   }
 }
