@@ -97,10 +97,10 @@ async function createPackage(config: PluginPackage, content: string, apiConfig: 
 async function updatePackage(id: string, config: PluginPackage, content: string, apiConfig: WebApiConfig) {
   logger.info(`update package ${config.name}`);
 
-  const assembly = {
+  const updated = {
     content: content,
     version: config.version
   };
 
-  return update(apiConfig, 'pluginpackages', id, assembly);
+  return update(apiConfig, 'pluginpackages', id, updated);
 }
