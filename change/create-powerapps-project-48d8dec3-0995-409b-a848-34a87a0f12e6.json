@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Install eslint react-hooks",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

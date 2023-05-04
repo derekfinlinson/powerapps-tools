@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Fri, 24 Mar 2023 21:52:05 GMT and should not be manually modified.
+This log was last generated on Tue, 18 Apr 2023 20:35:37 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.2.3
+
+Tue, 18 Apr 2023 20:35:37 GMT
+
+### Patches
+
+- Install eslint react-hooks (derek.finlinson@journeyteam.com)
 
 ## 1.2.2
 
