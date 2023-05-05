@@ -406,20 +406,20 @@ module.exports = (plop) => {
     const builderPath = path.resolve(destinationPath, 'builderSettings.json');
 
     // Check if builderSettings.json exists
-    if (fs.existsSync(builderPath) && answers.entity) {
-      const file = JSON.parse(fs.readFileSync(builderPath, 'utf8'));
+    // if (fs.existsSync(builderPath) && answers.entity) {
+    //   const file = JSON.parse(fs.readFileSync(builderPath, 'utf8'));
 
-      if (file.entityNamesFilter) {
-        const index = file.entityNamesFilter.findIndex(e => e === answers.entity);
+    //   if (file.entityNamesFilter) {
+    //     const index = file.entityNamesFilter.findIndex(e => e === answers.entity);
 
-        if (index === -1) {
-          file.entityNamesFilter.push(answers.entity);
-        }
-      }
+    //     if (index === -1) {
+    //       file.entityNamesFilter.push(answers.entity);
+    //     }
+    //   }
 
-      // Update builderSettings.json
-      fs.writeFileSync(builderPath, JSON.stringify(file, null, 4), 'utf8');
-    }
+    //   // Update builderSettings.json
+    //   fs.writeFileSync(builderPath, JSON.stringify(file, null, 4), 'utf8');
+    // }
 
     // Check if dataverse.config.json exists
     if (fs.existsSync(configPath)) {
