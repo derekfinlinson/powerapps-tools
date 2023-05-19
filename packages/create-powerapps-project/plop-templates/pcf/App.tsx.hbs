@@ -1,6 +1,6 @@
 import React from 'react';
 import { IInputs } from './generated/ManifestTypes';
-import { AppContextProvider } from './AppContext';
+import { AppContext } from './contexts/AppContext';
 
 export const App = (props: { context: ComponentFramework.Context<IInputs>; }) => {
   const {
@@ -8,7 +8,7 @@ export const App = (props: { context: ComponentFramework.Context<IInputs>; }) =>
   } = props;
 
   return (
-    <AppContext.Provider value="{{ context }}">
+    <AppContext.Provider value={{ context }}>
     </AppContext.Provider>
   );
 };
