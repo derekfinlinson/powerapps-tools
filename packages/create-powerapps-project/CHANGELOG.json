@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Fri, 19 May 2023 14:58:17 GMT",
+      "tag": "create-powerapps-project_v1.3.0",
+      "version": "1.3.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "fbc5374d439a66c26b05deb7b0ce4de85cbbcd25",
+            "comment": "Update PCF templates"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 04 May 2023 14:26:41 GMT",
       "tag": "create-powerapps-project_v1.2.4",
       "version": "1.2.4",
