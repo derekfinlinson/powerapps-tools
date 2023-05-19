@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Merge branch 'master' of https://github.com/derekfinlinson/powerapps-tools",
-  "packageName": "powerapps-project-assembly",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

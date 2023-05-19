@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Thu, 09 Mar 2023 14:48:25 GMT and should not be manually modified.
+This log was last generated on Fri, 05 May 2023 18:08:16 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.1
+
+Fri, 05 May 2023 18:08:16 GMT
+
+### Patches
+
+- Merge branch 'master' of https://github.com/derekfinlinson/powerapps-tools (derek.finlinson@journeyteam.com)
 
 ## 2.0.0
 
