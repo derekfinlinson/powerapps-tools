@@ -13,7 +13,13 @@ const didSucceed = (code: number | null) => `${code}` === '0';
 export default (plop: NodePlopAPI): void => {
   plop.setDefaultInclude({ actionTypes: true });
 
-  plop.setActionType('addSolution', async (answers: any) => {
+  plop.setActionType('addDirectory', async (answers: any) => {
+    await fs.promises.mkdir(path.resolve(process.cwd(), answers.folder));
+
+    return `added directory ${answers.folder}`;
+  });
+
+  plop.setActionType('addSolution', (answers: any) => {
     // Add solution
     spawnSync('dotnet', ['new', 'sln', '-n', answers.name], { cwd: process.cwd(), stdio: 'inherit' });
 

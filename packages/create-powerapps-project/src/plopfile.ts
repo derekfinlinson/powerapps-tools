@@ -271,6 +271,24 @@ export default async (plop: NodePlopAPI): Promise<void> => {
         message: 'publisher prefix'
       },
       {
+        type: 'input',
+        name: 'server',
+        message: 'enter dataverse url (https://org.crm.dynamics.com):',
+        validate: (answer: string) => {
+          try {
+            const url = new URL(answer);
+
+            if (url.protocol !== 'https:') {
+              return 'server should begin with https';
+            }
+
+            return true;
+          } catch (ex) {
+            return 'enter a valid URL';
+          }
+        }
+      },
+      {
         type: 'confirm',
         name: 'react',
         message: 'use react?'
@@ -278,6 +296,8 @@ export default async (plop: NodePlopAPI): Promise<void> => {
       packageQuestion
     ],
     actions: (data: any) => {
+      data.org = new URL(data.server).hostname.split('.')[0];
+
       return [
         {
           type: 'runPcf'
@@ -296,19 +316,32 @@ export default async (plop: NodePlopAPI): Promise<void> => {
         },
         {
           type: 'add',
+          templateFile: '../plop-templates/pcf/.eslintrc.json',
+          path: path.resolve(process.cwd(), '.eslintrc.json'),
+          force: true
+        },
+        {
+          type: 'add',
           templateFile: '../plop-templates/pcf/.gitattributes',
           path: path.resolve(process.cwd(), '.gitattributes'),
           force: true
         },
         {
-          type: 'addMany',
-          templateFiles: [
-            '../plop-templates/pcf/App.tsx.hbs',
-            '../plop-templates/pcf/AppContext.tsx',
-            '../plop-templates/webresource/.gitattributes'
-          ],
-          base: '../plop-templates/pcf',
-          destination: `${process.cwd()}/{{name}}`,
+          type: 'add',
+          templateFile: '../plop-templates/pcf/App.tsx.hbs',
+          path: path.resolve(process.cwd(), 'App.tsx'),
+          skip: (answers) => {
+            if (!answers.react) {
+              return 'react not included';
+            }
+
+            return;
+          }
+        },
+        {
+          type: 'add',
+          templateFile: '../plop-templates/pcf/AppContext.tsx.hbs',
+          path: path.resolve(process.cwd(), 'contexts', 'AppContext.tsx'),
           skip: (answers) => {
             if (!answers.react) {
               return 'react not included';
@@ -321,32 +354,32 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           type: 'modify',
           path: `${process.cwd()}/{{name}}/index.ts`,
           pattern: 'import { HelloWorld, IHelloWorldProps } from "./HelloWorld";',
-          template: `import { App, IAppProps } from './App';`
+          template: `import { App } from './App';`
         },
         {
           type: 'modify',
           path: `${process.cwd()}/{{name}}/index.ts`,
           pattern: 'HelloWorld, props',
-          template: 'App, props'
+          template: 'App, { context: context }'
         },
         {
           type: 'modify',
           path: `${process.cwd()}/{{name}}/index.ts`,
           pattern: `const props: IHelloWorldProps = { name: 'Hello, World!' };`,
-          template: `const props: IAppProps = { context: context };`
+          template: ''
         },
         {
           type: 'addScript',
           data: {
-            scriptKey: 'build:prod',
-            scriptValue: 'pcf-scripts build --buildMode production'
+            scriptKey: 'authenticate',
+            scriptValue: `pac auth create --url ${data.server} --name ${data.org} --deviceCode`
           }
         },
         {
           type: 'addScript',
           data: {
             scriptKey: 'push',
-            scriptValue: `pac pcf version --strategy manifest && pac pcf push -pp ${data.prefix}`
+            scriptValue: `pac auth select --name ${data.org} && pac pcf version --strategy manifest && pac pcf push -pp ${data.prefix}`
           }
         },
         {
@@ -372,7 +405,14 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           type: 'npmInstall',
           data: {
             packages: {
-              devDependencies: ['powerapps-project-pcf', '@types/react@16', '@types/react-dom@16', 'eslint-plugin-react-hooks']
+              devDependencies: [
+                'powerapps-project-pcf',
+                '@types/react@16',
+                '@types/react-dom@16',
+                'eslint-plugin-react-hooks',
+                '@types/xrm'
+              ],
+              dependencies: ['@fluentui/react-hooks']
             }
           },
           skip: (answers) => {
@@ -381,6 +421,24 @@ export default async (plop: NodePlopAPI): Promise<void> => {
             }
 
             return;
+          }
+        },
+        {
+          type: 'addDirectory',
+          data: {
+            folder: 'components'
+          }
+        },
+        {
+          type: 'addDirectory',
+          data: {
+            folder: 'services'
+          }
+        },
+        {
+          type: 'addDirectory',
+          data: {
+            folder: 'hooks'
           }
         }
       ];
