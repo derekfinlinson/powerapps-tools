@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Fri, 19 May 2023 15:07:00 GMT and should not be manually modified.
+This log was last generated on Fri, 19 May 2023 15:09:10 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.3.2
+
+Fri, 19 May 2023 15:09:10 GMT
+
+### Patches
+
+- Update App and AppContext (derek.finlinson@journeyteam.com)
 
 ## 1.3.1
 
