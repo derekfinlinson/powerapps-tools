@@ -329,7 +329,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
         {
           type: 'add',
           templateFile: '../plop-templates/pcf/App.tsx.hbs',
-          path: path.resolve(process.cwd(), 'App.tsx'),
+          path: path.resolve(process.cwd(), '{{name}}', 'App.tsx'),
           skip: (answers) => {
             if (!answers.react) {
               return 'react not included';
@@ -341,7 +341,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
         {
           type: 'add',
           templateFile: '../plop-templates/pcf/AppContext.tsx.hbs',
-          path: path.resolve(process.cwd(), 'contexts', 'AppContext.tsx'),
+          path: path.resolve(process.cwd(), '{{name}}', 'contexts', 'AppContext.tsx'),
           skip: (answers) => {
             if (!answers.react) {
               return 'react not included';
@@ -421,24 +421,6 @@ export default async (plop: NodePlopAPI): Promise<void> => {
             }
 
             return;
-          }
-        },
-        {
-          type: 'addDirectory',
-          data: {
-            folder: 'components'
-          }
-        },
-        {
-          type: 'addDirectory',
-          data: {
-            folder: 'services'
-          }
-        },
-        {
-          type: 'addDirectory',
-          data: {
-            folder: 'hooks'
           }
         }
       ];
