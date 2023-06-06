@@ -11,6 +11,7 @@ export interface TableMetadata {
 }
 
 export interface ColumnMetadata {
+  Targets?: string[];
   AttributeType: string;
   DisplayName: string;
   EntityLogicalName: string;
@@ -19,6 +20,10 @@ export interface ColumnMetadata {
   MinValue?: number;
   MaxLength?: number;
   IsValidForUpdate: boolean;
+  IsValidForCreate: boolean;
+  IsPrimaryId: boolean;
+  IsCustomAttribute: boolean;
+  SchemaName: string;
   Precision?: number;
 }
 
