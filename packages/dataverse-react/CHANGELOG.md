@@ -1,8 +1,16 @@
 # Change Log - dataverse-react
 
-This log was last generated on Mon, 27 Feb 2023 16:59:09 GMT and should not be manually modified.
+This log was last generated on Tue, 06 Jun 2023 23:21:03 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.2.0
+
+Tue, 06 Jun 2023 23:21:03 GMT
+
+### Minor changes
+
+- Add additional column properties (derek.finlinson@journeyteam.com)
 
 ## 0.1.1
 

@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Add additional column properties",
-  "packageName": "dataverse-react",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
