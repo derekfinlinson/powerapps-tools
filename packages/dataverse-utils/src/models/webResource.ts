@@ -53,7 +53,7 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
     resources = [];
 
     for (const file of files.split(',')) {
-      const resource = webResources.filter(r => r.path?.endsWith(file));
+      const resource = webResources.filter((r) => r.path?.endsWith(file));
 
       if (resource.length === 0) {
         logger.warn(`web resource ${file} not found in dataverse.config.json`);
@@ -64,7 +64,7 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
     }
   }
 
-  const promises = resources.map(async resource => {
+  const promises = resources.map(async (resource) => {
     let resourceId = '';
 
     try {
@@ -111,7 +111,7 @@ async function retrieveResource(name: string, apiConfig: WebApiConfig): Promise<
 
   const result = await retrieveMultiple(apiConfig, 'webresourceset', options);
 
-  return result.value.length > 0 ? result.value[0].webresourceid as string : '';
+  return result.value.length > 0 ? (result.value[0].webresourceid as string) : '';
 }
 
 async function createResource(resource: WebResource, content: string, apiConfig: WebApiConfig, solution?: string): Promise<string> {
@@ -146,7 +146,11 @@ async function updateResource(id: string, resource: WebResource, content: string
     content: content
   };
 
-  await update(apiConfig, 'webresourceset', id, webResource);
+  const result: any = await update(apiConfig, 'webresourceset', id, webResource);
+
+  if (result.error) {
+    throw new Error(result.error.message);
+  }
 
   return `<webresource>{${id}}</webresource>`;
 }

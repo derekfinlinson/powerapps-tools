@@ -114,5 +114,9 @@ async function updateApi(id: string, api: CustomApi, apiConfig: WebApiConfig) {
     record['PluginTypeId@odata.bind'] = null;
   }
 
-  return update(apiConfig, 'customapis', id, api);
+  const result: any = update(apiConfig, 'customapis', id, api);
+
+  if (result.error) {
+    throw new Error(result.error.message);
+  }
 }

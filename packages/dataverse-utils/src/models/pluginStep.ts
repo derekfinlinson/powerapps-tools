@@ -120,8 +120,14 @@ async function createStep(step: PluginStep, apiConfig: WebApiConfig, solution?: 
   if (solution) {
     options.customHeaders = { 'MSCRM.SolutionUniqueName': solution };
   }
-  
-  const result: any = await createWithReturnData(apiConfig, 'sdkmessageprocessingsteps', step, '$select=sdkmessageprocessingstepid', options);
+
+  const result: any = await createWithReturnData(
+    apiConfig,
+    'sdkmessageprocessingsteps',
+    step,
+    '$select=sdkmessageprocessingstepid',
+    options
+  );
 
   if (result.error) {
     throw new Error(result.error.message);
@@ -133,5 +139,9 @@ async function createStep(step: PluginStep, apiConfig: WebApiConfig, solution?: 
 async function updateStep(id: string, step: PluginStep, apiConfig: WebApiConfig) {
   logger.info(`update plugin step ${step.name}`);
 
-  return update(apiConfig, 'sdkmessageprocessingsteps', id, step);
+  const result: any = update(apiConfig, 'sdkmessageprocessingsteps', id, step);
+
+  if (result.error) {
+    throw new Error(result.error.message);
+  }
 }

@@ -10,7 +10,13 @@ export interface PluginImage extends Entity {
   'sdkmessageprocessingstepid@odata.bind'?: string;
 }
 
-export async function deployImage(stepId: string, stepName: string, image: PluginImage, message: string | undefined, apiConfig: WebApiConfig): Promise<string> {
+export async function deployImage(
+  stepId: string,
+  stepName: string,
+  image: PluginImage,
+  message: string | undefined,
+  apiConfig: WebApiConfig
+): Promise<string> {
   image['sdkmessageprocessingstepid@odata.bind'] = `/sdkmessageprocessingsteps(${stepId})`;
 
   switch (message) {
@@ -55,13 +61,18 @@ async function retrieveImage(stepId: string, image: PluginImage, apiConfig: WebA
 
   const result = await retrieveMultiple(apiConfig, 'sdkmessageprocessingstepimages', options);
 
-  return result.value.length > 0 ? result.value[0].sdkmessageprocessingstepimageid as string : '';
+  return result.value.length > 0 ? (result.value[0].sdkmessageprocessingstepimageid as string) : '';
 }
 
 async function createImage(image: PluginImage, stepName: string, apiConfig: WebApiConfig): Promise<string> {
   logger.info(`create plugin image ${image.name} for step ${stepName}`);
 
-  const result: any = await createWithReturnData(apiConfig, 'sdkmessageprocessingstepimages', image, '$select=sdkmessageprocessingstepimageid');
+  const result: any = await createWithReturnData(
+    apiConfig,
+    'sdkmessageprocessingstepimages',
+    image,
+    '$select=sdkmessageprocessingstepimageid'
+  );
 
   if (result.error) {
     throw new Error(result.error.message);
@@ -73,5 +84,9 @@ async function createImage(image: PluginImage, stepName: string, apiConfig: WebA
 async function updateImage(id: string, image: PluginImage, stepName: string, apiConfig: WebApiConfig) {
   logger.info(`update plugin image ${image.name} for step ${stepName}`);
 
-  return update(apiConfig, 'sdkmessageprocessingstepimages', id, image);
+  const result: any = update(apiConfig, 'sdkmessageprocessingstepimages', id, image);
+
+  if (result.error) {
+    throw new Error(result.error.message);
+  }
 }

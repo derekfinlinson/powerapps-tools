@@ -33,7 +33,7 @@ export async function assemblyDeploy(creds: DeployCredentials, apiConfig: WebApi
 
     logger.done(`deployed plugin package ${config.prefix}_${config.name}\r\n`);
   } else {
-    logger.info('deploy assembly');
+    logger.info(`deploy assembly to ${creds.server}`);
 
     try {
       assemblyId = await deployAssembly(config, apiConfig, creds.solution);

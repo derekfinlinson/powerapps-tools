@@ -76,5 +76,9 @@ async function createType(type: PluginType, apiConfig: WebApiConfig): Promise<st
 async function updateType(id: string, type: PluginType, apiConfig: WebApiConfig) {
   logger.info(`update assembly type ${type.name}`);
 
-  return update(apiConfig, 'plugintypes', id, type);
+  const result: any = update(apiConfig, 'plugintypes', id, type);
+
+  if (result.error) {
+    throw new Error(result.error.message);
+  }
 }
