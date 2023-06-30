@@ -112,7 +112,7 @@ async function updateAssembly(id: string, config: PluginAssembly, content: strin
     version: config.version
   };
 
-  const result: any = update(apiConfig, 'pluginassemblies', id, assembly);
+  const result: any = await update(apiConfig, 'pluginassemblies', id, assembly);
 
   if (result.error) {
     throw new Error(result.error.message);

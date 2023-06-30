@@ -102,7 +102,7 @@ async function updatePackage(id: string, config: PluginPackage, content: string,
     version: config.version
   };
 
-  const result: any = update(apiConfig, 'pluginpackages', id, updated);
+  const result: any = await update(apiConfig, 'pluginpackages', id, updated);
 
   if (result.error) {
     throw new Error(result.error.message);

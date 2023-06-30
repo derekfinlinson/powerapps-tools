@@ -84,7 +84,7 @@ async function createImage(image: PluginImage, stepName: string, apiConfig: WebA
 async function updateImage(id: string, image: PluginImage, stepName: string, apiConfig: WebApiConfig) {
   logger.info(`update plugin image ${image.name} for step ${stepName}`);
 
-  const result: any = update(apiConfig, 'sdkmessageprocessingstepimages', id, image);
+  const result: any = await update(apiConfig, 'sdkmessageprocessingstepimages', id, image);
 
   if (result.error) {
     throw new Error(result.error.message);

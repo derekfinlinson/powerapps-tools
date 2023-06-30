@@ -139,7 +139,7 @@ async function createStep(step: PluginStep, apiConfig: WebApiConfig, solution?: 
 async function updateStep(id: string, step: PluginStep, apiConfig: WebApiConfig) {
   logger.info(`update plugin step ${step.name}`);
 
-  const result: any = update(apiConfig, 'sdkmessageprocessingsteps', id, step);
+  const result: any = await update(apiConfig, 'sdkmessageprocessingsteps', id, step);
 
   if (result.error) {
     throw new Error(result.error.message);
