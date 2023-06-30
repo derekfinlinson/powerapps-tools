@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Fri, 30 Jun 2023 22:37:24 GMT",
+      "tag": "dataverse-utils_v2.6.10",
+      "version": "2.6.10",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "9f7915d2e6590aed1007e80beb5aaabe05bf9f86",
+            "comment": "Fix updating API"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 30 Jun 2023 22:24:30 GMT",
       "tag": "dataverse-utils_v2.6.9",
       "version": "2.6.9",

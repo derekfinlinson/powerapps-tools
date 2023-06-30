@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Fri, 30 Jun 2023 22:24:30 GMT and should not be manually modified.
+This log was last generated on Fri, 30 Jun 2023 22:37:24 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.6.10
+
+Fri, 30 Jun 2023 22:37:24 GMT
+
+### Patches
+
+- Fix updating API (derek.finlinson@journeyteam.com)
 
 ## 2.6.9
 
