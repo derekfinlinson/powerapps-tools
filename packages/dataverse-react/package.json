@@ -1,6 +1,6 @@
 {
   "name": "dataverse-react",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "⚛️ hooks and components for Dataverse React development",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -32,7 +32,7 @@
   "dependencies": {
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "dataverse-webapi": "^2.4.0"
+    "dataverse-webapi": "^2.4.1"
   },
   "devDependencies": {
     "@types/node": "^16.4.10",
