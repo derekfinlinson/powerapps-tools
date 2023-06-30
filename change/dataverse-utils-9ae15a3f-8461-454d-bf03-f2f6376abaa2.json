@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Check for empty result",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Fri, 30 Jun 2023 22:24:30 GMT",
+      "tag": "powerapps-common_v1.8.1",
+      "version": "1.8.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-common",
+            "commit": "29077f4fab573d70c9296a7bf60573b69db8feb9",
+            "comment": "Update package dependencies"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 28 Dec 2022 16:24:55 GMT",
       "tag": "powerapps-common_v1.8.0",
       "version": "1.8.0",

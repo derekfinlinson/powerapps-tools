@@ -2,6 +2,21 @@
   "name": "powerapps-project-pcf",
   "entries": [
     {
+      "date": "Fri, 30 Jun 2023 22:24:30 GMT",
+      "tag": "powerapps-project-pcf_v2.0.1",
+      "version": "2.0.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-pcf",
+            "commit": "29077f4fab573d70c9296a7bf60573b69db8feb9",
+            "comment": "Update package dependencies"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 09 Mar 2023 15:05:47 GMT",
       "tag": "powerapps-project-pcf_v2.0.0",
       "version": "2.0.0",

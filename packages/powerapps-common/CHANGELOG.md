@@ -1,8 +1,16 @@
 # Change Log - powerapps-common
 
-This log was last generated on Wed, 28 Dec 2022 16:24:55 GMT and should not be manually modified.
+This log was last generated on Fri, 30 Jun 2023 22:24:30 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.8.1
+
+Fri, 30 Jun 2023 22:24:30 GMT
+
+### Patches
+
+- Update package dependencies (derek.finlinson@journeyteam.com)
 
 ## 1.8.0
 
