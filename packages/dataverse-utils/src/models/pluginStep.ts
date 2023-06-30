@@ -129,7 +129,7 @@ async function createStep(step: PluginStep, apiConfig: WebApiConfig, solution?: 
     options
   );
 
-  if (result.error) {
+  if (result?.error) {
     throw new Error(result.error.message);
   }
 
@@ -141,7 +141,7 @@ async function updateStep(id: string, step: PluginStep, apiConfig: WebApiConfig)
 
   const result: any = await update(apiConfig, 'sdkmessageprocessingsteps', id, step);
 
-  if (result.error) {
+  if (result?.error) {
     throw new Error(result.error.message);
   }
 }

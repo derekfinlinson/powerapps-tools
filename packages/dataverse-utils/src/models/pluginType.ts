@@ -66,7 +66,7 @@ async function createType(type: PluginType, apiConfig: WebApiConfig): Promise<st
 
   const result: any = await createWithReturnData(apiConfig, 'plugintypes', type, '$select=plugintypeid');
 
-  if (result.error) {
+  if (result?.error) {
     throw new Error(result.error.message);
   }
 
@@ -78,7 +78,7 @@ async function updateType(id: string, type: PluginType, apiConfig: WebApiConfig)
 
   const result: any = await update(apiConfig, 'plugintypes', id, type);
 
-  if (result.error) {
+  if (result?.error) {
     throw new Error(result.error.message);
   }
 }

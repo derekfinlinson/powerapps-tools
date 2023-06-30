@@ -97,7 +97,7 @@ async function createAssembly(config: PluginAssembly, content: string, apiConfig
 
   const result: any = await createWithReturnData(apiConfig, 'pluginassemblies', assembly, '$select=pluginassemblyid', options);
 
-  if (result.error) {
+  if (result?.error) {
     throw new Error(result.error.message);
   }
 
@@ -114,7 +114,7 @@ async function updateAssembly(id: string, config: PluginAssembly, content: strin
 
   const result: any = await update(apiConfig, 'pluginassemblies', id, assembly);
 
-  if (result.error) {
+  if (result?.error) {
     throw new Error(result.error.message);
   }
 }

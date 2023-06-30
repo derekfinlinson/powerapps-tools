@@ -74,7 +74,7 @@ async function createImage(image: PluginImage, stepName: string, apiConfig: WebA
     '$select=sdkmessageprocessingstepimageid'
   );
 
-  if (result.error) {
+  if (result?.error) {
     throw new Error(result.error.message);
   }
 
@@ -86,7 +86,7 @@ async function updateImage(id: string, image: PluginImage, stepName: string, api
 
   const result: any = await update(apiConfig, 'sdkmessageprocessingstepimages', id, image);
 
-  if (result.error) {
+  if (result?.error) {
     throw new Error(result.error.message);
   }
 }

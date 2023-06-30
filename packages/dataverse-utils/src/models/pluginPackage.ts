@@ -87,7 +87,7 @@ async function createPackage(config: PluginPackage, content: string, apiConfig: 
 
   const result: any = await createWithReturnData(apiConfig, 'pluginpackages', pluginPackage, '$select=pluginpackageid', options);
 
-  if (result.error) {
+  if (result?.error) {
     throw new Error(result.error.message);
   }
 
@@ -104,7 +104,7 @@ async function updatePackage(id: string, config: PluginPackage, content: string,
 
   const result: any = await update(apiConfig, 'pluginpackages', id, updated);
 
-  if (result.error) {
+  if (result?.error) {
     throw new Error(result.error.message);
   }
 }

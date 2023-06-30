@@ -91,7 +91,7 @@ async function createApi(api: CustomApi, apiConfig: WebApiConfig, solution?: str
 
   const result: any = await createWithReturnData(apiConfig, 'customapis', api, '$select=customapiid', options);
 
-  if (result.error) {
+  if (result?.error) {
     throw new Error(result.error.message);
   }
 
@@ -116,7 +116,7 @@ async function updateApi(id: string, api: CustomApi, apiConfig: WebApiConfig) {
 
   const result: any = update(apiConfig, 'customapis', id, api);
 
-  if (result.error) {
+  if (result?.error) {
     throw new Error(result.error.message);
   }
 }

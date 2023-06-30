@@ -132,7 +132,7 @@ async function createResource(resource: WebResource, content: string, apiConfig:
 
   const result: any = await createWithReturnData(apiConfig, 'webresourceset', webResource, '$select=webresourceid', options);
 
-  if (result.error) {
+  if (result?.error) {
     throw new Error(result.error.message);
   }
 
@@ -148,7 +148,7 @@ async function updateResource(id: string, resource: WebResource, content: string
 
   const result: any = await update(apiConfig, 'webresourceset', id, webResource);
 
-  if (result.error) {
+  if (result?.error) {
     throw new Error(result.error.message);
   }
 
