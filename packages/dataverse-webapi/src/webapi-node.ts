@@ -1,8 +1,14 @@
 import { request } from 'https';
 import url from 'url';
 import {
-  ChangeSet, Entity, FunctionInput, QueryOptions,
-  RetrieveMultipleResponse, WebApiConfig, WebApiRequestConfig, WebApiRequestResult
+  ChangeSet,
+  Entity,
+  FunctionInput,
+  QueryOptions,
+  RetrieveMultipleResponse,
+  WebApiConfig,
+  WebApiRequestConfig,
+  WebApiRequestResult
 } from './models';
 import * as webApi from './webapi';
 
@@ -24,25 +30,24 @@ function submitRequest(requestConfig: WebApiRequestConfig, callback: RequestCall
     options.headers['Content-Length'] = requestConfig.body.length.toString();
   }
 
-  const req = request(options,
-    (result) => {
-      let body = '';
+  const req = request(options, (result) => {
+    let body = '';
 
-      result.setEncoding('utf8');
+    result.setEncoding('utf8');
 
-      result.on('data', (chunk: string | Buffer) => {
-        body += chunk;
-      });
+    result.on('data', (chunk: string | Buffer) => {
+      body += chunk;
+    });
 
-      result.on('end', () => {
-        if ((result.statusCode || 0 >= 200) && (result.statusCode || 0 < 300)) {
-          callback({ error: false, response: body, headers: result.headers });
-        } else {
-          callback({ error: true, response: body, headers: result.headers });
-        }
-      });
-    }
-  );
+    result.on('end', () => {
+      const status = result.statusCode || 0;
+      if (status >= 200 && status < 300) {
+        callback({ error: false, response: body, headers: result.headers });
+      } else {
+        callback({ error: true, response: body, headers: result.headers });
+      }
+    });
+  });
 
   req.on('error', (error: any) => {
     callback({ error: true, response: error });
@@ -63,7 +68,13 @@ function submitRequest(requestConfig: WebApiRequestConfig, callback: RequestCall
  * @param queryString OData query string parameters
  * @param queryOptions Various query options for the query
  */
-export function retrieve(apiConfig: WebApiConfig, entitySet: string, id: string, queryString?: string, queryOptions?: QueryOptions): Promise<Entity> {
+export function retrieve(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  queryString?: string,
+  queryOptions?: QueryOptions
+): Promise<Entity> {
   return webApi.retrieve(apiConfig, entitySet, id, submitRequest, queryString, queryOptions);
 }
 
@@ -74,7 +85,12 @@ export function retrieve(apiConfig: WebApiConfig, entitySet: string, id: string,
  * @param queryString OData query string parameters
  * @param queryOptions Various query options for the query
  */
-export function retrieveMultiple(apiConfig: WebApiConfig, entitySet: string, queryString?: string, queryOptions?: QueryOptions): Promise<RetrieveMultipleResponse> {
+export function retrieveMultiple(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  queryString?: string,
+  queryOptions?: QueryOptions
+): Promise<RetrieveMultipleResponse> {
   return webApi.retrieveMultiple(apiConfig, entitySet, submitRequest, queryString, queryOptions);
 }
 
@@ -84,8 +100,11 @@ export function retrieveMultiple(apiConfig: WebApiConfig, entitySet: string, que
  * @param url Query from the @odata.nextlink property of a retrieveMultiple
  * @param queryOptions Various query options for the query
  */
-export function retrieveMultipleNextPage(apiConfig: WebApiConfig, queryUrl: string,
-  queryOptions?: QueryOptions): Promise<RetrieveMultipleResponse> {
+export function retrieveMultipleNextPage(
+  apiConfig: WebApiConfig,
+  queryUrl: string,
+  queryOptions?: QueryOptions
+): Promise<RetrieveMultipleResponse> {
   return webApi.retrieveMultipleNextPage(apiConfig, queryUrl, submitRequest, queryOptions);
 }
 
@@ -108,7 +127,13 @@ export function create(apiConfig: WebApiConfig, entitySet: string, entity: Entit
  * @param select Select odata query parameter
  * @param queryOptions Various query options for the query
  */
-export function createWithReturnData(apiConfig: WebApiConfig, entitySet: string, entity: Entity, select: string, queryOptions?: QueryOptions): Promise<Entity> {
+export function createWithReturnData(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  entity: Entity,
+  select: string,
+  queryOptions?: QueryOptions
+): Promise<Entity> {
   return webApi.createWithReturnData(apiConfig, entitySet, entity, select, submitRequest, queryOptions);
 }
 
@@ -133,7 +158,14 @@ export function update(apiConfig: WebApiConfig, entitySet: string, id: string, e
  * @param select Select odata query parameter
  * @param queryOptions Various query options for the query
  */
-export function updateWithReturnData(apiConfig: WebApiConfig, entitySet: string, id: string, entity: Entity, select: string, queryOptions?: QueryOptions): Promise<Entity> {
+export function updateWithReturnData(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  entity: Entity,
+  select: string,
+  queryOptions?: QueryOptions
+): Promise<Entity> {
   return webApi.updateWithReturnData(apiConfig, entitySet, id, entity, select, submitRequest, queryOptions);
 }
 
@@ -145,7 +177,14 @@ export function updateWithReturnData(apiConfig: WebApiConfig, entitySet: string,
  * @param attribute Attribute to update
  * @param queryOptions Various query options for the query
  */
-export function updateProperty(apiConfig: WebApiConfig, entitySet: string, id: string, attribute: string, value: string | number | boolean , queryOptions?: QueryOptions): Promise<void> {
+export function updateProperty(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  attribute: string,
+  value: string | number | boolean,
+  queryOptions?: QueryOptions
+): Promise<void> {
   return webApi.updateProperty(apiConfig, entitySet, id, attribute, value, submitRequest, queryOptions);
 }
 
@@ -180,10 +219,16 @@ export function deleteProperty(apiConfig: WebApiConfig, entitySet: string, id: s
  * @param relatedEntityId Id of secondary record
  * @param queryOptions Various query options for the query
  */
-export function associate(apiConfig: WebApiConfig, entitySet: string, id: string, relationship: string,
-  relatedEntitySet: string, relatedEntityId: string, queryOptions?: QueryOptions): Promise<void> {
-  return webApi.associate(apiConfig, entitySet, id, relationship,
-    relatedEntitySet, relatedEntityId, submitRequest, queryOptions);
+export function associate(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  relationship: string,
+  relatedEntitySet: string,
+  relatedEntityId: string,
+  queryOptions?: QueryOptions
+): Promise<void> {
+  return webApi.associate(apiConfig, entitySet, id, relationship, relatedEntitySet, relatedEntityId, submitRequest, queryOptions);
 }
 
 /**
@@ -194,8 +239,13 @@ export function associate(apiConfig: WebApiConfig, entitySet: string, id: string
  * @param property Schema name of property or relationship
  * @param relatedEntityId Id of secondary record. Only needed for collection-valued navigation properties
  */
-export function disassociate(apiConfig: WebApiConfig, entitySet: string, id: string, property: string,
-  relatedEntityId?: string): Promise<void> {
+export function disassociate(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  property: string,
+  relatedEntityId?: string
+): Promise<void> {
   return webApi.disassociate(apiConfig, entitySet, id, property, submitRequest, relatedEntityId);
 }
 
@@ -208,7 +258,14 @@ export function disassociate(apiConfig: WebApiConfig, entitySet: string, id: str
  * @param inputs Any inputs required by the action
  * @param queryOptions Various query options for the query
  */
-export function boundAction(apiConfig: WebApiConfig, entitySet: string, id: string, actionName: string, inputs?: Record<string, unknown>, queryOptions?: QueryOptions): Promise<unknown> {
+export function boundAction(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  actionName: string,
+  inputs?: Record<string, unknown>,
+  queryOptions?: QueryOptions
+): Promise<unknown> {
   return webApi.boundAction(apiConfig, entitySet, id, actionName, submitRequest, inputs, queryOptions);
 }
 
@@ -219,7 +276,12 @@ export function boundAction(apiConfig: WebApiConfig, entitySet: string, id: stri
  * @param inputs Any inputs required by the action
  * @param queryOptions Various query options for the query
  */
-export function unboundAction(apiConfig: WebApiConfig, actionName: string, inputs?: Record<string, unknown>, queryOptions?: QueryOptions): Promise<unknown> {
+export function unboundAction(
+  apiConfig: WebApiConfig,
+  actionName: string,
+  inputs?: Record<string, unknown>,
+  queryOptions?: QueryOptions
+): Promise<unknown> {
   return webApi.unboundAction(apiConfig, actionName, submitRequest, inputs, queryOptions);
 }
 
@@ -232,7 +294,14 @@ export function unboundAction(apiConfig: WebApiConfig, actionName: string, input
  * @param inputs Any inputs required by the action
  * @param queryOptions Various query options for the query
  */
-export function boundFunction(apiConfig: WebApiConfig, entitySet: string, id: string, functionName: string, inputs?: FunctionInput[], queryOptions?: QueryOptions): Promise<unknown> {
+export function boundFunction(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  functionName: string,
+  inputs?: FunctionInput[],
+  queryOptions?: QueryOptions
+): Promise<unknown> {
   return webApi.boundFunction(apiConfig, entitySet, id, functionName, submitRequest, inputs, queryOptions);
 }
 
@@ -243,7 +312,12 @@ export function boundFunction(apiConfig: WebApiConfig, entitySet: string, id: st
  * @param inputs Any inputs required by the action
  * @param queryOptions Various query options for the query
  */
-export function unboundFunction(apiConfig: WebApiConfig, functionName: string, inputs?: FunctionInput[], queryOptions?: QueryOptions): Promise<unknown> {
+export function unboundFunction(
+  apiConfig: WebApiConfig,
+  functionName: string,
+  inputs?: FunctionInput[],
+  queryOptions?: QueryOptions
+): Promise<unknown> {
   return webApi.unboundFunction(apiConfig, functionName, submitRequest, inputs, queryOptions);
 }
 
@@ -256,6 +330,13 @@ export function unboundFunction(apiConfig: WebApiConfig, functionName: string, i
  * @param batchGets Array of get requests for the operation
  * @param queryOptions Various query options for the query
  */
-export function batchOperation(apiConfig: WebApiConfig, batchId: string, changeSetId: string, changeSets: ChangeSet[], batchGets: string[], queryOptions?: QueryOptions): Promise<unknown> {
+export function batchOperation(
+  apiConfig: WebApiConfig,
+  batchId: string,
+  changeSetId: string,
+  changeSets: ChangeSet[],
+  batchGets: string[],
+  queryOptions?: QueryOptions
+): Promise<unknown> {
   return webApi.batchOperation(apiConfig, batchId, changeSetId, changeSets, batchGets, submitRequest, queryOptions);
 }
