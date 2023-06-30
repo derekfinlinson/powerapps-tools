@@ -2,6 +2,21 @@
   "name": "dataverse-react",
   "entries": [
     {
+      "date": "Fri, 30 Jun 2023 21:41:20 GMT",
+      "tag": "dataverse-react_v0.2.1",
+      "version": "0.2.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "beachball",
+            "package": "dataverse-react",
+            "comment": "Bump dataverse-webapi to v2.4.1",
+            "commit": "93c5d37f93b8963b8743f8e3da352ba5e5d0b87d"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 06 Jun 2023 23:21:03 GMT",
       "tag": "dataverse-react_v0.2.0",
       "version": "0.2.0",
