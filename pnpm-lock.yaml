@@ -55,7 +55,7 @@ importers:
   packages/dataverse-react:
     dependencies:
       dataverse-webapi:
-        specifier: workspace:^2.4.1
+        specifier: workspace:^2.4.2
         version: link:../dataverse-webapi
       react:
         specifier: 16.8.6
@@ -113,7 +113,7 @@ importers:
         specifier: ^6.2.0
         version: 6.2.0
       dataverse-webapi:
-        specifier: workspace:^2.4.1
+        specifier: workspace:^2.4.2
         version: link:../dataverse-webapi
       envinfo:
         specifier: ^7.10.0
