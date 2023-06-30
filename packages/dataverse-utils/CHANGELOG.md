@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Tue, 13 Jun 2023 04:26:06 GMT and should not be manually modified.
+This log was last generated on Fri, 30 Jun 2023 21:32:33 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.6.7
+
+Fri, 30 Jun 2023 21:32:33 GMT
+
+### Patches
+
+- Merge branch 'master' of https://github.com/derekfinlinson/powerapps-tools (derek.finlinson@journeyteam.com)
 
 ## 2.6.6
 
