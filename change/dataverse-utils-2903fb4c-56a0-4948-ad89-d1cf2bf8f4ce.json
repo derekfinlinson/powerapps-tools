@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Merge branch 'master' of https://github.com/derekfinlinson/powerapps-tools",
+  "packageName": "dataverse-utils",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
