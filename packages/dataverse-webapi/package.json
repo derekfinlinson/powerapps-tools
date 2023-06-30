@@ -29,7 +29,7 @@
     "common data service"
   ],
   "devDependencies": {
-    "@types/node": "^14.18.52",
+    "@types/node": "^16.18.37",
     "@types/xrm": "^9.0.73"
   },
   "volta": {
