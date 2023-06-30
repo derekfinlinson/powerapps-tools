@@ -28,10 +28,10 @@
   ],
   "author": "Derek Finlinson",
   "devDependencies": {
-    "xrm-mock": "^3.5.7"
+    "xrm-mock": "^3.5.9"
   },
   "dependencies": {
-    "@types/xrm": "^9.0.33"
+    "@types/xrm": "^9.0.73"
   },
   "volta": {
     "extends": "../../package.json"

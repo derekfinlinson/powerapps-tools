@@ -20,21 +20,21 @@
     "clean": "rimraf lib"
   },
   "dependencies": {
-    "@azure/msal-node": "^1.14.5",
+    "@azure/msal-node": "^1.17.3",
     "commander": "^8.3.0",
-    "cryptr": "^6.0.3",
-    "dataverse-webapi": "^2.4.1",
-    "envinfo": "^7.8.1",
+    "cryptr": "^6.2.0",
+    "dataverse-webapi": "workspace:^2.4.1",
+    "envinfo": "^7.10.0",
     "figures": "^3.2.0",
-    "glob": "^7.2.0",
+    "glob": "^7.2.3",
     "kleur": "^4.1.5",
     "prompts": "^2.4.2"
   },
   "devDependencies": {
     "@types/cryptr": "^4.0.1",
     "@types/glob": "^7.2.0",
-    "@types/node": "^16.9.1",
-    "@types/prompts": "^2.0.14"
+    "@types/node": "^16.18.37",
+    "@types/prompts": "^2.4.4"
   },
   "volta": {
     "extends": "../../package.json"
