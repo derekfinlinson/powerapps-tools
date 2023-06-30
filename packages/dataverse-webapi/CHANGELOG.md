@@ -1,8 +1,17 @@
 # Change Log - dataverse-webapi
 
-This log was last generated on Fri, 30 Jun 2023 21:41:20 GMT and should not be manually modified.
+This log was last generated on Fri, 30 Jun 2023 22:24:30 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.4.2
+
+Fri, 30 Jun 2023 22:24:30 GMT
+
+### Patches
+
+- Update package dependencies (derek.finlinson@journeyteam.com)
+- Fix package versions (derek.finlinson@journeyteam.com)
 
 ## 2.4.1
 

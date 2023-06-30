@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-pcf
 
-This log was last generated on Thu, 09 Mar 2023 15:05:47 GMT and should not be manually modified.
+This log was last generated on Fri, 30 Jun 2023 22:24:30 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.1
+
+Fri, 30 Jun 2023 22:24:30 GMT
+
+### Patches
+
+- Update package dependencies (derek.finlinson@journeyteam.com)
 
 ## 2.0.0
 

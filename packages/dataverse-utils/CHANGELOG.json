@@ -2,6 +2,33 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Fri, 30 Jun 2023 22:24:30 GMT",
+      "tag": "dataverse-utils_v2.6.9",
+      "version": "2.6.9",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "29077f4fab573d70c9296a7bf60573b69db8feb9",
+            "comment": "Update package dependencies"
+          },
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "29077f4fab573d70c9296a7bf60573b69db8feb9",
+            "comment": "Check for empty result"
+          },
+          {
+            "author": "beachball",
+            "package": "dataverse-utils",
+            "comment": "Bump dataverse-webapi to v2.4.2",
+            "commit": "29077f4fab573d70c9296a7bf60573b69db8feb9"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 30 Jun 2023 21:41:20 GMT",
       "tag": "dataverse-utils_v2.6.8",
       "version": "2.6.8",

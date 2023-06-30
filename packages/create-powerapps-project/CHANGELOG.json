@@ -2,6 +2,27 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Fri, 30 Jun 2023 22:24:30 GMT",
+      "tag": "create-powerapps-project_v1.3.3",
+      "version": "1.3.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "29077f4fab573d70c9296a7bf60573b69db8feb9",
+            "comment": "Fix package versions"
+          },
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "29077f4fab573d70c9296a7bf60573b69db8feb9",
+            "comment": "Update package dependencies"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 19 May 2023 15:09:10 GMT",
       "tag": "create-powerapps-project_v1.3.2",
       "version": "1.3.2",
