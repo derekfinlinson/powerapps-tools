@@ -11,7 +11,7 @@ export const App = (props: { context: ComponentFramework.Context<IInputs>; }) =>
   } = props;
 
   return (
-    <AppContext.Provider value={{ context: context }}>
+    <AppContext.Provider value={{ context }}>
     </AppContext.Provider>
   );
 };

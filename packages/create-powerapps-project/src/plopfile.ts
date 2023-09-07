@@ -340,7 +340,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
         },
         {
           type: 'add',
-          templateFile: '../plop-templates/pcf/AppContext.tsx.hbs',
+          templateFile: '../plop-templates/pcf/AppContext.tsx',
           path: path.resolve(process.cwd(), '{{name}}', 'contexts', 'AppContext.tsx'),
           skip: (answers) => {
             if (!answers.react) {
