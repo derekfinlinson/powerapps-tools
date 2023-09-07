@@ -328,7 +328,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
         },
         {
           type: 'add',
-          templateFile: '../plop-templates/pcf/App.tsx.hbs',
+          templateFile: '../plop-templates/pcf/App.tsx',
           path: path.resolve(process.cwd(), '{{name}}', 'App.tsx'),
           skip: (answers) => {
             if (!answers.react) {
