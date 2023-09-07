@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Thu, 07 Sep 2023 18:40:16 GMT",
+      "tag": "create-powerapps-project_v1.3.4",
+      "version": "1.3.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "8b91499c6917e2aacca11d628b17473a4c339bb4",
+            "comment": "Add additional compiler options"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 30 Jun 2023 22:24:30 GMT",
       "tag": "create-powerapps-project_v1.3.3",
       "version": "1.3.3",
