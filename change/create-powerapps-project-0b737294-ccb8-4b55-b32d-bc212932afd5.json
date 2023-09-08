@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Escape brackets",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
