@@ -226,6 +226,9 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           }
         },
         {
+          type: 'addSolution'
+        },
+        {
           type: 'signAssembly'
         },
         {
@@ -378,8 +381,15 @@ export default async (plop: NodePlopAPI): Promise<void> => {
         {
           type: 'addScript',
           data: {
-            scriptKey: 'push',
+            scriptKey: 'deploy',
             scriptValue: `pac auth select --name ${data.org} && pac pcf version --strategy manifest && pac pcf push -pp ${data.prefix}`
+          }
+        },
+        {
+          type: 'addScript',
+          data: {
+            scriptKey: 'update',
+            scriptValue: `pac auth select --name ${data.org} && pac pcf version --strategy manifest && pac pcf push -pp ${data.prefix} -inc`
           }
         },
         {
