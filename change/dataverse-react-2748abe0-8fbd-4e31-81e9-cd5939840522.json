@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Change dependency to minimum",
-  "packageName": "dataverse-react",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
