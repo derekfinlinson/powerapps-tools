@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Fri, 08 Sep 2023 17:30:50 GMT and should not be manually modified.
+This log was last generated on Wed, 27 Sep 2023 16:21:18 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.4.1
+
+Wed, 27 Sep 2023 16:21:18 GMT
+
+### Patches
+
+- Rename scripts (derek.finlinson@journeyteam.com)
 
 ## 1.4.0
 
