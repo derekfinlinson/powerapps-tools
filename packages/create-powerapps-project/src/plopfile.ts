@@ -381,14 +381,14 @@ export default async (plop: NodePlopAPI): Promise<void> => {
         {
           type: 'addScript',
           data: {
-            scriptKey: 'deploy',
+            scriptKey: 'push',
             scriptValue: `pac auth select --name ${data.org} && pac pcf version --strategy manifest && pac pcf push -pp ${data.prefix}`
           }
         },
         {
           type: 'addScript',
           data: {
-            scriptKey: 'deploy-inc',
+            scriptKey: 'push-inc',
             scriptValue: `pac auth select --name ${data.org} && pac pcf version --strategy manifest && pac pcf push -pp ${data.prefix} -inc`
           }
         },
