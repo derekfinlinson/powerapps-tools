@@ -68,7 +68,7 @@ export async function deployAssembly(config: PluginAssembly, apiConfig: WebApiCo
   return assemblyId;
 }
 
-async function retrieveAssembly(name: string, apiConfig: WebApiConfig): Promise<string> {
+export async function retrieveAssembly(name: string, apiConfig: WebApiConfig): Promise<string> {
   const options = `$select=pluginassemblyid&$filter=name eq '${name}'`;
 
   const result = await retrieveMultiple(apiConfig, 'pluginassemblies', options);

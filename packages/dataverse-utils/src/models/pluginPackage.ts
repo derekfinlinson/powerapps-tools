@@ -2,8 +2,10 @@ import fs from 'fs';
 import glob from 'glob';
 import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity, QueryOptions } from 'dataverse-webapi/lib/node';
 
-import { PluginAssembly, deployAssembly } from './pluginAssembly';
+import { PluginAssembly, retrieveAssembly } from './pluginAssembly';
 import { logger } from '../logger';
+import { retrieveType } from './pluginType';
+import { deployStep } from './pluginStep';
 
 export interface PluginPackage extends Entity {
   name: string;
@@ -46,20 +48,31 @@ export async function deployPluginPackage(config: PluginPackage, apiConfig: WebA
     }
   }
 
-  let assemblyId: string | undefined;
-
   if (config.assembly != null) {
     try {
-      config.assembly['packageid@odata.bind'] = `/pluginpackages(${packageId})`;
+      const assemblyId = await retrieveAssembly(config.assembly.name, apiConfig);
 
-      assemblyId = await deployAssembly(config.assembly, apiConfig, solution);
+      const promises =
+        config.assembly.types?.map(async (t) => {
+          const typeId = await retrieveType(t.typename, assemblyId, apiConfig);
+
+          const stepPromises =
+            t.steps?.map((s) => {
+              s['plugintypeid@odata.bind'] = `/plugintypes(${typeId})`;
+              return deployStep(s, typeId, apiConfig, solution);
+            }) ?? [];
+
+          await Promise.all(stepPromises);
+        }) ?? [];
+
+      await Promise.all(promises);
     } catch (error: any) {
       logger.error(error.message);
       return;
     }
   }
 
-  return assemblyId;
+  return packageId;
 }
 
 async function retrievePackage(prefix: string, name: string, apiConfig: WebApiConfig): Promise<string> {
