@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Modify deploying plugin package",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
