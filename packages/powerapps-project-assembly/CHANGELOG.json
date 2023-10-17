@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Tue, 17 Oct 2023 14:32:15 GMT",
+      "tag": "powerapps-project-assembly_v2.0.2",
+      "version": "2.0.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "78f21e909d9bab0eab416987eb3b74444b3f7c7c",
+            "comment": "Sort types and steps"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 05 May 2023 18:08:16 GMT",
       "tag": "powerapps-project-assembly_v2.0.1",
       "version": "2.0.1",

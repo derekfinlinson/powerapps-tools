@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Sort types and steps",
-  "packageName": "powerapps-project-assembly",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
