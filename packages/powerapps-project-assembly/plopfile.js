@@ -42,7 +42,7 @@ module.exports = (plop) => {
         types = file.types.map((t) => t.name.substring(t.name.lastIndexOf('.') + 1));
       }
 
-      return types;
+      return types.sort((a, b) => a.localeCompare(b));
     }
 
     return [];
@@ -66,7 +66,7 @@ module.exports = (plop) => {
         });
       }
 
-      return steps;
+      return steps.sort((a, b) => a.localeCompare(b));
     }
 
     return [];
