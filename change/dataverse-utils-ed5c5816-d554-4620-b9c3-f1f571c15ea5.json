@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Store GUID's in config file",
+  "packageName": "dataverse-utils",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
