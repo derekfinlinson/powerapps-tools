@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Update checking for custom APIs for packages",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Fri, 13 Oct 2023 18:40:18 GMT and should not be manually modified.
+This log was last generated on Wed, 18 Oct 2023 21:34:44 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.4.3
+
+Wed, 18 Oct 2023 21:34:44 GMT
+
+### Patches
+
+- Update checking for custom APIs for packages (derek.finlinson@journeyteam.com)
 
 ## 1.4.2
 

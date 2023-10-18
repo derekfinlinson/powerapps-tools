@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Wed, 18 Oct 2023 21:34:44 GMT",
+      "tag": "dataverse-utils_v2.7.1",
+      "version": "2.7.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "dcfe21fa7803db2b51077bb285f05351a4797534",
+            "comment": "Update checking for custom APIs for packages"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 18 Oct 2023 17:59:41 GMT",
       "tag": "dataverse-utils_v2.7.0",
       "version": "2.7.0",

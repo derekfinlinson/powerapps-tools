@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 18 Oct 2023 21:34:44 GMT",
+      "tag": "create-powerapps-project_v1.4.3",
+      "version": "1.4.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "dcfe21fa7803db2b51077bb285f05351a4797534",
+            "comment": "Update checking for custom APIs for packages"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 13 Oct 2023 18:40:18 GMT",
       "tag": "create-powerapps-project_v1.4.2",
       "version": "1.4.2",
