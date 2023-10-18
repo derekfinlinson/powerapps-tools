@@ -43,11 +43,13 @@ export async function assemblyDeploy(creds: DeployCredentials, apiConfig: WebApi
     logger.done(`deployed assembly ${config.name}`);
   }
 
-  if (config.customapis != null && config.pluginassemblyid) {
+  if ((config.customapis != null && config.pluginassemblyid) || config.assembly.pluginassemblyid) {
     logger.info('deploy custom api');
 
+    const assemblyId = config.pluginassemblyid ?? config.assembly.pluginassemblyid;
+
     try {
-      const promises = config.customapis.map((a) => deployApi(a, config.pluginassemblyid, apiConfig, creds.solution));
+      const promises = config.customapis.map((a) => deployApi(a, assemblyId, apiConfig, creds.solution));
 
       await Promise.all(promises);
     } catch (error: any) {
