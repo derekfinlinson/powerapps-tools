@@ -19,13 +19,11 @@ export async function assemblyDeploy(creds: DeployCredentials, apiConfig: WebApi
 
   const config = JSON.parse(configFile);
 
-  let assemblyId: string | undefined;
-
   if (config.assembly) {
     logger.info('deploy plugin package');
 
     try {
-      assemblyId = await deployPluginPackage(config, apiConfig, creds.solution);
+      await deployPluginPackage(config, apiConfig, creds.solution);
     } catch (error: any) {
       logger.error(error.message);
       return;
@@ -36,7 +34,7 @@ export async function assemblyDeploy(creds: DeployCredentials, apiConfig: WebApi
     logger.info(`deploy assembly to ${creds.server}`);
 
     try {
-      assemblyId = await deployAssembly(config, apiConfig, creds.solution);
+      await deployAssembly(config, apiConfig, creds.solution);
     } catch (error: any) {
       logger.error(error.message);
       return;
@@ -45,11 +43,11 @@ export async function assemblyDeploy(creds: DeployCredentials, apiConfig: WebApi
     logger.done(`deployed assembly ${config.name}`);
   }
 
-  if (config.customapis != null && assemblyId) {
+  if (config.customapis != null && config.pluginassemblyid) {
     logger.info('deploy custom api');
 
     try {
-      const promises = config.customapis.map((a) => deployApi(a, assemblyId as string, apiConfig, creds.solution));
+      const promises = config.customapis.map((a) => deployApi(a, config.pluginassemblyid, apiConfig, creds.solution));
 
       await Promise.all(promises);
     } catch (error: any) {
@@ -58,4 +56,6 @@ export async function assemblyDeploy(creds: DeployCredentials, apiConfig: WebApi
 
     logger.done('deployed custom api');
   }
+
+  await fs.promises.writeFile(path.resolve(currentPath, 'dataverse.config.json'), JSON.stringify(config, null, 4), 'utf8');
 }

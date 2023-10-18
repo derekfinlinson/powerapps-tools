@@ -6,6 +6,7 @@ import { PluginType, deployType } from './pluginType';
 import { logger } from '../logger';
 
 export interface PluginAssembly extends Entity {
+  pluginassemblyid: string;
   name: string;
   'packageid@odata.bind'?: string;
   content?: string;
@@ -17,7 +18,7 @@ export interface PluginAssembly extends Entity {
   types?: PluginType[];
 }
 
-export async function deployAssembly(config: PluginAssembly, apiConfig: WebApiConfig, solution?: string): Promise<string | undefined> {
+export async function deployAssembly(config: PluginAssembly, apiConfig: WebApiConfig, solution?: string): Promise<void> {
   const files = glob.sync(`**/${config.name}.dll`);
 
   if (files.length === 0) {
@@ -27,24 +28,19 @@ export async function deployAssembly(config: PluginAssembly, apiConfig: WebApiCo
 
   const content = (await fs.promises.readFile(files[0])).toString('base64');
 
-  let assemblyId = '';
-
-  try {
-    assemblyId = await retrieveAssembly(config.name, apiConfig);
-  } catch (error: any) {
-    logger.error(`failed to retrieve assembly ${config.name}: ${error.message}`);
-    return;
+  if (!config.pluginassemblyid) {
+    config.pluginassemblyid = await retrieveAssembly(config.name, apiConfig);
   }
 
-  if (assemblyId != '') {
+  if (config.pluginassemblyid) {
     try {
-      await updateAssembly(assemblyId, config, content, apiConfig);
+      await updateAssembly(config, content, apiConfig);
     } catch (error: any) {
       throw new Error(`failed to update assembly: ${error.message}`);
     }
   } else {
     try {
-      assemblyId = await createAssembly(config, content, apiConfig, solution);
+      config.pluginassemblyid = await createAssembly(config, content, apiConfig, solution);
     } catch (error: any) {
       throw new Error(`failed to create assembly: ${error.message}`);
     }
@@ -52,11 +48,7 @@ export async function deployAssembly(config: PluginAssembly, apiConfig: WebApiCo
 
   if (config.types != null) {
     try {
-      const promises = config.types.map((type) => {
-        type['pluginassemblyid@odata.bind'] = `/pluginassemblies(${assemblyId})`;
-
-        return deployType(type, assemblyId, apiConfig, solution);
-      });
+      const promises = config.types.map((type) => deployType(type, config.pluginassemblyid, apiConfig, solution));
 
       await Promise.all(promises);
     } catch (error: any) {
@@ -64,8 +56,6 @@ export async function deployAssembly(config: PluginAssembly, apiConfig: WebApiCo
       return;
     }
   }
-
-  return assemblyId;
 }
 
 export async function retrieveAssembly(name: string, apiConfig: WebApiConfig): Promise<string> {
@@ -79,7 +69,7 @@ export async function retrieveAssembly(name: string, apiConfig: WebApiConfig): P
 async function createAssembly(config: PluginAssembly, content: string, apiConfig: WebApiConfig, solution?: string): Promise<string> {
   logger.info(`create assembly ${config.name}`);
 
-  const assembly: PluginAssembly = {
+  const assembly = {
     name: config.name,
     content: content,
     isolationmode: config.isolationmode,
@@ -104,7 +94,7 @@ async function createAssembly(config: PluginAssembly, content: string, apiConfig
   return result.pluginassemblyid;
 }
 
-async function updateAssembly(id: string, config: PluginAssembly, content: string, apiConfig: WebApiConfig) {
+async function updateAssembly(config: PluginAssembly, content: string, apiConfig: WebApiConfig) {
   logger.info(`update assembly ${config.name}`);
 
   const assembly = {
@@ -112,7 +102,7 @@ async function updateAssembly(id: string, config: PluginAssembly, content: strin
     version: config.version
   };
 
-  const result: any = await update(apiConfig, 'pluginassemblies', id, assembly);
+  const result: any = await update(apiConfig, 'pluginassemblies', config.pluginassemblyid, assembly);
 
   if (result?.error) {
     throw new Error(result.error.message);

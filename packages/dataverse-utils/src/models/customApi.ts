@@ -24,6 +24,7 @@ export interface CustomAPIResponseProperty extends Entity {
 }
 
 export interface CustomApi extends Entity {
+  customapiid?: string;
   allowedcustomprocessingsteptype: number;
   boundentitylogicalname?: string;
   uniquename: string;
@@ -36,36 +37,43 @@ export interface CustomApi extends Entity {
   iscustomizable: { Value: false };
   name: string;
   plugintype?: string;
+  plugintypeid?: string;
   'PluginTypeId@odata.bind?': string;
   CustomAPIRequestParameters?: CustomAPIRequestParameter[];
   CustomAPIResponseProperties?: CustomAPIResponseProperty[];
 }
 
-export async function deployApi(api: CustomApi, assemblyId: string, apiConfig: WebApiConfig, solution: string): Promise<void> {
-  let apiId = await retrieveApi(api.name, apiConfig);
+export async function deployApi(config: CustomApi, assemblyId: string, apiConfig: WebApiConfig, solution: string): Promise<void> {
+  const api = structuredClone(config);
 
-  if (api.plugintype) {
-    const pluginTypeId = await retrieveType(api.plugintype ?? '', assemblyId, apiConfig);
+  if (!config.customapiid) {
+    config.customapiid = await retrieveApi(api.name, apiConfig);
+  }
 
-    if (pluginTypeId === '') {
+  if (config.plugintype && !config.plugintypeid) {
+    config.plugintypeid = await retrieveType(config.plugintype, assemblyId, apiConfig);
+
+    if (config.plugintypeid === '') {
       logger.error(`unable to find plugin type ${api.plugintype}`);
       return;
     }
 
     delete api.plugintype;
+    delete api.customapiid;
+    delete api.plugintypeid;
 
-    api['PluginTypeId@odata.bind'] = `plugintypes(${pluginTypeId})`;
+    api['PluginTypeId@odata.bind'] = `plugintypes(${config.plugintypeid})`;
   }
 
-  if (apiId != '') {
+  if (config.customapiid) {
     try {
-      await updateApi(apiId, api, apiConfig);
+      await updateApi(config.customapiid, api, apiConfig);
     } catch (error: any) {
       throw new Error(`failed to update custom api: ${error.message}`);
     }
   } else {
     try {
-      apiId = await createApi(api, apiConfig, solution);
+      config.customapiid = await createApi(api, apiConfig, solution);
     } catch (error: any) {
       throw new Error(`failed to create custom api: ${error.message}`);
     }

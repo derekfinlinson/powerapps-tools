@@ -3,6 +3,7 @@ import { PluginStep, deployStep } from './pluginStep';
 import { logger } from '../logger';
 
 export interface PluginType extends Entity {
+  plugintypeid: string;
   name: string;
   'pluginassemblyid@odata.bind'?: string;
   typename: string;
@@ -11,10 +12,8 @@ export interface PluginType extends Entity {
   workflowactivitygroupname: string;
 }
 
-export async function deployType(config: PluginType, assemblyId: string, apiConfig: WebApiConfig, solution?: string): Promise<string> {
-  let typeId = await retrieveType(config.typename, assemblyId, apiConfig);
-
-  const type: PluginType = {
+export async function deployType(config: PluginType, assemblyId: string, apiConfig: WebApiConfig, solution?: string): Promise<void> {
+  const type = {
     name: config.name,
     friendlyname: config.friendlyname,
     typename: config.typename,
@@ -22,15 +21,19 @@ export async function deployType(config: PluginType, assemblyId: string, apiConf
     workflowactivitygroupname: config.workflowactivitygroupname
   };
 
-  if (typeId != '') {
+  if (!config.plugintypeid) {
+    config.plugintypeid = await retrieveType(config.name, assemblyId, apiConfig);
+  }
+
+  if (config.plugintypeid) {
     try {
-      await updateType(typeId, type, apiConfig);
+      await updateType(config.plugintypeid, type as PluginType, apiConfig);
     } catch (error: any) {
       throw new Error(`failed to update plugin type: ${error.message}`);
     }
   } else {
     try {
-      typeId = await createType(type, apiConfig);
+      config.plugintypeid = await createType(type as PluginType, apiConfig);
     } catch (error: any) {
       throw new Error(`failed to create plugin type: ${error.message}`);
     }
@@ -38,19 +41,13 @@ export async function deployType(config: PluginType, assemblyId: string, apiConf
 
   try {
     if (config.steps) {
-      const promises = config.steps.map((step) => {
-        step['plugintypeid@odata.bind'] = `/plugintypes(${typeId})`;
-
-        return deployStep(step, typeId, apiConfig, solution);
-      });
+      const promises = config.steps.map((step) => deployStep(step, config.plugintypeid, apiConfig, solution));
 
       await Promise.all(promises);
     }
   } catch (error: any) {
     throw new Error(error.message);
   }
-
-  return typeId;
 }
 
 export async function retrieveType(name: string, assemblyId: string, apiConfig: WebApiConfig): Promise<string> {

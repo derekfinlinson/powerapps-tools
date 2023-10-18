@@ -8,15 +8,18 @@ export interface PluginImage extends Entity {
   imagetype: number;
   messagepropertyname: string;
   'sdkmessageprocessingstepid@odata.bind'?: string;
+  sdkmessageprocessingstepimageid: string;
 }
 
 export async function deployImage(
   stepId: string,
   stepName: string,
-  image: PluginImage,
+  config: PluginImage,
   message: string | undefined,
   apiConfig: WebApiConfig
-): Promise<string> {
+): Promise<void> {
+  const image = structuredClone(config);
+
   image['sdkmessageprocessingstepid@odata.bind'] = `/sdkmessageprocessingsteps(${stepId})`;
 
   switch (message) {
@@ -37,23 +40,23 @@ export async function deployImage(
       break;
   }
 
-  let imageId = await retrieveImage(stepId, image, apiConfig);
+  if (!config.sdkmessageprocessingstepimageid) {
+    config.sdkmessageprocessingstepimageid = await retrieveImage(stepId, image, apiConfig);
+  }
 
-  if (imageId != '') {
+  if (config.sdkmessageprocessingstepimageid) {
     try {
-      await updateImage(imageId, image, stepName, apiConfig);
+      await updateImage(config.sdkmessageprocessingstepimageid, image, stepName, apiConfig);
     } catch (error: any) {
       throw new Error(`failed to update plugin image: ${error.message}`);
     }
   } else {
     try {
-      imageId = await createImage(image, stepName, apiConfig);
+      config.sdkmessageprocessingstepimageid = await createImage(image, stepName, apiConfig);
     } catch (error: any) {
       throw new Error(`failed to create plugin image: ${error.message}`);
     }
   }
-
-  return imageId;
 }
 
 async function retrieveImage(stepId: string, image: PluginImage, apiConfig: WebApiConfig): Promise<string> {

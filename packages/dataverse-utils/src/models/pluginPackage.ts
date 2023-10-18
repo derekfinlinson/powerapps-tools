@@ -1,6 +1,6 @@
 import fs from 'fs';
 import glob from 'glob';
-import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity, QueryOptions } from 'dataverse-webapi/lib/node';
+import { createWithReturnData, retrieveMultiple, update, WebApiConfig, Entity, QueryOptions } from 'dataverse-webapi/lib/node';
 
 import { PluginAssembly, retrieveAssembly } from './pluginAssembly';
 import { logger } from '../logger';
@@ -8,6 +8,7 @@ import { retrieveType } from './pluginType';
 import { deployStep } from './pluginStep';
 
 export interface PluginPackage extends Entity {
+  pluginpackageid: string;
   name: string;
   prefix: string;
   version: string;
@@ -15,7 +16,7 @@ export interface PluginPackage extends Entity {
   assembly?: PluginAssembly;
 }
 
-export async function deployPluginPackage(config: PluginPackage, apiConfig: WebApiConfig, solution?: string): Promise<string | undefined> {
+export async function deployPluginPackage(config: PluginPackage, apiConfig: WebApiConfig, solution?: string): Promise<void> {
   const files = glob.sync(`**/${config.name}.*.nupkg`);
 
   if (files.length === 0) {
@@ -25,24 +26,19 @@ export async function deployPluginPackage(config: PluginPackage, apiConfig: WebA
 
   const content = (await fs.promises.readFile(files[0])).toString('base64');
 
-  let packageId = '';
-
-  try {
-    packageId = await retrievePackage(config.prefix, config.name, apiConfig);
-  } catch (error: any) {
-    logger.error(`failed to retrieve package ${config.name}: ${error.message}`);
-    return;
+  if (!config.pluginpackageid) {
+    config.pluginpackageid = await retrievePackage(config.prefix, config.name, apiConfig);
   }
 
-  if (packageId != '') {
+  if (config.pluginpackageid) {
     try {
-      await updatePackage(packageId, config, content, apiConfig);
+      await updatePackage(config, content, apiConfig);
     } catch (error: any) {
       throw new Error(`failed to update package: ${error.message}`);
     }
   } else {
     try {
-      packageId = await createPackage(config, content, apiConfig, solution);
+      config.pluginpackageid = await createPackage(config, content, apiConfig, solution);
     } catch (error: any) {
       throw new Error(`failed to create package: ${error.message}`);
     }
@@ -50,17 +46,17 @@ export async function deployPluginPackage(config: PluginPackage, apiConfig: WebA
 
   if (config.assembly != null) {
     try {
-      const assemblyId = await retrieveAssembly(config.assembly.name, apiConfig);
+      if (config.assembly.pluginassemblyid) {
+        config.assembly.pluginassemblyid = await retrieveAssembly(config.assembly.name, apiConfig);
+      }
 
       const promises =
         config.assembly.types?.map(async (t) => {
-          const typeId = await retrieveType(t.typename, assemblyId, apiConfig);
+          if (!t.plugintypeid && config.assembly?.pluginassemblyid) {
+            t.plugintypeid = await retrieveType(t.typename, config.assembly.pluginassemblyid, apiConfig);
+          }
 
-          const stepPromises =
-            t.steps?.map((s) => {
-              s['plugintypeid@odata.bind'] = `/plugintypes(${typeId})`;
-              return deployStep(s, typeId, apiConfig, solution);
-            }) ?? [];
+          const stepPromises = t.steps?.map((s) => deployStep(s, t.plugintypeid, apiConfig, solution)) ?? [];
 
           await Promise.all(stepPromises);
         }) ?? [];
@@ -71,8 +67,6 @@ export async function deployPluginPackage(config: PluginPackage, apiConfig: WebA
       return;
     }
   }
-
-  return packageId;
 }
 
 async function retrievePackage(prefix: string, name: string, apiConfig: WebApiConfig): Promise<string> {
@@ -107,7 +101,7 @@ async function createPackage(config: PluginPackage, content: string, apiConfig: 
   return result.pluginpackageid;
 }
 
-async function updatePackage(id: string, config: PluginPackage, content: string, apiConfig: WebApiConfig) {
+async function updatePackage(config: PluginPackage, content: string, apiConfig: WebApiConfig) {
   logger.info(`update package ${config.name}`);
 
   const updated = {
@@ -115,7 +109,7 @@ async function updatePackage(id: string, config: PluginPackage, content: string,
     version: config.version
   };
 
-  const result: any = await update(apiConfig, 'pluginpackages', id, updated);
+  const result: any = await update(apiConfig, 'pluginpackages', config.pluginpackageid, updated);
 
   if (result?.error) {
     throw new Error(result.error.message);
