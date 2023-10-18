@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Fri, 13 Oct 2023 18:40:18 GMT and should not be manually modified.
+This log was last generated on Wed, 18 Oct 2023 17:59:41 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.7.0
+
+Wed, 18 Oct 2023 17:59:41 GMT
+
+### Minor changes
+
+- Store GUID's in config file (derek.finlinson@journeyteam.com)
 
 ## 2.6.11
 
