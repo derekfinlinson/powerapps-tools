@@ -46,7 +46,7 @@ export async function deployPluginPackage(config: PluginPackage, apiConfig: WebA
 
   if (config.assembly != null) {
     try {
-      if (config.assembly.pluginassemblyid) {
+      if (!config.assembly.pluginassemblyid) {
         config.assembly.pluginassemblyid = await retrieveAssembly(config.assembly.name, apiConfig);
       }
 
