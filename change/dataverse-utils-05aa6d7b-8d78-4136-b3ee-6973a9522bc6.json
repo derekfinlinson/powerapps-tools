@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Get assembly id if not set already",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

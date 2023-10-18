@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Wed, 18 Oct 2023 21:40:36 GMT",
+      "tag": "dataverse-utils_v2.7.2",
+      "version": "2.7.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "39dc28dd6923184fc424ee7337eb0b72a906dad1",
+            "comment": "Get assembly id if not set already"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 18 Oct 2023 21:34:44 GMT",
       "tag": "dataverse-utils_v2.7.1",
       "version": "2.7.1",

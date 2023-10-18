@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Wed, 18 Oct 2023 21:34:44 GMT and should not be manually modified.
+This log was last generated on Wed, 18 Oct 2023 21:40:36 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.7.2
+
+Wed, 18 Oct 2023 21:40:36 GMT
+
+### Patches
+
+- Get assembly id if not set already (derek.finlinson@journeyteam.com)
 
 ## 2.7.1
 
