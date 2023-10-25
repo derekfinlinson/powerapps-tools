@@ -57,13 +57,13 @@ export async function deployApi(config: CustomApi, assemblyId: string, apiConfig
       logger.error(`unable to find plugin type ${api.plugintype}`);
       return;
     }
-
-    delete api.plugintype;
-    delete api.customapiid;
-    delete api.plugintypeid;
-
-    api['PluginTypeId@odata.bind'] = `plugintypes(${config.plugintypeid})`;
   }
+
+  delete api.plugintype;
+  delete api.customapiid;
+  delete api.plugintypeid;
+
+  api['PluginTypeId@odata.bind'] = `plugintypes(${config.plugintypeid})`;
 
   if (config.customapiid) {
     try {
