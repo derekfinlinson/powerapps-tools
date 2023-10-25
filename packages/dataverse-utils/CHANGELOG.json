@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Wed, 25 Oct 2023 18:11:48 GMT",
+      "tag": "dataverse-utils_v2.7.3",
+      "version": "2.7.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "f2719c9aed0b639cab5802ad4c97bac0e581f061",
+            "comment": "Always set plugintypeid on api"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 18 Oct 2023 21:40:36 GMT",
       "tag": "dataverse-utils_v2.7.2",
       "version": "2.7.2",

@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Always set plugintypeid on api",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

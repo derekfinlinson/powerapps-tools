@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Wed, 18 Oct 2023 21:40:36 GMT and should not be manually modified.
+This log was last generated on Wed, 25 Oct 2023 18:11:48 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.7.3
+
+Wed, 25 Oct 2023 18:11:48 GMT
+
+### Patches
+
+- Always set plugintypeid on api (derek.finlinson@journeyteam.com)
 
 ## 2.7.2
 
