@@ -2,7 +2,7 @@
 
 | Build |
 | ----- |
-| ![Build Status](https://github.com/derekfinlinson/powerapps-tools/actions/workflows/ci.yml/badge.svg) |
+| [![publish](https://github.com/derekfinlinson/powerapps-tools/actions/workflows/ci.yml/badge.svg)](https://github.com/derekfinlinson/powerapps-tools/actions/workflows/ci.yml) |
 
 Monorepo containing packages for Microsoft Dataverse development projects
 
