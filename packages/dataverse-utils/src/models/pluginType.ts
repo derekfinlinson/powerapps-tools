@@ -17,7 +17,7 @@ export async function deployType(config: PluginType, assemblyId: string, apiConf
     name: config.name,
     friendlyname: config.friendlyname,
     typename: config.typename,
-    'pluginassemblyid@odata.bind': config['pluginassemblyid@odata.bind'],
+    'pluginassemblyid@odata.bind': `pluginassemblies(${assemblyId})`,
     workflowactivitygroupname: config.workflowactivitygroupname
   };
 
