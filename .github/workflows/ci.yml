@@ -1,14 +1,18 @@
-name: publish
+name: release
+
 on:
   push:
-    branches:
-      - master
+    branches: [master]
+      
 jobs:
   build:
+    environment: release
+
     runs-on: ubuntu-20.04
     strategy:
       matrix:
         node-version: [18]
+
     steps:
     - uses: actions/checkout@v3
     - run: |
@@ -23,6 +27,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
         registry-url: 'https://registry.npmjs.org'
+    
     - run: pnpm install
     - run: pnpm build
-    - run: pnpm publish:beachball -n ${{ secrets.NPM_TOKEN }}
+    - name: Release
+      run: pnpm release -n "$NPM_TOKEN"
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

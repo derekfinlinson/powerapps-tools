@@ -12,7 +12,7 @@
     "@types/jest": "^27.5.2",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
-    "beachball": "^2.33.3",
+    "beachball": "^2.39.0",
     "eslint": "^7.32.0",
     "jest": "^27.5.1",
     "prettier": "^2.8.8",
@@ -24,14 +24,15 @@
   "scripts": {
     "build": "pnpm -r --stream clean && pnpm -r --stream build",
     "change": "beachball change",
+    "checkchange": "beachball check",
     "bump": "beachball bump",
-    "publish:beachball": "beachball publish -y",
-    "publish:manual": "beachball publish",
+    "release": "beachball publish -y",
+    "release:manual": "beachball publish",
     "preinstall": "npx only-allow pnpm",
     "test": "jest"
   },
   "volta": {
     "node": "18.14.2",
-    "pnpm": "8.10.0"
+    "pnpm": "8.11.0"
   }
 }
