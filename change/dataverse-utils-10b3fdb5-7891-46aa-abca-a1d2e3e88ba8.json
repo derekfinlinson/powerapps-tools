@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Fix creating new plugin type",
+  "packageName": "dataverse-utils",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
