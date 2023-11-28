@@ -2,6 +2,21 @@
   "name": "dataverse-react",
   "entries": [
     {
+      "date": "Fri, 27 Oct 2023 17:02:48 GMT",
+      "tag": "dataverse-react_v0.2.4",
+      "version": "0.2.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-react",
+            "commit": "b86b61b4fd826cc4ee4500ff51d052aeac1f30d7",
+            "comment": "Switch to peer dependency"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 15 Sep 2023 23:31:18 GMT",
       "tag": "dataverse-react_v0.2.3",
       "version": "0.2.3",
