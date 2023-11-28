@@ -2,6 +2,27 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Tue, 28 Nov 2023 17:06:57 GMT",
+      "tag": "dataverse-utils_v2.7.4",
+      "version": "2.7.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "a733833c3ab5d3f7d7f58a13f9f7043a4c79e043",
+            "comment": "Add any ignore"
+          },
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "66ec88588a9ec0104cac3f179a2ee51b1e690909",
+            "comment": "Fix creating new plugin type"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 25 Oct 2023 18:11:48 GMT",
       "tag": "dataverse-utils_v2.7.3",
       "version": "2.7.3",
