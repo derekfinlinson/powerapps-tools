@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Tue, 28 Nov 2023 17:06:57 GMT and should not be manually modified.
+This log was last generated on Wed, 29 Nov 2023 15:34:04 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.7.5
+
+Wed, 29 Nov 2023 15:34:04 GMT
+
+### Patches
+
+- Fix property name (derek.finlinson@journeyteam.com)
 
 ## 2.7.4
 

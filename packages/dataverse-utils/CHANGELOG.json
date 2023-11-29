@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Wed, 29 Nov 2023 15:34:04 GMT",
+      "version": "2.7.5",
+      "tag": "dataverse-utils_v2.7.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "622e0812b0d9a54aebd32a52b0b5396745eefe6e",
+            "comment": "Fix property name"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 28 Nov 2023 17:06:57 GMT",
       "tag": "dataverse-utils_v2.7.4",
       "version": "2.7.4",
