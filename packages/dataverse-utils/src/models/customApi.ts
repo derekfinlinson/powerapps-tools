@@ -38,7 +38,7 @@ export interface CustomApi extends Entity {
   name: string;
   plugintype?: string;
   plugintypeid?: string;
-  'PluginTypeId@odata.bind?': string;
+  'PluginTypeId@odata.bind'?: string;
   CustomAPIRequestParameters?: CustomAPIRequestParameter[];
   CustomAPIResponseProperties?: CustomAPIResponseProperty[];
 }
