@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Revert fix to actually fix it",
+  "packageName": "dataverse-utils",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
