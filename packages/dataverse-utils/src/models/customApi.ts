@@ -116,8 +116,8 @@ async function updateApi(id: string, api: CustomApi, apiConfig: WebApiConfig) {
     executeprivilegename: api.executeprivilegename
   };
 
-  if (api.plugintypeid) {
-    record['PluginTypeId@odata.bind'] = `plugintypes(${api.plugintypeid})`;
+  if (api['PluginTypeId@odata.bind']) {
+    record['PluginTypeId@odata.bind'] = api['PluginTypeId@odata.bind'];
   } else {
     record['PluginTypeId@odata.bind'] = null;
   }
