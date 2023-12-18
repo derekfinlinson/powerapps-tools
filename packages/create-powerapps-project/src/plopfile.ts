@@ -59,7 +59,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
       {
         type: 'confirm',
         name: 'pluginPackage',
-        message: 'use plugin package?'
+        message: 'use plugin package for dependent assemblies (recommended)?'
       },
       {
         type: 'input',
