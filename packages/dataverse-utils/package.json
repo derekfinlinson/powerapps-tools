@@ -7,6 +7,9 @@
   "bin": {
     "dataverse-utils": "lib/index.js"
   },
+  "engines": {
+    "node": ">=17.0.0"
+  },
   "files": [
     "/lib"
   ],
