@@ -229,7 +229,14 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           type: 'addSolution'
         },
         {
-          type: 'signAssembly'
+          type: 'signAssembly',
+          skip: (answers) => {
+            if (answers.pluginPackage) {
+              return `plugin packages don't need to be signed`;
+            } else {
+              return;
+            }
+          }
         },
         {
           type: 'nugetRestore'
