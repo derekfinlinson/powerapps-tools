@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Remove assembly sign props",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
