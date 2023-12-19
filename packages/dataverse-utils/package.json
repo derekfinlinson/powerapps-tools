@@ -1,6 +1,6 @@
 {
   "name": "dataverse-utils",
-  "version": "2.7.6",
+  "version": "2.7.7",
   "license": "MIT",
   "description": "Utilities for interacting with Dataverse environments",
   "main": "lib/index.js",

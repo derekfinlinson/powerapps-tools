@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Wed, 29 Nov 2023 15:53:13 GMT and should not be manually modified.
+This log was last generated on Tue, 19 Dec 2023 17:17:28 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.7.7
+
+Tue, 19 Dec 2023 17:17:28 GMT
+
+### Patches
+
+- Require node v17+ (derek.finlinson@journeyteam.com)
 
 ## 2.7.6
 
