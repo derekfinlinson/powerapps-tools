@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Mon, 18 Dec 2023 22:28:53 GMT and should not be manually modified.
+This log was last generated on Tue, 19 Dec 2023 15:40:27 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.4.5
+
+Tue, 19 Dec 2023 15:40:27 GMT
+
+### Patches
+
+- Merge branch 'master' of https://github.com/derekfinlinson/powerapps-tools (derek.finlinson@journeyteam.com)
 
 ## 1.4.4
 

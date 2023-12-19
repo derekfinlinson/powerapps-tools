@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 19 Dec 2023 15:40:27 GMT",
+      "version": "1.4.5",
+      "tag": "create-powerapps-project_v1.4.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "50a8b077e3f21e736a359ad0f3ace40c654e3e57",
+            "comment": "Merge branch 'master' of https://github.com/derekfinlinson/powerapps-tools"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 18 Dec 2023 22:28:53 GMT",
       "version": "1.4.4",
       "tag": "create-powerapps-project_v1.4.4",
