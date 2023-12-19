@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Tue, 19 Dec 2023 20:16:00 GMT",
+      "version": "2.7.8",
+      "tag": "dataverse-utils_v2.7.8",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "19939458d9dd4253fc37008f3fcd6605e8974624",
+            "comment": "check custom APIs length"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 19 Dec 2023 17:17:28 GMT",
       "version": "2.7.7",
       "tag": "dataverse-utils_v2.7.7",

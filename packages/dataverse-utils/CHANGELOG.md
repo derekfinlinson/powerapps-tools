@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Tue, 19 Dec 2023 17:17:28 GMT and should not be manually modified.
+This log was last generated on Tue, 19 Dec 2023 20:16:00 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.7.8
+
+Tue, 19 Dec 2023 20:16:00 GMT
+
+### Patches
+
+- check custom APIs length (derek.finlinson@journeyteam.com)
 
 ## 2.7.7
 
