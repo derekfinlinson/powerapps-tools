@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 19 Dec 2023 16:04:15 GMT",
+      "version": "1.4.6",
+      "tag": "create-powerapps-project_v1.4.6",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "eff67dde6348e2d855977b8c9b9c6aa371088b16",
+            "comment": "Remove assembly sign props"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 19 Dec 2023 15:40:27 GMT",
       "version": "1.4.5",
       "tag": "create-powerapps-project_v1.4.5",

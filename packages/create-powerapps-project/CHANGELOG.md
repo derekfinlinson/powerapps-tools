@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Tue, 19 Dec 2023 15:40:27 GMT and should not be manually modified.
+This log was last generated on Tue, 19 Dec 2023 16:04:15 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.4.6
+
+Tue, 19 Dec 2023 16:04:15 GMT
+
+### Patches
+
+- Remove assembly sign props (derek.finlinson@journeyteam.com)
 
 ## 1.4.5
 
