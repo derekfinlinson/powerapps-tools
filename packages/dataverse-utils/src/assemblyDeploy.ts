@@ -43,7 +43,7 @@ export async function assemblyDeploy(creds: DeployCredentials, apiConfig: WebApi
     logger.done(`deployed assembly ${config.name}`);
   }
 
-  if ((config.customapis != null && config.pluginassemblyid) || config.assembly.pluginassemblyid) {
+  if ((config.customapis?.length > 0 && config.pluginassemblyid) || config.assembly.pluginassemblyid) {
     logger.info('deploy custom api');
 
     const assemblyId = config.pluginassemblyid ?? config.assembly.pluginassemblyid;
