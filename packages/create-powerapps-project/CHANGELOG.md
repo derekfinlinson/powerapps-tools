@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Thu, 21 Dec 2023 18:11:57 GMT and should not be manually modified.
+This log was last generated on Thu, 21 Dec 2023 18:21:15 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.5.1
+
+Thu, 21 Dec 2023 18:21:15 GMT
+
+### Patches
+
+- Use latest 17 version of React (derek.finlinson@journeyteam.com)
 
 ## 1.5.0
 
