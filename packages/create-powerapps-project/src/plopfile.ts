@@ -467,8 +467,8 @@ export default async (plop: NodePlopAPI): Promise<void> => {
             packages: {
               devDependencies: [
                 'powerapps-project-pcf',
-                '@types/react@16',
-                '@types/react-dom@16',
+                '@types/react@^16',
+                '@types/react-dom@^16',
                 'eslint-plugin-react-hooks',
                 '@types/xrm'
               ],
@@ -493,13 +493,13 @@ export default async (plop: NodePlopAPI): Promise<void> => {
             packages: {
               devDependencies: [
                 'powerapps-project-pcf',
-                '@types/react@16',
-                '@types/react-dom@16',
+                '@types/react@^17',
+                '@types/react-dom@^17',
                 'eslint-plugin-react-hooks',
                 '@types/xrm',
                 'eslint-plugin-react'
               ],
-              dependencies: ['@fluentui/react-hooks', '@fluentui/react-components', '@fluentui/react-icons', 'react@16', 'react-dom@16']
+              dependencies: ['@fluentui/react-hooks', '@fluentui/react-components', '@fluentui/react-icons', 'react@^17', 'react-dom@^17']
             }
           },
           skip: (answers) => {
