@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Update peer dependency versions",
+  "packageName": "dataverse-react",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
