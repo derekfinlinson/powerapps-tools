@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Thu, 21 Dec 2023 18:21:15 GMT",
+      "version": "1.5.1",
+      "tag": "create-powerapps-project_v1.5.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "9dbb264bd4fb4b537c0403ce84a3d3955e52e186",
+            "comment": "Use latest 17 version of React"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 21 Dec 2023 18:11:57 GMT",
       "version": "1.5.0",
       "tag": "create-powerapps-project_v1.5.0",

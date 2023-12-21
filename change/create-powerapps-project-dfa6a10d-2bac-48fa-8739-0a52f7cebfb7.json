@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Use latest 17 version of React",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
