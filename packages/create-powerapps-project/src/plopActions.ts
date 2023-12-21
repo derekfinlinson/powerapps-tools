@@ -80,7 +80,7 @@ export default (plop: NodePlopAPI): void => {
     const args = ['pcf', 'init', '-ns', answers.namespace, '-n', answers.name, '-t', answers.template, '-npm', 'false'];
 
     // Set framework to React if selected
-    if (answers.react) {
+    if (answers.react && answers.fluentVersion === 8) {
       args.push('-fw', 'react');
     }
 

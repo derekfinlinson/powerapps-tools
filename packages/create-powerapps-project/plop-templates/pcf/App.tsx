@@ -1,9 +1,6 @@
 import React from 'react';
 import { IInputs } from './generated/ManifestTypes';
 import { AppContext } from './contexts/AppContext';
-import { initializeIcons } from '@fluentui/react/lib/Icons';
-
-initializeIcons();
 
 export const App = (props: { context: ComponentFramework.Context<IInputs>; }) => {
   const {

@@ -303,6 +303,16 @@ export default async (plop: NodePlopAPI): Promise<void> => {
         name: 'react',
         message: 'use react?'
       },
+      {
+        type: 'list',
+        name: 'fluentVersion',
+        message: 'select Fluent UI version',
+        choices: [
+          { name: 'v8', value: 8 },
+          { name: 'v9', value: 9 }
+        ],
+        when: (answers) => answers.react
+      },
       packageQuestion
     ],
     actions: (data: any) => {
@@ -345,6 +355,26 @@ export default async (plop: NodePlopAPI): Promise<void> => {
               return 'react not included';
             }
 
+            if (answers.fluentVersion === 9) {
+              return 'using fluent v9';
+            }
+
+            return;
+          }
+        },
+        {
+          type: 'add',
+          templateFile: '../plop-templates/pcf/AppFluent9.tsx',
+          path: path.resolve(process.cwd(), '{{name}}', 'App.tsx'),
+          skip: (answers) => {
+            if (!answers.react) {
+              return 'react not included';
+            }
+
+            if (answers.fluentVersion === 8) {
+              return 'using fluent v8';
+            }
+
             return;
           }
         },
@@ -355,6 +385,19 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           skip: (answers) => {
             if (!answers.react) {
               return 'react not included';
+            }
+
+            return;
+          }
+        },
+        {
+          type: 'add',
+          templateFile: '../plop-templates/pcf/index.ts.hbs',
+          path: path.resolve(process.cwd(), '{{name}}', 'index.ts'),
+          force: true,
+          skip: (answers) => {
+            if (!answers.react || answers.fluentVersion === 8) {
+              return 'not using Fluent UI v9';
             }
 
             return;
@@ -407,7 +450,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           }
         },
         async (answers: any) => {
-          if (answers.react) {
+          if (answers.react && answers.fluentVersion === 8) {
             await fs.promises.rm(path.resolve(process.cwd(), answers.name, 'HelloWorld.tsx'));
 
             return 'removed HelloWorld component';
@@ -435,6 +478,37 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           skip: (answers) => {
             if (!answers.react) {
               return 'react not included';
+            }
+
+            if (answers.fluentVersion === 9) {
+              return 'using fluent v9';
+            }
+
+            return;
+          }
+        },
+        {
+          type: 'npmInstall',
+          data: {
+            packages: {
+              devDependencies: [
+                'powerapps-project-pcf',
+                '@types/react@16',
+                '@types/react-dom@16',
+                'eslint-plugin-react-hooks',
+                '@types/xrm',
+                'eslint-plugin-react'
+              ],
+              dependencies: ['@fluentui/react-hooks', '@fluentui/react-components', '@fluentui/react-icons', 'react@16', 'react-dom@16']
+            }
+          },
+          skip: (answers) => {
+            if (!answers.react) {
+              return 'react not included';
+            }
+
+            if (answers.fluentVersion === 8) {
+              return 'using fluent v8';
             }
 
             return;
