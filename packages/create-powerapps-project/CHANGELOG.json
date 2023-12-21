@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Thu, 21 Dec 2023 18:11:57 GMT",
+      "version": "1.5.0",
+      "tag": "create-powerapps-project_v1.5.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "d979b53dc404b49dc2981093b0701833b3ac46c3",
+            "comment": "Prompt for v8/v9 of Fluent"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 19 Dec 2023 16:04:15 GMT",
       "version": "1.4.6",
       "tag": "create-powerapps-project_v1.4.6",

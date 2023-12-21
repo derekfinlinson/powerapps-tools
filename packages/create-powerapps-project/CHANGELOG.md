@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Tue, 19 Dec 2023 16:04:15 GMT and should not be manually modified.
+This log was last generated on Thu, 21 Dec 2023 18:11:57 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.5.0
+
+Thu, 21 Dec 2023 18:11:57 GMT
+
+### Minor changes
+
+- Prompt for v8/v9 of Fluent (derek.finlinson@journeyteam.com)
 
 ## 1.4.6
 

@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Prompt for v8/v9 of Fluent",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
