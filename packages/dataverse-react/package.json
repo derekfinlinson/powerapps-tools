@@ -1,6 +1,6 @@
 {
   "name": "dataverse-react",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "⚛️ hooks and components for Dataverse React development",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -40,7 +40,6 @@
   },
   "devDependencies": {
     "@types/powerapps-component-framework": "^1.3.5",
-    
     "@types/xrm": "^9.0.73",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
