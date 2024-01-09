@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Check for access token in environment",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
