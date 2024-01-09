@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Tue, 19 Dec 2023 20:16:00 GMT and should not be manually modified.
+This log was last generated on Fri, 29 Dec 2023 16:41:14 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.7.9
+
+Fri, 29 Dec 2023 16:41:14 GMT
+
+### Patches
+
+- Fix checking for custom API (derek.finlinson@journeyteam.com)
 
 ## 2.7.8
 

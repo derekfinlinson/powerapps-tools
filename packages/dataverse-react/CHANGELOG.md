@@ -1,8 +1,16 @@
 # Change Log - dataverse-react
 
-This log was last generated on Fri, 27 Oct 2023 17:02:48 GMT and should not be manually modified.
+This log was last generated on Fri, 29 Dec 2023 16:41:14 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.2.5
+
+Fri, 29 Dec 2023 16:41:14 GMT
+
+### Patches
+
+- Update peer dependency versions (derek.finlinson@journeyteam.com)
 
 ## 0.2.4
 
