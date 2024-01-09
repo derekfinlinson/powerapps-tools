@@ -41,18 +41,23 @@ export default async function deploy(type?: string, files?: string): Promise<voi
 
   let token: AuthenticationResult | null = null;
 
-  try {
-    token = await getAccessToken(creds.tenant, creds.server);
-  } catch (error: any) {
-    onTokenFailure(creds.server, error.message);
+  // Check if token is available in environment
+  if (process.env.ACCESSTOKEN) {
+    token = { accessToken: process.env.ACCESSTOKEN } as AuthenticationResult;
+  } else {
+    try {
+      token = await getAccessToken(creds.tenant, creds.server);
+    } catch (error: any) {
+      onTokenFailure(creds.server, error.message);
 
-    return;
-  }
+      return;
+    }
 
-  if (token == null || token.accessToken == null) {
-    onTokenFailure(creds.server);
+    if (token == null || token.accessToken == null) {
+      onTokenFailure(creds.server);
 
-    return;
+      return;
+    }
   }
 
   const apiConfig = new WebApiConfig('8.2', token.accessToken, creds.server);
