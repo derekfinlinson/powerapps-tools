@@ -46,9 +46,7 @@ export async function deployStep(config: PluginStep, pluginTypeId: string, apiCo
 
   step['sdkmessageid@odata.bind'] = `/sdkmessages(${messageId})`;
 
-  if (step.mode === 1) {
-    step.asyncautodelete = true;
-  }
+  step.asyncautodelete = step.mode === 1;
 
   delete step.images;
   delete step.message;
