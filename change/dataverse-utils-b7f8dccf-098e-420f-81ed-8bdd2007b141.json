@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Always set asyncautodelete",
+  "packageName": "dataverse-utils",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
