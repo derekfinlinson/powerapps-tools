@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Fri, 29 Dec 2023 16:41:14 GMT and should not be manually modified.
+This log was last generated on Tue, 09 Jan 2024 15:35:27 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.8.0
+
+Tue, 09 Jan 2024 15:35:27 GMT
+
+### Minor changes
+
+- Check for access token in environment (derek.finlinson@journeyteam.com)
 
 ## 2.7.9
 
