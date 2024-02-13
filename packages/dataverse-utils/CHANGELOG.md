@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Tue, 09 Jan 2024 15:35:27 GMT and should not be manually modified.
+This log was last generated on Thu, 25 Jan 2024 21:27:29 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.8.1
+
+Thu, 25 Jan 2024 21:27:29 GMT
+
+### Patches
+
+- Always set asyncautodelete (derek.finlinson@journeyteam.com)
 
 ## 2.8.0
 
