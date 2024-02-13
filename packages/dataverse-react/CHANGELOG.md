@@ -1,8 +1,16 @@
 # Change Log - dataverse-react
 
-This log was last generated on Tue, 13 Feb 2024 03:50:48 GMT and should not be manually modified.
+This log was last generated on Tue, 13 Feb 2024 03:53:45 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 0.2.7
+
+Tue, 13 Feb 2024 03:53:45 GMT
+
+### Patches
+
+- Add localized labels (derek.finlinson@journeyteam.com)
 
 ## 0.2.6
 

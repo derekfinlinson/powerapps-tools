@@ -2,6 +2,21 @@
   "name": "dataverse-react",
   "entries": [
     {
+      "date": "Tue, 13 Feb 2024 03:53:45 GMT",
+      "version": "0.2.7",
+      "tag": "dataverse-react_v0.2.7",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-react",
+            "commit": "a1c50755fbc2270449c5c4a7570d09e111f269f2",
+            "comment": "Add localized labels"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 13 Feb 2024 03:50:48 GMT",
       "version": "0.2.6",
       "tag": "dataverse-react_v0.2.6",
