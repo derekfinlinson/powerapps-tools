@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Tue, 13 Feb 2024 18:32:29 GMT",
+      "version": "2.0.3",
+      "tag": "powerapps-project-assembly_v2.0.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "db663ab0ab09020323dbbb09a8d39a56a918131d",
+            "comment": "Get correct types for adding image"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 17 Oct 2023 14:32:15 GMT",
       "tag": "powerapps-project-assembly_v2.0.2",
       "version": "2.0.2",

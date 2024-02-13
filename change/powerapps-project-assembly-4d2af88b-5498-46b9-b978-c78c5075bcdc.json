@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Get correct types for adding image",
-  "packageName": "powerapps-project-assembly",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

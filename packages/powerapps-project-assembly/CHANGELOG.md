@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Tue, 17 Oct 2023 14:32:15 GMT and should not be manually modified.
+This log was last generated on Tue, 13 Feb 2024 18:32:29 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.3
+
+Tue, 13 Feb 2024 18:32:29 GMT
+
+### Patches
+
+- Get correct types for adding image (derek.finlinson@journeyteam.com)
 
 ## 2.0.2
 
