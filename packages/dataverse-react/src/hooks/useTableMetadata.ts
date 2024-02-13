@@ -13,7 +13,11 @@ export interface TableMetadata {
 export interface ColumnMetadata {
   Targets?: string[];
   AttributeType: string;
-  DisplayName: string;
+  DisplayName: {
+    UserLocalizedLabel: {
+      Label: string;
+    };
+  };
   EntityLogicalName: string;
   LogicalName: string;
   MaxValue?: number;
@@ -32,8 +36,8 @@ export interface BooleanColumnMetadata extends ColumnMetadata {
   OptionSet: {
     MetadataId: string;
     Name: string;
-    TrueOption: { Value: number; Color: string; Label: { UserLocalizedLabel: { Label: string; } } };
-    FalseOption: { Value: number; Color: string; Label: { UserLocalizedLabel: { Label: string; } } };
+    TrueOption: { Value: number; Color: string; Label: { UserLocalizedLabel: { Label: string } } };
+    FalseOption: { Value: number; Color: string; Label: { UserLocalizedLabel: { Label: string } } };
   };
 }
 
@@ -60,10 +64,22 @@ export const useTableMetadata = (utils: ComponentFramework.Utility, tableName: s
     const getMetadata = async () => {
       const results = await Promise.all([
         retrieveMultiple(config, `EntityDefinitions(LogicalName='${tableName}')/Attributes`),
-        retrieveMultiple(config, `EntityDefinitions(LogicalName='${tableName}')/Attributes/Microsoft.Dynamics.CRM.PicklistAttributeMetadata?$select=LogicalName,DefaultFormValue&$expand=OptionSet`),
-        retrieveMultiple(config, `EntityDefinitions(LogicalName='${tableName}')/Attributes/Microsoft.Dynamics.CRM.BooleanAttributeMetadata?$select=LogicalName,DefaultValue&$expand=OptionSet`),
-        retrieveMultiple(config, `EntityDefinitions(LogicalName='${tableName}')/Attributes/Microsoft.Dynamics.CRM.StateAttributeMetadata?$select=LogicalName,DefaultFormValue&$expand=OptionSet`),
-        retrieveMultiple(config, `EntityDefinitions(LogicalName='${tableName}')/Attributes/Microsoft.Dynamics.CRM.StatusAttributeMetadata?$select=LogicalName,DefaultFormValue&$expand=OptionSet`),
+        retrieveMultiple(
+          config,
+          `EntityDefinitions(LogicalName='${tableName}')/Attributes/Microsoft.Dynamics.CRM.PicklistAttributeMetadata?$select=LogicalName,DefaultFormValue&$expand=OptionSet`
+        ),
+        retrieveMultiple(
+          config,
+          `EntityDefinitions(LogicalName='${tableName}')/Attributes/Microsoft.Dynamics.CRM.BooleanAttributeMetadata?$select=LogicalName,DefaultValue&$expand=OptionSet`
+        ),
+        retrieveMultiple(
+          config,
+          `EntityDefinitions(LogicalName='${tableName}')/Attributes/Microsoft.Dynamics.CRM.StateAttributeMetadata?$select=LogicalName,DefaultFormValue&$expand=OptionSet`
+        ),
+        retrieveMultiple(
+          config,
+          `EntityDefinitions(LogicalName='${tableName}')/Attributes/Microsoft.Dynamics.CRM.StatusAttributeMetadata?$select=LogicalName,DefaultFormValue&$expand=OptionSet`
+        ),
         utils.getEntityMetadata(tableName)
       ]);
 
@@ -71,11 +87,11 @@ export const useTableMetadata = (utils: ComponentFramework.Utility, tableName: s
 
       setMetadata({
         table: table,
-        columns: <unknown>attributes.value as ColumnMetadata[],
-        choices: <unknown>optionSets.value as ChoiceColumnMetadata[],
-        booleans: <unknown>booleans.value as BooleanColumnMetadata[],
-        states: <unknown>states.value as ChoiceColumnMetadata[],
-        statuses: <unknown>statuses.value as ChoiceColumnMetadata[]
+        columns: (<unknown>attributes.value) as ColumnMetadata[],
+        choices: (<unknown>optionSets.value) as ChoiceColumnMetadata[],
+        booleans: (<unknown>booleans.value) as BooleanColumnMetadata[],
+        states: (<unknown>states.value) as ChoiceColumnMetadata[],
+        statuses: (<unknown>statuses.value) as ChoiceColumnMetadata[]
       });
     };
 
