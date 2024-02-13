@@ -608,6 +608,8 @@ module.exports = (plop) => {
     const destinationPath = plop.getDestBasePath();
     const configPath = path.resolve(destinationPath, 'dataverse.config.json');
 
+    let types;
+
     // Get dataverse.config.json if it exists
     if (fs.existsSync(configPath)) {
       const file = JSON.parse(fs.readFileSync(configPath, 'utf8'));
@@ -617,13 +619,18 @@ module.exports = (plop) => {
         if (file.assembly.types == null) {
           return 'add plugin types before adding images';
         }
+
+        types = file.assembly.types;
+
       } else if (file.types == null) {
         return 'add plugin types before adding images';
+      } else {
+        types = file.types;
       }
 
       let step;
 
-      file.types.forEach((t) => {
+      types.forEach((t) => {
         t.steps.forEach((s) => {
           if (s.name == answers.stepname) {
             step = s;
