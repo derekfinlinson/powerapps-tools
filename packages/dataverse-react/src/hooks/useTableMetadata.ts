@@ -17,6 +17,9 @@ export interface ColumnMetadata {
     UserLocalizedLabel: {
       Label: string;
     };
+    LocalizedLabel: {
+      Label: string;
+    };
   };
   EntityLogicalName: string;
   LogicalName: string;
@@ -36,8 +39,26 @@ export interface BooleanColumnMetadata extends ColumnMetadata {
   OptionSet: {
     MetadataId: string;
     Name: string;
-    TrueOption: { Value: number; Color: string; Label: { UserLocalizedLabel: { Label: string } } };
-    FalseOption: { Value: number; Color: string; Label: { UserLocalizedLabel: { Label: string } } };
+    TrueOption: {
+      Value: number;
+      Color: string;
+      Label: {
+        UserLocalizedLabel: { Label: string };
+        LocalizedLabel: {
+          Label: string;
+        };
+      };
+    };
+    FalseOption: {
+      Value: number;
+      Color: string;
+      Label: {
+        UserLocalizedLabel: { Label: string };
+        LocalizedLabel: {
+          Label: string;
+        };
+      };
+    };
   };
 }
 
@@ -50,7 +71,12 @@ export interface ChoiceColumnMetadata extends ColumnMetadata {
     Options: {
       Value: number;
       Color: string;
-      Label: { UserLocalizedLabel: { Label: string } };
+      Label: {
+        UserLocalizedLabel: { Label: string };
+        LocalizedLabel: {
+          Label: string;
+        };
+      };
     }[];
   };
 }
