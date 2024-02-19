@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Mon, 19 Feb 2024 23:56:38 GMT",
+      "version": "2.0.4",
+      "tag": "powerapps-project-assembly_v2.0.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "2bef837b99299a187ef819e0328e38a2aa682b9f",
+            "comment": "Use entity as default for schema"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 13 Feb 2024 18:32:29 GMT",
       "version": "2.0.3",
       "tag": "powerapps-project-assembly_v2.0.3",
