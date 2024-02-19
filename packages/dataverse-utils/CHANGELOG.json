@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Mon, 19 Feb 2024 18:32:45 GMT",
+      "version": "2.9.0",
+      "tag": "dataverse-utils_v2.9.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "81e541943253dfa83c222813d56eefc3a4c6a3e9",
+            "comment": "Store webresource ids"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 25 Jan 2024 21:27:29 GMT",
       "version": "2.8.1",
       "tag": "dataverse-utils_v2.8.1",
