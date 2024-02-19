@@ -2,6 +2,21 @@
   "name": "dataverse-react",
   "entries": [
     {
+      "date": "Mon, 19 Feb 2024 21:02:46 GMT",
+      "version": "0.3.0",
+      "tag": "dataverse-react_v0.3.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-react",
+            "commit": "f7822e729066d7b1ec42fa0560facb41bb373e89",
+            "comment": "Make tablename optional"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 13 Feb 2024 03:53:45 GMT",
       "version": "0.2.7",
       "tag": "dataverse-react_v0.2.7",
