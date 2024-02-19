@@ -101,6 +101,7 @@ module.exports = (plop) => {
       type: 'input',
       name: 'schema',
       message: 'entity schema name',
+      default: (answers) => answers.entity,
       when: (answers) => answers.entity !== 'none' && answers.customApi !== true
     },
     {
@@ -621,7 +622,6 @@ module.exports = (plop) => {
         }
 
         types = file.assembly.types;
-
       } else if (file.types == null) {
         return 'add plugin types before adding images';
       } else {
