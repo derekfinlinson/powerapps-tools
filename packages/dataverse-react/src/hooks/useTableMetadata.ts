@@ -81,7 +81,7 @@ export interface ChoiceColumnMetadata extends ColumnMetadata {
   };
 }
 
-export const useTableMetadata = (utils: ComponentFramework.Utility, tableName: string): TableMetadata | undefined => {
+export const useTableMetadata = (utils: ComponentFramework.Utility, tableName?: string): TableMetadata | undefined => {
   const [metadata, setMetadata] = React.useState<TableMetadata>();
 
   const config = new WebApiConfig('9.1');
@@ -106,7 +106,7 @@ export const useTableMetadata = (utils: ComponentFramework.Utility, tableName: s
           config,
           `EntityDefinitions(LogicalName='${tableName}')/Attributes/Microsoft.Dynamics.CRM.StatusAttributeMetadata?$select=LogicalName,DefaultFormValue&$expand=OptionSet`
         ),
-        utils.getEntityMetadata(tableName)
+        utils.getEntityMetadata(tableName as string)
       ]);
 
       const [attributes, optionSets, booleans, states, statuses, table] = results;
@@ -121,7 +121,9 @@ export const useTableMetadata = (utils: ComponentFramework.Utility, tableName: s
       });
     };
 
-    getMetadata();
+    if (tableName) {
+      getMetadata();
+    }
   }, [tableName]);
 
   return metadata;
