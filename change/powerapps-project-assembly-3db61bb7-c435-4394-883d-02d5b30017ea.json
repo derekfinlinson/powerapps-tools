@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Use entity as default for schema",
+  "packageName": "powerapps-project-assembly",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
