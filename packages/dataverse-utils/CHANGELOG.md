@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Thu, 25 Jan 2024 21:27:29 GMT and should not be manually modified.
+This log was last generated on Mon, 19 Feb 2024 18:32:45 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.9.0
+
+Mon, 19 Feb 2024 18:32:45 GMT
+
+### Minor changes
+
+- Store webresource ids (derek.finlinson@journeyteam.com)
 
 ## 2.8.1
 
