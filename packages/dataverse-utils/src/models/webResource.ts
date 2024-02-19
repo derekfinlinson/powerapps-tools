@@ -10,6 +10,7 @@ export interface WebResource {
   content: string;
   path: string;
   webresourcetype: number;
+  webresourceid: string;
 }
 
 function getWebResourceType(type: string): number {
@@ -65,10 +66,10 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
   }
 
   const promises = resources.map(async (resource) => {
-    let resourceId = '';
-
     try {
-      resourceId = await retrieveResource(resource.name, apiConfig);
+      if (!resource.webresourceid) {
+        resource.webresourceid = await retrieveResource(resource.name, apiConfig);
+      }
     } catch (error: any) {
       logger.error(`failed to retrieve resource ${resource.name}: ${error.message}`);
       return;
@@ -77,9 +78,9 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
     const fileContent = await fs.promises.readFile(resource.path, 'utf8');
     const content = Buffer.from(fileContent).toString('base64');
 
-    if (resourceId != '') {
+    if (resource.webresourceid) {
       try {
-        const updated = await updateResource(resourceId, resource, content, apiConfig);
+        const updated = await updateResource(resource, content, apiConfig);
 
         publishXml.push(updated);
       } catch (error: any) {
@@ -87,7 +88,7 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
       }
     } else {
       try {
-        resourceId = await createResource(resource, content, apiConfig, solution);
+        resource.webresourceid = await createResource(resource, content, apiConfig, solution);
       } catch (error: any) {
         logger.error(`failed to create resource: ${error.message}`);
       }
@@ -139,18 +140,20 @@ async function createResource(resource: WebResource, content: string, apiConfig:
   return result.webresourceid;
 }
 
-async function updateResource(id: string, resource: WebResource, content: string, apiConfig: WebApiConfig) {
+async function updateResource(resource: WebResource, content: string, apiConfig: WebApiConfig) {
   logger.info(`update web resource ${resource.name}`);
 
   const webResource = {
-    content: content
+    content: content,
+    name: resource.name,
+    displayname: resource.displayname || resource.name
   };
 
-  const result: any = await update(apiConfig, 'webresourceset', id, webResource);
+  const result: any = await update(apiConfig, 'webresourceset', resource.webresourceid, webResource);
 
   if (result?.error) {
     throw new Error(result.error.message);
   }
 
-  return `<webresource>{${id}}</webresource>`;
+  return `<webresource>{${resource.webresourceid}}</webresource>`;
 }

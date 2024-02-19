@@ -14,16 +14,20 @@ export async function webResourceDeploy(creds: DeployCredentials, apiConfig: Web
     return;
   }
 
-  const config: WebResource[] = JSON.parse(configFile).webResources;
+  const config: any = JSON.parse(configFile);
+
+  const resources: WebResource[] = config.webResources;
 
   logger.info('deploy web resources');
 
   try {
-    await deploy(config, apiConfig, creds.solution, files);
+    await deploy(resources, apiConfig, creds.solution, files);
   } catch (error: any) {
     logger.error(error.message);
     return;
   }
 
   logger.done('deployed web resources');
+
+  await fs.promises.writeFile(path.resolve(currentPath, 'dataverse.config.json'), JSON.stringify(config, null, 4), 'utf8');
 }
