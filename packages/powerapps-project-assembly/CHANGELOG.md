@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Tue, 13 Feb 2024 18:32:29 GMT and should not be manually modified.
+This log was last generated on Mon, 19 Feb 2024 23:56:38 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.0.4
+
+Mon, 19 Feb 2024 23:56:38 GMT
+
+### Patches
+
+- Use entity as default for schema (derek.finlinson@journeyteam.com)
 
 ## 2.0.3
 
