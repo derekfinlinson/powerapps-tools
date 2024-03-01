@@ -866,6 +866,8 @@ export function batchOperation(
     body.push('');
   }
 
+  const relative = `/api/data/v${apiConfig.version}`;
+
   // push change sets to body
   for (let i = 0; i < changeSets.length; i++) {
     body.push(`--changeset_${changeSetId}`);
@@ -873,7 +875,7 @@ export function batchOperation(
     body.push('Content-Transfer-Encoding:binary');
     body.push(`Content-ID: ${i + 1}`);
     body.push('');
-    body.push(`${changeSets[i].method} ${apiConfig.url}/${changeSets[i].queryString} HTTP/1.1`);
+    body.push(`${changeSets[i].method} ${relative}/${changeSets[i].queryString} HTTP/1.1`);
     body.push('Content-Type: application/json;type=entry');
     body.push('');
 
@@ -891,7 +893,7 @@ export function batchOperation(
     body.push('Content-Type: application/http');
     body.push('Content-Transfer-Encoding:binary');
     body.push('');
-    body.push(`GET ${apiConfig.url}/${get} HTTP/1.1`);
+    body.push(`GET ${relative}/${get} HTTP/1.1`);
     body.push('Accept: application/json');
     body.push('');
   }
