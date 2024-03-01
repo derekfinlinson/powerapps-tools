@@ -61,7 +61,7 @@ importers:
         specifier: '>=16.0.0 <18.0.0'
         version: 16.9.19
       dataverse-webapi:
-        specifier: workspace:^2.4.2
+        specifier: workspace:^2.4.3
         version: link:../dataverse-webapi
       react:
         specifier: '>=16.0.0 <18.0.0'
