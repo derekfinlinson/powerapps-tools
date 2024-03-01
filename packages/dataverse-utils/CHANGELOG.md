@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Mon, 19 Feb 2024 18:32:45 GMT and should not be manually modified.
+This log was last generated on Fri, 01 Mar 2024 15:59:19 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.9.1
+
+Fri, 01 Mar 2024 15:59:19 GMT
+
+### Patches
+
+- Remove id from updates (derek.finlinson@journeyteam.com)
 
 ## 2.9.0
 

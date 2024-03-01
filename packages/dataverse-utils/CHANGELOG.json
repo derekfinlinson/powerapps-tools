@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Fri, 01 Mar 2024 15:59:19 GMT",
+      "version": "2.9.1",
+      "tag": "dataverse-utils_v2.9.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "9fac696daab08eef994e8ff79c1e2905641d473e",
+            "comment": "Remove id from updates"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 19 Feb 2024 18:32:45 GMT",
       "version": "2.9.0",
       "tag": "dataverse-utils_v2.9.0",
