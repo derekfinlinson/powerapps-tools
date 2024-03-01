@@ -2,6 +2,21 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Fri, 01 Mar 2024 16:17:19 GMT",
+      "version": "2.4.3",
+      "tag": "dataverse-webapi_v2.4.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-webapi",
+            "commit": "151fc548dc805ac0915afdb490f35b3c80fc7201",
+            "comment": "Use relative url"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 30 Jun 2023 22:24:30 GMT",
       "tag": "dataverse-webapi_v2.4.2",
       "version": "2.4.2",
