@@ -3,7 +3,7 @@ import { PluginStep, deployStep } from './pluginStep';
 import { logger } from '../logger';
 
 export interface PluginType extends Entity {
-  plugintypeid: string;
+  plugintypeid?: string;
   name: string;
   'pluginassemblyid@odata.bind'?: string;
   typename: string;
@@ -41,7 +41,7 @@ export async function deployType(config: PluginType, assemblyId: string, apiConf
 
   try {
     if (config.steps) {
-      const promises = config.steps.map((step) => deployStep(step, config.plugintypeid, apiConfig, solution));
+      const promises = config.steps.map((step) => deployStep(step, config.plugintypeid as string, apiConfig, solution));
 
       await Promise.all(promises);
     }
@@ -73,7 +73,11 @@ async function createType(type: PluginType, apiConfig: WebApiConfig): Promise<st
 async function updateType(id: string, type: PluginType, apiConfig: WebApiConfig) {
   logger.info(`update assembly type ${type.name}`);
 
-  const result: any = await update(apiConfig, 'plugintypes', id, type);
+  const entity = { ...type };
+
+  delete entity.plugintypeid;
+
+  const result: any = await update(apiConfig, 'plugintypes', id, entity);
 
   if (result?.error) {
     throw new Error(result.error.message);

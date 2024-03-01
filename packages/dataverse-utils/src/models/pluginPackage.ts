@@ -56,7 +56,7 @@ export async function deployPluginPackage(config: PluginPackage, apiConfig: WebA
             t.plugintypeid = await retrieveType(t.typename, config.assembly.pluginassemblyid, apiConfig);
           }
 
-          const stepPromises = t.steps?.map((s) => deployStep(s, t.plugintypeid, apiConfig, solution)) ?? [];
+          const stepPromises = t.steps?.map((s) => deployStep(s, t.plugintypeid as string, apiConfig, solution)) ?? [];
 
           await Promise.all(stepPromises);
         }) ?? [];

@@ -8,7 +8,7 @@ export interface PluginImage extends Entity {
   imagetype: number;
   messagepropertyname: string;
   'sdkmessageprocessingstepid@odata.bind'?: string;
-  sdkmessageprocessingstepimageid: string;
+  sdkmessageprocessingstepimageid?: string;
 }
 
 export async function deployImage(
@@ -87,7 +87,11 @@ async function createImage(image: PluginImage, stepName: string, apiConfig: WebA
 async function updateImage(id: string, image: PluginImage, stepName: string, apiConfig: WebApiConfig) {
   logger.info(`update plugin image ${image.name} for step ${stepName}`);
 
-  const result: any = await update(apiConfig, 'sdkmessageprocessingstepimages', id, image);
+  const entity = {...image};
+
+  delete entity.sdkmessageprocessingstepimageid;
+
+  const result: any = await update(apiConfig, 'sdkmessageprocessingstepimages', id, entity);
 
   if (result?.error) {
     throw new Error(result.error.message);

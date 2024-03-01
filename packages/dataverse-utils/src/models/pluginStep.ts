@@ -138,7 +138,11 @@ async function createStep(step: PluginStep, apiConfig: WebApiConfig, solution?: 
 async function updateStep(id: string, step: PluginStep, apiConfig: WebApiConfig) {
   logger.info(`update plugin step ${step.name}`);
 
-  const result: any = await update(apiConfig, 'sdkmessageprocessingsteps', id, step);
+  const entity = { ...step };
+
+  delete entity.sdkmessageprocessingstepid;
+
+  const result: any = await update(apiConfig, 'sdkmessageprocessingsteps', id, entity);
 
   if (result?.error) {
     throw new Error(result.error.message);
