@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Fri, 01 Mar 2024 15:59:19 GMT and should not be manually modified.
+This log was last generated on Fri, 01 Mar 2024 16:17:19 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.9.2
+
+Fri, 01 Mar 2024 16:17:19 GMT
+
+### Patches
+
+- Bump dataverse-webapi to v2.4.3
 
 ## 2.9.1
 
