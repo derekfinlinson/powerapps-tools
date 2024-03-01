@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import fs from 'fs';
-import glob from 'glob';
+import { glob } from 'glob';
 import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity, QueryOptions } from 'dataverse-webapi/lib/node';
 
 import { PluginType, deployType } from './pluginType';
@@ -20,7 +20,7 @@ export interface PluginAssembly extends Entity {
 }
 
 export async function deployAssembly(config: PluginAssembly, apiConfig: WebApiConfig, solution?: string): Promise<void> {
-  const files = glob.sync(`**/${config.name}.dll`);
+  const files = await glob(`bin/Debug/**/${config.name}.dll`);
 
   if (files.length === 0) {
     logger.warn(`assembly ${config.name}.dll not found`);

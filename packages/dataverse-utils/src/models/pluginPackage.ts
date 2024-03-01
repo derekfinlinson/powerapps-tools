@@ -1,5 +1,5 @@
 import fs from 'fs';
-import glob from 'glob';
+import { glob } from 'glob';
 import { createWithReturnData, retrieveMultiple, update, WebApiConfig, Entity, QueryOptions } from 'dataverse-webapi/lib/node';
 
 import { PluginAssembly, retrieveAssembly } from './pluginAssembly';
@@ -17,7 +17,7 @@ export interface PluginPackage extends Entity {
 }
 
 export async function deployPluginPackage(config: PluginPackage, apiConfig: WebApiConfig, solution?: string): Promise<void> {
-  const files = glob.sync(`**/${config.name}.*.nupkg`);
+  const files = await glob(`**/${config.name}.*.nupkg`);
 
   if (files.length === 0) {
     logger.warn(`package ${config.name}.nupkg not found`);
