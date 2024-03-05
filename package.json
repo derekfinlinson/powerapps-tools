@@ -29,7 +29,8 @@
     "release": "beachball publish -y",
     "release:manual": "beachball publish",
     "preinstall": "npx only-allow pnpm",
-    "test": "jest"
+    "test": "jest",
+    "beachball": "beachball"
   },
   "volta": {
     "node": "18.14.2",
