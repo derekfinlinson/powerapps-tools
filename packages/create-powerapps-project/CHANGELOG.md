@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Thu, 21 Dec 2023 18:21:15 GMT and should not be manually modified.
+This log was last generated on Tue, 05 Mar 2024 20:14:40 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.5.2
+
+Tue, 05 Mar 2024 20:14:40 GMT
+
+### Patches
+
+- FixIdPrefixProvider name (derek.finlinson@journeyteam.com)
 
 ## 1.5.1
 

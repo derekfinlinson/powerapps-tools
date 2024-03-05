@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 05 Mar 2024 20:14:40 GMT",
+      "version": "1.5.2",
+      "tag": "create-powerapps-project_v1.5.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "d04e5305cb5a7468a4c7e86dae138655fc722fd9",
+            "comment": "FixIdPrefixProvider name"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 21 Dec 2023 18:21:15 GMT",
       "version": "1.5.1",
       "tag": "create-powerapps-project_v1.5.1",

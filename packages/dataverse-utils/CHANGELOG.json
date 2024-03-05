@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Tue, 05 Mar 2024 20:14:40 GMT",
+      "version": "2.9.4",
+      "tag": "dataverse-utils_v2.9.4",
+      "comments": {
+        "undefined": [
+          {
+            "author": "beachball",
+            "package": "dataverse-utils",
+            "comment": "Bump dataverse-webapi to v2.4.3",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 01 Mar 2024 23:00:10 GMT",
       "version": "2.9.3",
       "tag": "dataverse-utils_v2.9.3",
