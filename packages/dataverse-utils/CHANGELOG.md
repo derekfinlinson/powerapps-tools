@@ -13,6 +13,14 @@ Fri, 01 Mar 2024 23:00:10 GMT
 - Update folder glob search (derek.finlinson@journeyteam.com)
 - Bump dataverse-webapi to v2.4.3
 
+## 2.9.2
+
+Fri, 01 Mar 2024 16:17:19 GMT
+
+### Patches
+
+- Bump dataverse-webapi to v2.4.3
+
 ## 2.9.1
 
 Fri, 01 Mar 2024 15:59:19 GMT

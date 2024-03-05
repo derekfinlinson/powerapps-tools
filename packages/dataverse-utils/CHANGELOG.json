@@ -12,6 +12,27 @@
             "package": "dataverse-utils",
             "commit": "981a37db900a2a835e31707f2653318b6521919d",
             "comment": "Update folder glob search"
+          },
+          {
+            "author": "beachball",
+            "package": "dataverse-utils",
+            "comment": "Bump dataverse-webapi to v2.4.3",
+            "commit": "981a37db900a2a835e31707f2653318b6521919d"
+          }
+        ]
+      }
+    },
+    {
+      "date": "Fri, 01 Mar 2024 16:17:19 GMT",
+      "version": "2.9.2",
+      "tag": "dataverse-utils_v2.9.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "beachball",
+            "package": "dataverse-utils",
+            "comment": "Bump dataverse-webapi to v2.4.3",
+            "commit": "981a37db900a2a835e31707f2653318b6521919d"
           }
         ]
       }
