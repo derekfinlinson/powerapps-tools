@@ -425,7 +425,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           type: 'addScript',
           data: {
             scriptKey: 'authenticate',
-            scriptValue: `pac auth create --url ${data.server} --name ${data.org} --deviceCode`
+            scriptValue: `pac auth create --environment ${data.server} --name ${data.org} --deviceCode`
           }
         },
         {
