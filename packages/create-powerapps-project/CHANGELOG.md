@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Tue, 05 Mar 2024 20:14:40 GMT and should not be manually modified.
+This log was last generated on Wed, 03 Apr 2024 23:14:50 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.6.0
+
+Wed, 03 Apr 2024 23:14:50 GMT
+
+### Minor changes
+
+- Switch to environment parameter (derek.finlinson@journeyteam.com)
 
 ## 1.5.2
 

@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Switch to environment parameter",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

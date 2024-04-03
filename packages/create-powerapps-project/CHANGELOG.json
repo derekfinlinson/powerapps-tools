@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 03 Apr 2024 23:14:50 GMT",
+      "version": "1.6.0",
+      "tag": "create-powerapps-project_v1.6.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "acd5d5949bf1d0d6a82890c949c493c13f615a97",
+            "comment": "Switch to environment parameter"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 05 Mar 2024 20:14:40 GMT",
       "version": "1.5.2",
       "tag": "create-powerapps-project_v1.5.2",
