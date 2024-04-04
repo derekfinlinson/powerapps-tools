@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Add -env to push command",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
