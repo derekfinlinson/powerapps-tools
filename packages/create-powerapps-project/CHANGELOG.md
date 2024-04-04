@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Wed, 03 Apr 2024 23:14:50 GMT and should not be manually modified.
+This log was last generated on Thu, 04 Apr 2024 20:24:08 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.7.0
+
+Thu, 04 Apr 2024 20:24:08 GMT
+
+### Minor changes
+
+- Add -env to push command (derek.finlinson@journeyteam.com)
 
 ## 1.6.0
 
