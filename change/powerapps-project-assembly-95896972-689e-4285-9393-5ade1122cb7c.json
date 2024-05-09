@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Include secure/unsecure config",
-  "packageName": "powerapps-project-assembly",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

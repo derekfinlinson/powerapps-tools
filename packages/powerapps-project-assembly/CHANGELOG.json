@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Thu, 09 May 2024 12:53:12 GMT",
+      "version": "2.1.0",
+      "tag": "powerapps-project-assembly_v2.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "325b4d235db9ad837bf84f7a75daf95c10e19359",
+            "comment": "Include secure/unsecure config"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 19 Feb 2024 23:56:38 GMT",
       "version": "2.0.4",
       "tag": "powerapps-project-assembly_v2.0.4",
