@@ -445,7 +445,9 @@ module.exports = (plop) => {
         typename: `${namespace}.${plop.renderString('{{pascalCase filename }}', answers)}`,
         friendlyname: answers.friendlyname || `${namespace}.${plop.renderString('{{pascalCase filename }}', answers)}`,
         workflowactivitygroupname: answers.group,
-        steps: []
+        steps: [],
+        secureconfiguration: answers.secure,
+        unsecureconfiguration: answers.unsecure
       };
 
       // Add plugin step config

@@ -77,7 +77,9 @@ async function createAssembly(config: PluginAssembly, content: string, apiConfig
     version: config.version,
     publickeytoken: config.name,
     sourcetype: 0,
-    culture: ''
+    culture: '',
+    unsecureconfiguration: config.unsecureconfiguration,
+    secureconfiguration: config.secureconfiguration
   };
 
   const options: QueryOptions = {};
@@ -100,7 +102,9 @@ async function updateAssembly(config: PluginAssembly, content: string, apiConfig
 
   const assembly = {
     content: content,
-    version: config.version
+    version: config.version,
+    unsecureconfiguration: config.unsecureconfiguration,
+    secureconfiguration: config.secureconfiguration
   };
 
   const result: any = await update(apiConfig, 'pluginassemblies', config.pluginassemblyid, assembly);
