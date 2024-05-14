@@ -33,7 +33,7 @@
     "beachball": "beachball"
   },
   "volta": {
-    "node": "18.14.2",
-    "pnpm": "8.15.4"
+    "node": "18.20.2",
+    "pnpm": "9.1.1"
   }
 }

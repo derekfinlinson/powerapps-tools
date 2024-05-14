@@ -425,21 +425,28 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           type: 'addScript',
           data: {
             scriptKey: 'authenticate',
-            scriptValue: `pac auth create -env ${data.server} -n ${data.org} -dc`
+            scriptValue: `pac auth create -n ${data.org} -dc`
+          }
+        },
+        {
+          type: 'addScript',
+          data: {
+            scriptKey: 'select-auth',
+            scriptValue: `pac auth select -n ${data.org}`
           }
         },
         {
           type: 'addScript',
           data: {
             scriptKey: 'push',
-            scriptValue: `pac auth select -n ${data.org} && pac pcf version -s manifest && pac pcf push -pp ${data.prefix} -env ${data.server}`
+            scriptValue: `npm run select-auth && pac pcf version -s manifest && pac pcf push -pp ${data.prefix} -env ${data.server}`
           }
         },
         {
           type: 'addScript',
           data: {
             scriptKey: 'push-inc',
-            scriptValue: `pac auth select -n ${data.org} && pac pcf version -s manifest && pac pcf push -pp ${data.prefix} -inc -env ${data.server}`
+            scriptValue: `npm run build && npm run select-auth && pac pcf version -s manifest && pac pcf push -pp ${data.prefix} -inc -env ${data.server}`
           }
         },
         {
