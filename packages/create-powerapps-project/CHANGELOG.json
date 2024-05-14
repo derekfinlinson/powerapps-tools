@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 14 May 2024 18:54:13 GMT",
+      "version": "1.7.1",
+      "tag": "create-powerapps-project_v1.7.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "1b28a9715e323f657207bbc320c1edf83131dccc",
+            "comment": "Build before incremental push"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 04 Apr 2024 20:24:08 GMT",
       "version": "1.7.0",
       "tag": "create-powerapps-project_v1.7.0",

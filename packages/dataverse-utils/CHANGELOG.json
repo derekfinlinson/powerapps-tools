@@ -2,6 +2,27 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Tue, 14 May 2024 18:54:13 GMT",
+      "version": "3.0.1",
+      "tag": "dataverse-utils_v3.0.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "1b28a9715e323f657207bbc320c1edf83131dccc",
+            "comment": "Force new major version"
+          },
+          {
+            "author": "beachball",
+            "package": "dataverse-utils",
+            "comment": "Bump dataverse-webapi to v2.4.3",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 09 May 2024 12:53:12 GMT",
       "version": "2.10.0",
       "tag": "dataverse-utils_v2.10.0",
