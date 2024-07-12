@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Fri, 12 Jul 2024 17:57:25 GMT",
+      "version": "2.1.1",
+      "tag": "powerapps-project-assembly_v2.1.1",
+      "comments": {
+        "none": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "ae3e522acc7e9753436289bd2fde3d7dd39e9816",
+            "comment": "Merge branch 'master' of https://github.com/derekfinlinson/powerapps-tools"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 12 Jul 2024 17:21:42 GMT",
       "version": "2.1.1",
       "tag": "powerapps-project-assembly_v2.1.1",

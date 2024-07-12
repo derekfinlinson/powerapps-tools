@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix unsecure config; Remove secure config for now",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
