@@ -104,8 +104,8 @@ importers:
   packages/dataverse-utils:
     dependencies:
       '@azure/msal-node':
-        specifier: ^2.6.1
-        version: 2.8.1
+        specifier: ^2.9.2
+        version: 2.9.2
       commander:
         specifier: ^12.0.0
         version: 12.0.0
@@ -194,16 +194,16 @@ packages:
       '@jridgewell/trace-mapping': 0.3.25
     dev: true
 
-  /@azure/msal-common@14.10.0:
-    resolution: {integrity: sha512-Zk6DPDz7e1wPgLoLgAp0349Yay9RvcjPM5We/ehuenDNsz/t9QEFI7tRoHpp/e47I4p20XE3FiDlhKwAo3utDA==}
+  /@azure/msal-common@14.12.0:
+    resolution: {integrity: sha512-IDDXmzfdwmDkv4SSmMEyAniJf6fDu3FJ7ncOjlxkDuT85uSnLEhZi3fGZpoR7T4XZpOMx9teM9GXBgrfJgyeBw==}
     engines: {node: '>=0.8.0'}
     dev: false
 
-  /@azure/msal-node@2.8.1:
-    resolution: {integrity: sha512-VcZZM+5VvCWRBTOF7SxMKaxrz+EXjntx2u5AQe7QE06e6FuPJElGBrImgNgCh5QmFaNCfVFO+3qNR7UoFD/Gfw==}
+  /@azure/msal-node@2.9.2:
+    resolution: {integrity: sha512-8tvi6Cos3m+0KmRbPjgkySXi+UQU/QiuVRFnrxIwt5xZlEEFa69O04RTaNESGgImyBBlYbo2mfE8/U8Bbdk1WQ==}
     engines: {node: '>=16'}
     dependencies:
-      '@azure/msal-common': 14.10.0
+      '@azure/msal-common': 14.12.0
       jsonwebtoken: 9.0.2
       uuid: 8.3.2
     dev: false
