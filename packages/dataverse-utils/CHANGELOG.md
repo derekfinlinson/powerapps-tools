@@ -1,8 +1,17 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Tue, 14 May 2024 18:54:13 GMT and should not be manually modified.
+This log was last generated on Fri, 12 Jul 2024 17:21:42 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 3.0.2
+
+Fri, 12 Jul 2024 17:21:42 GMT
+
+### Patches
+
+- Move secure/unsecure to steps (derek.finlinson@journeyteam.com)
+- Bump dataverse-webapi to v2.4.3
 
 ## 3.0.1
 

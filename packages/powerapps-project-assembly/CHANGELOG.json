@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Fri, 12 Jul 2024 17:21:42 GMT",
+      "version": "2.1.1",
+      "tag": "powerapps-project-assembly_v2.1.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "07ef1ff9b59f03ddc8080b36c2a2012153fa9387",
+            "comment": "Move secure/unsecure to steps"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 09 May 2024 12:53:12 GMT",
       "version": "2.1.0",
       "tag": "powerapps-project-assembly_v2.1.0",

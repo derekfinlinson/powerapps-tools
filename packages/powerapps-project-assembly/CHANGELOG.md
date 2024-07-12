@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Thu, 09 May 2024 12:53:12 GMT and should not be manually modified.
+This log was last generated on Fri, 12 Jul 2024 17:21:42 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.1.1
+
+Fri, 12 Jul 2024 17:21:42 GMT
+
+### Patches
+
+- Move secure/unsecure to steps (derek.finlinson@journeyteam.com)
 
 ## 2.1.0
 

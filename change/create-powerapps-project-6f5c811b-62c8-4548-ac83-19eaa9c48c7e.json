@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Move secure/unsecure to steps",
-  "packageName": "create-powerapps-project",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
