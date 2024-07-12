@@ -19,8 +19,6 @@ export interface PluginStep extends Entity {
   'sdkmessageid@odata.bind'?: string;
   filteringattributes?: string;
   sdkmessageprocessingstepid?: string;
-  unsecureconfiguration?: string;
-  secureconfiguration?: string;
 }
 
 export async function deployStep(config: PluginStep, pluginTypeId: string, apiConfig: WebApiConfig, solution?: string): Promise<void> {

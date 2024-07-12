@@ -106,13 +106,7 @@ module.exports = (plop) => {
     },
     {
       type: 'input',
-      name: 'secure',
-      message: 'secure configuration',
-      when: (answers) => answers.customApi !== true
-    },
-    {
-      type: 'input',
-      name: 'unsecure',
+      name: 'configuration',
       message: 'unsecure configuration',
       when: (answers) => answers.customApi !== true
     },
@@ -461,8 +455,6 @@ module.exports = (plop) => {
           stage: answers.stage,
           supporteddeployment: answers.supporteddeployment,
           filteringattributes: answers.filteringattributes?.replace(/ /g, ''),
-          secureconfiguration: answers.secure,
-          unsecureconfiguration: answers.unsecure,
           images: []
         };
 
@@ -539,8 +531,6 @@ module.exports = (plop) => {
           stage: answers.stage,
           supporteddeployment: answers.supporteddeployment,
           filteringattributes: answers.filteringattributes,
-          secureconfiguration: answers.secure,
-          unsecureconfiguration: answers.unsecure,
           images: []
         };
 
