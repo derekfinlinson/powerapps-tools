@@ -540,7 +540,12 @@ export default async (plop: NodePlopAPI): Promise<void> => {
         message: 'namespace for form and ribbon scripts:'
       },
       packageQuestion,
-      ...sharedQuestions
+      ...sharedQuestions,
+      {
+        type: 'confirm',
+        name: 'deploy',
+        message: 'deploy via Azure DevOps Pipelines?'
+      }
     ],
     actions: (data: any) => {
       return [
@@ -557,6 +562,20 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           base: '../plop-templates/webresource',
           destination: process.cwd(),
           force: true
+        },
+        {
+          type: 'addMany',
+          templateFiles: ['../plop-templates/webresource-deploy/.*'],
+          base: '../plop-templates/webresource',
+          destination: process.cwd(),
+          force: true,
+          skip: (answers) => {
+            if (!answers.deploy) {
+              return 'deployment files not included';
+            }
+
+            return;
+          }
         },
         {
           type: 'addScript',

@@ -1,0 +1,51 @@
+name: Build and deploy web resources
+
+trigger:
+  branches:
+    include:
+      - dev
+
+pool:
+  vmImage: windows-latest
+
+variables:
+  serviceConnectionUrl: '{{server}}'
+
+steps:
+- task: PowerPlatformToolInstaller@2
+  inputs:
+    DefaultVersion: true
+
+- task: PowerPlatformSetConnectionVariables@2
+  displayName: 'set power platform connection variables'
+  name: buildConnectionVariables
+  inputs:
+    authenticationType: 'PowerPlatformSPN'
+    PowerPlatformSPN: ''
+
+- template: set-spn-token.yml
+  parameters:
+    serviceConnection: $(serviceConnectionUrl)
+    tenantId: $(buildConnectionVariables.BuildTools.TenantId)
+    clientId: $(buildConnectionVariables.BuildTools.ApplicationId)
+    clientSecret: $(buildConnectionVariables.BuildTools.ClientSecret)
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: "20.x"
+  displayName: "install node"
+
+- script: |
+    {{package}} install
+  displayName: {{package}} install
+
+- script: |
+    {{package}} run build
+  displayName: build web resources
+
+- script: 
+    {{package}} run deploy
+  displayName: deploy web resources
+  env:
+    ACCESSTOKEN: $(SpnToken)
+  

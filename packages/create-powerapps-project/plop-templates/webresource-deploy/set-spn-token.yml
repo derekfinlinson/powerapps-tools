@@ -1,0 +1,18 @@
+parameters:
+  - name: serviceConnection
+    type: string
+  - name: tenantId
+    type: string
+  - name: clientId
+    type: string
+  - name: clientSecret
+    type: string
+
+steps:
+- pwsh: |
+    $path = "$(Build.SourcesDirectory)"
+
+    . "$path\entra-authentication.ps1"
+    Set-SpnTokenVariableWithinAgent "${{parameters.tenantId}}" "${{parameters.clientId}}" "${{parameters.clientSecret}}" "${{parameters.serviceConnection}}"
+
+  displayName: "Get access token for use by other tasks"

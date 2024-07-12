@@ -36,9 +36,9 @@ module.exports = (plop) => {
 
       let types;
 
-      if (file.assembly) {
+      if (file.assembly && file.assembly.types) {
         types = file.assembly.types.map((t) => t.name.substring(t.name.lastIndexOf('.') + 1));
-      } else {
+      } else if (file.types) {
         types = file.types.map((t) => t.name.substring(t.name.lastIndexOf('.') + 1));
       }
 
@@ -445,9 +445,7 @@ module.exports = (plop) => {
         typename: `${namespace}.${plop.renderString('{{pascalCase filename }}', answers)}`,
         friendlyname: answers.friendlyname || `${namespace}.${plop.renderString('{{pascalCase filename }}', answers)}`,
         workflowactivitygroupname: answers.group,
-        steps: [],
-        secureconfiguration: answers.secure,
-        unsecureconfiguration: answers.unsecure
+        steps: []
       };
 
       // Add plugin step config
@@ -463,6 +461,8 @@ module.exports = (plop) => {
           stage: answers.stage,
           supporteddeployment: answers.supporteddeployment,
           filteringattributes: answers.filteringattributes?.replace(/ /g, ''),
+          secureconfiguration: answers.secure,
+          unsecureconfiguration: answers.unsecure,
           images: []
         };
 
@@ -539,6 +539,8 @@ module.exports = (plop) => {
           stage: answers.stage,
           supporteddeployment: answers.supporteddeployment,
           filteringattributes: answers.filteringattributes,
+          secureconfiguration: answers.secure,
+          unsecureconfiguration: answers.unsecure,
           images: []
         };
 
