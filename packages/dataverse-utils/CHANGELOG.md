@@ -1,8 +1,17 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Fri, 12 Jul 2024 17:57:25 GMT and should not be manually modified.
+This log was last generated on Thu, 08 Aug 2024 13:40:14 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 3.0.4
+
+Thu, 08 Aug 2024 13:40:14 GMT
+
+### Patches
+
+- Add try/catch around encryption (derek.finlinson@journeyteam.com)
+- Bump dataverse-webapi to v2.4.3
 
 ## 3.0.3
 
