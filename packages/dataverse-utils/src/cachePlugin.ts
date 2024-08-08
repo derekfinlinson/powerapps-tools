@@ -60,22 +60,30 @@ export const cachePlugin = (url: string): ICachePlugin => {
           if (err) {
             reject();
           } else {
-            const decrypted = decrypt(data);
+            try {
+              const decrypted = decrypt(data);
 
-            tokenCacheContext.tokenCache.deserialize(decrypted);
-            resolve();
+              tokenCacheContext.tokenCache.deserialize(decrypted);
+              resolve();
+            } catch (ex) {
+              reject(ex);
+            }
           }
         });
       } else {
-        const encrypted = encrypt(tokenCacheContext.tokenCache.serialize());
+        try {
+          const encrypted = encrypt(tokenCacheContext.tokenCache.serialize());
 
-        fs.writeFile(cacheLocation, encrypted, (err) => {
-          if (err) {
-            reject();
-          } else {
-            resolve();
-          }
-        });
+          fs.writeFile(cacheLocation, encrypted, (err) => {
+            if (err) {
+              reject();
+            } else {
+              resolve();
+            }
+          });
+        } catch (ex) {
+          reject(ex);
+        }
       }
     });
   };
@@ -101,4 +109,4 @@ export const cachePlugin = (url: string): ICachePlugin => {
     beforeCacheAccess,
     afterCacheAccess
   };
-}
+};
