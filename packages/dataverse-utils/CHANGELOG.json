@@ -2,6 +2,27 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Fri, 12 Jul 2024 17:57:25 GMT",
+      "version": "3.0.3",
+      "tag": "dataverse-utils_v3.0.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "ae3e522acc7e9753436289bd2fde3d7dd39e9816",
+            "comment": "Fix unsecure config; Remove secure config for now"
+          },
+          {
+            "author": "beachball",
+            "package": "dataverse-utils",
+            "comment": "Bump dataverse-webapi to v2.4.3",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 12 Jul 2024 17:21:42 GMT",
       "version": "3.0.2",
       "tag": "dataverse-utils_v3.0.2",
