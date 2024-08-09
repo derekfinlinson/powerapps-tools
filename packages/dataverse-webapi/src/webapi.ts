@@ -672,7 +672,7 @@ export function disassociate(
  * @param inputs Any inputs required by the action
  * @param queryOptions Various query options for the query
  */
-export function boundAction(
+export function boundAction<T>(
   apiConfig: WebApiConfig,
   entitySet: string,
   id: string,
@@ -680,7 +680,7 @@ export function boundAction(
   submitRequest: RequestCallback,
   inputs?: Record<string, unknown>,
   queryOptions?: QueryOptions
-): Promise<unknown> {
+): Promise<T | null> {
   id = parseGuid(id);
 
   const config: WebApiRequestConfig = {
@@ -717,13 +717,13 @@ export function boundAction(
  * @param inputs Any inputs required by the action
  * @param queryOptions Various query options for the query
  */
-export function unboundAction(
+export function unboundAction<T>(
   apiConfig: WebApiConfig,
   actionName: string,
   submitRequest: RequestCallback,
   inputs?: Record<string, unknown>,
   queryOptions?: QueryOptions
-): Promise<unknown> {
+): Promise<T | null> {
   const config: WebApiRequestConfig = {
     method: 'POST',
     contentType: 'application/json; charset=utf-8',
@@ -760,7 +760,7 @@ export function unboundAction(
  * @param inputs Any inputs required by the action
  * @param queryOptions Various query options for the query
  */
-export function boundFunction(
+export function boundFunction<T>(
   apiConfig: WebApiConfig,
   entitySet: string,
   id: string,
@@ -768,7 +768,7 @@ export function boundFunction(
   submitRequest: RequestCallback,
   inputs?: FunctionInput[],
   queryOptions?: QueryOptions
-): Promise<unknown> {
+): Promise<T | null> {
   id = parseGuid(id);
   
   let queryString = `${entitySet}(${id})/Microsoft.Dynamics.CRM.${functionName}(`;
@@ -805,13 +805,13 @@ export function boundFunction(
  * @param inputs Any inputs required by the action
  * @param queryOptions Various query options for the query
  */
-export function unboundFunction(
+export function unboundFunction<T>(
   apiConfig: WebApiConfig,
   functionName: string,
   submitRequest: RequestCallback,
   inputs?: FunctionInput[],
   queryOptions?: QueryOptions
-): Promise<unknown> {
+): Promise<T | null> {
   let queryString = `${functionName}(`;
 
   queryString = getFunctionInputs(queryString, inputs);
@@ -848,7 +848,7 @@ export function unboundFunction(
  * @param batchGets Array of get requests for the operation
  * @param queryOptions Various query options for the query
  */
-export function batchOperation(
+export function batchOperation<T>(
   apiConfig: WebApiConfig,
   batchId: string,
   changeSetId: string,
@@ -856,7 +856,7 @@ export function batchOperation(
   batchGets: string[],
   submitRequest: RequestCallback,
   queryOptions?: QueryOptions
-): Promise<unknown> {
+): Promise<T | null> {
   // build post body
   const body: string[] = [];
 
