@@ -1,8 +1,16 @@
 # Change Log - dataverse-webapi
 
-This log was last generated on Fri, 01 Mar 2024 16:17:19 GMT and should not be manually modified.
+This log was last generated on Fri, 09 Aug 2024 16:39:46 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 2.5.0
+
+Fri, 09 Aug 2024 16:39:46 GMT
+
+### Minor changes
+
+- Add generic types (derek.finlinson@journeyteam.com)
 
 ## 2.4.3
 
