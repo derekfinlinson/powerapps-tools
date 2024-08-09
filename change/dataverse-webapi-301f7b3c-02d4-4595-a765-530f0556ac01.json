@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Add generic types",
+  "packageName": "dataverse-webapi",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
