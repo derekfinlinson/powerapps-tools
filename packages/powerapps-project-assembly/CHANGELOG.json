@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Wed, 16 Oct 2024 14:27:08 GMT",
+      "version": "2.1.2",
+      "tag": "powerapps-project-assembly_v2.1.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "096fc81992eef6320f56a31fc549fe2baf4c2794",
+            "comment": "Update README"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 12 Jul 2024 17:57:25 GMT",
       "version": "2.1.1",
       "tag": "powerapps-project-assembly_v2.1.1",

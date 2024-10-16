@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Update README",
-  "packageName": "powerapps-project-assembly",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
