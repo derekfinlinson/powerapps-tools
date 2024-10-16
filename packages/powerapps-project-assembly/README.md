@@ -18,9 +18,9 @@ Plop file generator for Dataverse plugin/workflow activity projects
 Add plopfile.js to project that includes the following. Ensure you have a dataverse.config.json file.
 
 ```javascript
-module.exports = function (plop) {
-  plop.load('powerapps-project-assembly/plopfile.js');
-}
+module.exports = async function (plop) {
+  await plop.load('powerapps-project-assembly');
+};
 ```
 
 Run plop
