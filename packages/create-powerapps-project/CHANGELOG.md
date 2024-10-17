@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-This log was last generated on Fri, 12 Jul 2024 17:21:42 GMT and should not be manually modified.
+This log was last generated on Thu, 17 Oct 2024 18:10:02 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.7.3
+
+Thu, 17 Oct 2024 18:10:02 GMT
+
+### Patches
+
+- Update builder template (derek.finlinson@journeyteam.com)
 
 ## 1.7.2
 
