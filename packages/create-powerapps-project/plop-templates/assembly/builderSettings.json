@@ -1,15 +1,13 @@
 ﻿{
-  "suppressINotifyPattern": false,
-  "suppressGeneratedCodeAttribute": false,
-  "language": "CS",
-  "namespace": "Xrm",
+  "suppressINotifyPattern": true,
+  "suppressGeneratedCodeAttribute": true,
+  "namespace": "PowerPlatform",
   "serviceContextName": "CrmServiceContext",
-  "generateActions": true,
-  "generateGlobalOptionSets": false,
-  "emitFieldsClasses": false,
-  "entityTypesFolder": "Entities",
+  "generateSdkMessages": true,
+  "emitFieldsClasses": true,
+  "entityTypesFolder": "Tables",
   "messagesTypesFolder": "Messages",
-  "optionSetsTypesFolder": "OptionSets",
+  "optionSetsTypesFolder": "Choices",
   "entityNamesFilter": [
   ],
   "messageNamesFilter": [
