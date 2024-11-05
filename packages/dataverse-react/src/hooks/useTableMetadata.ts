@@ -12,7 +12,10 @@ export interface TableMetadata {
 
 export interface ColumnMetadata {
   Targets?: string[];
-  AttributeType: string;
+  AttributeType: "Boolean" | "Customer" | "DateTime" | "Decimal" | "Double" | "Integer" | "Lookup" | "Memo" | "Money" | "Owner" | "PartyList" | "Picklist" | "State" | "Status" | "String" | "Uniqueidentifier" | "CalendarRules" | "Virtual" | "BigInt" | "ManagedProperty" | "EntityName";
+  AttributeTypeName: {
+    Value: "BigIntType" | "BooleanType" | "CalendarRulesType" | "CustomerType" | "CustomType" | "DateTimeType" | "DecimalType" | "DoubleType" | "EntityNameType" | "FileType" | "ImageType" | "IntegerType" | "LookupType" | "ManagedPropertyType" | "MemoType" | "MoneyType" | "MultiSelectPicklistType" | "OwnerType" | "PartyListType" | "PicklistType" | "StateType" | "StatusType" | "StringType" | "UniqueidentifierType" | "VirtualType";
+  };
   DisplayName: {
     UserLocalizedLabel: {
       Label: string;
