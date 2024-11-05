@@ -4,7 +4,8 @@
         "outDir": "./lib",
         "noImplicitAny": false,
         "declaration": false,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "moduleResolution": "Node16"
     },
     "include": [
         "src/index.ts"
