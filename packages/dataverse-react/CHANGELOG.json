@@ -2,6 +2,21 @@
   "name": "dataverse-react",
   "entries": [
     {
+      "date": "Tue, 05 Nov 2024 18:32:58 GMT",
+      "version": "0.4.0",
+      "tag": "dataverse-react_v0.4.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-react",
+            "commit": "16a766bede3e637a708407d71534492b5074cdf3",
+            "comment": "Add attribute types"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 09 Aug 2024 16:39:46 GMT",
       "version": "0.3.2",
       "tag": "dataverse-react_v0.3.2",

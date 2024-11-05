@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Tue, 05 Nov 2024 18:32:58 GMT",
+      "version": "3.0.6",
+      "tag": "dataverse-utils_v3.0.6",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "16a766bede3e637a708407d71534492b5074cdf3",
+            "comment": "Change moduleResolution"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 09 Aug 2024 16:39:46 GMT",
       "version": "3.0.5",
       "tag": "dataverse-utils_v3.0.5",

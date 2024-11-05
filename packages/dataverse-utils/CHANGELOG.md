@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-This log was last generated on Fri, 09 Aug 2024 16:39:46 GMT and should not be manually modified.
+<!-- This log was last generated on Tue, 05 Nov 2024 18:32:58 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 3.0.6
+
+Tue, 05 Nov 2024 18:32:58 GMT
+
+### Patches
+
+- Change moduleResolution (derek.finlinson@journeyteam.com)
 
 ## 3.0.5
 
