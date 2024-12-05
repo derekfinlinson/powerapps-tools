@@ -104,7 +104,7 @@ export function setDefaultValue(
  */
 export function addFormNotification(
   message: string,
-  level: Xrm.Page.ui.FormNotificationLevel,
+  level: Xrm.FormNotificationLevel,
   uniqueId: string,
   timeout = 10000,
   form: Xrm.FormContext
@@ -144,7 +144,7 @@ export function addOnChange(fieldName: string, event: Xrm.Events.ContextSensitiv
  * @param event Event to fire
  * @param form Form context
  */
-export function removeOnChange(fieldName: string, event: Xrm.Page.ContextSensitiveHandler, form: Xrm.FormContext): boolean {
+export function removeOnChange(fieldName: string, event: Xrm.Events.Attribute.ChangeEventHandler, form: Xrm.FormContext): boolean {
   const field = form.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field === null || field === undefined) {
@@ -429,4 +429,17 @@ export function setValueFromLookupFieldName(fieldToSet: string, lookupField: str
   form.getAttribute(fieldToSet).setValue(lookup[0].name);
 
   return true;
+}
+
+/**
+ * Check if a user has a role
+ * @param role Name or id of role
+ *
+ */
+export function userHasRole(role: string): boolean {
+  const userRoles = Xrm.Utility.getGlobalContext().userSettings.roles.get();
+
+  const matchingRole = userRoles.find((item) => item.name?.toLowerCase() === role.toLowerCase() || areGuidsEqual(item.id, role));
+
+  return matchingRole != undefined;
 }
