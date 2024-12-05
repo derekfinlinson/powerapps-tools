@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Add function to check if user has role",
+  "packageName": "powerapps-common",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
