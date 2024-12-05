@@ -1,8 +1,16 @@
 # Change Log - powerapps-common
 
-This log was last generated on Fri, 30 Jun 2023 22:24:30 GMT and should not be manually modified.
+<!-- This log was last generated on Thu, 05 Dec 2024 16:24:53 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.9.0
+
+Thu, 05 Dec 2024 16:24:53 GMT
+
+### Minor changes
+
+- Add function to check if user has role (derek.finlinson@journeyteam.com)
 
 ## 1.8.1
 

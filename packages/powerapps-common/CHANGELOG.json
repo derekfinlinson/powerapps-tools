@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Thu, 05 Dec 2024 16:24:53 GMT",
+      "version": "1.9.0",
+      "tag": "powerapps-common_v1.9.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-common",
+            "commit": "533f32b415c8ddddf61fe9a287fbace470163818",
+            "comment": "Add function to check if user has role"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 30 Jun 2023 22:24:30 GMT",
       "tag": "powerapps-common_v1.8.1",
       "version": "1.8.1",
