@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 10 Dec 2024 22:22:41 GMT",
+      "version": "1.7.4",
+      "tag": "create-powerapps-project_v1.7.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "e7f7c2c85fb80a05914dc9c960995b9cfd90a696",
+            "comment": "Make namespace required"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 17 Oct 2024 18:10:02 GMT",
       "version": "1.7.3",
       "tag": "create-powerapps-project_v1.7.3",
