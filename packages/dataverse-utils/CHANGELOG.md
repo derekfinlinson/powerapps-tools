@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-<!-- This log was last generated on Tue, 05 Nov 2024 18:32:58 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 10 Dec 2024 21:53:48 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 3.0.7
+
+Tue, 10 Dec 2024 21:53:48 GMT
+
+### Patches
+
+- Fix id checking (derek.finlinson@journeyteam.com)
 
 ## 3.0.6
 
