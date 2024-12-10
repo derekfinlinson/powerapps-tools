@@ -65,7 +65,7 @@ export async function deployApi(config: CustomApi, assemblyId: string, apiConfig
 
   api['PluginTypeId@odata.bind'] = `plugintypes(${config.plugintypeid})`;
 
-  if (config.customapiid) {
+  if (config.customapiid !== '') {
     try {
       await updateApi(config.customapiid, api, apiConfig);
     } catch (error: any) {

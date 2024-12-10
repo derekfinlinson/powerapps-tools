@@ -33,7 +33,7 @@ export async function deployAssembly(config: PluginAssembly, apiConfig: WebApiCo
     config.pluginassemblyid = await retrieveAssembly(config.name, apiConfig);
   }
 
-  if (config.pluginassemblyid) {
+  if (config.pluginassemblyid !== '') {
     try {
       await updateAssembly(config, content, apiConfig);
     } catch (error: any) {

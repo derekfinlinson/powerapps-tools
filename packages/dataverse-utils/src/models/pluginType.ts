@@ -25,7 +25,7 @@ export async function deployType(config: PluginType, assemblyId: string, apiConf
     config.plugintypeid = await retrieveType(config.name, assemblyId, apiConfig);
   }
 
-  if (config.plugintypeid) {
+  if (config.plugintypeid !== '') {
     try {
       await updateType(config.plugintypeid, type as PluginType, apiConfig);
     } catch (error: any) {

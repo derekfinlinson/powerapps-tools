@@ -57,7 +57,7 @@ export async function deployStep(config: PluginStep, pluginTypeId: string, apiCo
     config.sdkmessageprocessingstepid = await retrieveStep(step.name, pluginTypeId, apiConfig);
   }
 
-  if (config.sdkmessageprocessingstepid) {
+  if (config.sdkmessageprocessingstepid !== '') {
     try {
       await updateStep(config.sdkmessageprocessingstepid, step, apiConfig);
     } catch (error: any) {

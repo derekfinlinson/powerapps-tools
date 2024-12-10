@@ -44,7 +44,7 @@ export async function deployImage(
     config.sdkmessageprocessingstepimageid = await retrieveImage(stepId, image, apiConfig);
   }
 
-  if (config.sdkmessageprocessingstepimageid) {
+  if (config.sdkmessageprocessingstepimageid !== '') {
     try {
       await updateImage(config.sdkmessageprocessingstepimageid, image, stepName, apiConfig);
     } catch (error: any) {
