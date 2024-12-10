@@ -106,6 +106,10 @@ export default async (plop: NodePlopAPI): Promise<void> => {
         name: 'name',
         message: 'default C# namespace (Company.Crm.Plugins):',
         validate: (answer: string) => {
+          if (answer === '') {
+            return 'namespace is required';
+          }
+
           const validNamespace = answer.replace(/[^a-zA-Z.]+/g, '');
 
           if (validNamespace !== answer) {
