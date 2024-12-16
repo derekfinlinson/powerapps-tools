@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Add env to modelbuilder command",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
