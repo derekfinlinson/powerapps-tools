@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-This log was last generated on Wed, 16 Oct 2024 14:27:08 GMT and should not be manually modified.
+<!-- This log was last generated on Mon, 16 Dec 2024 18:45:25 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.1.3
+
+Mon, 16 Dec 2024 18:45:25 GMT
+
+### Patches
+
+- Don't convert message name to pascal case (derek.finlinson@journeyteam.com)
 
 ## 2.1.2
 

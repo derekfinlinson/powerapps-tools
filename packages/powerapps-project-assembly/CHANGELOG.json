@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Mon, 16 Dec 2024 18:45:25 GMT",
+      "version": "2.1.3",
+      "tag": "powerapps-project-assembly_v2.1.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "a1f1448f6962a890013fd0208ad2313c0e8dcf1a",
+            "comment": "Don't convert message name to pascal case"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 16 Oct 2024 14:27:08 GMT",
       "version": "2.1.2",
       "tag": "powerapps-project-assembly_v2.1.2",
