@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-<!-- This log was last generated on Tue, 10 Dec 2024 21:53:48 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 16 Dec 2024 16:23:27 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 3.0.8
+
+Mon, 16 Dec 2024 16:23:27 GMT
+
+### Patches
+
+- Don't force package manager on assembly or web resources (derek.finlinson@journeyteam.com)
 
 ## 3.0.7
 

@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Don't force package manager on assembly or web resources",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

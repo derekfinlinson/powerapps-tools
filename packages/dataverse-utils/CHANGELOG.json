@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Mon, 16 Dec 2024 16:23:27 GMT",
+      "version": "3.0.8",
+      "tag": "dataverse-utils_v3.0.8",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "eca4814fbff856031d6629335f8ccf9462794ea0",
+            "comment": "Don't force package manager on assembly or web resources"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 10 Dec 2024 21:53:48 GMT",
       "version": "3.0.7",
       "tag": "dataverse-utils_v3.0.7",

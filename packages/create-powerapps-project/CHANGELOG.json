@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Mon, 16 Dec 2024 16:23:27 GMT",
+      "version": "1.7.5",
+      "tag": "create-powerapps-project_v1.7.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "eca4814fbff856031d6629335f8ccf9462794ea0",
+            "comment": "Don't force package manager on assembly or web resources"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 10 Dec 2024 22:22:41 GMT",
       "version": "1.7.4",
       "tag": "create-powerapps-project_v1.7.4",
