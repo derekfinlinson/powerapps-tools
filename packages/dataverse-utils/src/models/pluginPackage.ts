@@ -30,7 +30,7 @@ export async function deployPluginPackage(config: PluginPackage, apiConfig: WebA
     config.pluginpackageid = await retrievePackage(config.prefix, config.name, apiConfig);
   }
 
-  if (config.pluginpackageid !== '') {
+  if (config.pluginpackageid) {
     try {
       await updatePackage(config, content, apiConfig);
     } catch (error: any) {

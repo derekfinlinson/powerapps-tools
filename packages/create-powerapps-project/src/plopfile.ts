@@ -223,13 +223,6 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           force: true
         },
         {
-          type: 'addScript',
-          data: {
-            scriptKey: 'preinstall',
-            scriptValue: `npx only-allow ${data.package}`
-          }
-        },
-        {
           type: 'addSolution'
         },
         {
@@ -579,13 +572,6 @@ export default async (plop: NodePlopAPI): Promise<void> => {
             }
 
             return;
-          }
-        },
-        {
-          type: 'addScript',
-          data: {
-            scriptKey: 'preinstall',
-            scriptValue: `npx only-allow ${data.package}`
           }
         },
         {
