@@ -6,7 +6,7 @@
   "scripts": {
     "gen": "plop",
     "deploy": "dataverse-utils deploy assembly",
-    "modelbuilder": "pac auth select -n {{org}} && pac modelbuilder build -stf builderSettings.json -o Model",
+    "modelbuilder": "pac auth select -n {{org}} && pac modelbuilder build -stf builderSettings.json -o Model -env {{server}}",
     "authenticate": "pac auth create -env {{server}} --name {{org}} -dc",
     "prt": "pac tool prt"
   }
