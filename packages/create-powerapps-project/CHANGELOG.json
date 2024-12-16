@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Mon, 16 Dec 2024 16:30:06 GMT",
+      "version": "1.7.6",
+      "tag": "create-powerapps-project_v1.7.6",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "00af91c3dd837854057d05ec304b13bfc0f870a5",
+            "comment": "Add env to modelbuilder command"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 16 Dec 2024 16:23:27 GMT",
       "version": "1.7.5",
       "tag": "create-powerapps-project_v1.7.5",
