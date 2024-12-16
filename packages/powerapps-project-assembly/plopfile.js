@@ -446,7 +446,7 @@ module.exports = (plop) => {
       if (answers.name !== undefined) {
         const step = {
           name: answers.name,
-          message: plop.renderString('{{ pascalCase message }}', answers),
+          message: answers.message,
           entity: answers.entity,
           configuration: answers.configuration,
           description: answers.description,
@@ -522,7 +522,7 @@ module.exports = (plop) => {
         // Add step to existing config
         const step = {
           name: answers.name,
-          message: plop.renderString('{{ pascalCase message }}', answers),
+          message: answers.message,
           entity: answers.entity,
           configuration: answers.configuration,
           description: answers.description,
