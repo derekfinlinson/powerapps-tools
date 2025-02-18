@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Don't convert message name to pascal case",
-  "packageName": "powerapps-project-assembly",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
