@@ -87,20 +87,16 @@ export default (plop: NodePlopAPI): void => {
     return new Promise((resolve, reject) => {
       const pac = spawn('pac', args, { stdio: 'inherit' });
 
+      pac.stdout?.on('data', (data) => {
+        console.log(data);
+      });
+
       pac.on('close', (code) => {
         if (didSucceed(code)) {
           resolve('pcf project created');
         } else {
-          reject(
-            'Ensure the Power Platform CLI is installed. Command must be run from within Visual Studio Code if using the Power Platform Extension'
-          );
+          reject('failed to create the pcf project. see errors above');
         }
-      });
-
-      pac.on('error', () => {
-        reject(
-          'Ensure the Power Platform CLI is installed. Command must be run from within Visual Studio Code if using the Power Platform Extension'
-        );
       });
     });
   });
