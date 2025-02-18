@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Tue, 18 Feb 2025 22:43:15 GMT",
+      "version": "3.0.8",
+      "tag": "dataverse-utils_v3.0.8",
+      "comments": {
+        "none": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "dataverse-utils",
+            "commit": "f3d9e5a5dff44ef70c0839bfd66c5c04556e340e",
+            "comment": "Update error handling"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 16 Dec 2024 16:23:27 GMT",
       "version": "3.0.8",
       "tag": "dataverse-utils_v3.0.8",

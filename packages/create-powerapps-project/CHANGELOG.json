@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 18 Feb 2025 22:43:15 GMT",
+      "version": "1.7.8",
+      "tag": "create-powerapps-project_v1.7.8",
+      "comments": {
+        "patch": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "create-powerapps-project",
+            "commit": "f3d9e5a5dff44ef70c0839bfd66c5c04556e340e",
+            "comment": "Update error handling"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 16 Dec 2024 17:04:30 GMT",
       "version": "1.7.7",
       "tag": "create-powerapps-project_v1.7.7",
