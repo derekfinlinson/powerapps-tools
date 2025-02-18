@@ -84,12 +84,11 @@ export default (plop: NodePlopAPI): void => {
       args.push('-fw', 'react');
     }
 
-    return new Promise((resolve, reject) => {
-      const pac = spawn('pac', args, { stdio: 'inherit' });
+    console.log('running pac pcf command with args');
+    console.log(`\t${args.join(' ')}`);
 
-      pac.stdout?.on('data', (data) => {
-        console.log(data);
-      });
+    return new Promise((resolve, reject) => {
+      const pac = spawn('pac', args, { stdio: 'inherit', shell: true });
 
       pac.on('close', (code) => {
         if (didSucceed(code)) {
@@ -97,6 +96,10 @@ export default (plop: NodePlopAPI): void => {
         } else {
           reject('failed to create the pcf project. see errors above');
         }
+      });
+
+      pac.on('error', (err) => {
+        reject(`failed to create the pcf project. ${err.message}`);
       });
     });
   });
