@@ -42,9 +42,9 @@ export default async (plop: NodePlopAPI): Promise<void> => {
     },
     {
       type: 'input',
-      name: 'tenant',
-      message: 'enter azure ad tenant (org.onmicrosoft.com):',
-      default: 'common'
+      name: 'authEndpoint',
+      message: 'enter azure authorization endpoint:',
+      default: 'https://login.microsoftonline.com/common'
     },
     {
       type: 'input',

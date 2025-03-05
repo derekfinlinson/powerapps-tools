@@ -25,11 +25,11 @@ export const onTokenFailure = async (url: string, error?: string): Promise<void>
   }
 };
 
-export const getAccessToken = async (tenant: string, url: string): Promise<AuthenticationResult | null> => {
+export const getAccessToken = async (authEndpoint: string, url: string): Promise<AuthenticationResult | null> => {
   const config = {
     auth: {
       clientId: clientId,
-      authority: `https://login.microsoftonline.com/${tenant}/`
+      authority: authEndpoint
     },
     cache: {
       cachePlugin: cachePlugin(url)

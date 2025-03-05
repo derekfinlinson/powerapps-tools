@@ -12,8 +12,9 @@ export enum ComponentType {
 
 export interface DeployCredentials {
   server: string;
-  tenant: string;
+  authEndpoint: string;
   solution: string;
+  tenant: string;
 }
 
 export interface Choice {

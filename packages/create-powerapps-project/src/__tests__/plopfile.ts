@@ -65,7 +65,7 @@ test.only('create web resource project', async () => {
     namespace: 'Org',
     package: 'npm',
     server: 'https://org.crm.dynamics.com',
-    tenant: 'common',
+    authEndpoint: 'https://login.microsoftonline.com/common',
     solution: 'Solution'
   };
 
@@ -98,7 +98,7 @@ test.only('create web resource project', async () => {
   const dataverseConfig = JSON.parse(await fs.promises.readFile(path.resolve(projectPath, 'dataverse.config.json'), 'utf8'));
 
   expect(dataverseConfig.connection.server).toBe(answers.server);
-  expect(dataverseConfig.connection.tenant).toBe(answers.tenant);
+  expect(dataverseConfig.connection.authEndpoint).toBe(answers.authEndpoint);
   expect(dataverseConfig.connection.solution).toBe(answers.solution);
 });
 
@@ -109,7 +109,7 @@ test('create plugin project', async () => {
     isolation: 2,
     package: 'npm',
     server: 'https://org.crm.dynamics.com',
-    tenant: 'common',
+    authEndpoint: 'https://login.microsoftonline.com/common',
     solution: 'Solution'
   };
 
@@ -135,7 +135,7 @@ test('create plugin project', async () => {
   const dataverseConfig = JSON.parse(await fs.promises.readFile(path.resolve(projectPath, 'dataverse.config.json'), 'utf8'));
 
   expect(dataverseConfig.connection.server).toBe(answers.server);
-  expect(dataverseConfig.connection.tenant).toBe(answers.tenant);
+  expect(dataverseConfig.connection.authEndpoint).toBe(answers.authEndpoint);
   expect(dataverseConfig.connection.solution).toBe(answers.solution);
   expect(dataverseConfig.isolationmode).toBe('2');
 });

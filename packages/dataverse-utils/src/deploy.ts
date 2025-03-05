@@ -39,6 +39,11 @@ export default async function deploy(type?: string, files?: string): Promise<voi
 
   const creds: DeployCredentials = JSON.parse(credsFile).connection;
 
+  if (!creds.authEndpoint) {
+    logger.error(('authEndpoint not found in dataverse.config.json. if you recently updated the package, please update the config file and replace tenant with authEndpoint with full authorization URL.'));
+    return;
+  }
+
   let token: AuthenticationResult | null = null;
 
   // Check if token is available in environment
@@ -46,7 +51,7 @@ export default async function deploy(type?: string, files?: string): Promise<voi
     token = { accessToken: process.env.ACCESSTOKEN } as AuthenticationResult;
   } else {
     try {
-      token = await getAccessToken(creds.tenant, creds.server);
+      token = await getAccessToken(creds.authEndpoint, creds.server);
     } catch (error: any) {
       onTokenFailure(creds.server, error.message);
 

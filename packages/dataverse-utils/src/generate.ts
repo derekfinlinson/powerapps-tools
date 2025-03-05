@@ -27,10 +27,16 @@ export default async function generate(table: string): Promise<void> {
   }
 
   const creds: DeployCredentials = JSON.parse(credsFile).connection;
+
+  if (!creds.authEndpoint) {
+    logger.error(('authEndpoint not found in dataverse.config.json. if you recently updated the package, please update the config file and replace tenant with authEndpoint with full authorization URL.'));
+    return;
+  }
+
   let token: AuthenticationResult | null = null;
 
   try {
-    token = await getAccessToken(creds.tenant, creds.server);
+    token = await getAccessToken(creds.authEndpoint, creds.server);
   } catch (error: any) {
     onTokenFailure(creds.server, error.message);
 
