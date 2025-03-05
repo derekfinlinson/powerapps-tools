@@ -1,7 +1,0 @@
-{
-  "type": "major",
-  "comment": "Get auth url from user for GCC",
-  "packageName": "create-powerapps-project",
-  "email": "dcfinlinson@gmail.com",
-  "dependentChangeType": "patch"
-}

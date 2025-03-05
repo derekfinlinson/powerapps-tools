@@ -1,7 +1,0 @@
-{
-  "type": "major",
-  "comment": "Get auth url from user for GCC",
-  "packageName": "dataverse-utils",
-  "email": "dcfinlinson@gmail.com",
-  "dependentChangeType": "patch"
-}

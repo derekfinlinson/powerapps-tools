@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 05 Mar 2025 22:30:32 GMT",
+      "version": "2.0.0",
+      "tag": "create-powerapps-project_v2.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "create-powerapps-project",
+            "commit": "ef28a9cd041e7cd25e5f95ea91ee0b8ce86f559e",
+            "comment": "Get auth url from user for GCC"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 18 Feb 2025 22:43:15 GMT",
       "version": "1.7.8",
       "tag": "create-powerapps-project_v1.7.8",

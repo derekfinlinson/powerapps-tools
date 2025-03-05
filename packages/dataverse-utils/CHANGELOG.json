@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Wed, 05 Mar 2025 22:30:32 GMT",
+      "version": "4.0.0",
+      "tag": "dataverse-utils_v4.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "dataverse-utils",
+            "commit": "ef28a9cd041e7cd25e5f95ea91ee0b8ce86f559e",
+            "comment": "Get auth url from user for GCC"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 18 Feb 2025 22:43:15 GMT",
       "version": "3.0.8",
       "tag": "dataverse-utils_v3.0.8",
