@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-<!-- This log was last generated on Wed, 05 Mar 2025 22:30:32 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 20 Mar 2025 16:28:16 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.1
+
+Thu, 20 Mar 2025 16:28:16 GMT
+
+### Patches
+
+- Update template (dcfinlinson@gmail.com)
 
 ## 2.0.0
 

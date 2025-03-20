@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-<!-- This log was last generated on Mon, 16 Dec 2024 18:45:25 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 20 Mar 2025 16:28:16 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.1.4
+
+Thu, 20 Mar 2025 16:28:16 GMT
+
+### Patches
+
+- Update template (dcfinlinson@gmail.com)
 
 ## 2.1.3
 
