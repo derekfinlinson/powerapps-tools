@@ -48,7 +48,7 @@ export interface QueryOptions {
 }
 
 export interface Entity {
-  [propName: string]: string | number | boolean | undefined | null | Entity | Entity[];
+  [propName: string]: string | number | boolean | Date | undefined | null | Entity | Entity[];
 }
 
 export interface RetrieveMultipleResponse {
