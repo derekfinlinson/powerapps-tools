@@ -2,6 +2,21 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Tue, 08 Apr 2025 16:16:11 GMT",
+      "version": "2.6.0",
+      "tag": "dataverse-webapi_v2.6.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "dataverse-webapi",
+            "commit": "6a6d159da7a2465b6c3e399a3aeff5c078658a9b",
+            "comment": "Add date type to entity attributes"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 09 Aug 2024 16:39:46 GMT",
       "version": "2.5.0",
       "tag": "dataverse-webapi_v2.5.0",

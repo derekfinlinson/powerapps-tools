@@ -61,7 +61,7 @@ importers:
         specifier: '>=16.0.0 <18.0.0'
         version: 17.0.26(@types/react@17.0.83)
       dataverse-webapi:
-        specifier: workspace:^2.5.0
+        specifier: workspace:^2.6.0
         version: link:../dataverse-webapi
       react:
         specifier: '>=16.0.0 <18.0.0'
@@ -113,7 +113,7 @@ importers:
         specifier: ^6.2.0
         version: 6.3.0
       dataverse-webapi:
-        specifier: workspace:^2.5.0
+        specifier: workspace:^2.6.0
         version: link:../dataverse-webapi
       figures:
         specifier: ^3.2.0
