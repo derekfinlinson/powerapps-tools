@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Switch to bundler module resolution",
+  "packageName": "create-powerapps-project",
+  "email": "dcfinlinson@gmail.com",
+  "dependentChangeType": "patch"
+}
