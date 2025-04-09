@@ -1,8 +1,17 @@
 # Change Log - dataverse-react
 
-<!-- This log was last generated on Wed, 09 Apr 2025 17:24:47 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 09 Apr 2025 19:34:47 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.0.2
+
+Wed, 09 Apr 2025 19:34:47 GMT
+
+### Patches
+
+- Update main filename (dcfinlinson@gmail.com)
+- Bump dataverse-webapi to v3.0.2
 
 ## 1.0.0
 
