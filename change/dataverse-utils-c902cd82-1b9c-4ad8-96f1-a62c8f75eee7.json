@@ -1,0 +1,7 @@
+{
+  "type": "major",
+  "comment": "Switch to ESM modules for tree shaking",
+  "packageName": "dataverse-utils",
+  "email": "dcfinlinson@gmail.com",
+  "dependentChangeType": "patch"
+}
