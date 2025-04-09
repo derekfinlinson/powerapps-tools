@@ -21,19 +21,11 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.ts(x?)$/,
-          exclude: /node_modules/,
-          use: ['babel-loader', 'ts-loader']
-        },
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          use: ['babel-loader']
-        },
-        {
-          enforce: 'pre',
-          test: /\.(ts)|(js)$/,
-          loader: 'source-map-loader'
+          test: /\.[jt]s?$/,
+          loader: 'esbuild-loader',
+          options: {
+            target: 'es2020'
+          }
         }
       ]
     },

@@ -590,21 +590,14 @@ export default async (plop: NodePlopAPI): Promise<void> => {
                 '@typescript-eslint/parser',
                 'webpack-event-plugin',
                 'clean-webpack-plugin',
-                'source-map-loader',
-                'babel-loader',
-                'ts-loader',
-                '@babel/core',
-                '@babel/preset-env',
-                '@babel/preset-typescript',
                 'xrm-mock',
                 'webpack',
                 'webpack-cli',
                 'cross-spawn',
-                'ts-node',
                 '@microsoft/eslint-plugin-power-apps',
                 '-D'
               ],
-              dependencies: ['core-js', 'regenerator-runtime', 'powerapps-common', 'dataverse-webapi']
+              dependencies: ['powerapps-common', 'dataverse-webapi']
             }
           }
         }
