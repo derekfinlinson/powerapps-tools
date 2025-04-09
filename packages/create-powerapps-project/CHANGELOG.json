@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 09 Apr 2025 03:53:06 GMT",
+      "version": "2.1.0",
+      "tag": "create-powerapps-project_v2.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "create-powerapps-project",
+            "commit": "6b454c6040807cfc62a62c14cc50280c5d5baedd",
+            "comment": "Switch to bundler module resolution"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 20 Mar 2025 16:28:16 GMT",
       "version": "2.0.1",
       "tag": "create-powerapps-project_v2.0.1",
