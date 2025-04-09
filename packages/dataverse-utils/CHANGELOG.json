@@ -2,6 +2,27 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Wed, 09 Apr 2025 19:54:55 GMT",
+      "version": "5.0.3",
+      "tag": "dataverse-utils_v5.0.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "dataverse-utils",
+            "commit": "07ffe7e5737e8759572730b4cb0a1606b68af3de",
+            "comment": "Fix build destination"
+          },
+          {
+            "author": "beachball",
+            "package": "dataverse-utils",
+            "comment": "Bump dataverse-webapi to v3.0.2",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 09 Apr 2025 17:24:47 GMT",
       "version": "5.0.0",
       "tag": "dataverse-utils_v5.0.0",
