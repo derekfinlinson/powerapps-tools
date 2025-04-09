@@ -2,6 +2,35 @@
   "name": "dataverse-react",
   "entries": [
     {
+      "date": "Wed, 09 Apr 2025 17:24:47 GMT",
+      "version": "1.0.0",
+      "tag": "dataverse-react_v1.0.0",
+      "comments": {
+        "none": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "dataverse-react",
+            "commit": "9f9a19bcdf06e03749e11a8ee7706755fe843391",
+            "comment": "Add null check"
+          }
+        ],
+        "major": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "dataverse-react",
+            "commit": "9f9a19bcdf06e03749e11a8ee7706755fe843391",
+            "comment": "Switch to ESM modules for tree shaking"
+          },
+          {
+            "author": "beachball",
+            "package": "dataverse-react",
+            "comment": "Bump dataverse-webapi to v3.0.0",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 08 Apr 2025 16:16:11 GMT",
       "version": "0.4.1",
       "tag": "dataverse-react_v0.4.1",

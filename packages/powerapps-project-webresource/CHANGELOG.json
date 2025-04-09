@@ -2,6 +2,21 @@
   "name": "powerapps-project-webresource",
   "entries": [
     {
+      "date": "Wed, 09 Apr 2025 17:24:47 GMT",
+      "version": "3.0.0",
+      "tag": "powerapps-project-webresource_v3.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "powerapps-project-webresource",
+            "commit": "9f9a19bcdf06e03749e11a8ee7706755fe843391",
+            "comment": "Switch to ESM modules for tree shaking"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 09 Mar 2023 15:05:47 GMT",
       "tag": "powerapps-project-webresource_v2.0.0",
       "version": "2.0.0",

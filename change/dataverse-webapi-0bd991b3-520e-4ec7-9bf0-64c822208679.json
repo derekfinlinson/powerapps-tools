@@ -1,7 +1,0 @@
-{
-  "type": "major",
-  "comment": "Switch to ESM modules for tree shaking",
-  "packageName": "dataverse-webapi",
-  "email": "dcfinlinson@gmail.com",
-  "dependentChangeType": "patch"
-}
