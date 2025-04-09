@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-<!-- This log was last generated on Thu, 20 Mar 2025 16:28:16 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 09 Apr 2025 03:53:06 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.1.0
+
+Wed, 09 Apr 2025 03:53:06 GMT
+
+### Minor changes
+
+- Switch to bundler module resolution (dcfinlinson@gmail.com)
 
 ## 2.0.1
 
