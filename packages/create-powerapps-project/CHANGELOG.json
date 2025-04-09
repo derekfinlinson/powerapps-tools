@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 09 Apr 2025 17:24:47 GMT",
+      "version": "2.2.0",
+      "tag": "create-powerapps-project_v2.2.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "create-powerapps-project",
+            "commit": "9f9a19bcdf06e03749e11a8ee7706755fe843391",
+            "comment": "Switch to ESM modules for tree shaking"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 09 Apr 2025 03:54:23 GMT",
       "version": "2.1.1",
       "tag": "create-powerapps-project_v2.1.1",

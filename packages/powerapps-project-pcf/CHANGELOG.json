@@ -2,6 +2,21 @@
   "name": "powerapps-project-pcf",
   "entries": [
     {
+      "date": "Wed, 09 Apr 2025 17:24:47 GMT",
+      "version": "3.0.0",
+      "tag": "powerapps-project-pcf_v3.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "powerapps-project-pcf",
+            "commit": "9f9a19bcdf06e03749e11a8ee7706755fe843391",
+            "comment": "Switch to ESM modules for tree shaking"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 30 Jun 2023 22:24:30 GMT",
       "tag": "powerapps-project-pcf_v2.0.1",
       "version": "2.0.1",

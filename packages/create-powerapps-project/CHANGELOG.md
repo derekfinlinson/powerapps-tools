@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-<!-- This log was last generated on Wed, 09 Apr 2025 03:54:23 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 09 Apr 2025 17:24:47 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.2.0
+
+Wed, 09 Apr 2025 17:24:47 GMT
+
+### Minor changes
+
+- Switch to ESM modules for tree shaking (dcfinlinson@gmail.com)
 
 ## 2.1.1
 

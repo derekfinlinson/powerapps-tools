@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Add null check",
-  "packageName": "powerapps-common",
-  "email": "dcfinlinson@gmail.com",
-  "dependentChangeType": "patch"
-}

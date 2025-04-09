@@ -2,6 +2,29 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Wed, 09 Apr 2025 17:24:47 GMT",
+      "version": "3.0.0",
+      "tag": "dataverse-webapi_v3.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "dataverse-webapi",
+            "commit": "9f9a19bcdf06e03749e11a8ee7706755fe843391",
+            "comment": "Switch to ESM modules for tree shaking"
+          }
+        ],
+        "none": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "dataverse-webapi",
+            "commit": "9f9a19bcdf06e03749e11a8ee7706755fe843391",
+            "comment": "Add null check"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 08 Apr 2025 16:16:11 GMT",
       "version": "2.6.0",
       "tag": "dataverse-webapi_v2.6.0",

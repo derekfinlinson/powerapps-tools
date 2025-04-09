@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-assembly
 
-<!-- This log was last generated on Thu, 20 Mar 2025 16:28:16 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 09 Apr 2025 17:24:47 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 3.0.0
+
+Wed, 09 Apr 2025 17:24:47 GMT
+
+### Major changes
+
+- Switch to ESM modules for tree shaking (dcfinlinson@gmail.com)
 
 ## 2.1.4
 

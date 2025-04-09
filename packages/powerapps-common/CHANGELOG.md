@@ -1,8 +1,20 @@
 # Change Log - powerapps-common
 
-<!-- This log was last generated on Thu, 05 Dec 2024 16:24:53 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 09 Apr 2025 17:24:47 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.0
+
+Wed, 09 Apr 2025 17:24:47 GMT
+
+### Major changes
+
+- Switch to ESM modules for tree shaking (dcfinlinson@gmail.com)
+
+### Patches
+
+- Add null check (dcfinlinson@gmail.com)
 
 ## 1.9.0
 

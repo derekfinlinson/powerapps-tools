@@ -1,8 +1,17 @@
 # Change Log - dataverse-utils
 
-<!-- This log was last generated on Tue, 08 Apr 2025 16:16:11 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 09 Apr 2025 17:24:47 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.0.0
+
+Wed, 09 Apr 2025 17:24:47 GMT
+
+### Major changes
+
+- Switch to ESM modules for tree shaking (dcfinlinson@gmail.com)
+- Bump dataverse-webapi to v3.0.0
 
 ## 4.0.1
 

@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Wed, 09 Apr 2025 17:24:47 GMT",
+      "version": "3.0.0",
+      "tag": "powerapps-project-assembly_v3.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "powerapps-project-assembly",
+            "commit": "9f9a19bcdf06e03749e11a8ee7706755fe843391",
+            "comment": "Switch to ESM modules for tree shaking"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 20 Mar 2025 16:28:16 GMT",
       "version": "2.1.4",
       "tag": "powerapps-project-assembly_v2.1.4",

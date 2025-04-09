@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-pcf
 
-This log was last generated on Fri, 30 Jun 2023 22:24:30 GMT and should not be manually modified.
+<!-- This log was last generated on Wed, 09 Apr 2025 17:24:47 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 3.0.0
+
+Wed, 09 Apr 2025 17:24:47 GMT
+
+### Major changes
+
+- Switch to ESM modules for tree shaking (dcfinlinson@gmail.com)
 
 ## 2.0.1
 
