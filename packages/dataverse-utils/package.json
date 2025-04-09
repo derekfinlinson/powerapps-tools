@@ -4,13 +4,12 @@
   "license": "MIT",
   "description": "Utilities for interacting with Dataverse environments",
   "exports": "./lib/index.js",
-  "bin": {
-    "dataverse-utils": "lib/index.js"
-  },
   "engines": {
     "node": ">=20.0.0"
   },
-  "type": "module",
+  "bin": {
+    "dataverse-utils": "lib/index.js"
+  },  
   "files": [
     "/lib"
   ],
@@ -23,8 +22,9 @@
     "lint": "eslint",
     "clean": "rimraf lib"
   },
+  "type": "module",
   "dependencies": {
-    "@azure/msal-node": "^2.10.0",
+    "@azure/msal-node": "^3.5.0",
     "commander": "^13.1.0",
     "cryptr": "^6.3.0",
     "dataverse-webapi": "workspace:^3.0.0",
