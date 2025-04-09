@@ -7,6 +7,15 @@
   "files": [
     "/lib"
   ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      }
+    }
+  },
+  "sideEffects": false,
   "license": "MIT",
   "repository": {
     "type": "git",

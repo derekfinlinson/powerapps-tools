@@ -1,6 +1,6 @@
-const inquirerFileTreeSelection = require('inquirer-file-tree-selection-prompt');
+import inquirerFileTreeSelection from 'inquirer-file-tree-selection-prompt';
 
-module.exports = function (plop) {
+export default function (plop) {
   plop.setDefaultInclude({ generators: true });
 
   plop.setPrompt('file-tree-selection', inquirerFileTreeSelection);

@@ -3,8 +3,8 @@ import fs from 'fs';
 import { glob } from 'glob';
 import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity, QueryOptions } from 'dataverse-webapi/lib/node';
 
-import { PluginType, deployType } from './pluginType';
-import { logger } from '../logger';
+import { PluginType, deployType } from './pluginType.js';
+import { logger } from '../logger.js';
 
 export interface PluginAssembly extends Entity {
   pluginassemblyid: string;

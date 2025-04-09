@@ -2,7 +2,9 @@
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "./lib",
-        "noImplicitAny": false
+        "noImplicitAny": false,
+        "module": "NodeNext",
+        "moduleResolution": "nodenext"
     },
     "files": [
         "src/index.ts",

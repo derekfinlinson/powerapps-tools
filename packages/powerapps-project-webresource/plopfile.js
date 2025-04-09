@@ -1,8 +1,8 @@
-const path = require('path');
-const fs = require('fs');
-const version = require('./package').version;
+import path from 'path';
+import fs from 'fs';
+import version from './package.json' assert { type: 'json' };
 
-module.exports = (plop) => {
+export default function (plop) {
   plop.setWelcomeMessage(
     `Adding Dataverse webresource file using powerapps-project-webresource v${version}. Please choose type of file to create.`
   );

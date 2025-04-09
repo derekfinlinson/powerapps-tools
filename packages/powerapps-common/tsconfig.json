@@ -5,7 +5,6 @@
         "noImplicitAny": false
     },
     "include": [
-        "src/v8/index.ts",
         "src/index.ts"
     ]
 }

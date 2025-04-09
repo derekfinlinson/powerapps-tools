@@ -1,10 +1,10 @@
 import prompts from 'prompts';
 import fs from 'fs';
 import path from 'path';
-import { logger } from './logger';
-import { DeployCredentials, getTableMetadata, TableMetadata } from './dataverse.service';
+import { logger } from './logger.js';
+import { DeployCredentials, getTableMetadata, TableMetadata } from './dataverse.service.js';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
-import { getAccessToken, onTokenFailure } from './auth';
+import { getAccessToken, onTokenFailure } from './auth.js';
 import { AuthenticationResult } from '@azure/msal-node';
 
 export default async function generate(table: string): Promise<void> {

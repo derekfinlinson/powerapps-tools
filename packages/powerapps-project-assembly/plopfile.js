@@ -1,9 +1,9 @@
-const path = require('path');
-const fs = require('fs');
-const version = require('./package').version;
-const inquirerRecursive = require('inquirer-recursive');
+import path from 'path';
+import fs from 'fs';
+import version from './package.json' assert { type: 'json' };
+import inquirerRecursive from 'inquirer-recursive';
 
-module.exports = (plop) => {
+export default function (plop) {
   plop.setWelcomeMessage(
     `Adding Dataverse assembly file using powerapps-project-assembly v${version}. Please choose type of file to create.`
   );

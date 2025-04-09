@@ -5,8 +5,8 @@
         "noImplicitAny": false,
         "declaration": false,
         "resolveJsonModule": true,
-        "moduleResolution": "Node16",
-        "module": "Node16"
+        "moduleResolution": "nodenext",
+        "module": "NodeNext"
     },
     "include": [
         "src/index.ts"

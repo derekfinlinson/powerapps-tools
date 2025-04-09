@@ -1,5 +1,5 @@
 import { retrieveMultiple, unboundAction, WebApiConfig } from 'dataverse-webapi/lib/node';
-import { logger } from './logger';
+import { logger } from './logger.js';
 
 export enum ComponentType {
   WebResource = 61,

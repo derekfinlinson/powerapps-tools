@@ -1,12 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 
-import { deployAssembly } from './models/pluginAssembly';
-import { deployPluginPackage } from './models/pluginPackage';
-import { deployApi } from './models/customApi';
-import { DeployCredentials } from './dataverse.service';
+import { deployAssembly } from './models/pluginAssembly.js';
+import { deployPluginPackage } from './models/pluginPackage.js';
+import { deployApi } from './models/customApi.js';
+import { DeployCredentials } from './dataverse.service.js';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
-import { logger } from './logger';
+import { logger } from './logger.js';
 
 export async function assemblyDeploy(creds: DeployCredentials, apiConfig: WebApiConfig): Promise<void> {
   const currentPath = '.';

@@ -1,13 +1,13 @@
 import prompts from 'prompts';
 import fs from 'fs';
 import path from 'path';
-import { logger } from './logger';
-import { assemblyDeploy } from './assemblyDeploy';
-import { webResourceDeploy } from './webResourceDeploy';
-import { DeployCredentials } from './dataverse.service';
+import { logger } from './logger.js';
+import { assemblyDeploy } from './assemblyDeploy.js';
+import { webResourceDeploy } from './webResourceDeploy.js';
+import { DeployCredentials } from './dataverse.service.js';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
 import { AuthenticationResult } from '@azure/msal-node';
-import { getAccessToken, onTokenFailure } from './auth';
+import { getAccessToken, onTokenFailure } from './auth.js';
 
 export default async function deploy(type?: string, files?: string): Promise<void> {
   if (!type || (type !== 'webresource' && type !== 'assembly' && type !== 'pcf')) {

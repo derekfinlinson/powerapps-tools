@@ -1,6 +1,6 @@
-import { publish } from '../dataverse.service';
+import { publish } from '../dataverse.service.js';
 import { retrieveMultiple, createWithReturnData, update, WebApiConfig, QueryOptions } from 'dataverse-webapi/lib/node';
-import { logger } from '../logger';
+import { logger } from '../logger.js';
 import fs from 'fs';
 
 export interface WebResource {

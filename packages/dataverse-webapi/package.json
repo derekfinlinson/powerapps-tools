@@ -8,6 +8,21 @@
   "files": [
     "lib"
   ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      }
+    },
+    "./lib/node": {
+      "import": {
+        "types": "./lib/node.d.ts",
+        "default": "./lib/node.js"
+      }
+    }
+  },
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/derekfinlinson/powerapps-tools"
@@ -29,7 +44,6 @@
     "common data service"
   ],
   "devDependencies": {
-    "@types/node": "^16.18.37",
     "@types/xrm": "^9.0.73"
   },
   "volta": {

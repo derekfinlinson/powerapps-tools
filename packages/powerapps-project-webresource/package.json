@@ -3,8 +3,8 @@
   "description": "💧 plop generator for Dataverse web resource projects",
   "version": "2.0.0",
   "license": "MIT",
-  "main": "plopfile.js",
-  "type": "commonjs",
+  "exports": "./plopfile.js",
+  "type": "module",
   "files": [
     "/plop-templates",
     "plopfile.js"

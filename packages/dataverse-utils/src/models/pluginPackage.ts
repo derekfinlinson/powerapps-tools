@@ -2,10 +2,10 @@ import fs from 'fs';
 import { glob } from 'glob';
 import { createWithReturnData, retrieveMultiple, update, WebApiConfig, Entity, QueryOptions } from 'dataverse-webapi/lib/node';
 
-import { PluginAssembly, retrieveAssembly } from './pluginAssembly';
-import { logger } from '../logger';
-import { retrieveType } from './pluginType';
-import { deployStep } from './pluginStep';
+import { PluginAssembly, retrieveAssembly } from './pluginAssembly.js';
+import { logger } from '../logger.js';
+import { retrieveType } from './pluginType.js';
+import { deployStep } from './pluginStep.js';
 
 export interface PluginPackage extends Entity {
   pluginpackageid: string;

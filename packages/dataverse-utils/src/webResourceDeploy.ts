@@ -1,9 +1,9 @@
-import { DeployCredentials } from './dataverse.service';
+import { DeployCredentials } from './dataverse.service.js';
 import path from 'path';
 import fs from 'fs';
 import { WebApiConfig } from 'dataverse-webapi/lib/node';
-import { logger } from './logger';
-import { WebResource, deploy } from './models/webResource';
+import { logger } from './logger.js';
+import { WebResource, deploy } from './models/webResource.js';
 
 export async function webResourceDeploy(creds: DeployCredentials, apiConfig: WebApiConfig, files?: string): Promise<void> {
   const currentPath = '.';

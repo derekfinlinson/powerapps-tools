@@ -1,6 +1,6 @@
 import { retrieveMultiple, createWithReturnData, update, WebApiConfig, Entity, QueryOptions } from 'dataverse-webapi/lib/node';
-import { retrieveType } from './pluginType';
-import { logger } from '../logger';
+import { retrieveType } from './pluginType.js';
+import { logger } from '../logger.js';
 
 export interface CustomAPIRequestParameter extends Entity {
   type: number;

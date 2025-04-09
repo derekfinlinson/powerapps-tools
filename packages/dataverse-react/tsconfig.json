@@ -2,7 +2,9 @@
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "./lib",
-        "noImplicitAny": false
+        "noImplicitAny": false,
+        "module": "ESNext",
+        "moduleResolution": "bundler"
     },
     "files": [
         "src/index.ts"
