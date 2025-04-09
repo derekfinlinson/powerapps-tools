@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 09 Apr 2025 19:34:47 GMT",
+      "version": "2.2.2",
+      "tag": "create-powerapps-project_v2.2.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "create-powerapps-project",
+            "commit": "eef131df4bfca5c959c5c1140322c5cc0595483a",
+            "comment": "Update main filename"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 09 Apr 2025 17:24:47 GMT",
       "version": "2.2.0",
       "tag": "create-powerapps-project_v2.2.0",

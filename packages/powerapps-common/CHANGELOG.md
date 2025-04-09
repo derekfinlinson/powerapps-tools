@@ -1,8 +1,16 @@
 # Change Log - powerapps-common
 
-<!-- This log was last generated on Wed, 09 Apr 2025 17:24:47 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 09 Apr 2025 19:34:47 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.2
+
+Wed, 09 Apr 2025 19:34:47 GMT
+
+### Patches
+
+- Update main filename (dcfinlinson@gmail.com)
 
 ## 2.0.0
 
