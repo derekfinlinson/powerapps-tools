@@ -4,10 +4,7 @@ import { program } from 'commander';
 import deploy from './deploy.js';
 import generate from './generate.js';
 
-import packageJson from '../package.json' with { type: 'json' };
-
 program
-  .version(packageJson.version)
   .usage('<command> [options]');
 
 // Deploy command

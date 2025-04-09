@@ -7,7 +7,9 @@
   "engines": {
     "node": ">=20.0.0"
   },
-  "bin": "./lib/dataverse-utils.js",
+  "bin": {
+    "dataverse-utils": "lib/index.js"
+  },
   "files": [
     "/lib"
   ],

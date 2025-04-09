@@ -9,6 +9,6 @@
         "module": "NodeNext"
     },
     "include": [
-        "src/dataverse-utils.ts"
+        "src/index.ts"
     ],
 }
