@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 09 Apr 2025 03:54:23 GMT",
+      "version": "2.1.1",
+      "tag": "create-powerapps-project_v2.1.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "create-powerapps-project",
+            "commit": "6df3f62477899e22a55d66145051c0f23617340d",
+            "comment": "Fix id prefix value template"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 09 Apr 2025 03:53:06 GMT",
       "version": "2.1.0",
       "tag": "create-powerapps-project_v2.1.0",
