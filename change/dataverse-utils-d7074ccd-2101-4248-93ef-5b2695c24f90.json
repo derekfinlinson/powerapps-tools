@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Fix build destination",
+  "packageName": "dataverse-utils",
+  "email": "dcfinlinson@gmail.com",
+  "dependentChangeType": "patch"
+}
