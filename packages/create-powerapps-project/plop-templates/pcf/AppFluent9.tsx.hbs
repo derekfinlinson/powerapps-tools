@@ -9,7 +9,7 @@ export const App = (props: { context: ComponentFramework.Context<IInputs>; }) =>
   } = props;
 
   return (
-    <IdPrefixProvider value="{name}">
+    <IdPrefixProvider value="{{name}}">
       <FluentProvider theme={webLightTheme}>
         <AppContext.Provider value=\{{ context }}>
         </AppContext.Provider>
