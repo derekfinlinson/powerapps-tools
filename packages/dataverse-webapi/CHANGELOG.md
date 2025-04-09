@@ -1,8 +1,16 @@
 # Change Log - dataverse-webapi
 
-This log was last generated on Fri, 09 Aug 2024 16:39:46 GMT and should not be manually modified.
+<!-- This log was last generated on Tue, 08 Apr 2025 16:16:11 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.6.0
+
+Tue, 08 Apr 2025 16:16:11 GMT
+
+### Minor changes
+
+- Add date type to entity attributes (dcfinlinson@gmail.com)
 
 ## 2.5.0
 
