@@ -279,7 +279,7 @@ export function addLookupFilter(
 
   const filter = ['<filter>', `<condition attribute='${attributeFilter}' operator='in'>`, value, '</condition>', '</filter>'].join('');
 
-  form.getAttribute<Xrm.Attributes.LookupAttribute>(lookupAttribute).controls.forEach((c) => c.addCustomFilter(filter));
+  form.getAttribute<Xrm.Attributes.LookupAttribute>(lookupAttribute)?.controls.forEach((c) => c.addCustomFilter(filter));
 
   return true;
 }
@@ -419,13 +419,13 @@ export async function sleep(ms: number): Promise<void> {
  * @returns True or false if value was set
  */
 export function setValueFromLookupFieldName(fieldToSet: string, lookupField: string, form: Xrm.FormContext): boolean {
-  const lookup = form.getAttribute<Xrm.Attributes.LookupAttribute>(lookupField).getValue();
+  const lookup = form.getAttribute<Xrm.Attributes.LookupAttribute>(lookupField)?.getValue();
 
   if (lookup == null) {
     return false;
   }
 
-  form.getAttribute(fieldToSet).setValue(lookup[0].name);
+  form.getAttribute(fieldToSet)?.setValue(lookup[0].name);
 
   return true;
 }

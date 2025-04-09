@@ -37,7 +37,7 @@
   ],
   "author": "Derek Finlinson",
   "devDependencies": {
-    "@types/xrm": "^9.0.81",
+    "@types/xrm": "^9.0.86",
     "xrm-mock": "^3.5.9"
   },
   "volta": {

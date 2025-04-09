@@ -44,7 +44,7 @@
     "common data service"
   ],
   "devDependencies": {
-    "@types/xrm": "^9.0.73"
+    "@types/xrm": "^9.0.86"
   },
   "volta": {
     "extends": "../../package.json"
