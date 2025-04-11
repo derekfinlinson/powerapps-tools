@@ -3,6 +3,7 @@ const path = require('path');
 const spawn = require('cross-spawn');
 const WebpackEventPlugin = require('webpack-event-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { EsbuildPlugin } = require('esbuild-loader');
 
 module.exports = (env, argv) => {
   const webpackConfig = {
@@ -21,12 +22,15 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.[jt]s?$/,
-          loader: 'esbuild-loader',
-          options: {
-            target: 'es2020'
-          }
-        }
+          test: /\.ts(x?)$/,
+          exclude: /node_modules/,
+          use: ['esbuild-loader', 'ts-loader']
+        },
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: ['esbuild-loader']
+        },
       ]
     },
 
@@ -46,6 +50,14 @@ module.exports = (env, argv) => {
           }
         }
       ])
+    ]
+  };
+
+  config.optimization = {
+    minimizer: [
+      new EsbuildPlugin({
+        target: 'es2020'
+      })
     ]
   };
 

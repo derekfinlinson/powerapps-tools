@@ -594,6 +594,8 @@ export default async (plop: NodePlopAPI): Promise<void> => {
                 'webpack',
                 'webpack-cli',
                 'cross-spawn',
+                'esbuild-loader',
+                'ts-loader',
                 '@microsoft/eslint-plugin-power-apps',
                 '-D'
               ],
