@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Update templates",
+  "packageName": "create-powerapps-project",
+  "email": "dcfinlinson@gmail.com",
+  "dependentChangeType": "patch"
+}
