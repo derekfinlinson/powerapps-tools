@@ -82,7 +82,7 @@ importers:
         specifier: ^6.3.0
         version: 6.3.0
       dataverse-webapi:
-        specifier: workspace:^3.0.0
+        specifier: workspace:^3.0.2
         version: link:../dataverse-webapi
       figures:
         specifier: ^6.1.0
