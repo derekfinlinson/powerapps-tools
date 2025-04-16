@@ -1,0 +1,7 @@
+{
+  "type": "none",
+  "comment": "Sync to npm versions",
+  "packageName": "dataverse-utils",
+  "email": "dcfinlinson@gmail.com",
+  "dependentChangeType": "none"
+}
