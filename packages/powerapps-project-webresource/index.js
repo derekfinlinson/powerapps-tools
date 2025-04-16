@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import version from './package.json' assert { type: 'json' };
+import version from './package.json' with { type: 'json' };
 
 export default function (plop) {
   plop.setWelcomeMessage(

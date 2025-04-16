@@ -1,3 +1,3 @@
-module.exports = async function (plop) {
+export default async function (plop) {
   await plop.load('powerapps-project-assembly');
-};
+}

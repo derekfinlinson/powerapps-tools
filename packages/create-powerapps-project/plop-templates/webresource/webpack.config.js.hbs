@@ -1,11 +1,14 @@
-const config = require('./dataverse.config.json');
-const path = require('path');
-const spawn = require('cross-spawn');
-const WebpackEventPlugin = require('webpack-event-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const { EsbuildPlugin } = require('esbuild-loader');
+import config from './dataverse.config.json' with { type: 'json' };
+import path, { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import spawn from 'cross-spawn';
+import WebpackEventPlugin from 'webpack-event-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import { EsbuildPlugin } from 'esbuild-loader';
 
-module.exports = (env, argv) => {
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+export default function (env, argv) {
   const webpackConfig = {
     entry: config.entries,
 
@@ -66,4 +69,4 @@ module.exports = (env, argv) => {
   }
 
   return webpackConfig;
-};
+}
