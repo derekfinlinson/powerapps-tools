@@ -2,6 +2,21 @@
   "name": "powerapps-project-webresource",
   "entries": [
     {
+      "date": "Wed, 16 Apr 2025 17:19:42 GMT",
+      "version": "3.0.4",
+      "tag": "powerapps-project-webresource_v3.0.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "powerapps-project-webresource",
+            "commit": "2344efe5c7d870bcd381d984302da87dfd713d20",
+            "comment": "Update templates"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 16 Apr 2025 17:05:16 GMT",
       "version": "3.0.3",
       "tag": "powerapps-project-webresource_v3.0.3",
