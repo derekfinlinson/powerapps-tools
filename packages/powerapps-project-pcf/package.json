@@ -3,11 +3,11 @@
   "description": "💧 plop generator for Dataverse PCF projects",
   "version": "3.0.2",
   "license": "MIT",
-  "exports": "./plopfile.js",
+  "exports": "./index.js",
   "type": "module",
   "files": [
     "/plop-templates",
-    "plopfile.js"
+    "index.js"
   ],
   "repository": {
     "type": "git",
