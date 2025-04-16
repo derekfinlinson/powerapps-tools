@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Wed, 16 Apr 2025 17:05:16 GMT",
+      "version": "5.0.5",
+      "tag": "dataverse-utils_v5.0.5",
+      "comments": {
+        "none": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "dataverse-utils",
+            "commit": "b32608f6f4517065289c59d3d112f6e3c910a984",
+            "comment": "Sync to npm versions"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 09 Apr 2025 19:54:55 GMT",
       "version": "5.0.3",
       "tag": "dataverse-utils_v5.0.3",

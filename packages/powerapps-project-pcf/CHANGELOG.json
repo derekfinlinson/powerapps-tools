@@ -2,6 +2,21 @@
   "name": "powerapps-project-pcf",
   "entries": [
     {
+      "date": "Wed, 16 Apr 2025 17:05:16 GMT",
+      "version": "3.0.3",
+      "tag": "powerapps-project-pcf_v3.0.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "powerapps-project-pcf",
+            "commit": "b32608f6f4517065289c59d3d112f6e3c910a984",
+            "comment": "Rename export file to index"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 09 Apr 2025 19:34:47 GMT",
       "version": "3.0.2",
       "tag": "powerapps-project-pcf_v3.0.2",
