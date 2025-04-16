@@ -1,8 +1,16 @@
 # Change Log - powerapps-project-pcf
 
-<!-- This log was last generated on Wed, 09 Apr 2025 19:34:47 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 16 Apr 2025 17:05:16 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 3.0.3
+
+Wed, 16 Apr 2025 17:05:16 GMT
+
+### Patches
+
+- Rename export file to index (dcfinlinson@gmail.com)
 
 ## 3.0.2
 
