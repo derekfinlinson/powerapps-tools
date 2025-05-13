@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Parse batch response",
+  "packageName": "dataverse-webapi",
+  "email": "dcfinlinson@gmail.com",
+  "dependentChangeType": "patch"
+}
