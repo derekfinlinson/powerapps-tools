@@ -1,8 +1,16 @@
 # Change Log - dataverse-webapi
 
-<!-- This log was last generated on Wed, 09 Apr 2025 19:34:47 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 13 May 2025 17:34:13 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 3.1.0
+
+Tue, 13 May 2025 17:34:13 GMT
+
+### Minor changes
+
+- Parse batch response (dcfinlinson@gmail.com)
 
 ## 3.0.2
 

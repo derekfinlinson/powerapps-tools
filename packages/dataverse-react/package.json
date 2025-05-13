@@ -1,6 +1,6 @@
 {
   "name": "dataverse-react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "⚛️ hooks and components for Dataverse React development",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -30,7 +30,7 @@
     "clean": "rimraf lib"
   },
   "dependencies": {
-    "dataverse-webapi": "workspace:^3.0.2"
+    "dataverse-webapi": "workspace:^3.1.0"
   },
   "peerDependencies": {
     "@types/react": ">=16.0.0 <18.0.0",

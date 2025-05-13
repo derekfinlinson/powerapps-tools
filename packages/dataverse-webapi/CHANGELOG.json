@@ -2,6 +2,21 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Tue, 13 May 2025 17:34:13 GMT",
+      "version": "3.1.0",
+      "tag": "dataverse-webapi_v3.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "dataverse-webapi",
+            "commit": "31085264ebec7319948566c2659701d6bb422a4f",
+            "comment": "Parse batch response"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 09 Apr 2025 19:34:47 GMT",
       "version": "3.0.2",
       "tag": "dataverse-webapi_v3.0.2",
