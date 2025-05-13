@@ -10,8 +10,7 @@ export class WebApiConfig {
   constructor(version: string, accessToken?: string, url?: string) {
     // If URL not provided, get it from Xrm.Context
     if (url == null) {
-      const context: Xrm.GlobalContext =
-        typeof GetGlobalContext !== 'undefined' ? GetGlobalContext() : Xrm.Utility.getGlobalContext();
+      const context: Xrm.GlobalContext = typeof GetGlobalContext !== 'undefined' ? GetGlobalContext() : Xrm.Utility.getGlobalContext();
       url = `${context.getClientUrl()}/api/data/v${version}`;
 
       this.url = url;
@@ -65,4 +64,14 @@ export interface FunctionInput {
   name: string;
   value: string;
   alias?: string;
+}
+
+export interface BatchResponse {
+  httpStatus?: number;
+  httpStatusText?: string;
+  contentId?: string;
+  data?: any;
+  location?: string;
+  entityId?: string;
+  error?: any;
 }

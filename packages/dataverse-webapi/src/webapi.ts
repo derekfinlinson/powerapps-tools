@@ -1,4 +1,5 @@
 import {
+  BatchResponse,
   ChangeSet,
   Entity,
   FunctionInput,
@@ -23,6 +24,71 @@ function parseGuid(id: string): string {
   } else {
     throw Error(`Id ${id} is not a valid GUID`);
   }
+}
+
+function parseBatchResponse(responseBody: string): BatchResponse[] {
+  if (responseBody == null) return [];
+
+  const results: BatchResponse[] = [];
+  const boundaryIdentifier = responseBody.substring(0, responseBody.indexOf('\r\n'));
+  const responses = responseBody
+    .split(boundaryIdentifier)
+    .map((r) => r.trim())
+    .filter((b) => b.length != 0 && b != '--');
+
+  for (let i = 0; i < responses.length; i++) {
+    const changesetResponseIndex = responses[i].indexOf('--changesetresponse');
+    if (changesetResponseIndex > -1) {
+      parseBatchResponse(responses[i].substring(changesetResponseIndex)).map((r) => results.push(r));
+    } else {
+      const httpStatusMatch = /HTTP\/[^\s]*\s+(\d{3})\s+([\w\s]*)/i.exec(responses[i]);
+      if (httpStatusMatch) {
+        const response: BatchResponse = {};
+        response.httpStatus = parseInt(httpStatusMatch[1]);
+        response.httpStatusText = httpStatusMatch[2]?.split(`\r\n`).join(' ');
+
+        if (response.httpStatus == 200) {
+          const dataStartIndex = responses[i].indexOf('{');
+          const dataLastIndex = responses[i].lastIndexOf('}');
+          if (dataStartIndex > -1 && dataLastIndex > -1) {
+            response.data = JSON.parse(responses[i].substr(dataStartIndex, dataLastIndex + 1));
+          }
+        } else {
+          const contentIdMatch = /Content-ID\:\s*([\w\d]*)/i.exec(responses[i]);
+          if (contentIdMatch) {
+            response.contentId = contentIdMatch[1];
+          }
+
+          if (response.httpStatus < 400) {
+            const locationMatch = /Location\:\s*(.*)/i.exec(responses[i]);
+            if (locationMatch) {
+              response.location = locationMatch[1];
+            }
+
+            const entityIdMatch = /OData-EntityId\:\s*(.*)/i.exec(responses[i]);
+            if (entityIdMatch) {
+              const guidMatch = /[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}/.exec(entityIdMatch[1]);
+              if (guidMatch) {
+                response.entityId = guidMatch[0];
+              }
+            }
+          }
+
+          if (response.httpStatus >= 400) {
+            const errorStartIndex = responses[i].indexOf('{');
+            const errorLastIndex = responses[i].lastIndexOf('}');
+            if (errorStartIndex > -1 && errorLastIndex > -1) {
+              response.error = JSON.parse(responses[i].substr(errorStartIndex, errorLastIndex + 1));
+            }
+          }
+        }
+
+        results.push(response);
+      }
+    }
+  }
+
+  return results;
 }
 
 export function getHeaders(config: WebApiRequestConfig): Record<string, string> {
@@ -770,7 +836,7 @@ export function boundFunction<T>(
   queryOptions?: QueryOptions
 ): Promise<T | null> {
   id = parseGuid(id);
-  
+
   let queryString = `${entitySet}(${id})/Microsoft.Dynamics.CRM.${functionName}(`;
 
   queryString = getFunctionInputs(queryString, inputs);
@@ -848,7 +914,7 @@ export function unboundFunction<T>(
  * @param batchGets Array of get requests for the operation
  * @param queryOptions Various query options for the query
  */
-export function batchOperation<T>(
+export function batchOperation(
   apiConfig: WebApiConfig,
   batchId: string,
   changeSetId: string,
@@ -856,7 +922,7 @@ export function batchOperation<T>(
   batchGets: string[],
   submitRequest: RequestCallback,
   queryOptions?: QueryOptions
-): Promise<T | null> {
+): Promise<BatchResponse[] | null> {
   // build post body
   const body: string[] = [];
 
@@ -916,10 +982,14 @@ export function batchOperation<T>(
   return new Promise((resolve, reject) => {
     submitRequest(config, (result: WebApiRequestResult) => {
       if (result.error) {
-        reject(handleError(result.response));
+        const response = parseBatchResponse(result.response);
+
+        reject(response[0].error.error);
       } else {
         if (result.response) {
-          resolve(result.response);
+          const response = parseBatchResponse(result.response);
+
+          resolve(response);
         } else {
           resolve(null);
         }
