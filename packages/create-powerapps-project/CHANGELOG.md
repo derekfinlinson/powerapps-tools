@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-<!-- This log was last generated on Wed, 16 Apr 2025 17:19:42 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 13 Jun 2025 20:33:24 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.2.4
+
+Fri, 13 Jun 2025 20:33:24 GMT
+
+### Patches
+
+- Add default namespace to dataverse models (dcfinlinson@gmail.com)
 
 ## 2.2.3
 

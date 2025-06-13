@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Fri, 13 Jun 2025 20:33:24 GMT",
+      "version": "2.2.4",
+      "tag": "create-powerapps-project_v2.2.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "create-powerapps-project",
+            "commit": "23f2604f6196e9ef8086afd81ca97c68ed93f483",
+            "comment": "Add default namespace to dataverse models"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 16 Apr 2025 17:19:42 GMT",
       "version": "2.2.3",
       "tag": "create-powerapps-project_v2.2.3",
