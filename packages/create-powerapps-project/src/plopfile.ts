@@ -214,7 +214,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
             '../plop-templates/assembly/plopfile.js',
             '../plop-templates/assembly/.gitignore',
             '../plop-templates/assembly/.gitattributes',
-            '../plop-templates/assembly/builderSettings.json',
+            '../plop-templates/assembly/builderSettings.json.hbs',
             '../plop-templates/assembly/.vscode/tasks.json.hbs',
             '../plop-templates/assembly/.editorconfig'
           ],
