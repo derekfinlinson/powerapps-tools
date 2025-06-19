@@ -2,6 +2,21 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Thu, 19 Jun 2025 13:56:04 GMT",
+      "version": "3.1.1",
+      "tag": "dataverse-webapi_v3.1.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "dcfinlinson@gmail.com",
+            "package": "dataverse-webapi",
+            "commit": "f6b71c169b0354b9f7abe632e68f9905e436b739",
+            "comment": "Fix next link property name"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 13 May 2025 17:34:13 GMT",
       "version": "3.1.0",
       "tag": "dataverse-webapi_v3.1.0",

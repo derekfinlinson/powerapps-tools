@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix next link property name",
-  "packageName": "dataverse-webapi",
-  "email": "dcfinlinson@gmail.com",
-  "dependentChangeType": "patch"
-}

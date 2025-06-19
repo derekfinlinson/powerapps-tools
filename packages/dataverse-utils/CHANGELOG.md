@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-<!-- This log was last generated on Tue, 13 May 2025 17:34:13 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 19 Jun 2025 13:56:04 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.0.7
+
+Thu, 19 Jun 2025 13:56:04 GMT
+
+### Patches
+
+- Bump dataverse-webapi to v3.1.1
 
 ## 5.0.6
 
