@@ -47,12 +47,13 @@ export interface QueryOptions {
 }
 
 export interface Entity {
+  ['@odata.etag']?: string;
   [propName: string]: string | number | boolean | Date | undefined | null | Entity | Entity[];
 }
 
 export interface RetrieveMultipleResponse {
   value: Entity[];
-  '@odata.nextlink': string;
+  '@odata.nextLink': string;
 }
 export interface ChangeSet {
   queryString: string;
