@@ -169,7 +169,6 @@ function handleError(result: string): unknown {
     return new Error('Unexpected Error');
   }
 }
-
 /**
  * Retrieve a record from Dataverse
  * @param apiConfig WebApiConfig object
@@ -186,13 +185,31 @@ export function retrieve(
   queryString?: string,
   queryOptions?: QueryOptions
 ): Promise<Entity> {
+  id = parseGuid(id);
+  return retrieveByKey(apiConfig, entitySet, id, submitRequest, queryString, queryOptions);
+}
+/**
+ * Retrieve a record from Dataverse
+ * @param apiConfig WebApiConfig object
+ * @param entitySet Type of entity to retrieve
+ * @param id Id of record to retrieve
+ * @param queryString OData query string parameters
+ * @param queryOptions Various query options for the query
+ */
+export function retrieveByKey(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  key: string,
+  submitRequest: RequestCallback,
+  queryString?: string,
+  queryOptions?: QueryOptions
+): Promise<Entity> {
   if (queryString != null && !/^[?]/.test(queryString)) {
     queryString = `?${queryString}`;
   }
 
-  id = parseGuid(id);
 
-  const query: string = queryString != null ? `${entitySet}(${id})${queryString}` : `${entitySet}(${id})`;
+  const query: string = queryString != null ? `${entitySet}(${key})${queryString}` : `${entitySet}(${key})`;
 
   const config = {
     method: 'GET',
