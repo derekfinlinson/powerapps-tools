@@ -460,7 +460,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
             return 'removed HelloWorld component';
           }
 
-          return 'react not included';
+          return 'fluent ui v8 not selected';
         },
         {
           type: 'npmInstall'
