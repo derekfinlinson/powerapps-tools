@@ -1,6 +1,6 @@
 {
   "name": "dataverse-react",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "⚛️ hooks and components for Dataverse React development",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

@@ -1,8 +1,20 @@
 # Change Log - dataverse-react
 
-<!-- This log was last generated on Thu, 19 Jun 2025 13:56:04 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 10 Nov 2025 16:53:38 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.1.0
+
+Mon, 10 Nov 2025 16:53:38 GMT
+
+### Minor changes
+
+- Add separate interface for status code (derek.finlinson@journeyteam.com)
+
+### Patches
+
+- Add State to choice metadata (derek.finlinson@journeyteam.com)
 
 ## 1.0.4
 

@@ -1,8 +1,16 @@
 # Change Log - powerapps-common
 
-<!-- This log was last generated on Wed, 09 Apr 2025 19:34:47 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 10 Nov 2025 16:53:38 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.3
+
+Mon, 10 Nov 2025 16:53:38 GMT
+
+### Patches
+
+- Downgrade cryptr (derek.finlinson@journeyteam.com)
 
 ## 2.0.2
 

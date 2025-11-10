@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Mon, 10 Nov 2025 16:53:38 GMT",
+      "version": "2.0.3",
+      "tag": "powerapps-common_v2.0.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-common",
+            "commit": "1ad9fb48285a3d49505c98bda43cef89f7260b72",
+            "comment": "Downgrade cryptr"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 09 Apr 2025 19:34:47 GMT",
       "version": "2.0.2",
       "tag": "powerapps-common_v2.0.2",

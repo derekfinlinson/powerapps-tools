@@ -2,6 +2,29 @@
   "name": "dataverse-react",
   "entries": [
     {
+      "date": "Mon, 10 Nov 2025 16:53:38 GMT",
+      "version": "1.1.0",
+      "tag": "dataverse-react_v1.1.0",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-react",
+            "commit": "1ad9fb48285a3d49505c98bda43cef89f7260b72",
+            "comment": "Add State to choice metadata"
+          }
+        ],
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-react",
+            "commit": "1ad9fb48285a3d49505c98bda43cef89f7260b72",
+            "comment": "Add separate interface for status code"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 19 Jun 2025 13:56:04 GMT",
       "version": "1.0.4",
       "tag": "dataverse-react_v1.0.4",

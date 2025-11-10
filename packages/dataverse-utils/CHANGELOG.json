@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Mon, 10 Nov 2025 16:53:38 GMT",
+      "version": "5.0.8",
+      "tag": "dataverse-utils_v5.0.8",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "1ad9fb48285a3d49505c98bda43cef89f7260b72",
+            "comment": "Downgrade cryptr"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 19 Jun 2025 13:56:04 GMT",
       "version": "5.0.7",
       "tag": "dataverse-utils_v5.0.7",

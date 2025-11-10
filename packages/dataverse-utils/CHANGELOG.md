@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-<!-- This log was last generated on Thu, 19 Jun 2025 13:56:04 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 10 Nov 2025 16:53:38 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.0.8
+
+Mon, 10 Nov 2025 16:53:38 GMT
+
+### Patches
+
+- Downgrade cryptr (derek.finlinson@journeyteam.com)
 
 ## 5.0.7
 
