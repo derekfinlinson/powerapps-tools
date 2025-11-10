@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Add State to choice metadata",
+  "packageName": "dataverse-react",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
