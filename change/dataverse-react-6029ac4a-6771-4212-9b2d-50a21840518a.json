@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Add separate interface for status code",
+  "packageName": "dataverse-react",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
