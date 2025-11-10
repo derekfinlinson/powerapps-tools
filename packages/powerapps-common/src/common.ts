@@ -425,7 +425,7 @@ export function setValueFromLookupFieldName(fieldToSet: string, lookupField: str
     return false;
   }
 
-  form.getAttribute(fieldToSet)?.setValue(lookup[0].name);
+  form.getAttribute(fieldToSet)?.setValue(lookup[0].name ?? '');
 
   return true;
 }
