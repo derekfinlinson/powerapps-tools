@@ -84,6 +84,14 @@ export interface ChoiceColumnMetadata extends ColumnMetadata {
   };
 }
 
+export interface StatusReasonColumnMetadata extends ColumnMetadata {
+  OptionSet: {
+    Options: {
+      State: number;
+    }[];
+  };
+}
+
 export const useTableMetadata = (utils: ComponentFramework.Utility, tableName?: string): TableMetadata | undefined => {
   const [metadata, setMetadata] = React.useState<TableMetadata>();
 
@@ -120,7 +128,7 @@ export const useTableMetadata = (utils: ComponentFramework.Utility, tableName?: 
         choices: (<unknown>optionSets.value) as ChoiceColumnMetadata[],
         booleans: (<unknown>booleans.value) as BooleanColumnMetadata[],
         states: (<unknown>states.value) as ChoiceColumnMetadata[],
-        statuses: (<unknown>statuses.value) as ChoiceColumnMetadata[]
+        statuses: (<unknown>statuses.value) as StatusReasonColumnMetadata[]
       });
     };
 
