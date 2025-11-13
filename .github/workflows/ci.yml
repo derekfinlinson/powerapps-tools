@@ -20,7 +20,7 @@ jobs:
         git config user.email github-actions@github.com
     - uses: pnpm/action-setup@v3
       with:
-        version: 8
+        version: 10.22.0
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4.0.2
       with:

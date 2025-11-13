@@ -30,6 +30,6 @@
     "preinstall": "npx only-allow pnpm",
     "test": "jest",
     "beachball": "beachball"
-  },  
-  "packageManager": "pnpm@10.8.0"
+  },
+  "packageManager": "pnpm@10.22.0"
 }
