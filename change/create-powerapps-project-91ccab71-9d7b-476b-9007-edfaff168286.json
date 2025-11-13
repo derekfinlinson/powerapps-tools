@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Update to match current PCF init",
+  "packageName": "create-powerapps-project",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
