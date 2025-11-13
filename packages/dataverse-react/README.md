@@ -3,7 +3,7 @@
 | --- |
 | [![npm](https://img.shields.io/npm/v/dataverse-react.svg?style=flat-square)](https://www.npmjs.com/package/dataverse-react) |
 
-React components and hooks for Dataverse PCF controls or HTML web resources
+⚛️ components and hooks for Dataverse PCF controls or HTML web resources
 
 # Components
 
@@ -13,3 +13,5 @@ React components and hooks for Dataverse PCF controls or HTML web resources
     * Includes metadata for Choice, Boolean, State and Status columns
   * useTheme
     * Gets current them for a Dataverse environment
+  * usePrivilege
+    * Get specific table privilege for the current user
