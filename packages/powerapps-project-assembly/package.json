@@ -15,9 +15,6 @@
   },
   "dependencies": {
     "inquirer-recursive": "^0.0.7",
-    "plop": "^3.1.2"
-  },
-  "volta": {
-    "extends": "../../package.json"
+    "plop": "^4.0.4"
   }
 }

@@ -14,9 +14,6 @@
     "url": "https://github.com/derekfinlinson/powerapps-tools"
   },
   "dependencies": {
-    "plop": "^3.1.2"
-  },
-  "volta": {
-    "extends": "../../package.json"
+    "plop": "^4.0.4"
   }
 }
