@@ -5,7 +5,7 @@
   "license": "MIT",
   "exports": "./lib/index.js",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.0.0"
   },
   "bin": {
     "create-powerapps-project": "lib/index.js"
@@ -26,9 +26,6 @@
   },
   "type": "module",
   "dependencies": {
-    "plop": "^3.1.2"
-  },
-  "volta": {
-    "extends": "../../package.json"
+    "plop": "^4.0.4"
   }
 }

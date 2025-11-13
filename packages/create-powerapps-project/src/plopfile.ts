@@ -1,5 +1,4 @@
 import path from 'node:path';
-import fs from 'node:fs';
 import { NodePlopAPI } from 'plop';
 import { getNugetPackageVersions } from './nuget.js';
 
@@ -308,29 +307,11 @@ export default async (plop: NodePlopAPI): Promise<void> => {
       return [
         {
           type: 'runPcf'
-        },
-        {
-          type: 'add',
-          templateFile: '../plop-templates/pcf/tsconfig.json',
-          path: path.resolve(process.cwd(), 'tsconfig.json'),
-          force: true
-        },
+        },        
         {
           type: 'add',
           templateFile: '../plop-templates/pcf/plopfile.js',
           path: path.resolve(process.cwd(), 'plopfile.js'),
-          force: true
-        },
-        {
-          type: 'add',
-          templateFile: '../plop-templates/pcf/.eslintrc.json',
-          path: path.resolve(process.cwd(), '.eslintrc.json'),
-          force: true
-        },
-        {
-          type: 'add',
-          templateFile: '../plop-templates/pcf/.gitattributes',
-          path: path.resolve(process.cwd(), '.gitattributes'),
           force: true
         },
         {
@@ -356,12 +337,47 @@ export default async (plop: NodePlopAPI): Promise<void> => {
 
             return;
           }
-        },        
+        },
         {
           type: 'modify',
           path: `${process.cwd()}/{{name}}/index.ts`,
           pattern: 'import { HelloWorld, IHelloWorldProps } from "./HelloWorld";',
           template: `import { App } from './App';`
+        },
+        {
+          type: 'append',
+          path: `${process.cwd()}/{{name}}.pcfproj`,
+          pattern: "</PowerAppsTargetsPath>",
+          template: `<PcfEnableAutoNpmInstall Condition=" '$(PcfEnableAutoNpmInstall)' == '' ">false</PcfEnableAutoNpmInstall>`,
+          separator: '\n'
+        },
+        {
+          type: 'append',
+          path: `${process.cwd()}/{{name}}.pcfproj`,
+          pattern: "</PowerAppsTargetsPath>",
+          template: `<PcfAlwaysNpmInstall Condition=" '$(PcfAlwaysNpmInstall)' == '' ">false</PcfAlwaysNpmInstall>`,
+          separator: '\n'
+        },
+        {
+          type: 'append',
+          path: `${process.cwd()}/eslint.config.mjs`,
+          pattern: "reactPlugin.configs.flat.recommended,",
+          template: "reactHooks.configs.flat.recommended,",
+          separator: '\n'
+        },
+        {
+          type: 'append',
+          path: `${process.cwd()}/eslint.config.mjs`,
+          pattern: `import reactPlugin from "eslint-plugin-react";`,
+          template: `import reactHooksPlugin from 'eslint-plugin-react-hooks';`,
+          separator: '\n'
+        },
+        {
+          type: 'append',
+          path: `${process.cwd()}/{{name}}.pcfproj`,
+          pattern: "</OutputPath>",
+          template: `<PcfBuildMode>development</PcfBuildMode>`,
+          separator: '\n'
         },
         {
           type: 'modify',
@@ -372,7 +388,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
         {
           type: 'modify',
           path: `${process.cwd()}/{{name}}/index.ts`,
-          pattern: `const props: IHelloWorldProps = { name: 'Hello, World!' };`,
+          pattern: `const props: IHelloWorldProps = { name: 'Power Apps' };`,
           template: ''
         },
         {
@@ -393,14 +409,14 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           type: 'addScript',
           data: {
             scriptKey: 'push',
-            scriptValue: `npm run select-auth && pac pcf version -s manifest && pac pcf push -pp ${data.prefix} -env ${data.server}`
+            scriptValue: `${data.package} run select-auth && pac pcf push -pp ${data.prefix} -env ${data.server}`
           }
         },
         {
           type: 'addScript',
           data: {
             scriptKey: 'push-inc',
-            scriptValue: `npm run build && npm run select-auth && pac pcf version -s manifest && pac pcf push -pp ${data.prefix} -inc -env ${data.server}`
+            scriptValue: `${data.package} run build && ${data.package} run select-auth && pac pcf push -pp ${data.prefix} -inc -env ${data.server}`
           }
         },
         {
@@ -418,12 +434,9 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           data: {
             packages: {
               devDependencies: [
-                'powerapps-project-pcf',
-                '@types/react@^16', 
-                '@types/react-dom@^16',
+                'powerapps-project-pcf',                
                 'eslint-plugin-react-hooks',
-                '@types/xrm',
-                'eslint-plugin-react'
+                '@types/xrm'
               ],
               dependencies: ['@fluentui/react-icons']
             }
