@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Update dependencies",
-  "packageName": "powerapps-project-pcf",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

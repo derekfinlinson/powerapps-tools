@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-<!-- This log was last generated on Fri, 13 Jun 2025 20:33:24 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 13 Nov 2025 15:28:25 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.3.0
+
+Thu, 13 Nov 2025 15:28:25 GMT
+
+### Minor changes
+
+- Update to match current PCF init (derek.finlinson@journeyteam.com)
 
 ## 2.2.4
 

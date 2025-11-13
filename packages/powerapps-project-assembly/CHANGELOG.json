@@ -2,6 +2,21 @@
   "name": "powerapps-project-assembly",
   "entries": [
     {
+      "date": "Thu, 13 Nov 2025 15:28:25 GMT",
+      "version": "3.0.5",
+      "tag": "powerapps-project-assembly_v3.0.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-project-assembly",
+            "commit": "f729e6ac7c52feb60e4d0fac5f30098ccda98855",
+            "comment": "Update dependencies"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 16 Apr 2025 17:19:42 GMT",
       "version": "3.0.4",
       "tag": "powerapps-project-assembly_v3.0.4",

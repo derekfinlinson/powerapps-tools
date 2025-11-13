@@ -1,8 +1,17 @@
 # Change Log - dataverse-react
 
-<!-- This log was last generated on Mon, 10 Nov 2025 16:53:38 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 13 Nov 2025 15:28:25 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.2.0
+
+Thu, 13 Nov 2025 15:28:25 GMT
+
+### Minor changes
+
+- Add usePrivilege hook (derek.finlinson@journeyteam.com)
+- Bump dataverse-webapi to v3.1.2
 
 ## 1.1.0
 
