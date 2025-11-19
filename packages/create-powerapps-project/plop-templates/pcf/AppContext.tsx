@@ -1,7 +1,7 @@
 import React from 'react';
 import { IInputs } from '../generated/ManifestTypes';
 
-interface IAppContext {
+export interface IAppContext {
   context: ComponentFramework.Context<IInputs>;
 }
 

@@ -1,4 +1,5 @@
 import path from 'node:path';
+import fs from 'node:fs';
 import { NodePlopAPI } from 'plop';
 import { getNugetPackageVersions } from './nuget.js';
 
@@ -298,7 +299,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
         type: 'confirm',
         name: 'react',
         message: 'use react?'
-      },      
+      },
       packageQuestion
     ],
     actions: (data: any) => {
@@ -307,7 +308,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
       return [
         {
           type: 'runPcf'
-        },        
+        },
         {
           type: 'add',
           templateFile: '../plop-templates/pcf/plopfile.js',
@@ -325,7 +326,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
 
             return;
           }
-        },        
+        },
         {
           type: 'add',
           templateFile: '../plop-templates/pcf/AppContext.tsx',
@@ -346,23 +347,16 @@ export default async (plop: NodePlopAPI): Promise<void> => {
         },
         {
           type: 'append',
-          path: `${process.cwd()}/{{name}}.pcfproj`,
-          pattern: "</PowerAppsTargetsPath>",
-          template: `<PcfEnableAutoNpmInstall Condition=" '$(PcfEnableAutoNpmInstall)' == '' ">false</PcfEnableAutoNpmInstall>`,
-          separator: '\n'
-        },
-        {
-          type: 'append',
-          path: `${process.cwd()}/{{name}}.pcfproj`,
-          pattern: "</PowerAppsTargetsPath>",
-          template: `<PcfAlwaysNpmInstall Condition=" '$(PcfAlwaysNpmInstall)' == '' ">false</PcfAlwaysNpmInstall>`,
+          path: `${process.cwd()}/${path.basename(process.cwd())}.pcfproj`,
+          pattern: '</PowerAppsTargetsPath>',
+          template: `\t\t<PcfEnableAutoNpmInstall Condition=" '$(PcfEnableAutoNpmInstall)' == '' ">false</PcfEnableAutoNpmInstall>\r\n\t\t<PcfAlwaysNpmInstall Condition=" '$(PcfAlwaysNpmInstall)' == '' ">false</PcfAlwaysNpmInstall>`,
           separator: '\n'
         },
         {
           type: 'append',
           path: `${process.cwd()}/eslint.config.mjs`,
-          pattern: "reactPlugin.configs.flat.recommended,",
-          template: "reactHooks.configs.flat.recommended,",
+          pattern: 'reactPlugin.configs.flat.recommended,',
+          template: '\treactHooks.configs.flat.recommended,',
           separator: '\n'
         },
         {
@@ -374,9 +368,9 @@ export default async (plop: NodePlopAPI): Promise<void> => {
         },
         {
           type: 'append',
-          path: `${process.cwd()}/{{name}}.pcfproj`,
-          pattern: "</OutputPath>",
-          template: `<PcfBuildMode>development</PcfBuildMode>`,
+          path: `${process.cwd()}/${path.basename(process.cwd())}.pcfproj`,
+          pattern: '</OutputPath>',
+          template: `\t\t<PcfBuildMode>development</PcfBuildMode>`,
           separator: '\n'
         },
         {
@@ -390,6 +384,15 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           path: `${process.cwd()}/{{name}}/index.ts`,
           pattern: `const props: IHelloWorldProps = { name: 'Power Apps' };`,
           template: ''
+        },
+        async (answers: any) => {
+          if (answers.react) {
+            await fs.promises.rm(path.resolve(process.cwd(), answers.name, 'HelloWorld.tsx'));
+
+            return 'removed default HelloWorld component';
+          }
+
+          return 'react not included';
         },
         {
           type: 'addScript',
@@ -425,7 +428,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
             scriptKey: 'preinstall',
             scriptValue: `npx only-allow ${data.package}`
           }
-        },        
+        },
         {
           type: 'npmInstall'
         },
@@ -433,11 +436,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           type: 'npmInstall',
           data: {
             packages: {
-              devDependencies: [
-                'powerapps-project-pcf',                
-                'eslint-plugin-react-hooks',
-                '@types/xrm'
-              ],
+              devDependencies: ['powerapps-project-pcf', 'eslint-plugin-react-hooks', '@types/xrm'],
               dependencies: ['@fluentui/react-icons']
             }
           },

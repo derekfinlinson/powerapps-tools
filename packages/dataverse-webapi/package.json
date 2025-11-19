@@ -44,6 +44,6 @@
     "common data service"
   ],
   "devDependencies": {
-    "@types/xrm": "^9.0.86"
+    "@types/xrm": "^9.0.87"
   }
 }

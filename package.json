@@ -10,15 +10,15 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
-    "@types/node": "^20.17.30",
+    "@types/node": "^20.19.25",
     "beachball": "^2.56.0",
     "jest": "^29.7.0",
-    "prettier": "^3.5.3",
-    "rimraf": "^6.0.1",
-    "ts-jest": "^29.3.1",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.1.0",
+    "ts-jest": "^29.4.5",
     "ts-node": "^10.9.2",
-    "turbo": "^2.5.0",
-    "typescript": "^5.8.3"
+    "turbo": "^2.6.1",
+    "typescript": "^5.9.3"
   },
   "scripts": {
     "build": "pnpm -r --stream clean && pnpm -r --stream build",

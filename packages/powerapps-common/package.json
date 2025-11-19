@@ -38,6 +38,6 @@
   "author": "Derek Finlinson",
   "devDependencies": {
     "@types/xrm": "^9.0.87",
-    "xrm-mock": "^3.5.9"
+    "xrm-mock": "^3.6.2"
   }
 }
