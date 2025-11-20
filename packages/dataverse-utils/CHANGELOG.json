@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Thu, 20 Nov 2025 03:51:21 GMT",
+      "version": "5.0.9",
+      "tag": "dataverse-utils_v5.0.9",
+      "comments": {
+        "none": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "9c30d81dd6bfc9b70554cb6c752d310c1e56249c",
+            "comment": "Fix pcf generator"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 13 Nov 2025 15:28:25 GMT",
       "version": "5.0.9",
       "tag": "dataverse-utils_v5.0.9",

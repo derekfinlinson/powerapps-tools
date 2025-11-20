@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Thu, 20 Nov 2025 03:51:21 GMT",
+      "version": "2.3.1",
+      "tag": "create-powerapps-project_v2.3.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "9c30d81dd6bfc9b70554cb6c752d310c1e56249c",
+            "comment": "Fix pcf generator"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 13 Nov 2025 15:28:25 GMT",
       "version": "2.3.0",
       "tag": "create-powerapps-project_v2.3.0",
