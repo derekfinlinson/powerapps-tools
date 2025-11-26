@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Wed, 26 Nov 2025 16:16:45 GMT",
+      "version": "2.3.2",
+      "tag": "create-powerapps-project_v2.3.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "1cfdb967ab3c61056c1501b6d15745db50cfaeed",
+            "comment": "Fix react plugins eslint append"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 20 Nov 2025 03:51:21 GMT",
       "version": "2.3.1",
       "tag": "create-powerapps-project_v2.3.1",

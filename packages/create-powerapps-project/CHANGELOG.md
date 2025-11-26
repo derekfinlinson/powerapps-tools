@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-<!-- This log was last generated on Thu, 20 Nov 2025 03:51:21 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 26 Nov 2025 16:16:45 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.3.2
+
+Wed, 26 Nov 2025 16:16:45 GMT
+
+### Patches
+
+- Fix react plugins eslint append (derek.finlinson@journeyteam.com)
 
 ## 2.3.1
 
