@@ -1,8 +1,16 @@
 # Change Log - dataverse-react
 
-<!-- This log was last generated on Thu, 13 Nov 2025 15:28:25 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 26 Nov 2025 14:56:54 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.2.1
+
+Wed, 26 Nov 2025 14:56:54 GMT
+
+### Patches
+
+- Add Option and Label interfaces (derek.finlinson@journeyteam.com)
 
 ## 1.2.0
 

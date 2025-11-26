@@ -2,6 +2,21 @@
   "name": "dataverse-react",
   "entries": [
     {
+      "date": "Wed, 26 Nov 2025 14:56:54 GMT",
+      "version": "1.2.1",
+      "tag": "dataverse-react_v1.2.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-react",
+            "commit": "3eef58dac3db51501bc9d872ac6ab688e70a0eba",
+            "comment": "Add Option and Label interfaces"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 20 Nov 2025 03:51:21 GMT",
       "version": "1.2.0",
       "tag": "dataverse-react_v1.2.0",
