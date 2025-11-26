@@ -356,7 +356,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
           type: 'append',
           path: `${process.cwd()}/eslint.config.mjs`,
           pattern: 'reactPlugin.configs.flat.recommended,',
-          template: '\treactHooks.configs.flat.recommended,',
+          template: '\treactHooksPlugin.configs.flat.recommended,',
           separator: '\n'
         },
         {
