@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Add Option and Label interfaces",
+  "packageName": "dataverse-react",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
