@@ -12,18 +12,57 @@ export interface TableMetadata {
 
 export interface ColumnMetadata {
   Targets?: string[];
-  AttributeType: "Boolean" | "Customer" | "DateTime" | "Decimal" | "Double" | "Integer" | "Lookup" | "Memo" | "Money" | "Owner" | "PartyList" | "Picklist" | "State" | "Status" | "String" | "Uniqueidentifier" | "CalendarRules" | "Virtual" | "BigInt" | "ManagedProperty" | "EntityName";
+  AttributeType:
+    | 'Boolean'
+    | 'Customer'
+    | 'DateTime'
+    | 'Decimal'
+    | 'Double'
+    | 'Integer'
+    | 'Lookup'
+    | 'Memo'
+    | 'Money'
+    | 'Owner'
+    | 'PartyList'
+    | 'Picklist'
+    | 'State'
+    | 'Status'
+    | 'String'
+    | 'Uniqueidentifier'
+    | 'CalendarRules'
+    | 'Virtual'
+    | 'BigInt'
+    | 'ManagedProperty'
+    | 'EntityName';
   AttributeTypeName: {
-    Value: "BigIntType" | "BooleanType" | "CalendarRulesType" | "CustomerType" | "CustomType" | "DateTimeType" | "DecimalType" | "DoubleType" | "EntityNameType" | "FileType" | "ImageType" | "IntegerType" | "LookupType" | "ManagedPropertyType" | "MemoType" | "MoneyType" | "MultiSelectPicklistType" | "OwnerType" | "PartyListType" | "PicklistType" | "StateType" | "StatusType" | "StringType" | "UniqueidentifierType" | "VirtualType";
+    Value:
+      | 'BigIntType'
+      | 'BooleanType'
+      | 'CalendarRulesType'
+      | 'CustomerType'
+      | 'CustomType'
+      | 'DateTimeType'
+      | 'DecimalType'
+      | 'DoubleType'
+      | 'EntityNameType'
+      | 'FileType'
+      | 'ImageType'
+      | 'IntegerType'
+      | 'LookupType'
+      | 'ManagedPropertyType'
+      | 'MemoType'
+      | 'MoneyType'
+      | 'MultiSelectPicklistType'
+      | 'OwnerType'
+      | 'PartyListType'
+      | 'PicklistType'
+      | 'StateType'
+      | 'StatusType'
+      | 'StringType'
+      | 'UniqueidentifierType'
+      | 'VirtualType';
   };
-  DisplayName: {
-    UserLocalizedLabel: {
-      Label: string;
-    };
-    LocalizedLabel: {
-      Label: string;
-    };
-  };
+  DisplayName: Label;
   EntityLogicalName: string;
   LogicalName: string;
   MaxValue?: number;
@@ -45,22 +84,12 @@ export interface BooleanColumnMetadata extends ColumnMetadata {
     TrueOption: {
       Value: number;
       Color: string;
-      Label: {
-        UserLocalizedLabel: { Label: string };
-        LocalizedLabel: {
-          Label: string;
-        };
-      };
+      Label: Label;
     };
     FalseOption: {
       Value: number;
       Color: string;
-      Label: {
-        UserLocalizedLabel: { Label: string };
-        LocalizedLabel: {
-          Label: string;
-        };
-      };
+      Label: Label;
     };
   };
 }
@@ -71,17 +100,21 @@ export interface ChoiceColumnMetadata extends ColumnMetadata {
     MetadataId: string;
     Name: string;
     DefaultFormValue: number;
-    Options: {
-      Value: number;
-      Color: string;
-      State?: number;
-      Label: {
-        UserLocalizedLabel: { Label: string };
-        LocalizedLabel: {
-          Label: string;
-        };
-      };
-    }[];
+    Options: OptionMetadata[];
+  };
+}
+
+export interface OptionMetadata {
+  Value: number;
+  Color: string;
+  State?: number;
+  Label: Label;
+}
+
+export interface Label {
+  UserLocalizedLabel: { Label: string };
+  LocalizedLabel: {
+    Label: string;
   };
 }
 
