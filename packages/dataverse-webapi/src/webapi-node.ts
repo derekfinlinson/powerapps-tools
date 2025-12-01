@@ -79,6 +79,24 @@ export function retrieve(
 }
 
 /**
+ * Retrieve a record from CRM by Alternate Key
+ * @param apiConfig WebApiConfig object
+ * @param entityType Type of entity to retrieve
+ * @param id Id of record to retrieve
+ * @param queryString OData query string parameters
+ * @param queryOptions Various query options for the query
+ */
+export function retrieveByKey(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  key: string,
+  queryString?: string,
+  queryOptions?: QueryOptions
+): Promise<Entity> {
+  return webApi.retrieveByKey(apiConfig, entitySet, key, submitRequest, queryString, queryOptions);
+}
+
+/**
  * Retrieve multiple records from CRM
  * @param apiConfig WebApiConfig object
  * @param entitySet Type of entity to retrieve
