@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-<!-- This log was last generated on Wed, 26 Nov 2025 16:16:45 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 04 Dec 2025 18:09:18 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.3.3
+
+Thu, 04 Dec 2025 18:09:18 GMT
+
+### Patches
+
+- Update React imports (derek.finlinson@journeyteam.com)
 
 ## 2.3.2
 

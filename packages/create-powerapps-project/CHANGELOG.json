@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Thu, 04 Dec 2025 18:09:18 GMT",
+      "version": "2.3.3",
+      "tag": "create-powerapps-project_v2.3.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "f207c1affce956fd217b6853f9c8b9d5328f3b29",
+            "comment": "Update React imports"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 26 Nov 2025 16:16:45 GMT",
       "version": "2.3.2",
       "tag": "create-powerapps-project_v2.3.2",
