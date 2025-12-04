@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { IInputs } from './generated/ManifestTypes';
 import { AppContext } from './contexts/AppContext';
+import { FluentProvider, Theme } from "@fluentui/react-components";
 
-export const App = ({ context }: { context: ComponentFramework.Context<IInputs>; }) => {
+export function App({ context }: { context: ComponentFramework.Context<IInputs>; }) {
   return (
     <AppContext.Provider value=\{{ context }}>
+      <FluentProvider theme={context.fluentDesignLanguage?.tokenTheme as Theme}>
+      </FluentProvider>
     </AppContext.Provider>
   );
-};
-
-App.displayName = 'App';
+}
