@@ -29,8 +29,7 @@
   },
   "scripts": {
     "build": "tsc -p .",
-    "lint": "eslint",
-    "clean": "rimraf lib"
+    "lint": "eslint"
   },
   "author": "Derek Finlinson",
   "keywords": [
@@ -44,6 +43,6 @@
     "common data service"
   ],
   "devDependencies": {
-    "@types/xrm": "^9.0.87"
+    "@types/xrm": "^9.0.88"
   }
 }

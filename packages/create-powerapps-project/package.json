@@ -21,8 +21,7 @@
   },
   "scripts": {
     "build": "tsc -p .",
-    "lint": "eslint",
-    "clean": "rimraf lib"
+    "lint": "eslint"
   },
   "type": "module",
   "dependencies": {

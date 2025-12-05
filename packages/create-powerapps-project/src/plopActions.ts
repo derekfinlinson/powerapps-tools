@@ -56,23 +56,19 @@ export default (plop: NodePlopAPI): void => {
     const keyPath = path.resolve(process.cwd(), `${answers.name}.snk`);
 
     return new Promise((resolve, reject) => {
-      if (process.env.JEST_WORKER_ID !== undefined) {
-        resolve('Testing so no need to sign');
-      } else {
-        const sign = spawn(path.resolve(__dirname, '..', 'bin', 'sn.exe'), ['-q', '-k', keyPath], { stdio: 'inherit' });
+      const sign = spawn(path.resolve(__dirname, '..', 'bin', 'sn.exe'), ['-q', '-k', keyPath], { stdio: 'inherit' });
 
-        sign.on('close', (code) => {
-          if (didSucceed(code)) {
-            resolve('signed assembly');
-          } else {
-            reject('failed to sign assembly');
-          }
-        });
-
-        sign.on('error', () => {
+      sign.on('close', (code) => {
+        if (didSucceed(code)) {
+          resolve('signed assembly');
+        } else {
           reject('failed to sign assembly');
-        });
-      }
+        }
+      });
+
+      sign.on('error', () => {
+        reject('failed to sign assembly');
+      });
     });
   });
 

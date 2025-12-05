@@ -33,9 +33,5 @@ export const getNugetPackageVersions = (name: string): Promise<string[]> => {
 
 export const nugetRestore = async (): Promise<void> => {
   // Install nuget packages
-  if (process.env.JEST_WORKER_ID !== undefined) {
-    return;
-  }
-
   spawnSync('dotnet', ['restore'], { cwd: process.cwd(), stdio: 'inherit' });
 };

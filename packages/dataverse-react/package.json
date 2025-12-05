@@ -26,8 +26,7 @@
   ],
   "scripts": {
     "build": "tsc -p .",
-    "lint": "eslint",
-    "clean": "rimraf lib"
+    "lint": "eslint"
   },
   "dependencies": {
     "dataverse-webapi": "workspace:^"
@@ -40,6 +39,6 @@
   },
   "devDependencies": {
     "@types/powerapps-component-framework": "^1.3.18",
-    "@types/xrm": "^9.0.87"
+    "@types/xrm": "^9.0.88"
   }
 }
