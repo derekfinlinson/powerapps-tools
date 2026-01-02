@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-<!-- This log was last generated on Thu, 13 Nov 2025 15:28:25 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 02 Jan 2026 21:35:22 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.0.10
+
+Fri, 02 Jan 2026 21:35:22 GMT
+
+### Patches
+
+- Deploy type if not found (derek.finlinson@journeyteam.com)
 
 ## 5.0.9
 
