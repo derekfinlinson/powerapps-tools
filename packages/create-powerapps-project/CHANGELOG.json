@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Fri, 02 Jan 2026 22:12:05 GMT",
+      "version": "2.3.4",
+      "tag": "create-powerapps-project_v2.3.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "2595fe9a2be178e984bca430c4d6623bb20848f6",
+            "comment": "Clean dotnet project before buildling. Fixes package bug"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 04 Dec 2025 18:09:18 GMT",
       "version": "2.3.3",
       "tag": "create-powerapps-project_v2.3.3",
