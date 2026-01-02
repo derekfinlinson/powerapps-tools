@@ -4,7 +4,7 @@ import { createWithReturnData, retrieveMultiple, update, WebApiConfig, Entity, Q
 
 import { PluginAssembly, retrieveAssembly } from './pluginAssembly.js';
 import { logger } from '../logger.js';
-import { deployType, retrieveType } from './pluginType.js';
+import { retrieveType } from './pluginType.js';
 import { deployStep } from './pluginStep.js';
 
 export interface PluginPackage extends Entity {
@@ -54,10 +54,6 @@ export async function deployPluginPackage(config: PluginPackage, apiConfig: WebA
         config.assembly.types?.map(async (t) => {
           if (!t.plugintypeid && config.assembly?.pluginassemblyid) {
             t.plugintypeid = await retrieveType(t.typename, config.assembly.pluginassemblyid, apiConfig);
-          }
-
-          if (t.plugintypeid == '') {
-            await deployType(t, config.assembly?.pluginassemblyid ?? '', apiConfig, solution);
           }
 
           const stepPromises = t.steps?.map((s) => deployStep(s, t.plugintypeid as string, apiConfig, solution)) ?? [];

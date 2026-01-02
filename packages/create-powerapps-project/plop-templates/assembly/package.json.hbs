@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "gen": "plop",
-    "deploy": "dotnet build && dataverse-utils deploy assembly",
+    "deploy": "dotnet clean && dotnet build && dataverse-utils deploy assembly",
     "modelbuilder": "pac auth select -n {{org}} && pac modelbuilder build -stf builderSettings.json -o Model -env {{server}}",
     "authenticate": "pac auth create -n {{org}} -dc",
     "prt": "pac tool prt"
