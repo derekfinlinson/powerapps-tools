@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Clean dotnet project before buildling. Fixes package bug",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

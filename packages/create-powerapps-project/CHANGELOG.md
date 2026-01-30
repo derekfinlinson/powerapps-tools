@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-<!-- This log was last generated on Thu, 04 Dec 2025 18:09:18 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 02 Jan 2026 22:12:05 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.3.4
+
+Fri, 02 Jan 2026 22:12:05 GMT
+
+### Patches
+
+- Clean dotnet project before buildling. Fixes package bug (derek.finlinson@journeyteam.com)
 
 ## 2.3.3
 

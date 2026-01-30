@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-<!-- This log was last generated on Fri, 02 Jan 2026 21:35:22 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 02 Jan 2026 22:12:05 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.0.11
+
+Fri, 02 Jan 2026 22:12:05 GMT
+
+### Patches
+
+- Clean dotnet project before buildling. Fixes package bug (derek.finlinson@journeyteam.com)
 
 ## 5.0.10
 

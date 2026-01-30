@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Fri, 02 Jan 2026 22:12:05 GMT",
+      "version": "5.0.11",
+      "tag": "dataverse-utils_v5.0.11",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "2595fe9a2be178e984bca430c4d6623bb20848f6",
+            "comment": "Clean dotnet project before buildling. Fixes package bug"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 02 Jan 2026 21:35:22 GMT",
       "version": "5.0.10",
       "tag": "dataverse-utils_v5.0.10",
