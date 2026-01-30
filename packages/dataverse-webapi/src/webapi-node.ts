@@ -61,7 +61,7 @@ function submitRequest(requestConfig: WebApiRequestConfig, callback: RequestCall
 }
 
 /**
- * Retrieve a record from CRM
+ * Retrieve a record from Dataverse
  * @param apiConfig WebApiConfig object
  * @param entityType Type of entity to retrieve
  * @param id Id of record to retrieve
@@ -79,7 +79,25 @@ export function retrieve(
 }
 
 /**
- * Retrieve multiple records from CRM
+ * Retrieve a record from Dataverse using an alternate key
+ * @param apiConfig WebApiConfig object
+ * @param entityType Type of entity to retrieve
+ * @param id Id of record to retrieve
+ * @param queryString OData query string parameters
+ * @param queryOptions Various query options for the query
+ */
+export function retrieveAlternateKey(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  id: string,
+  queryString?: string,
+  queryOptions?: QueryOptions
+): Promise<Entity> {
+  return webApi.retrieve(apiConfig, entitySet, id, submitRequest, queryString, queryOptions);
+}
+
+/**
+ * Retrieve multiple records from Dataverse
  * @param apiConfig WebApiConfig object
  * @param entitySet Type of entity to retrieve
  * @param queryString OData query string parameters
@@ -109,7 +127,7 @@ export function retrieveMultipleNextPage(
 }
 
 /**
- * Create a record in CRM
+ * Create a record in Dataverse
  * @param apiConfig WebApiConfig object
  * @param entitySet Type of entity to create
  * @param entity Entity to create
@@ -120,7 +138,7 @@ export function create(apiConfig: WebApiConfig, entitySet: string, entity: Entit
 }
 
 /**
- * Create a record in CRM and return data
+ * Create a record in Dataverse and return data
  * @param apiConfig WebApiConfig object
  * @param entitySet Type of entity to create
  * @param entity Entity to create
@@ -138,7 +156,7 @@ export function createWithReturnData(
 }
 
 /**
- * Update a record in CRM
+ * Update a record in Dataverse
  * @param apiConfig WebApiConfig object
  * @param entitySet Type of entity to update
  * @param id Id of record to update
@@ -150,7 +168,7 @@ export function update(apiConfig: WebApiConfig, entitySet: string, id: string, e
 }
 
 /**
- * Create a record in CRM and return data
+ * Create a record in Dataverse and return data
  * @param apiConfig WebApiConfig object
  * @param entitySet Type of entity to create
  * @param id Id of record to update
@@ -170,7 +188,7 @@ export function updateWithReturnData(
 }
 
 /**
- * Update a single property of a record in CRM
+ * Update a single property of a record in Dataverse
  * @param apiConfig WebApiConfig object
  * @param entitySet Type of entity to update
  * @param id Id of record to update
@@ -189,7 +207,7 @@ export function updateProperty(
 }
 
 /**
- * Delete a record from CRM
+ * Delete a record from Dataverse
  * @param apiConfig WebApiConfig object
  * @param entitySet Type of entity to delete
  * @param id Id of record to delete
@@ -199,7 +217,7 @@ export function deleteRecord(apiConfig: WebApiConfig, entitySet: string, id: str
 }
 
 /**
- * Delete a property from a record in CRM. Non navigation properties only
+ * Delete a property from a record in Dataverse. Non navigation properties only
  * @param apiConfig WebApiConfig object
  * @param entitySet Type of entity to update
  * @param id Id of record to update
@@ -250,7 +268,7 @@ export function disassociate(
 }
 
 /**
- * Execute a default or custom bound action in CRM
+ * Execute a default or custom bound action in Dataverse
  * @param apiConfig WebApiConfig object
  * @param entitySet Type of entity to run the action against
  * @param id Id of record to run the action against
@@ -270,7 +288,7 @@ export function boundAction(
 }
 
 /**
- * Execute a default or custom unbound action in CRM
+ * Execute a default or custom unbound action in Dataverse
  * @param apiConfig WebApiConfig object
  * @param actionName Name of the action to run
  * @param inputs Any inputs required by the action
@@ -286,7 +304,7 @@ export function unboundAction(
 }
 
 /**
- * Execute a default or custom bound action in CRM
+ * Execute a default or custom bound action in Dataverse
  * @param apiConfig WebApiConfig object
  * @param entitySet Type of entity to run the action against
  * @param id Id of record to run the action against
@@ -306,7 +324,7 @@ export function boundFunction(
 }
 
 /**
- * Execute an unbound function in CRM
+ * Execute an unbound function in Dataverse
  * @param apiConfig WebApiConfig object
  * @param functionName Name of the action to run
  * @param inputs Any inputs required by the action
@@ -322,7 +340,7 @@ export function unboundFunction(
 }
 
 /**
- * Execute a batch operation in CRM
+ * Execute a batch operation in Dataverse
  * @param apiConfig WebApiConfig object
  * @param batchId Unique batch id for the operation
  * @param changeSetId Unique change set id for any changesets in the operation

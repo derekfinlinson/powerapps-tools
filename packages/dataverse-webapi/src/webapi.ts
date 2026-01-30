@@ -214,6 +214,47 @@ export function retrieve(
 }
 
 /**
+ * Retrieve a record from Dataverse using an alternate key
+ * @param apiConfig WebApiConfig object
+ * @param entitySet Type of entity to retrieve
+ * @param id Id of record to retrieve
+ * @param queryString OData query string parameters
+ * @param queryOptions Various query options for the query
+ */
+export function retrieveAlternateKey(
+  apiConfig: WebApiConfig,
+  entitySet: string,
+  alternateKey: string,
+  submitRequest: RequestCallback,
+  queryString?: string,
+  queryOptions?: QueryOptions
+): Promise<Entity> {
+  if (queryString != null && !/^[?]/.test(queryString)) {
+    queryString = `?${queryString}`;
+  }
+
+  const query: string = queryString != null ? `${entitySet}(${alternateKey})${queryString}` : `${entitySet}(${alternateKey})`;
+
+  const config = {
+    method: 'GET',
+    contentType: 'application/json; charset=utf-8',
+    queryString: query,
+    apiConfig: apiConfig,
+    queryOptions: queryOptions
+  };
+
+  return new Promise((resolve, reject) => {
+    submitRequest(config, (result: WebApiRequestResult) => {
+      if (result.error) {
+        reject(handleError(result.response));
+      } else {
+        resolve(JSON.parse(result.response));
+      }
+    });
+  });
+}
+
+/**
  * Retrieve a single property of a record from Dataverse
  * @param apiConfig WebApiConfig object
  * @param entitySet Type of entity to retrieve

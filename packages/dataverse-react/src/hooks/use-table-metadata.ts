@@ -1,13 +1,26 @@
-import { retrieveMultiple, WebApiConfig } from 'dataverse-webapi';
+import { retrieveAlternateKey, retrieveMultiple, WebApiConfig } from 'dataverse-webapi';
 import React from 'react';
 
 export interface TableMetadata {
-  table: ComponentFramework.PropertyHelper.EntityMetadata;
+  table: EntityMetadata;
   columns: ColumnMetadata[];
   choices: ChoiceColumnMetadata[];
   booleans: BooleanColumnMetadata[];
   states: ChoiceColumnMetadata[];
   statuses: ChoiceColumnMetadata[];
+}
+
+export interface EntityMetadata {
+  LogicalName: string;
+  DisplayName: Label;
+  SchemaName: string;
+  LogicalCollectionName: string;
+  CollectionSchemaName: string;
+  PrimaryIdAttribute: string;
+  PrimaryNameAttribute: string;
+  TableType: 'Standard' | 'Activity' | 'Virtual';
+  PrimaryImageAttribute: string | null;
+  [key: string]: any;
 }
 
 export interface ColumnMetadata {
@@ -118,7 +131,7 @@ export interface Label {
   };
 }
 
-export const useTableMetadata = (utils: ComponentFramework.Utility, tableName?: string): TableMetadata | undefined => {
+export const useTableMetadata = (tableName?: string): TableMetadata | undefined => {
   const [metadata, setMetadata] = React.useState<TableMetadata>();
 
   const config = new WebApiConfig('9.1');
@@ -143,13 +156,13 @@ export const useTableMetadata = (utils: ComponentFramework.Utility, tableName?: 
           config,
           `EntityDefinitions(LogicalName='${tableName}')/Attributes/Microsoft.Dynamics.CRM.StatusAttributeMetadata?$select=LogicalName,DefaultFormValue&$expand=OptionSet`
         ),
-        utils.getEntityMetadata(tableName as string)
+        retrieveAlternateKey(config, 'EntityDefinitions', `LogicalName='${tableName}'`)
       ]);
 
       const [attributes, optionSets, booleans, states, statuses, table] = results;
 
       setMetadata({
-        table: table,
+        table: table as EntityMetadata,
         columns: (<unknown>attributes.value) as ColumnMetadata[],
         choices: (<unknown>optionSets.value) as ChoiceColumnMetadata[],
         booleans: (<unknown>booleans.value) as BooleanColumnMetadata[],
