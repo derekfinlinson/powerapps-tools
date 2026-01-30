@@ -2,6 +2,21 @@
   "name": "dataverse-react",
   "entries": [
     {
+      "date": "Fri, 30 Jan 2026 20:35:28 GMT",
+      "version": "2.0.0",
+      "tag": "dataverse-react_v2.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-react",
+            "commit": "8b4bbdac5296e54db075af4c10dc5ba350bb4e0e",
+            "comment": "Manually get entity definitions instead of using PCF utils"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 26 Nov 2025 14:56:54 GMT",
       "version": "1.2.1",
       "tag": "dataverse-react_v1.2.1",

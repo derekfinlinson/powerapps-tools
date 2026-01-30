@@ -2,6 +2,21 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Fri, 30 Jan 2026 20:35:28 GMT",
+      "version": "3.2.0",
+      "tag": "dataverse-webapi_v3.2.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-webapi",
+            "commit": "8b4bbdac5296e54db075af4c10dc5ba350bb4e0e",
+            "comment": "Change files"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 20 Nov 2025 03:51:21 GMT",
       "version": "3.1.2",
       "tag": "dataverse-webapi_v3.1.2",

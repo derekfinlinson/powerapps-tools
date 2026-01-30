@@ -1,8 +1,16 @@
 # Change Log - dataverse-webapi
 
-<!-- This log was last generated on Thu, 13 Nov 2025 15:28:25 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 30 Jan 2026 20:35:28 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 3.2.0
+
+Fri, 30 Jan 2026 20:35:28 GMT
+
+### Minor changes
+
+- Change files (derek.finlinson@journeyteam.com)
 
 ## 3.1.2
 

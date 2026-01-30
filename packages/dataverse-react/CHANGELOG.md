@@ -1,8 +1,16 @@
 # Change Log - dataverse-react
 
-<!-- This log was last generated on Wed, 26 Nov 2025 14:56:54 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 30 Jan 2026 20:35:28 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.0
+
+Fri, 30 Jan 2026 20:35:28 GMT
+
+### Major changes
+
+- Manually get entity definitions instead of using PCF utils (derek.finlinson@journeyteam.com)
 
 ## 1.2.1
 
