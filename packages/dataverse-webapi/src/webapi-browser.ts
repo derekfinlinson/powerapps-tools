@@ -75,7 +75,7 @@ export function retrieveAlternateKey(
   queryString?: string,
   queryOptions?: QueryOptions
 ): Promise<Entity> {
-  return webApi.retrieve(apiConfig, entitySet, id, submitRequest, queryString, queryOptions);
+  return webApi.retrieveAlternateKey(apiConfig, entitySet, id, submitRequest, queryString, queryOptions);
 }
 
 /**
