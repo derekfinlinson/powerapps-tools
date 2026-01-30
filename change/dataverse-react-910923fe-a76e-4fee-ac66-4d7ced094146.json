@@ -1,0 +1,7 @@
+{
+  "type": "major",
+  "comment": "Manually get entity definitions instead of using PCF utils",
+  "packageName": "dataverse-react",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
