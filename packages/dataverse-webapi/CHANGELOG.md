@@ -1,8 +1,16 @@
 # Change Log - dataverse-webapi
 
-<!-- This log was last generated on Fri, 30 Jan 2026 20:35:28 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 30 Jan 2026 21:35:11 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 3.2.1
+
+Fri, 30 Jan 2026 21:35:11 GMT
+
+### Patches
+
+- Fix retrieveAlternateKey (derek.finlinson@journeyteam.com)
 
 ## 3.2.0
 

@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix retrieveAlternateKey",
-  "packageName": "dataverse-webapi",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

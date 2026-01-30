@@ -2,6 +2,21 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Fri, 30 Jan 2026 21:35:11 GMT",
+      "version": "3.2.1",
+      "tag": "dataverse-webapi_v3.2.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-webapi",
+            "commit": "95927aa37ffa4cd9ccddc319453e2a2abddfec01",
+            "comment": "Fix retrieveAlternateKey"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 30 Jan 2026 20:35:28 GMT",
       "version": "3.2.0",
       "tag": "dataverse-webapi_v3.2.0",
