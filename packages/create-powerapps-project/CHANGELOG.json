@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Fri, 06 Mar 2026 21:12:50 GMT",
+      "version": "2.4.0",
+      "tag": "create-powerapps-project_v2.4.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "69181dd8d8323f44b67a7ee2368fe3357b42c687",
+            "comment": "Switch to build script instead of deploy"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 02 Jan 2026 22:12:05 GMT",
       "version": "2.3.4",
       "tag": "create-powerapps-project_v2.3.4",

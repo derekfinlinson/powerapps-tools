@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-<!-- This log was last generated on Fri, 02 Jan 2026 22:12:05 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 06 Mar 2026 21:12:50 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.0.14
+
+Fri, 06 Mar 2026 21:12:50 GMT
+
+### Patches
+
+- Skip if file doesn't exist (derek.finlinson@journeyteam.com)
 
 ## 5.0.11
 

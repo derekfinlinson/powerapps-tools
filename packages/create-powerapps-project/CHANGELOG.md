@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-<!-- This log was last generated on Fri, 02 Jan 2026 22:12:05 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 06 Mar 2026 21:12:50 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.4.0
+
+Fri, 06 Mar 2026 21:12:50 GMT
+
+### Minor changes
+
+- Switch to build script instead of deploy (derek.finlinson@journeyteam.com)
 
 ## 2.3.4
 

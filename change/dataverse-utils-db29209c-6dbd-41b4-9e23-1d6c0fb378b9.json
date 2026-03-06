@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Skip if file doesn't exist",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}
