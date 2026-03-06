@@ -75,6 +75,11 @@ export async function deploy(webResources: WebResource[], apiConfig: WebApiConfi
       return;
     }
 
+    // check if file exists, if not just skip it
+    if (!fs.existsSync(resource.path)) {
+      return Promise.resolve();
+    }
+
     const fileContent = await fs.promises.readFile(resource.path, 'utf8');
     const content = Buffer.from(fileContent).toString('base64');
 
