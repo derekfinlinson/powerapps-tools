@@ -9,10 +9,10 @@
     "url": "https://github.com/derekfinlinson/powerapps-tools"
   },
   "devDependencies": {
-    "@types/node": "^20.19.25",
-    "beachball": "^2.60.1",
-    "prettier": "^3.7.4",
-    "turbo": "^2.6.3",
+    "@types/node": "^20.19.37",
+    "beachball": "^2.64.0",
+    "prettier": "^3.8.1",
+    "turbo": "^2.9.1",
     "typescript": "^5.9.3"
   },
   "scripts": {
@@ -25,5 +25,5 @@
     "preinstall": "npx only-allow pnpm",
     "beachball": "beachball"
   },
-  "packageManager": "pnpm@10.22.0"
+  "packageManager": "pnpm@10.33.0"
 }
