@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-<!-- This log was last generated on Fri, 06 Mar 2026 21:12:50 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 07 Apr 2026 16:51:46 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.5.0
+
+Tue, 07 Apr 2026 16:51:46 GMT
+
+### Minor changes
+
+- Update for Typescript v6; Force eslint v9 (derek.finlinson@journeyteam.com)
 
 ## 2.4.0
 

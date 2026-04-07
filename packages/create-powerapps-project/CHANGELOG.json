@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 07 Apr 2026 16:51:46 GMT",
+      "version": "2.5.0",
+      "tag": "create-powerapps-project_v2.5.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "9cca0d3cb80158e628701f9d3ab1148f2cc8f847",
+            "comment": "Update for Typescript v6; Force eslint v9"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 06 Mar 2026 21:12:50 GMT",
       "version": "2.4.0",
       "tag": "create-powerapps-project_v2.4.0",
