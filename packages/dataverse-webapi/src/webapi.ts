@@ -421,7 +421,7 @@ export function create(
   entity: Entity,
   submitRequest: RequestCallback,
   queryOptions?: QueryOptions
-): Promise<void> {
+): Promise<string> {
   const config = {
     method: 'POST',
     contentType: 'application/json; charset=utf-8',
@@ -436,7 +436,22 @@ export function create(
       if (result.error) {
         reject(handleError(result.response));
       } else {
-        resolve();
+        const headers = result.headers;
+
+        const odataEntity = headers?.['OData-EntityId'] || headers?.['Odata-EntityId'] || headers?.['odata-entityid'];
+
+        // Get id from URI. Is the value between the parentheses at the end of the URI
+        let id: string = '';
+
+        if (odataEntity) {
+          const matches = /.*\((.*)\)/.exec(odataEntity);
+
+          if (matches?.length === 2) {
+            id = matches[1];
+          }
+        }
+
+        resolve(id);
       }
     });
   });

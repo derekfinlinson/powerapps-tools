@@ -27,10 +27,23 @@ function submitRequest(requestConfig: WebApiRequestConfig, callback: RequestCall
     if (req.readyState === 4 /* complete */) {
       req.onreadystatechange = null;
 
+      const responseHeaders = req.getAllResponseHeaders();
+
+      const arr = responseHeaders.trim().split(/[\r\n]+/);
+
+      // Create a map of header names to values
+      const headerMap = {};
+      arr.forEach((line) => {
+        const parts = line.split(': ');
+        const header = parts.shift();
+        const value = parts.join(': ');
+        headerMap[header!] = value;
+      });
+
       if (req.status >= 200 && req.status < 300) {
-        callback({ error: false, response: req.response, headers: req.getAllResponseHeaders() });
+        callback({ error: false, response: req.response, headers: headerMap });
       } else {
-        callback({ error: true, response: req.response, headers: req.getAllResponseHeaders() });
+        callback({ error: true, response: req.response, headers: headerMap });
       }
     }
   };
@@ -115,7 +128,7 @@ export function retrieveMultipleNextPage(
  * @param entity Entity to create
  * @param queryOptions Various query options for the query
  */
-export function create(apiConfig: WebApiConfig, entitySet: string, entity: Entity, queryOptions?: QueryOptions): Promise<void> {
+export function create(apiConfig: WebApiConfig, entitySet: string, entity: Entity, queryOptions?: QueryOptions): Promise<string> {
   return webApi.create(apiConfig, entitySet, entity, submitRequest, queryOptions);
 }
 

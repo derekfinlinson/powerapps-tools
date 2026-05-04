@@ -27,7 +27,7 @@ export class WebApiConfig {
 export interface WebApiRequestResult {
   error: boolean;
   response: any;
-  headers?: unknown;
+  headers?: Record<string, string>;
 }
 
 export interface WebApiRequestConfig {

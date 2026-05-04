@@ -41,10 +41,13 @@ function submitRequest(requestConfig: WebApiRequestConfig, callback: RequestCall
 
     result.on('end', () => {
       const status = result.statusCode || 0;
+
+      const responseHeaders = result.headers as Record<string, string>;
+      
       if (status >= 200 && status < 300) {
-        callback({ error: false, response: body, headers: result.headers });
+        callback({ error: false, response: body, headers: responseHeaders });
       } else {
-        callback({ error: true, response: body, headers: result.headers });
+        callback({ error: true, response: body, headers: responseHeaders });
       }
     });
   });
@@ -133,7 +136,7 @@ export function retrieveMultipleNextPage(
  * @param entity Entity to create
  * @param queryOptions Various query options for the query
  */
-export function create(apiConfig: WebApiConfig, entitySet: string, entity: Entity, queryOptions?: QueryOptions): Promise<void> {
+export function create(apiConfig: WebApiConfig, entitySet: string, entity: Entity, queryOptions?: QueryOptions): Promise<string> {
   return webApi.create(apiConfig, entitySet, entity, submitRequest, queryOptions);
 }
 
