@@ -2,6 +2,21 @@
   "name": "dataverse-webapi",
   "entries": [
     {
+      "date": "Mon, 04 May 2026 19:54:47 GMT",
+      "version": "3.3.0",
+      "tag": "dataverse-webapi_v3.3.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-webapi",
+            "commit": "8a7d66c3173f893b351098fc230bddb59b6dd74a",
+            "comment": "Get id from create"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 30 Jan 2026 21:35:11 GMT",
       "version": "3.2.1",
       "tag": "dataverse-webapi_v3.2.1",
