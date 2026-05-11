@@ -2,6 +2,21 @@
   "name": "dataverse-react",
   "entries": [
     {
+      "date": "Mon, 11 May 2026 18:29:49 GMT",
+      "version": "2.1.0",
+      "tag": "dataverse-react_v2.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-react",
+            "commit": "72e158ecd4ed62ba021f0468e46c794564798250",
+            "comment": "Update peer dependencies"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 30 Jan 2026 20:35:28 GMT",
       "version": "2.0.0",
       "tag": "dataverse-react_v2.0.0",
