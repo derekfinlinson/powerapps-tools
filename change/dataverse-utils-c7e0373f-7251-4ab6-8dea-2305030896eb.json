@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Import open",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

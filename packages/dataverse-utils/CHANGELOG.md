@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-<!-- This log was last generated on Wed, 13 May 2026 19:58:26 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 13 May 2026 20:08:39 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.1.1
+
+Wed, 13 May 2026 20:08:39 GMT
+
+### Patches
+
+- Import open (derek.finlinson@journeyteam.com)
 
 ## 5.1.0
 
