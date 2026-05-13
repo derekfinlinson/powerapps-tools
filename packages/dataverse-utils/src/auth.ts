@@ -40,7 +40,7 @@ export const getAccessToken = async (authEndpoint: string, url: string): Promise
 
   const cache = pca.getTokenCache();
 
-  const accounts = await cache?.getAllAccounts().catch(ex => {
+  const accounts = await cache?.getAllAccounts().catch((ex) => {
     throw new Error(ex.message);
   });
 
@@ -64,9 +64,11 @@ export const getAccessToken = async (authEndpoint: string, url: string): Promise
 
   // Acquire token by device code
   try {
-    const token = await pca.acquireTokenByDeviceCode({
+    const token = await pca.acquireTokenInteractive({
       scopes: [`${url}/.default`],
-      deviceCodeCallback: (response) => logger.info(response.message)
+      openBrowser: async (url: string) => {
+        open(url);
+      }
     });
 
     return token;

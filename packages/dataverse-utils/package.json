@@ -23,13 +23,14 @@
   },
   "type": "module",
   "dependencies": {
-    "@azure/msal-node": "^3.8.4",
+    "@azure/msal-node": "^5.2.1",
     "commander": "^14.0.2",
     "cryptr": "6.3.0",
     "dataverse-webapi": "workspace:^",
     "figures": "^6.1.0",
-    "glob": "^12.0.0",
+    "glob": "^13.0.6",
     "kleur": "^4.1.5",
+    "open": "^11.0.0",
     "prompts": "^2.4.2"
   },
   "devDependencies": {
