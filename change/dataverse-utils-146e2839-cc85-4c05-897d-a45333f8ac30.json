@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Update msal; Switch to interactive",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

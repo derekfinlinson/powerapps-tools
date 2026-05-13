@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Wed, 13 May 2026 19:58:26 GMT",
+      "version": "5.1.0",
+      "tag": "dataverse-utils_v5.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "8668b73e3d2b6c478f95199b4dd3841cb50d3cfb",
+            "comment": "Update msal; Switch to interactive"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 06 Mar 2026 21:12:50 GMT",
       "version": "5.0.14",
       "tag": "dataverse-utils_v5.0.14",
