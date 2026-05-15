@@ -63,14 +63,37 @@ export const getAccessToken = async (authEndpoint: string, url: string): Promise
     }
   }
 
-  // Acquire token by device code
+  // Ask user how they want to sign in
+  const { signInMethod } = await prompts({
+    type: 'select',
+    name: 'signInMethod',
+    message: 'Choose a sign-in method',
+    initial: 'deviceCode',
+    choices: [
+      { title: 'Device code', value: 'deviceCode' },
+      { title: 'Interactive (opens current browser profile)', value: 'interactive' }
+    ]
+  });
+
+  let token: AuthenticationResult | null = null;
+
+  // Acquire token
   try {
-    const token = await pca.acquireTokenInteractive({
-      scopes: [`${url}/.default`],
-      openBrowser: async (url: string) => {
-        open(url);
-      }
-    });
+    if (signInMethod === 'deviceCode') {
+      token = await pca.acquireTokenByDeviceCode({
+        scopes: [`${url}/.default`],
+        deviceCodeCallback: (response) => {
+          logger.info(response.message);
+        }
+      });
+    } else {
+      token = await pca.acquireTokenInteractive({
+        scopes: [`${url}/.default`],
+        openBrowser: async (url: string) => {
+          open(url);
+        }
+      });
+    }
 
     return token;
   } catch (ex: any) {
