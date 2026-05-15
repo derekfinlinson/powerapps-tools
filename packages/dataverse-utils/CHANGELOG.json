@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Fri, 15 May 2026 16:34:52 GMT",
+      "version": "5.2.0",
+      "tag": "dataverse-utils_v5.2.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "9bfb8d68f1861c0a4b559c9c7829fd798f097c26",
+            "comment": "Let user choose authentication method"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 13 May 2026 20:08:39 GMT",
       "version": "5.1.1",
       "tag": "dataverse-utils_v5.1.1",

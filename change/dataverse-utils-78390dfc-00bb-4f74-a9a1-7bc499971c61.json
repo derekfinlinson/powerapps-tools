@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Let user choose authentication method",
-  "packageName": "dataverse-utils",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

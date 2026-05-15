@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-<!-- This log was last generated on Wed, 13 May 2026 20:08:39 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 15 May 2026 16:34:52 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.2.0
+
+Fri, 15 May 2026 16:34:52 GMT
+
+### Minor changes
+
+- Let user choose authentication method (derek.finlinson@journeyteam.com)
 
 ## 5.1.1
 

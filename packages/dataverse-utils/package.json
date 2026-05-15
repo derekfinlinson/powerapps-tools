@@ -1,6 +1,6 @@
 {
   "name": "dataverse-utils",
-  "version": "5.1.1",
+  "version": "5.2.0",
   "license": "MIT",
   "description": "Utilities for interacting with Dataverse environments",
   "exports": "./lib/dataverse-utils.js",
