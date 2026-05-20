@@ -1,7 +1,0 @@
-{
-  "type": "major",
-  "comment": "Add pending state to table metadata hook",
-  "packageName": "dataverse-react",
-  "email": "derek.finlinson@journeyteam.com",
-  "dependentChangeType": "patch"
-}

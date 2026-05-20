@@ -2,6 +2,21 @@
   "name": "dataverse-react",
   "entries": [
     {
+      "date": "Wed, 20 May 2026 20:33:29 GMT",
+      "version": "3.0.0",
+      "tag": "dataverse-react_v3.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-react",
+            "commit": "455291862d3d097e513571bece2c6332bc927850",
+            "comment": "Add pending state to table metadata hook"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 11 May 2026 18:29:49 GMT",
       "version": "2.1.0",
       "tag": "dataverse-react_v2.1.0",

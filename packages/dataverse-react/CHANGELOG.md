@@ -1,8 +1,16 @@
 # Change Log - dataverse-react
 
-<!-- This log was last generated on Mon, 11 May 2026 18:29:49 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 20 May 2026 20:33:29 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 3.0.0
+
+Wed, 20 May 2026 20:33:29 GMT
+
+### Major changes
+
+- Add pending state to table metadata hook (derek.finlinson@journeyteam.com)
 
 ## 2.1.0
 
