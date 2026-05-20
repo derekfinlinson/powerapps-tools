@@ -131,13 +131,16 @@ export interface Label {
   };
 }
 
-export const useTableMetadata = (tableName?: string): TableMetadata | undefined => {
+export const useTableMetadata = (tableName?: string): { metadata: TableMetadata | undefined; pending: boolean } => {
   const [metadata, setMetadata] = React.useState<TableMetadata>();
+  const [pending, setPending] = React.useState(true);
 
   const config = new WebApiConfig('9.1');
 
   React.useEffect(() => {
     const getMetadata = async () => {
+      setPending(true);
+
       const results = await Promise.all([
         retrieveMultiple(config, `EntityDefinitions(LogicalName='${tableName}')/Attributes`),
         retrieveMultiple(
@@ -169,6 +172,8 @@ export const useTableMetadata = (tableName?: string): TableMetadata | undefined 
         states: (<unknown>states.value) as ChoiceColumnMetadata[],
         statuses: (<unknown>statuses.value) as ChoiceColumnMetadata[]
       });
+
+      setPending(false);
     };
 
     if (tableName) {
@@ -176,5 +181,5 @@ export const useTableMetadata = (tableName?: string): TableMetadata | undefined 
     }
   }, [tableName]);
 
-  return metadata;
+  return { metadata, pending };
 };
