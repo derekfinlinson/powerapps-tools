@@ -2,6 +2,21 @@
   "name": "powerapps-common",
   "entries": [
     {
+      "date": "Mon, 06 Jul 2026 23:16:10 GMT",
+      "version": "2.0.5",
+      "tag": "powerapps-common_v2.0.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "powerapps-common",
+            "commit": "904964ac5a6601b759ed4dee9203f8622f89c9d3",
+            "comment": "Update handler types"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 20 Nov 2025 03:51:21 GMT",
       "version": "2.0.4",
       "tag": "powerapps-common_v2.0.4",

@@ -1,8 +1,16 @@
 # Change Log - powerapps-common
 
-<!-- This log was last generated on Thu, 13 Nov 2025 15:28:25 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 06 Jul 2026 23:16:10 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.5
+
+Mon, 06 Jul 2026 23:16:10 GMT
+
+### Patches
+
+- Update handler types (derek.finlinson@journeyteam.com)
 
 ## 2.0.4
 
