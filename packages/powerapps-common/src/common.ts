@@ -123,7 +123,7 @@ export function addFormNotification(
  * @param event Event to fire
  * @param form Form context
  */
-export function addOnChange(fieldName: string, event: Xrm.Events.ContextSensitiveHandler, form: Xrm.FormContext): boolean {
+export function addOnChange(fieldName: string, event: Xrm.Events.Attribute.ChangeEventHandler, form: Xrm.FormContext): boolean {
   const field = form.getAttribute<Xrm.Attributes.Attribute>(fieldName.toLowerCase());
 
   if (field === null || field === undefined) {
@@ -289,7 +289,7 @@ export function addLookupFilter(
  * @param form Form context
  * @param event Event
  */
-export function addOnSave(form: Xrm.FormContext, event: Xrm.Events.ContextSensitiveHandler): void {
+export function addOnSave(form: Xrm.FormContext, event: Xrm.Events.SaveEventHandler | Xrm.Events.SaveEventHandlerAsync): void {
   // Prevent event from being added twice
   form.data.entity.removeOnSave(event);
   form.data.entity.addOnSave(event);
