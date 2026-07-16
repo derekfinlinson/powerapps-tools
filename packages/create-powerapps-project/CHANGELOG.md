@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-<!-- This log was last generated on Tue, 07 Apr 2026 16:51:46 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 16 Jul 2026 04:39:27 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.6.0
+
+Thu, 16 Jul 2026 04:39:27 GMT
+
+### Minor changes
+
+- Update to .net 4.8 (derek.finlinson@journeyteam.com)
 
 ## 2.5.0
 

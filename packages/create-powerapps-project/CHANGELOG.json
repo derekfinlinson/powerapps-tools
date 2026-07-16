@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Thu, 16 Jul 2026 04:39:27 GMT",
+      "version": "2.6.0",
+      "tag": "create-powerapps-project_v2.6.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "834515dfbec05fb454521975199439f7fb736b8a",
+            "comment": "Update to .net 4.8"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 07 Apr 2026 16:51:46 GMT",
       "version": "2.5.0",
       "tag": "create-powerapps-project_v2.5.0",
