@@ -3,18 +3,27 @@
   "description": "💧 plop generator for Dataverse assembly projects",
   "version": "3.0.5",
   "license": "MIT",
-  "exports": "./index.js",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepare": "npm run build"
+  },
   "files": [
     "/plop-templates",
-    "index.js"
+    "/dist"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/derekfinlinson/powerapps-tools"
   },
   "dependencies": {
-    "inquirer-recursive": "^0.0.7",
     "plop": "^4.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.15",
+    "typescript": "^5.9.2"
   }
 }

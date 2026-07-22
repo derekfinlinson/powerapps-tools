@@ -1,14 +1,21 @@
+// @ts-nocheck
 import path from 'path';
 import fs from 'fs';
-import version from './package.json' with { type: 'json' };
-import inquirerRecursive from 'inquirer-recursive';
+import { fileURLToPath } from 'url';
+import version from '../package.json' with { type: 'json' };
+import recursivePrompt from './recursivePrompt.js';
+import { NodePlopAPI } from 'plop';
 
-export default function (plop) {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const templatePath = (file: string) => path.resolve(__dirname, '..', 'plop-templates', file);
+
+export default function (plop: NodePlopAPI) {
   plop.setWelcomeMessage(
     `Adding Dataverse assembly file using powerapps-project-assembly v${version}. Please choose type of file to create.`
   );
 
-  plop.setPrompt('recursive', inquirerRecursive);
+  plop.setPrompt('recursive', recursivePrompt);
 
   plop.setDefaultInclude({ generators: true });
 
@@ -401,20 +408,20 @@ export default function (plop) {
     const builderPath = path.resolve(destinationPath, 'builderSettings.json');
 
     // Check if builderSettings.json exists
-    // if (fs.existsSync(builderPath) && answers.entity) {
-    //   const file = JSON.parse(fs.readFileSync(builderPath, 'utf8'));
+    if (fs.existsSync(builderPath) && answers.entity) {
+      const file = JSON.parse(fs.readFileSync(builderPath, 'utf8'));
 
-    //   if (file.entityNamesFilter) {
-    //     const index = file.entityNamesFilter.findIndex(e => e === answers.entity);
+      if (file.entityNamesFilter) {
+        const index = file.entityNamesFilter.findIndex((e) => e === answers.entity);
 
-    //     if (index === -1) {
-    //       file.entityNamesFilter.push(answers.entity);
-    //     }
-    //   }
+        if (index === -1) {
+          file.entityNamesFilter.push(answers.entity);
+        }
+      }
 
-    //   // Update builderSettings.json
-    //   fs.writeFileSync(builderPath, JSON.stringify(file, null, 4), 'utf8');
-    // }
+      // Update builderSettings.json
+      fs.writeFileSync(builderPath, JSON.stringify(file, null, 4), 'utf8');
+    }
 
     // Check if dataverse.config.json exists
     if (fs.existsSync(configPath)) {
@@ -681,13 +688,13 @@ export default function (plop) {
       },
       {
         type: 'add',
-        templateFile: 'plop-templates/plugin.cs.hbs',
+        templateFile: templatePath('plugin.cs.hbs'),
         path: 'Plugins/{{pascalCase filename}}.cs',
         skipIfExists: true
       },
       {
         type: 'add',
-        templateFile: 'plop-templates/entity.cs.hbs',
+        templateFile: templatePath('entity.cs.hbs'),
         path: 'EntityExtensions/{{schema}}.cs',
         skipIfExists: true,
         skip: (data) => {
@@ -725,7 +732,7 @@ export default function (plop) {
     actions: [
       {
         type: 'add',
-        templateFile: 'plop-templates/workflow.cs.hbs',
+        templateFile: templatePath('workflow.cs.hbs'),
         path: 'Activities/{{pascalCase filename}}.cs',
         skipIfExists: true,
         data: { namespace: getNamespace() }
@@ -763,7 +770,7 @@ export default function (plop) {
       },
       {
         type: 'add',
-        templateFile: 'plop-templates/entity.cs.hbs',
+        templateFile: templatePath('entity.cs.hbs'),
         path: 'EntityExtensions/{{schema}}.cs',
         skipIfExists: true,
         skip: (data) => {
@@ -930,4 +937,4 @@ export default function (plop) {
       }
     ]
   });
-};
+}
