@@ -145,7 +145,7 @@ async function createResource(resource: WebResource, content: string, apiConfig:
   return result.webresourceid;
 }
 
-async function updateResource(resource: WebResource, content: string, apiConfig: WebApiConfig) {
+async function updateResource(resource: WebResource, content: string, apiConfig: WebApiConfig, solution?: string) {
   logger.info(`update web resource ${resource.name}`);
 
   const webResource = {
@@ -154,7 +154,13 @@ async function updateResource(resource: WebResource, content: string, apiConfig:
     displayname: resource.displayname || resource.name
   };
 
-  const result: any = await update(apiConfig, 'webresourceset', resource.webresourceid, webResource);
+  const options: QueryOptions = {};
+
+  if (solution) {
+    options.customHeaders = { 'MSCRM.SolutionUniqueName': solution };
+  }
+
+  const result: any = await update(apiConfig, 'webresourceset', resource.webresourceid, webResource, options);
 
   if (result?.error) {
     throw new Error(result.error.message);

@@ -101,7 +101,7 @@ async function createPackage(config: PluginPackage, content: string, apiConfig: 
   return result.pluginpackageid;
 }
 
-async function updatePackage(config: PluginPackage, content: string, apiConfig: WebApiConfig) {
+async function updatePackage(config: PluginPackage, content: string, apiConfig: WebApiConfig, solution?: string) {
   logger.info(`update package ${config.name}`);
 
   const updated = {
@@ -109,7 +109,13 @@ async function updatePackage(config: PluginPackage, content: string, apiConfig: 
     version: config.version
   };
 
-  const result: any = await update(apiConfig, 'pluginpackages', config.pluginpackageid, updated);
+  const options: QueryOptions = {};
+
+  if (solution) {
+    options.customHeaders = { 'MSCRM.SolutionUniqueName': solution };
+  }
+
+  const result: any = await update(apiConfig, 'pluginpackages', config.pluginpackageid, updated, options);
 
   if (result?.error) {
     throw new Error(result.error.message);

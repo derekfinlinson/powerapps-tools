@@ -95,7 +95,7 @@ async function createAssembly(config: PluginAssembly, content: string, apiConfig
   return result.pluginassemblyid;
 }
 
-async function updateAssembly(config: PluginAssembly, content: string, apiConfig: WebApiConfig) {
+async function updateAssembly(config: PluginAssembly, content: string, apiConfig: WebApiConfig, solution?: string) {
   logger.info(`update assembly ${config.name}`);
 
   const assembly = {
@@ -103,7 +103,13 @@ async function updateAssembly(config: PluginAssembly, content: string, apiConfig
     version: config.version
   };
 
-  const result: any = await update(apiConfig, 'pluginassemblies', config.pluginassemblyid, assembly);
+  const options: QueryOptions = {};
+
+  if (solution) {
+    options.customHeaders = { 'MSCRM.SolutionUniqueName': solution };
+  }
+
+  const result: any = await update(apiConfig, 'pluginassemblies', config.pluginassemblyid, assembly, options);
 
   if (result?.error) {
     throw new Error(result.error.message);

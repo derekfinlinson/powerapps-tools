@@ -106,7 +106,7 @@ async function createApi(api: CustomApi, apiConfig: WebApiConfig, solution?: str
   return result.customapiid;
 }
 
-async function updateApi(id: string, api: CustomApi, apiConfig: WebApiConfig) {
+async function updateApi(id: string, api: CustomApi, apiConfig: WebApiConfig, solution?: string) {
   logger.info(`update custom api ${api.name}`);
 
   const record = {
@@ -122,7 +122,13 @@ async function updateApi(id: string, api: CustomApi, apiConfig: WebApiConfig) {
     record['PluginTypeId@odata.bind'] = null;
   }
 
-  const result: any = await update(apiConfig, 'customapis', id, record);
+  const options: QueryOptions = {};
+
+  if (solution) {
+    options.customHeaders = { 'MSCRM.SolutionUniqueName': solution };
+  }
+
+  const result: any = await update(apiConfig, 'customapis', id, record, options);
 
   if (result?.error) {
     throw new Error(result.error.message);

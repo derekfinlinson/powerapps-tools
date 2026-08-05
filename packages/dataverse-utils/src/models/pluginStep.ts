@@ -135,14 +135,20 @@ async function createStep(step: PluginStep, apiConfig: WebApiConfig, solution?: 
   return result.sdkmessageprocessingstepid;
 }
 
-async function updateStep(id: string, step: PluginStep, apiConfig: WebApiConfig) {
+async function updateStep(id: string, step: PluginStep, apiConfig: WebApiConfig, solution?: string) {
   logger.info(`update plugin step ${step.name}`);
 
   const entity = { ...step };
 
   delete entity.sdkmessageprocessingstepid;
 
-  const result: any = await update(apiConfig, 'sdkmessageprocessingsteps', id, entity);
+  const options: QueryOptions = {};
+
+  if (solution) {
+    options.customHeaders = { 'MSCRM.SolutionUniqueName': solution };
+  }
+
+  const result: any = await update(apiConfig, 'sdkmessageprocessingsteps', id, entity, options);
 
   if (result?.error) {
     throw new Error(result.error.message);
