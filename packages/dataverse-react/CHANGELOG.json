@@ -2,6 +2,21 @@
   "name": "dataverse-react",
   "entries": [
     {
+      "date": "Tue, 11 Aug 2026 18:11:29 GMT",
+      "version": "3.0.2",
+      "tag": "dataverse-react_v3.0.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-react",
+            "commit": "26eec50f6da77663f15cc4ffa597a3156c05cf56",
+            "comment": "Prevent flash from default version"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 11 Aug 2026 17:59:52 GMT",
       "version": "3.0.1",
       "tag": "dataverse-react_v3.0.1",

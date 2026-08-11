@@ -1,8 +1,16 @@
 # Change Log - dataverse-react
 
-<!-- This log was last generated on Tue, 11 Aug 2026 17:59:52 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 11 Aug 2026 18:11:29 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 3.0.2
+
+Tue, 11 Aug 2026 18:11:29 GMT
+
+### Patches
+
+- Prevent flash from default version (derek.finlinson@journeyteam.com)
 
 ## 3.0.1
 
