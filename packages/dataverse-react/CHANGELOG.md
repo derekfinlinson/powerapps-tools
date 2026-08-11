@@ -1,8 +1,16 @@
 # Change Log - dataverse-react
 
-<!-- This log was last generated on Wed, 20 May 2026 20:33:29 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 11 Aug 2026 17:59:52 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 3.0.1
+
+Tue, 11 Aug 2026 17:59:52 GMT
+
+### Patches
+
+- Check for entity metadata on privilege check (derek.finlinson@journeyteam.com)
 
 ## 3.0.0
 

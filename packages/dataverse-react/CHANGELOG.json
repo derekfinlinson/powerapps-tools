@@ -2,6 +2,21 @@
   "name": "dataverse-react",
   "entries": [
     {
+      "date": "Tue, 11 Aug 2026 17:59:52 GMT",
+      "version": "3.0.1",
+      "tag": "dataverse-react_v3.0.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-react",
+            "commit": "3880da51b491509b34dc607aeb2ae67d033bfa96",
+            "comment": "Check for entity metadata on privilege check"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 20 May 2026 20:33:29 GMT",
       "version": "3.0.0",
       "tag": "dataverse-react_v3.0.0",
