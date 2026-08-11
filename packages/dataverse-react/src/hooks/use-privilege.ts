@@ -1,3 +1,5 @@
+import React from 'react';
+
 export enum PrivilegeType {
   None = 0,
   Create = 1,
@@ -18,5 +20,20 @@ export enum PrivilegeDepth {
 }
 
 export const usePrivilege = (table: string, privilege: PrivilegeType, depth: PrivilegeDepth, utils: ComponentFramework.Utility) => {
-  return utils.hasEntityPrivilege(table, privilege, depth);
+  const [hasPrivilege, setHasPrivilege] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    const checkPrivilege = async () => {
+      // Load metadata first to prevent issue mentioned here: https://learn.microsoft.com/en-us/power-apps/developer/component-framework/reference/utility/hasentityprivilege#remarks
+      await utils.getEntityMetadata(table);
+
+      const result = utils.hasEntityPrivilege(table, privilege, depth);
+
+      setHasPrivilege(result);
+    };
+
+    checkPrivilege();
+  }, [table, privilege, depth, utils]);
+
+  return hasPrivilege;
 };
