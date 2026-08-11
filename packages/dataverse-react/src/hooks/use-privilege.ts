@@ -1,5 +1,3 @@
-import React from 'react';
-
 export enum PrivilegeType {
   None = 0,
   Create = 1,
@@ -19,20 +17,26 @@ export enum PrivilegeDepth {
   Global = 3
 }
 
+import React from 'react';
+
+// hasEntityPrivilege can return a false negative if the table's metadata isn't yet cached
+// client-side, so prime it with getEntityMetadata first.
+// https://learn.microsoft.com/en-us/power-apps/developer/component-framework/reference/utility/hasentityprivilege
 export const usePrivilege = (table: string, privilege: PrivilegeType, depth: PrivilegeDepth, utils: ComponentFramework.Utility) => {
-  const [hasPrivilege, setHasPrivilege] = React.useState<boolean>(false);
+  const [hasPrivilege, setHasPrivilege] = React.useState(() => utils.hasEntityPrivilege(table, privilege, depth));
 
   React.useEffect(() => {
-    const checkPrivilege = async () => {
-      // Load metadata first to prevent issue mentioned here: https://learn.microsoft.com/en-us/power-apps/developer/component-framework/reference/utility/hasentityprivilege#remarks
-      await utils.getEntityMetadata(table);
+    let cancelled = false;
 
-      const result = utils.hasEntityPrivilege(table, privilege, depth);
+    utils.getEntityMetadata(table).then(() => {
+      if (!cancelled) {
+        setHasPrivilege(utils.hasEntityPrivilege(table, privilege, depth));
+      }
+    });
 
-      setHasPrivilege(result);
+    return () => {
+      cancelled = true;
     };
-
-    checkPrivilege();
   }, [table, privilege, depth, utils]);
 
   return hasPrivilege;
