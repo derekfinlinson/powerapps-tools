@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Check for entity metadata on privilege check",
+  "packageName": "dataverse-react",
+  "email": "derek.finlinson@journeyteam.com",
+  "dependentChangeType": "patch"
+}
