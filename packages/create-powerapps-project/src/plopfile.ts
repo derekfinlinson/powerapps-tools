@@ -513,7 +513,7 @@ export default async (plop: NodePlopAPI): Promise<void> => {
                 'dataverse-utils',
                 '@types/xrm',
                 'typescript',
-                'eslint@^9',
+                'eslint',
                 'prettier',
                 'eslint-config-prettier',
                 '@typescript-eslint/eslint-plugin',
