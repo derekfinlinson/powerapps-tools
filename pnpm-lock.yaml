@@ -67,6 +67,10 @@ importers:
         specifier: ^9.0.88
         version: 9.0.88
 
+  packages/dataverse-skills/skills/create-plugin-project/assets: {}
+
+  packages/dataverse-skills/skills/create-webresource-project/assets: {}
+
   packages/dataverse-utils:
     dependencies:
       '@azure/msal-node':
