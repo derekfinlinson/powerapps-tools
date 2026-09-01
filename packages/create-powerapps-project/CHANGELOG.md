@@ -1,8 +1,16 @@
 # Change Log - create-powerapps-project
 
-<!-- This log was last generated on Thu, 16 Jul 2026 04:39:27 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 01 Sep 2026 15:40:01 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.6.1
+
+Tue, 01 Sep 2026 15:40:01 GMT
+
+### Patches
+
+- update eslint version (derek.finlinson@journeyteam.com)
 
 ## 2.6.0
 
