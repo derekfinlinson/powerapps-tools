@@ -68,7 +68,7 @@ export const getAccessToken = async (authEndpoint: string, url: string): Promise
     type: 'select',
     name: 'signInMethod',
     message: 'Choose a sign-in method',
-    initial: 'deviceCode',
+    initial: 0,
     choices: [
       { title: 'Device code', value: 'deviceCode' },
       { title: 'Interactive (opens current browser profile)', value: 'interactive' }
