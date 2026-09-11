@@ -24,8 +24,8 @@ importers:
         specifier: ^20.19.43
         version: 20.19.43
       beachball:
-        specifier: ^2.65.5
-        version: 2.65.5(typescript@5.9.3)
+        specifier: ^2.65.6
+        version: 2.65.6(typescript@5.9.3)
       prettier:
         specifier: ^3.9.6
         version: 3.9.6
@@ -321,8 +321,8 @@ packages:
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
 
-  beachball@2.65.5:
-    resolution: {integrity: sha512-nAsYfIQ5co1gn718OmLLsYtJSt+oZYkMMQ9k6Yel372sPwMETHgzqAcmxdZb2Bs/XTvy2/Xnm7qz7pashweFZg==}
+  beachball@2.65.6:
+    resolution: {integrity: sha512-VzUjVB46T3u9dTClBVPovGhJ3h3RPrmdFMPT8FWBLc/i6CVmWTwx6Bf+rQJZSxUw0SwokN4fu/5hjdxvNSvlSw==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -1289,7 +1289,7 @@ snapshots:
 
   base64-js@1.5.1: {}
 
-  beachball@2.65.5(typescript@5.9.3):
+  beachball@2.65.6(typescript@5.9.3):
     dependencies:
       '@vercel/detect-agent': 1.2.5
       cosmiconfig: 9.0.2(typescript@5.9.3)
