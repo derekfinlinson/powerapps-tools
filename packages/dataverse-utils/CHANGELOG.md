@@ -1,8 +1,16 @@
 # Change Log - dataverse-utils
 
-<!-- This log was last generated on Fri, 15 May 2026 16:34:52 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 01 Sep 2026 15:40:01 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.2.1
+
+Tue, 01 Sep 2026 15:40:01 GMT
+
+### Patches
+
+- fix initial auth type (derek.finlinson@journeyteam.com)
 
 ## 5.2.0
 

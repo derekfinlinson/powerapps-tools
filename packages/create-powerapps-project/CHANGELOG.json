@@ -2,6 +2,21 @@
   "name": "create-powerapps-project",
   "entries": [
     {
+      "date": "Tue, 01 Sep 2026 15:40:01 GMT",
+      "version": "2.6.1",
+      "tag": "create-powerapps-project_v2.6.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "create-powerapps-project",
+            "commit": "009eeb121e66e1e00f9ad500820db3854895a34b",
+            "comment": "update eslint version"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 16 Jul 2026 04:39:27 GMT",
       "version": "2.6.0",
       "tag": "create-powerapps-project_v2.6.0",

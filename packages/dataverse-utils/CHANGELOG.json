@@ -2,6 +2,21 @@
   "name": "dataverse-utils",
   "entries": [
     {
+      "date": "Tue, 01 Sep 2026 15:40:01 GMT",
+      "version": "5.2.1",
+      "tag": "dataverse-utils_v5.2.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "derek.finlinson@journeyteam.com",
+            "package": "dataverse-utils",
+            "commit": "009eeb121e66e1e00f9ad500820db3854895a34b",
+            "comment": "fix initial auth type"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 15 May 2026 16:34:52 GMT",
       "version": "5.2.0",
       "tag": "dataverse-utils_v5.2.0",
