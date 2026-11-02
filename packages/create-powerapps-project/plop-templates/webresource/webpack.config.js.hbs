@@ -48,7 +48,7 @@ export default function (env, argv) {
             } else {
               const assets = Array.from(compilation.emittedAssets || compilation.assets).map(asset => path.basename(asset));
 
-              spawn('npm', ['run', 'deploy', '-- --files=', assets.join(',')], { cwd: process.cwd(), stdio: 'inherit' });
+              spawn('npm', ['run', 'deploy', '--', assets.join(',')], { cwd: process.cwd(), stdio: 'inherit' });
             }
           }
         }
